@@ -1,0 +1,1016 @@
+
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <head>
+    <style type="text/css" media="screen">
+    table, td { border: 1px solid black; }
+table, td {
+    background-color:#d3d3d3;
+    color: black;
+}
+
+table, th {
+    background-color:#fffaf0;
+    color: black;
+}
+
+table tr:hover td{
+    background-color: black;
+    color: white;
+}
+#banner{
+     padding: 3px;
+     text-align: center;
+     font-family: "Times New Roman", Times, serif;
+     background-color:#d3d3d3;
+     color: black;
+ }
+      h4#condensed{
+      font-size: 0.8em;
+      line-height: 0.4;
+      }
+
+   .spacer{
+    min-height: 100px;
+    }
+    .hidden{
+    display: none;
+    }
+    .not_hidden{
+    display: block;
+    }
+      #piechart_active_past, #piechart_active_today{
+  padding: 15px;
+  box-sizing: border-box;
+  
+  }
+
+  @media (min-width: 500px){
+  #piechart_active_past, #piechart_active_today{
+  width: auto;
+  height: 700px;
+}
+  }
+
+    </style>
+  </head>
+  <body>
+
+
+    <div id="banner">
+          <h2> Active Covid-19 cases <hr> across Indian states<h4 id="condensed"> (3 months ago to present day)</h4>
+    <h4 id="condensed"> (top ten Indian states with the most 'active cases')</h4></h2>
+
+</div>
+
+<style>
+.parent_flex_box_navigation_bar{
+display: flex;
+justify-content: center;
+padding-top: 10px;
+padding-left:5px;
+background-color:#b0c4de;
+border: solid black 2px;
+}
+
+.parent_flex_box_navigation_bar .navi{
+width: 40%;
+background-color:#e0ffff;
+color: black;
+border: solid red 2px;
+padding-top: 2%;
+padding-bottom: 2%;
+padding-left: 1%;
+margin: 2%;
+}
+
+.navi:hover{
+background-color: #afeeee;
+}
+
+</style>
+
+<div class="parent_flex_box_navigation_bar">
+  <div class="navi"> <a href="7.html" title=""></a>1 week</div>
+  <div class="navi"> <a href="30.html" title=""></a>1 month</div>
+  <div class="navi"> <a href="60.html" title=""></a>2 months</div>
+  <div class="navi"> <a href="120.html" title=""></a>4 months</div>
+  <div class="navi"> <a href="150.html" title=""></a>5 months</div>
+    <div class="navi"> <a href="365.html" title=""></a>1 year</div>
+
+</div>
+
+    <script>
+    $("div.parent_flex_box_navigation_bar .navi").click(function() {
+	window.location = $(this).find("a").attr("href"); 
+	return false;
+    });
+
+    </script>
+
+<div id="user_selected_chart" style="width: auto; height: 500px;"></div>
+          <h2> Number of active Covid-19 cases across Indian states (3 months ago to present day)</h2>
+
+<div class="spacer">
+</div>
+<hr>
+
+
+<style>
+  .past, .today{
+  padding: 10px;
+  }
+  .past{
+  background-color:#a9a9a9;
+  }
+  .today{
+  background-color:#b0e0e6;
+  }
+</style>
+
+
+
+<div class="past">
+  <h2>Distribution of active Covid-19 cases 3 months ago</h2>
+  <div id="piechart_active_past">
+</div>
+
+</div>
+
+<div class="today">
+  <h2>Distribution of active Covid-19 cases today</h2>
+<div id="piechart_active_today">
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<br>
+
+
+
+<style>
+button{
+background-color:#87cefa; 
+padding: 20px;
+width: 100%;
+border-radius: 50px; 
+border-style: hidden;
+font-size: 2em;
+box-shadow: 0 10px 20px #b0c4de, 0 20px 4px #889ddd;
+outline: none;
+
+}
+button:hover{
+background-color:#98fb98;
+box-shadow: 0 10px 20px #808080, 0 20px 4px #696969;
+}
+</style>
+
+<button>Click here to see tabular data</button>
+    <script>
+    $(document).ready(function(){
+	$("button").on("click", function(){
+	    $(".hidden").toggleClass("not_hidden");
+	});
+    });
+
+</script>
+
+
+
+<div class="hidden">
+  
+          <h2>Active Covid-19 cases across Indian states (3 months ago to present day)</h2>
+<table><th>date</th><th>Kerala</th><th>Maharashtra</th><th>Delhi</th><th>Karnataka</th><th>Haryana</th><th>Uttar Pradesh</th><th>Rajasthan</th><th>Uttarakhand</th><th>Telengana</th><th>West Bengal</th><tr><td>20,09,2022</td><td>15831</td><td>4440</td><td>451</td><td>3568</td><td>405</td><td>755</td><td>1157</td><td>1091</td><td>745</td><td>2231</td></tr><tr><td>16,09,2022</td><td>13611</td><td>5012</td><td>546</td><td>3688</td><td>484</td><td>904</td><td>1338</td><td>1108</td><td>792</td><td>2027</td></tr><tr><td>14,09,2022</td><td>11673</td><td>5513</td><td>591</td><td>3764</td><td>539</td><td>999</td><td>1305</td><td>1097</td><td>844</td><td>1885</td></tr><tr><td>09,09,2022</td><td>10803</td><td>7082</td><td>860</td><td>4330</td><td>730</td><td>1249</td><td>1705</td><td>1205</td><td>982</td><td>1928</td></tr><tr><td>07,09,2022</td><td>10149</td><td>7701</td><td>1021</td><td>4573</td><td>815</td><td>1424</td><td>1789</td><td>1226</td><td>1004</td><td>1965</td></tr><tr><td>06,09,2022</td><td>10084</td><td>8162</td><td>1020</td><td>4872</td><td>887</td><td>1632</td><td>1957</td><td>1269</td><td>1053</td><td>2002</td></tr><tr><td>04,09,2022</td><td>9645</td><td>9197</td><td>1457</td><td>5051</td><td>1185</td><td>2025</td><td>2331</td><td>1291</td><td>1293</td><td>2360</td></tr><tr><td>03,09,2022</td><td>9562</td><td>9887</td><td>1621</td><td>5379</td><td>1326</td><td>2202</td><td>2494</td><td>1322</td><td>1406</td><td>2418</td></tr><tr><td>01,09,2022</td><td>9248</td><td>10633</td><td>2012</td><td>6445</td><td>1537</td><td>2393</td><td>2661</td><td>1367</td><td>1545</td><td>2525</td></tr><tr><td>31,08,2022</td><td>8551</td><td>11679</td><td>2605</td><td>7859</td><td>2300</td><td>3100</td><td>3231</td><td>1666</td><td>2077</td><td>2928</td></tr><tr><td>30,08,2022</td><td>8551</td><td>11679</td><td>2605</td><td>7859</td><td>2300</td><td>3100</td><td>3231</td><td>1666</td><td>2077</td><td>2928</td></tr><tr><td>29,08,2022</td><td>8551</td><td>11679</td><td>2605</td><td>7859</td><td>2300</td><td>3100</td><td>3231</td><td>1666</td><td>2077</td><td>2928</td></tr><tr><td>25,08,2022</td><td>8237</td><td>12578</td><td>4310</td><td>9775</td><td>2940</td><td>4067</td><td>3919</td><td>1751</td><td>2553</td><td>3380</td></tr><tr><td>22,08,2022</td><td>7851</td><td>11641</td><td>5141</td><td>10508</td><td>3708</td><td>4305</td><td>4244</td><td>1707</td><td>2672</td><td>3891</td></tr><tr><td>20,08,2022</td><td>7834</td><td>11733</td><td>6146</td><td>9777</td><td>3813</td><td>4659</td><td>4407</td><td>1813</td><td>2794</td><td>4312</td></tr><tr><td>19,08,2022</td><td>7920</td><td>11690</td><td>6826</td><td>9307</td><td>3751</td><td>4578</td><td>4065</td><td>1778</td><td>2820</td><td>4470</td></tr><tr><td>18,08,2022</td><td>7963</td><td>11370</td><td>6809</td><td>8764</td><td>3708</td><td>4852</td><td>3944</td><td>1735</td><td>2997</td><td>4624</td></tr><tr><td>17,08,2022</td><td>8215</td><td>11758</td><td>6867</td><td>9880</td><td>3899</td><td>5046</td><td>4131</td><td>1761</td><td>3095</td><td>4842</td></tr><tr><td>16,08,2022</td><td>8770</td><td>12148</td><td>7519</td><td>10475</td><td>4606</td><td>5647</td><td>4586</td><td>1924</td><td>3183</td><td>5299</td></tr><tr><td>15,08,2022</td><td>9030</td><td>12102</td><td>8430</td><td>10922</td><td>4862</td><td>5454</td><td>5036</td><td>1977</td><td>3446</td><td>5687</td></tr><tr><td>14,08,2022</td><td>9173</td><td>11847</td><td>8105</td><td>10105</td><td>4973</td><td>5632</td><td>4299</td><td>1974</td><td>3551</td><td>5884</td></tr><tr><td>13,08,2022</td><td>9331</td><td>11856</td><td>8343</td><td>10395</td><td>4917</td><td>6007</td><td>4303</td><td>1954</td><td>3763</td><td>6132</td></tr><tr><td>12,08,2022</td><td>9691</td><td>11790</td><td>8840</td><td>10054</td><td>4922</td><td>5851</td><td>4299</td><td>2173</td><td>4271</td><td>6438</td></tr><tr><td>09,08,2022</td><td>10179</td><td>11968</td><td>7484</td><td>11252</td><td>4598</td><td>5440</td><td>3813</td><td>2378</td><td>5667</td><td>7302</td></tr><tr><td>08,08,2022</td><td>11103</td><td>11875</td><td>7349</td><td>11355</td><td>4497</td><td>4612</td><td>3016</td><td>2587</td><td>6219</td><td>8331</td></tr><tr><td>06,08,2022</td><td>12344</td><td>12077</td><td>6175</td><td>11067</td><td>3700</td><td>4000</td><td>2331</td><td>2412</td><td>6357</td><td>9948</td></tr><tr><td>05,08,2022</td><td>12344</td><td>12077</td><td>6175</td><td>11067</td><td>3700</td><td>4000</td><td>2331</td><td>2412</td><td>6357</td><td>9948</td></tr><tr><td>04,08,2022</td><td>12715</td><td>12321</td><td>5637</td><td>11185</td><td>3597</td><td>3585</td><td>2209</td><td>2437</td><td>6132</td><td>11120</td></tr><tr><td>03,08,2022</td><td>13177</td><td>12583</td><td>5006</td><td>10896</td><td>3336</td><td>3286</td><td>2088</td><td>2565</td><td>5992</td><td>12254</td></tr><tr><td>02,08,2022</td><td>13886</td><td>12808</td><td>4274</td><td>10859</td><td>3317</td><td>3206</td><td>2010</td><td>2307</td><td>5733</td><td>13493</td></tr><tr><td>31,07,2022</td><td>10509</td><td>1555</td><td>6</td><td>1140</td><td>6274</td><td>1758</td><td>8615</td><td>3051</td><td>13094</td><td>2175</td></tr><tr><td>29,07,2022</td><td>17802</td><td>13943</td><td>3239</td><td>8836</td><td>2652</td><td>2804</td><td>1813</td><td>1894</td><td>4915</td><td>20094</td></tr><tr><td>28,07,2022</td><td>17801</td><td>13943</td><td>3239</td><td>8836</td><td>2652</td><td>2804</td><td>1813</td><td>1894</td><td>4915</td><td>20094</td></tr><tr><td>27,07,2022</td><td>17764</td><td>14092</td><td>2862</td><td>8861</td><td>2570</td><td>2811</td><td>1717</td><td>1762</td><td>4703</td><td>21287</td></tr><tr><td>26,07,2022</td><td>19427</td><td>14692</td><td>2696</td><td>9162</td><td>2587</td><td>2767</td><td>1622</td><td>1697</td><td>4630</td><td>24329</td></tr><tr><td>25,07,2022</td><td>19427</td><td>14692</td><td>2696</td><td>9162</td><td>2587</td><td>2767</td><td>1622</td><td>1697</td><td>4630</td><td>24329</td></tr><tr><td>21,07,2022</td><td>22592</td><td>14789</td><td>2040</td><td>7617</td><td>2150</td><td>2529</td><td>1379</td><td>1185</td><td>4511</td><td>28969</td></tr><tr><td>20,07,2022</td><td>22592</td><td>14789</td><td>2040</td><td>7617</td><td>2150</td><td>2529</td><td>1379</td><td>1185</td><td>4511</td><td>28969</td></tr><tr><td>19,07,2022</td><td>23475</td><td>15162</td><td>1886</td><td>7680</td><td>2101</td><td>2560</td><td>1333</td><td>1189</td><td>4481</td><td>29583</td></tr><tr><td>18,07,2022</td><td>24033</td><td>15525</td><td>1974</td><td>7569</td><td>2055</td><td>2781</td><td>1343</td><td>1097</td><td>4649</td><td>30791</td></tr><tr><td>17,07,2022</td><td>24645</td><td>15521</td><td>1894</td><td>7296</td><td>2033</td><td>2431</td><td>1258</td><td>1082</td><td>4900</td><td>30613</td></tr><tr><td>16,07,2022</td><td>24953</td><td>16000</td><td>2010</td><td>6702</td><td>1892</td><td>2382</td><td>1120</td><td>1018</td><td>4955</td><td>30043</td></tr><tr><td>15,07,2022</td><td>25868</td><td>16553</td><td>1935</td><td>6739</td><td>1819</td><td>2350</td><td>1149</td><td>957</td><td>5051</td><td>28856</td></tr><tr><td>14,07,2022</td><td>26451</td><td>16922</td><td>1966</td><td>6603</td><td>1601</td><td>2363</td><td>1265</td><td>883</td><td>5082</td><td>27496</td></tr><tr><td>13,07,2022</td><td>25683</td><td>17567</td><td>1960</td><td>6419</td><td>1622</td><td>2325</td><td>1212</td><td>868</td><td>5112</td><td>25880</td></tr><tr><td>12,07,2022</td><td>26643</td><td>18027</td><td>1942</td><td>6718</td><td>1757</td><td>2305</td><td>1167</td><td>818</td><td>5166</td><td>24209</td></tr><tr><td>09,07,2022</td><td>28891</td><td>18851</td><td>2329</td><td>6506</td><td>1918</td><td>2250</td><td>953</td><td>807</td><td>5146</td><td>18856</td></tr><tr><td>08,07,2022</td><td>29772</td><td>19413</td><td>2480</td><td>6454</td><td>1932</td><td>2225</td><td>945</td><td>779</td><td>4997</td><td>16546</td></tr><tr><td>07,07,2022</td><td>30169</td><td>19981</td><td>2590</td><td>6481</td><td>1955</td><td>2401</td><td>912</td><td>806</td><td>4882</td><td>14270</td></tr><tr><td>06,07,2022</td><td>29589</td><td>21935</td><td>2938</td><td>6474</td><td>2193</td><td>2833</td><td>891</td><td>746</td><td>4697</td><td>11139</td></tr><tr><td>05,07,2022</td><td>29589</td><td>21935</td><td>2938</td><td>6474</td><td>2193</td><td>2833</td><td>891</td><td>746</td><td>4697</td><td>11139</td></tr><tr><td>04,07,2022</td><td>29527</td><td>22485</td><td>3268</td><td>6666</td><td>2475</td><td>2868</td><td>948</td><td>785</td><td>4747</td><td>10583</td></tr><tr><td>03,07,2022</td><td>29505</td><td>23447</td><td>3410</td><td>6440</td><td>2555</td><td>3029</td><td>913</td><td>797</td><td>4784</td><td>9290</td></tr><tr><td>02,07,2022</td><td>29669</td><td>23996</td><td>3703</td><td>6134</td><td>2509</td><td>3199</td><td>920</td><td>770</td><td>4702</td><td>8277</td></tr><tr><td>01,07,2022</td><td>29504</td><td>24940</td><td>3914</td><td>5896</td><td>2613</td><td>3375</td><td>930</td><td>789</td><td>4643</td><td>6994</td></tr><tr><td>30,06,2022</td><td>28860</td><td>25735</td><td>4325</td><td>5707</td><td>2655</td><td>3541</td><td>939</td><td>787</td><td>4421</td><td>5885</td></tr><tr><td>29,06,2022</td><td>28086</td><td>25481</td><td>4482</td><td>4918</td><td>2649</td><td>3634</td><td>904</td><td>768</td><td>4172</td><td>4759</td></tr><tr><td>28,06,2022</td><td>27919</td><td>25570</td><td>4553</td><td>4288</td><td>2876</td><td>3767</td><td>880</td><td>728</td><td>3960</td><td>4080</td></tr><tr><td>27,06,2022</td><td>27772</td><td>24608</td><td>4939</td><td>4438</td><td>3089</td><td>3653</td><td>858</td><td>702</td><td>3762</td><td>3777</td></tr><tr><td>26,06,2022</td><td>27891</td><td>24333</td><td>4717</td><td>4822</td><td>3125</td><td>3607</td><td>822</td><td>673</td><td>3613</td><td>3496</td></tr><tr><td>25,06,2022</td><td>26837</td><td>25317</td><td>5507</td><td>5180</td><td>3099</td><td>3536</td><td>785</td><td>642</td><td>3322</td><td>3480</td></tr><tr><td>24,06,2022</td><td>25911</td><td>24867</td><td>5755</td><td>5067</td><td>3085</td><td>3423</td><td>751</td><td>642</td><td>3048</td><td>3020</td></tr><tr><td>23,06,2022</td><td>25200</td><td>24639</td><td>5054</td><td>4892</td><td>2884</td><td>3257</td><td>713</td><td>644</td><td>2680</td><td>2446</td></tr><tr><td>22,06,2022</td><td>23460</td><td>24915</td><td>5595</td><td>5020</td><td>3057</td><td>2935</td><td>708</td><td>614</td><td>2375</td><td>2329</td></tr><tr><td>21,06,2022</td><td>23145</td><td>24613</td><td>5375</td><td>4928</td><td>3103</td><td>2825</td><td>676</td><td>605</td><td>2117</td><td>2044</td></tr><tr><td>20,06,2022</td><td>22436</td><td>23746</td><td>5542</td><td>5035</td><td>2985</td><td>2540</td><td>671</td><td>603</td><td>2026</td><td>1913</td></tr><tr><td>19,06,2022</td><td>21275</td><td>22828</td><td>5119</td><td>4825</td><td>2945</td><td>2323</td><td>669</td><td>589</td><td>1912</td><td>1625</td></tr><tr><td>18,06,2022</td><td>20338</td><td>21749</td><td>4843</td><td>4500</td><td>2633</td><td>2118</td><td>639</td><td>576</td><td>1781</td><td>1406</td></tr><tr><td>17,06,2022</td><td>19210</td><td>20634</td><td>3948</td><td>4371</td><td>2364</td><td>1849</td><td>631</td><td>569</td><td>1621</td><td>1174</td></tr><tr><td>16,06,2022</td><td>16278</td><td>18267</td><td>3177</td><td>3882</td><td>1844</td><td>1510</td><td>596</td><td>561</td><td>1259</td><td>866</td></tr><tr><td>15,06,2022</td><td>16278</td><td>18267</td><td>3177</td><td>3882</td><td>1844</td><td>1510</td><td>596</td><td>561</td><td>1259</td><td>866</td></tr><tr><td>14,06,2022</td><td>15872</td><td>17480</td><td>2561</td><td>3688</td><td>1685</td><td>1390</td><td>543</td><td>574</td><td>1116</td><td>788</td></tr><tr><td>13,06,2022</td><td>15363</td><td>16370</td><td>2442</td><td>3651</td><td>1617</td><td>1212</td><td>510</td><td>558</td><td>1039</td><td>731</td></tr><tr><td>12,06,2022</td><td>14518</td><td>14858</td><td>2247</td><td>3387</td><td>1548</td><td>1087</td><td>481</td><td>552</td><td>977</td><td>662</td></tr><tr><td>11,06,2022</td><td>3177</td><td>283</td><td>0</td><td>50</td><td>608</td><td>2</td><td>194</td><td>1006</td><td>1159</td><td>556</td></tr><tr><td>10,06,2022</td><td>12193</td><td>11571</td><td>1774</td><td>2880</td><td>1170</td><td>938</td><td>411</td><td>536</td><td>811</td><td>517</td></tr><tr><td>09,06,2022</td><td>11263</td><td>9806</td><td>1691</td><td>2623</td><td>933</td><td>914</td><td>392</td><td>506</td><td>731</td><td>469</td></tr><tr><td>08,06,2022</td><td>9857</td><td>8432</td><td>1534</td><td>2478</td><td>841</td><td>910</td><td>349</td><td>485</td><td>658</td><td>432</td></tr><tr><td>07,06,2022</td><td>9405</td><td>7429</td><td>1349</td><td>2441</td><td>821</td><td>968</td><td>349</td><td>480</td><td>582</td><td>412</td></tr><tr><td>06,06,2022</td><td>8835</td><td>6767</td><td>1422</td><td>2414</td><td>913</td><td>892</td><td>439</td><td>489</td><td>563</td><td>398</td></tr><tr><td>05,06,2022</td><td>8290</td><td>5888</td><td>1467</td><td>2260</td><td>921</td><td>911</td><td>411</td><td>479</td><td>547</td><td>376</td></tr><tr><td>04,06,2022</td><td>7505</td><td>5127</td><td>1446</td><td>2229</td><td>918</td><td>937</td><td>485</td><td>492</td><td>520</td><td>378</td></tr><tr><td>02,06,2022</td><td>6256</td><td>4032</td><td>1567</td><td>2001</td><td>856</td><td>850</td><td>515</td><td>472</td><td>481</td><td>357</td></tr><tr><td>01,06,2022</td><td>5708</td><td>3475</td><td>1603</td><td>2029</td><td>916</td><td>872</td><td>532</td><td>473</td><td>435</td><td>353</td></tr><tr><td>31,05,2022</td><td>5498</td><td>3131</td><td>1486</td><td>2106</td><td>1044</td><td>920</td><td>515</td><td>462</td><td>416</td><td>336</td></tr><tr><td>30,05,2022</td><td>5276</td><td>2997</td><td>1624</td><td>2041</td><td>1105</td><td>853</td><td>657</td><td>477</td><td>419</td><td>344</td></tr><tr><td>29,05,2022</td><td>5071</td><td>2772</td><td>1641</td><td>1898</td><td>1166</td><td>831</td><td>610</td><td>472</td><td>423</td><td>341</td></tr><tr><td>28,05,2022</td><td>4723</td><td>2568</td><td>1627</td><td>1827</td><td>1096</td><td>818</td><td>577</td><td>484</td><td>425</td><td>344</td></tr><tr><td>27,05,2022</td><td>4512</td><td>2361</td><td>1661</td><td>1777</td><td>1106</td><td>828</td><td>491</td><td>484</td><td>417</td><td>361</td></tr><tr><td>26,05,2022</td><td>4313</td><td>2175</td><td>1762</td><td>1799</td><td>1041</td><td>830</td><td>495</td><td>475</td><td>398</td><td>358</td></tr></table>
+</div>
+<div class="spacer">
+</div>
+
+
+
+
+<hr>
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data_linechart = google.visualization.arrayToDataTable([
+	[ 'date', 'Kerala','Maharashtra','Delhi','Karnataka','Haryana','Uttar Pradesh','Rajasthan','Uttarakhand','Telengana','West Bengal',],
+[new Date(2022,8,20),15831,4440,451,3568,405,755,1157,1091,745,2231],
+[new Date(2022,8,16),13611,5012,546,3688,484,904,1338,1108,792,2027],
+[new Date(2022,8,14),11673,5513,591,3764,539,999,1305,1097,844,1885],
+[new Date(2022,8,09),10803,7082,860,4330,730,1249,1705,1205,982,1928],
+[new Date(2022,8,07),10149,7701,1021,4573,815,1424,1789,1226,1004,1965],
+[new Date(2022,8,06),10084,8162,1020,4872,887,1632,1957,1269,1053,2002],
+[new Date(2022,8,04),9645,9197,1457,5051,1185,2025,2331,1291,1293,2360],
+[new Date(2022,8,03),9562,9887,1621,5379,1326,2202,2494,1322,1406,2418],
+[new Date(2022,8,01),9248,10633,2012,6445,1537,2393,2661,1367,1545,2525],
+[new Date(2022,7,31),8551,11679,2605,7859,2300,3100,3231,1666,2077,2928],
+[new Date(2022,7,30),8551,11679,2605,7859,2300,3100,3231,1666,2077,2928],
+[new Date(2022,7,29),8551,11679,2605,7859,2300,3100,3231,1666,2077,2928],
+[new Date(2022,7,25),8237,12578,4310,9775,2940,4067,3919,1751,2553,3380],
+[new Date(2022,7,22),7851,11641,5141,10508,3708,4305,4244,1707,2672,3891],
+[new Date(2022,7,20),7834,11733,6146,9777,3813,4659,4407,1813,2794,4312],
+[new Date(2022,7,19),7920,11690,6826,9307,3751,4578,4065,1778,2820,4470],
+[new Date(2022,7,18),7963,11370,6809,8764,3708,4852,3944,1735,2997,4624],
+[new Date(2022,7,17),8215,11758,6867,9880,3899,5046,4131,1761,3095,4842],
+[new Date(2022,7,16),8770,12148,7519,10475,4606,5647,4586,1924,3183,5299],
+[new Date(2022,7,15),9030,12102,8430,10922,4862,5454,5036,1977,3446,5687],
+[new Date(2022,7,14),9173,11847,8105,10105,4973,5632,4299,1974,3551,5884],
+[new Date(2022,7,13),9331,11856,8343,10395,4917,6007,4303,1954,3763,6132],
+[new Date(2022,7,12),9691,11790,8840,10054,4922,5851,4299,2173,4271,6438],
+[new Date(2022,7,09),10179,11968,7484,11252,4598,5440,3813,2378,5667,7302],
+[new Date(2022,7,08),11103,11875,7349,11355,4497,4612,3016,2587,6219,8331],
+[new Date(2022,7,06),12344,12077,6175,11067,3700,4000,2331,2412,6357,9948],
+[new Date(2022,7,05),12344,12077,6175,11067,3700,4000,2331,2412,6357,9948],
+[new Date(2022,7,04),12715,12321,5637,11185,3597,3585,2209,2437,6132,11120],
+[new Date(2022,7,03),13177,12583,5006,10896,3336,3286,2088,2565,5992,12254],
+[new Date(2022,7,02),13886,12808,4274,10859,3317,3206,2010,2307,5733,13493],
+[new Date(2022,6,31),10509,1555,6,1140,6274,1758,8615,3051,13094,2175],
+[new Date(2022,6,29),17802,13943,3239,8836,2652,2804,1813,1894,4915,20094],
+[new Date(2022,6,28),17801,13943,3239,8836,2652,2804,1813,1894,4915,20094],
+[new Date(2022,6,27),17764,14092,2862,8861,2570,2811,1717,1762,4703,21287],
+[new Date(2022,6,26),19427,14692,2696,9162,2587,2767,1622,1697,4630,24329],
+[new Date(2022,6,25),19427,14692,2696,9162,2587,2767,1622,1697,4630,24329],
+[new Date(2022,6,21),22592,14789,2040,7617,2150,2529,1379,1185,4511,28969],
+[new Date(2022,6,20),22592,14789,2040,7617,2150,2529,1379,1185,4511,28969],
+[new Date(2022,6,19),23475,15162,1886,7680,2101,2560,1333,1189,4481,29583],
+[new Date(2022,6,18),24033,15525,1974,7569,2055,2781,1343,1097,4649,30791],
+[new Date(2022,6,17),24645,15521,1894,7296,2033,2431,1258,1082,4900,30613],
+[new Date(2022,6,16),24953,16000,2010,6702,1892,2382,1120,1018,4955,30043],
+[new Date(2022,6,15),25868,16553,1935,6739,1819,2350,1149,957,5051,28856],
+[new Date(2022,6,14),26451,16922,1966,6603,1601,2363,1265,883,5082,27496],
+[new Date(2022,6,13),25683,17567,1960,6419,1622,2325,1212,868,5112,25880],
+[new Date(2022,6,12),26643,18027,1942,6718,1757,2305,1167,818,5166,24209],
+[new Date(2022,6,09),28891,18851,2329,6506,1918,2250,953,807,5146,18856],
+[new Date(2022,6,08),29772,19413,2480,6454,1932,2225,945,779,4997,16546],
+[new Date(2022,6,07),30169,19981,2590,6481,1955,2401,912,806,4882,14270],
+[new Date(2022,6,06),29589,21935,2938,6474,2193,2833,891,746,4697,11139],
+[new Date(2022,6,05),29589,21935,2938,6474,2193,2833,891,746,4697,11139],
+[new Date(2022,6,04),29527,22485,3268,6666,2475,2868,948,785,4747,10583],
+[new Date(2022,6,03),29505,23447,3410,6440,2555,3029,913,797,4784,9290],
+[new Date(2022,6,02),29669,23996,3703,6134,2509,3199,920,770,4702,8277],
+[new Date(2022,6,01),29504,24940,3914,5896,2613,3375,930,789,4643,6994],
+[new Date(2022,5,30),28860,25735,4325,5707,2655,3541,939,787,4421,5885],
+[new Date(2022,5,29),28086,25481,4482,4918,2649,3634,904,768,4172,4759],
+[new Date(2022,5,28),27919,25570,4553,4288,2876,3767,880,728,3960,4080],
+[new Date(2022,5,27),27772,24608,4939,4438,3089,3653,858,702,3762,3777],
+[new Date(2022,5,26),27891,24333,4717,4822,3125,3607,822,673,3613,3496],
+[new Date(2022,5,25),26837,25317,5507,5180,3099,3536,785,642,3322,3480],
+[new Date(2022,5,24),25911,24867,5755,5067,3085,3423,751,642,3048,3020],
+[new Date(2022,5,23),25200,24639,5054,4892,2884,3257,713,644,2680,2446],
+[new Date(2022,5,22),23460,24915,5595,5020,3057,2935,708,614,2375,2329],
+[new Date(2022,5,21),23145,24613,5375,4928,3103,2825,676,605,2117,2044],
+[new Date(2022,5,20),22436,23746,5542,5035,2985,2540,671,603,2026,1913],
+[new Date(2022,5,19),21275,22828,5119,4825,2945,2323,669,589,1912,1625],
+[new Date(2022,5,18),20338,21749,4843,4500,2633,2118,639,576,1781,1406],
+[new Date(2022,5,17),19210,20634,3948,4371,2364,1849,631,569,1621,1174],
+[new Date(2022,5,16),16278,18267,3177,3882,1844,1510,596,561,1259,866],
+[new Date(2022,5,15),16278,18267,3177,3882,1844,1510,596,561,1259,866],
+[new Date(2022,5,14),15872,17480,2561,3688,1685,1390,543,574,1116,788],
+[new Date(2022,5,13),15363,16370,2442,3651,1617,1212,510,558,1039,731],
+[new Date(2022,5,12),14518,14858,2247,3387,1548,1087,481,552,977,662],
+[new Date(2022,5,11),3177,283,0,50,608,2,194,1006,1159,556],
+[new Date(2022,5,10),12193,11571,1774,2880,1170,938,411,536,811,517],
+[new Date(2022,5,09),11263,9806,1691,2623,933,914,392,506,731,469],
+[new Date(2022,5,08),9857,8432,1534,2478,841,910,349,485,658,432],
+[new Date(2022,5,07),9405,7429,1349,2441,821,968,349,480,582,412],
+[new Date(2022,5,06),8835,6767,1422,2414,913,892,439,489,563,398],
+[new Date(2022,5,05),8290,5888,1467,2260,921,911,411,479,547,376],
+[new Date(2022,5,04),7505,5127,1446,2229,918,937,485,492,520,378],
+[new Date(2022,5,02),6256,4032,1567,2001,856,850,515,472,481,357],
+[new Date(2022,5,01),5708,3475,1603,2029,916,872,532,473,435,353],
+[new Date(2022,4,31),5498,3131,1486,2106,1044,920,515,462,416,336],
+[new Date(2022,4,30),5276,2997,1624,2041,1105,853,657,477,419,344],
+[new Date(2022,4,29),5071,2772,1641,1898,1166,831,610,472,423,341],
+[new Date(2022,4,28),4723,2568,1627,1827,1096,818,577,484,425,344],
+[new Date(2022,4,27),4512,2361,1661,1777,1106,828,491,484,417,361],
+[new Date(2022,4,26),4313,2175,1762,1799,1041,830,495,475,398,358],
+	]);
+
+        var options_linechart = {
+          title: 'Active Covid-19 cases (from 3 months ago to present day)',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var linechart = new google.visualization.LineChart(document.getElementById('user_selected_chart'));
+
+        linechart.draw(data_linechart, options_linechart);
+	// now for the piecharts
+	  var data_piechart_today = google.visualization.arrayToDataTable([
+	      [ 'State', 'Active Covid-19 cases ' ],
+	          ['Kerala',15831],['Maharashtra',4440],['Delhi',451],['Karnataka',3568],['Haryana',405],['Uttar Pradesh',755],['Rajasthan',1157],['Uttarakhand',1091],['Telengana',745],['West Bengal',2231]	  ]);
+	  var data_piechart_past = google.visualization.arrayToDataTable([
+	      [ 'State', 'Active Covid-19 cases' ],
+	          ['Kerala',4313],['Maharashtra',2175],['Delhi',1762],['Karnataka',1799],['Haryana',1041],['Uttar Pradesh',830],['Rajasthan',495],['Uttarakhand',475],['Telengana',398],['West Bengal',358]	  ]);
+	  var options_piechart_today = {
+	      title: 'Distribution of active Covid-19 cases (Today)',
+	      legend: 'Active Covid-19 cases',
+	      chartArea: {width: 500, height: 700}
+
+	  };
+	  var options_piechart_past = {
+	      title: 'Distribution of active Covid-19 cases (3 months ago)',
+	      legend: 'Active Covid-19 cases',
+	      chartArea: {width: 500, height: 700}
+
+	  };
+	  
+	  var piechart_active_today = new google.visualization.PieChart(document.getElementById('piechart_active_today'));
+	  piechart_active_today.draw(data_piechart_today, options_piechart_today);
+	  var piechart_active_past = new google.visualization.PieChart(document.getElementById('piechart_active_past'));
+	  piechart_active_past.draw(data_piechart_past, options_piechart_past);
+	  
+
+      }
+    </script>
+
+
+    <style type="text/css" media="screen">
+      /* footer code */
+      .stark_black_footer_flex_container{
+      display: flex;
+      min-height: 400px;
+      border: solid black 3px;
+      padding: 20px;
+      background-color: black;
+      }
+      .stark_black_footer_left{
+      width: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 45%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      min-height: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      min-height: 45%;
+      }
+      .card{
+      width: 80%;
+      height: auto;
+      border: 1px solid white;
+      box-shadow: 5px 5px 8px white, 10px 10px 8px grey, 15px 15px 8px green;
+      background-color: black;
+      color: white;
+      padding: 20px;
+      }
+      .stark_black_filler{
+      min-height: 200px;
+      background-color: black;
+      }
+      .card a{
+      color: #f8f8ff;
+      text-decoration: none;
+       }
+      .card a:hover{
+      color: #adff2f;
+      text-decoration: underline;
+      }
+      ul li{
+      line-height: 1.5;
+      }
+      .card h2{
+background-color: black;
+color: white;
+      }
+    </style>
+
+
+        <style>
+      @media (max-width:500px) {
+      /* smartphones, iPhone, portrait 480x320 phones */
+      
+      .stark_black_footer_flex_container{
+      padding: 1px;
+      flex-direction: column;
+      width: 95%;
+      }
+      .stark_black_footer_left{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      }
+      .card{
+      height: auto;
+      }
+      
+      }
+
+    </style>
+	<style>
+     @media (max-width:1000px) {
+      .card{
+      height: auto;
+      }
+      
+      }
+
+	  </style>
+    
+    <div class="stark_black_footer_flex_container">
+      <div class="stark_black_footer_left">
+
+ <div class="card">
+   <h2>Source of data:</h2>
+   <p></p>
+   <a href="https://www.mygov.in/covid-19" target="_blank"> https://www.mygov.in/covid-19 </a>
+   <h2>Tools used</h2>
+   <ul>
+     <li>php for server side scripting</li>
+     <li>BeautifulSoup library of python for data scrapping from websites</li>
+     <li>Mariadb server, an open source relational database (a fork of mysql)</li>
+     <li>Graphs are being generated clientside with google-graphs javascript library</li>
+   </ul>
+
+
+ </div>
+      </div>
+      <div class="stark_black_footer_right">
+ <div class="stark_black_footer_right_top">
+
+   <div class="card">
+     <h2>Other links</h2>
+     <ul>
+       <li><a href="/covid1/daily_covid19_data.html" target="_blank">Covid-19 statistics of the world</a> </li>
+       <li><a href="/covid2/covid_india_tracker.html" target="_blank">Covid-19 statistics of India</a></li>
+       <li><a href="/covid1/compare/active.html" target="_blank">Compare Covid-19 statistics between two countries</a> </li>
+       <li><a href="/covid2/compare_two_states.html" target="_blank">Compare Covid-19 statistics across Indian states</a> </li>
+       <li><a href="/covid2/states_table.html" target="_blank">Covid-19 statistics of different Indian states</a></li>
+       <li><a href="/covid2/covid_distribution.html" target="_blank">Covid-19 pie-chart visualization for India</a></li>
+       <li><a href="/covid1/covid_distribution_top_ten.html" target="_blank">Covid-19 pie-chart visualization for the World</a></li>
+       <li><a href="/covid2/india/last_week.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+       <li><a href="/covid1/world/change_in_covid_cases_last_week.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="/covid1/world_a/7.html" target="_blank">Number of active Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="/covid2/india_a/7.html" target="_blank">Number of active Covid-19 cases in different Indian states in the last week</a></li>
+
+     </ul>
+
+   </div>
+ </div>
+ <div class="stark_black_footer_right_bottom">
+
+   <div class="card">
+     <h2>About Me</h2>
+     <p>My name is Parameshwar Majhi</p>
+
+     <a href="https://majhi.co.in/bash/" target="_blank">https://majhi.co.in/bash/</a> 
+
+   </div>
+ </div>
+      </div>
+    </div>
+    <div class="stark_black_filler">
+</div>
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <style type="text/css" media="screen">
+      #crypto_container{}
+      #crypto_visible_box_outer{
+      margin: 5px;
+      padding: 2px;
+      background-color: #f5f5dc;
+      }
+      #crypto_visible_box_inner{
+      margin: 2px;
+      padding: 1px;
+      background-color: #e0ffff ;
+      }
+      #donate_box{
+      background-color: white;
+      font-size: 0.7em;
+      }
+      .coin{
+      margin: 20px 1px 20px 1px;
+      padding: 5px 0 5px 0;
+      text-align: center;
+      line-height: 2;
+      word-wrap: break-word;
+      background-color: #e6e6fa ;
+      box-shadow: 3px 2px 5px black;
+      }
+      .coin:hover{background-color: #f0f8ff }
+      .coin>a:link{color: black}
+      .coin>a:hover{color: red}
+      a{text-decoration: none;}
+      a.crypto_site{font-size: 1.8em; padding: 0}
+      @media (min-width: 500px){
+      .coin br{display: none}
+      }
+      a#crypto_address{
+      padding: 20px;
+      }
+      .crypto_qr{
+      display: none;
+      }
+      #crypto_donor_banner{
+      text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="crypto_donor_banner">
+      <h3>Show your appreciation <p>(Donate some crypto coins)</h3>
+      
+    </div>
+    <div id="crypto_container">
+      <div id="crypto_visible_box_outer">
+	<div id="crypto_visible_box_inner">
+	  <div id="donate_box">
+	    <div class="coin" id="btc">
+	      <a class="crypto_site" href="https://bitcoin.org" target="_NEW">BTC</a><br> <a  id="crypto_address" href="bitcoin:bc1qj328xknrkqhcmlekd9eye5nmwt87hj9ld7nps4">bc1qj328xknrkqhcmlekd9eye5nmwt87hj9ld7nps4</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64, iVBORw0KGgoAAAANSUhEUgAAAJEAAACRCAYAAADD2FojAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD
+e0lEQVR4nO3dy5LbIBRF0TiV///lzigTDZrgDUhO1pq29WjXqetbCNDr6+vr6wcEP+++AT6fEJEJ
+EZkQkQkRmRCRCRGZEJEJEZkQkQkRmRCRCRHZr3cPfL1eK+9j6DrZ4Hr90WSEer/1/LOTJe7+fmeo
+RGRCRCZEZG/3RFerJ0jO9hi1J5ntsZ52/lkrey6ViEyIyISIbFlPdDX7m1t/82d7pNn7qz3Naqe/
+3++oRGRCRCZEZNt6orvVHqD2VHf3TCepRGRCRCZEZP9MTzQax1k9zlPP97Rxp0IlIhMiMiEi29YT
+nf6Nn+2B6rOn1fOZZj2ph1KJyISITIjIlvVEp9dJrR5nqfORVh8/+vyTqERkQkQmRGSvT91Rv/Yk
+u5+tXf1Lz8quVCIyISITIrJt+xPt7lHqs7B6/aunzVc6eX6ViEyIyISIbNk40epnQavn/8xef9bu
++UWn92uaoRKRCRGZEJFt27Ox9jCr92Ccvd7qv4/c/X0VKhGZEJEJEdmxtfij3/DVc5ZHTvcws9eb
+/b5mjx99foZKRCZEZEJEtm3dWR03Wv0ujNPzjU6PO925Lk0lIhMiMiEie3s+0d1zmldbvY6tXr8y
+TsRHESIyISI7Np+oPit68jjJ31jdQ47Of/L7UInIhIhMiMi2rTubtfrdGKvnaJ9+V8jI6jnmhUpE
+JkRkQkS2bZxoZPU7Vnf3QLPnG1k9DrZ6PtcMlYhMiMiEiGzbfKL/fX+h1f/v6Px37outEpEJEZkQ
+kW1bi796v506bnO6h9j9/rMn7ZOtEpEJEZkQkW3riXaPe6x+d8js5+9ep3Zlz0Y+mhCRCRHZbeNE
+u+c473529bR1cnWPx0IlIhMiMiEie7snWj3ucHo+zO51Yrufhe3u+WaoRGRCRCZEZG/3RKf3A7r+
+pj99n+yn3d9OKhGZEJEJEdlta/FHdvdcd78rZPZ6T6YSkQkRmRCRPXbd2ez5dz8LG41TVbt7rJ3r
+7lQiMiEiEyKybT3RaXUdWV1nNrJ7Xdro/nbuw60SkQkRmRCRfWxPdPe7LZ621n738d9RiciEiEyI
+yB6zP9GsOs5x97qt1XsRrD5+hkpEJkRkQkS2rCe6+730q9+f9vTjd+/7PUMlIhMiMiEie/t9Z/CH
+SkQmRGRCRCZEZEJEJkRkQkQmRGRCRCZEZEJEJkRkQkQmRGS/Aa/VLT9JnjzWAAAAAElFTkSuQmCC
+"/>
+	    </div>
+
+	    
+	    <div class="coin"  id="litecoin">
+	      <br /><a class="crypto_site" href="https://litecoin.org" target="_NEW">LTC</a><br> <a  id="crypto_address" href="litecoin:ltc1q5m6dtu0hqf8xq4up8x2t65zxcz2dzjtxnmeggr">ltc1q5m6dtu0hqf8xq4up8x2t65zxcz2dzjtxnmeggr</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAACRCAYAAADD2FojAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD
+dUlEQVR4nO3dS27bQBBF0SjI/rfsTA0OTLRuf6jknGlsig4eSoX+vr6+vr5+QfD79Avw+YSITIjI
+hIhMiMiEiEyIyISITIjIhIhMiMiEiEyIyP68+4uv12vme9y6W2xwfZ/RxQl3f8/1ead/fraymEMl
+IhMiMiEie7snupq9QPKuJxjtGUZ7krvfX92jXe3+/x2hEpEJEZkQkU3ria5Gv3NHv/PvxlVqD3Rn
+ds9TP//OyvdTiciEiEyIyJb1RKvNnouq4yb1+Z+8EVklIhMiMiEi+9ieqM5dffpc2pOoRGRCRCZE
+ZMt6otXf+bXHmD33tnsc6Ek9lUpEJkRkQkQ2rSfavU+qGh1Hqv8++vl3P/8kKhGZEJEJEdnrfz1R
+f/Vc1r88V3alEpEJEZkQkT3mfKLV5/PUcZjV64vuPm/1uFahEpEJEZkQkb09TjT7O331548+b3cP
+VK3+e3+iEpEJEZkQkb09TjS7B1jdM5xeM13HwUbXhBsn4qMIEZkQkW2bO6s9xJ3VZzbuHodZvU/N
+OBGPIkRkQkR27Hyi1Wccrj6z8fR6p9PneH+nEpEJEZkQkR2bO1u9nmj3XNLqucT6/qNzbSNUIjIh
+IhMisml78Wevj6l2r+GuPUY97+hq595/lYhMiMiEiOwxc2dP27t+52l740/eLaISkQkRmRCRPeZ8
+otrzrL7DdfR9Vjt9t8h3KhGZEJEJEdm0caLZ62lG11CPft7subXVd9LePe9q57iRSkQmRGRCRLZs
+7mz33NLsfWV3Zp9PVOfuRpk741GEiEyIyLatJ1p9p+rsuaTV95XtnnuznohHEyIyISJb1hOdHteZ
+fT7R7Lm/3ffFObORRxMiMiEim7YXf7fZa6JXry9afT9bpSfiKCEiEyKyx+w7uzP73OrV5//M3gd3
++m6Qn6hEZEJEJkRk2/adjVrd08yeW5q9Pujp97F9pxKRCRGZEJFt23d25/S5z6f3wu8+X2kmlYhM
+iMiEiOzYOdaz1XGdu+fNNntN9OwecYRKRCZEZEJE9s/0RFe7963t7mF2r+n+iUpEJkRkQkR2bC/+
+abvXLNe9/qN3mxgn4qMIEZkQkU3riU6uZ3nH6rs5do8brT5r4CcqEZkQkQkR2ceeT8RzqERkQkQm
+RGRCRCZEZEJEJkRkQkQmRGRCRCZEZEJEJkRkQkT2F6LDGnxnf+itAAAAAElFTkSuQmCC
+" />		
+
+	    </div>
+	    <div class="coin" id="dogecoin">
+	      <br/><a class="crypto_site" href="https://dogecoin.com/" target="_NEW">DOGECOIN</a><br> <a id="crypto_address" href="dogecoin:D6uvg77GUthoo8akc8tXh9X7zp4EL77VZo">D6uvg77GUthoo8akc8tXh9X7zp4EL77VZo</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,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
+cf/gdPjw4R49ejQdMRYvXuz+yVkplZ6efs8991x//fVKKV9f32HDhun2gQMH/vHHH2VlZWvXrn3q
+qafcd0lLS1v/r1mzZjX3EJRSmzZtuuWWW7p27XrWlm7dunl5eZ04cWLDhg0hISGubZxOZ0JCQlpa
+mmvHLVu2hIaGduvWTSl1zz33FBcXt3BST7NQCPft2zdgwICGhoaqqirdYrfb9bsO/W2K5nA4lFIx
+MTG5ubnr168PDQ1VSp06deriiy/WG5SXl7veXqanpzf9E3G1DB48ePv27fq2zWZ77733Fi1aNGDA
+gP79+/fp0+fw4cPuO+7Zs+fGG29s2u0777xT3+jevXtVVVV1dbXry6R//vmne/fup06dcn/vdObM
+GZvNtm7duvDw8GHDhl188cUJCQl5eXkVFRX6TalSqr6+Xt/46aefQkJC7Hb7jz/+qJSqqKjo06dP
+ow589NFHSUlJ/v7+48aNKykpOeu13b9//8qVKwsKCnx9fdeuXdtc55VSCQkJq1atSktLa2hoCAoK
+0ve++eabF1xwQWFhYU5OjvspysrKSktLXW9ulVKbN2+urKyMiIho2ofq6mqbzfbpp596e3tHR0fP
+nz//gw8+cH3KOEeZmZmPP/54Cy0PPPDAunXr3n333UmTJrkak5OTp06dOmDAAPfOuJ6mhoYG1x+M
+CEuEsKGhYdmyZf369bvkkksCAwPfe+893b5mzZrbb79dKdWzZ8/S0lKl1N9//33kyBGlVN++fU+c
+OLFmzZrw8HCl1F133fXBBx8opU6ePJmfn6+vqd7YPTmNWmw222233bZ8+XL9z+rq6sTERP2VoFJq
+yJAhBQUF+vaRI0dKS0vdn0UXH5///4bZ19fX4XDcfffd+sOPw+F49dVXJ06ceMUVVxw7duz06dNK
+qR07dvTu3dvb27t79+6ukO/evbtfv369evU6cODAqVOnlFL79+/Xdw0cOHDEiBGvvfba7Nmzy8vL
+e/Xq9euvv+ptKioq9DeBhmHU1NTox67P0siff/753HPPrV692tfXd968efn5+a7PzI06r2+XlZWF
+h4cvXbpUvx/ZunXr1q1b58yZ4+Pjs2rVqsTERFdyFi1a5P4ad/jw4ZycHP0R3UUf9uTJk7/99ttl
+l10WFRWVn5//xhtvJCUlTZgwwfXSeS7y8/PvuOOOLl26tNASEhKSnZ2t33HolnfeeefKK690vdxo
+t9xyy6ZNm/TtZcuWnfVVo91IligGDBigP/MYhhESErJs2TKl1M033/zNN9/oixIUFKTfzMTGxj7z
+zDP9+vXz8/Pr27ev3n3KlClbtmyx2WxKqdDQ0KSkpClTphiGMXz48E6dOiml1qxZ8+yzz7qfsWnL
+zJkzV65cOXr0aJvN5u3tnZKS4kranDlzZs6c+fbbb3fq1MkwjMzMTNderhdRm82mO6CU8vHx6dq1
+6/jx4+fOnRsfH//PP/9Mmzatf//+SqmFCxdOnz7d39/fz89v8eLFSqmxY8e+9NJLEyZMUEpdc801
++rU8OTl59OjRXl5e1113Xe/evZVS+iuQLl26LFmyJCUlJTMzc+HChY899pjD4aiqqlqwYIHu5yOP
+POLv73/69Om5c+fqznTq1MnVsVmzZmVlZV100UVKKS8vr+zs7MjIyA8//LBp55VS5eXlERERixcv
+1i9Vdrs9IyPDNXj26NEjPT09NTV18eLFdXV1ZWVlI0eOdF2W2NhYh8Ohn7tu3brl5ubqz2adOnXy
+9/efN2+e+5W32Ww6PDabbfbs2e5f9qSmpg4dOrSkpOSBBx7QLYMHD05LS1u3bl1GRob7QZq2dO7c
+eejQoXFxcfqfVVVVCQkJN954o+sLGz8/v7y8vD59+gQHB0dFRRmGMXjw4IkTJyo5Xsa/3791DE6n
+8/7779+4cWPTrzfR/sLCwj788EPpXlid5Ehoovr6+unTp+v3Y0899RQJtIhWvdv8z+poIyFw3rHE
+FzPAfxkhBIQRQkAYIQSEEUJAGCEEhBFCQBghBIT9H3tq6MBPyECFAAAAAElFTkSuQmCC"/>
+
+		
+</div>
+	    
+	    <div class="coin"  id="monero">
+	      <br /><a class="crypto_site" href="https://getmonero.org" target="_NEW">XMR</a><br> <a id="crypto_address" href="monero:44yBqx3HTfAMPi435RDWHuSK2Uhqkoe4Z7uY2wSvHHftP98uFipYwK47wYWTq2WrxB44TsRj4w2CM9mrYoFdoadaLzwga8Z">44yBqx3HTfAMPi435RDWHuSK2Uhqkoe4Z7uY2wSvHHftP98uFipYwK47wYWTq2WrxB44TsRj4w2CM9mrYoFdoadaLzwga8Z</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwAQMAAAAEm3vRAAAABlBMVEUAAAD///+l2Z/dAAAACXBI
+		WXMAAA7EAAAOxAGVKw4bAAAdG0lEQVRYCQEQHe/iAP//////////////////////////////////
+		/////wD///////////////////////////////////////8A////////////////////////////
+		////////////AP///////////////////////////////////////wD/////////////////////
+		//////////////////8A////////////////////////////////////////AP//////////////
+		/////////////////////////wD///////////////////////////////////////8A////////
+		////////////////////////////////AP///////////////////////////////////////wD/
+		//////////////////////////////////////8A////////////////////////////////////
+		////AP///////////////////////////////////////wD/////////////////////////////
+		//////////8A////////////////////////////////////////AP//////////////////////
+		/////////////////wD///////////////////////////////////////8A////////////////
+		////////////////////////AP///////////////////////////////////////wD/////////
+		//////////////////////////////8A///wAAAAA+AH/AAAP/+D///8HwAB/wfAAAAAD///AP//
+		8AAAAAPgB/wAAD//g////B8AAf8HwAAAAA///wD///AAAAAD4Af8AAA//4P///wfAAH/B8AAAAAP
+		//8A///wAAAAA+AH/AAAP/+D///8HwAB/wfAAAAAD///AP//8P///4P/B///AAHwA8APgB//weAH
+		wf///w///wD///D///+D/wf//wAB8APAD4Af/8HgB8H///8P//8A///w////g/8H//8AAfADwA+A
+		H//B4AfB////D///AP//8P///4P/B///AAHwA8APgB//weAHwf///w///wD///D///+D/wf//wAB
+		8APAD4Af/8HgB8H///8P//8A///w+AAPg//4AB/4PgADwfB//wfAHwfB8AAfD///AP//8PgAD4P/
+		+AAf+D4AA8Hwf/8HwB8HwfAAHw///wD///D4AA+D//gAH/g+AAPB8H//B8AfB8HwAB8P//8A///w
+		+AAPg//4AB/4PgADwfB//wfAHwfB8AAfD///AP//8PgAD4P/+AAf+D4AA8Hwf/8HwB8HwfAAHw//
+		/wD///D4AA+D4P+D///+D/w//4AAB8Af/8HwAB8P//8A///w+AAPg+D/g////g/8P/+AAAfAH//B
+		8AAfD///AP//8PgAD4Pg/4P///4P/D//gAAHwB//wfAAHw///wD///D4AA+D4P+D///+D/w//4AA
+		B8Af/8HwAB8P//8A///w+AAPg+D/g////g/8P/+AAAfAH//B8AAfD///AP//8PgAD4Pg/4P/AAH/
+		/8H//AAH/h//wfAAHw///wD///D4AA+D4P+D/wAB///B//wAB/4f/8HwAB8P//8A///w+AAPg+D/
+		g/8AAf//wf/8AAf+H//B8AAfD///AP//8PgAD4Pg/4P/AAH//8H//AAH/h//wfAAHw///wD///D4
+		AA+D4P+D/wAB///B//wAB/4f/8HwAB8P//8A///w////g+AHgB/4P/+APg//4P//4P/B////D///
+		AP//8P///4PgB4Af+D//gD4P/+D//+D/wf///w///wD///D///+D4AeAH/g//4A+D//g///g/8H/
+		//8P//8A///w////g+AHgB/4P/+APg//4P//4P/B////D///AP//8P///4PgB4Af+D//gD4P/+D/
+		/+D/wf///w///wD///AAAAAD4Ph8HwfB8Hw+D4Pg+D4fB8AAAAAP//8A///wAAAAA+D4fB8HwfB8
+		Pg+D4Pg+HwfAAAAAD///AP//8AAAAAPg+HwfB8HwfD4Pg+D4Ph8HwAAAAA///wD///AAAAAD4Ph8
+		HwfB8Hw+D4Pg+D4fB8AAAAAP//8A///wAAAAA+D4fB8HwfB8Pg+D4Pg+HwfAAAAAD///AP//////
+		///g///g+AAAAAH/g+D4Af///////////wD/////////4P//4PgAAAAB/4Pg+AH///////////8A
+		/////////+D//+D4AAAAAf+D4PgB////////////AP/////////g///g+AAAAAH/g+D4Af//////
+		/////wD/////////4P//4PgAAAAB/4Pg+AH///////////8A///w//4PgAD/g+AHwf+D/g+AHwAB
+		4PgAAAP/D///AP//8P/+D4AA/4PgB8H/g/4PgB8AAeD4AAAD/w///wD///D//g+AAP+D4AfB/4P+
+		D4AfAAHg+AAAA/8P//8A///w//4PgAD/g+AHwf+D/g+AHwAB4PgAAAP/D///AP//8P/+D4AA/4Pg
+		B8H/g/4PgB8AAeD4AAAD/w///wD///AHwAB/4PgAHwfB//w+D/wAB8H/AD4Af+AP//8A///wB8AA
+		f+D4AB8Hwf/8Pg/8AAfB/wA+AH/gD///AP//8AfAAH/g+AAfB8H//D4P/AAHwf8APgB/4A///wD/
+		//AHwAB/4PgAHwfB//w+D/wAB8H/AD4Af+AP//8A///wB8AAf+D4AB8Hwf/8Pg/8AAfB/wA+AH/g
+		D///AP//8AAB8AAfB4AA+D4AfD4AAAAAP//4Pg+D4A///wD///AAAfAAHweAAPg+AHw+AAAAAD//
+		+D4Pg+AP//8A///wAAHwAB8HgAD4PgB8PgAAAAA///g+D4PgD///AP//8AAB8AAfB4AA+D4AfD4A
+		AAAAP//4Pg+D4A///wD//////g//4P///wfAD4PB8H/gAAAfB8APg/////8A//////4P/+D///8H
+		wA+DwfB/4AAAHwfAD4P/////AP/////+D//g////B8APg8Hwf+AAAB8HwA+D/////wD//////g//
+		4P///wfAD4PB8H/gAAAfB8APg/////8A//////4P/+D///8HwA+DwfB/4AAAHwfAD4P/////AP//
+		8AAB8AAf//wA////gAAPg/8HweAAPg+D4P///wD///AAAfAAH//8AP///4AAD4P/B8HgAD4Pg+D/
+		//8A///wAAHwAB///AD///+AAA+D/wfB4AA+D4Pg////AP//8AAB8AAf//wA////gAAPg/8HweAA
+		Pg+D4P///wD///AAAfAAH//8AP///4AAD4P/B8HgAD4Pg+D///8A////+AH/////gAD4P/+D/gB8
+		HwA+H//B8APgD///AP////gB/////4AA+D//g/4AfB8APh//wfAD4A///wD////4Af////+AAPg/
+		/4P+AHwfAD4f/8HwA+AP//8A////+AH/////gAD4P/+D/gB8HwA+H//B8APgD///AP////gB////
+		/4AA+D//g/4AfB8APh//wfAD4A///wD///AAAA+D4PgAAAfB/4P+AAP/B/4fAAHwf/8P//8A///w
+		AAAPg+D4AAAHwf+D/gAD/wf+HwAB8H//D///AP//8AAAD4Pg+AAAB8H/g/4AA/8H/h8AAfB//w//
+		/wD///AAAA+D4PgAAAfB/4P+AAP/B/4fAAHwf/8P//8A///wAAAPg+D4AAAHwf+D/gAD/wf+HwAB
+		8H//D///AP//8AA+AHwf//wf+D4PgAAPg+AAAB/4PgAD4A///wD///AAPgB8H//8H/g+D4AAD4Pg
+		AAAf+D4AA+AP//8A///wAD4AfB///B/4Pg+AAA+D4AAAH/g+AAPgD///AP//8AA+AHwf//wf+D4P
+		gAAPg+AAAB/4PgAD4A///wD///AAPgB8H//8H/g+D4AAD4PgAAAf+D4AA+AP//8A///w//4Pg///
+		/AD4Pg//wf//4PgB//g+D///D///AP//8P/+D4P///wA+D4P/8H//+D4Af/4Pg///w///wD///D/
+		/g+D///8APg+D//B///g+AH/+D4P//8P//8A///w//4Pg////AD4Pg//wf//4PgB//g+D///D///
+		AP//8P/+D4P///wA+D4P/8H//+D4Af/4Pg///w///wD///D//g/8H/h/4AfAAH/+AHwf+D//B8AA
+		fB////8A///w//4P/B/4f+AHwAB//gB8H/g//wfAAHwf////AP//8P/+D/wf+H/gB8AAf/4AfB/4
+		P/8HwAB8H////wD///D//g/8H/h/4AfAAH/+AHwf+D//B8AAfB////8A///w//4P/B/4f+AHwAB/
+		/gB8H/g//wfAAHwf////AP//8AAAD4P/+AAAB8Hwf8AAf/8H/h8AAf+D/w///wD///AAAA+D//gA
+		AAfB8H/AAH//B/4fAAH/g/8P//8A///wAAAPg//4AAAHwfB/wAB//wf+HwAB/4P/D///AP//8AAA
+		D4P/+AAAB8Hwf8AAf/8H/h8AAf+D/w///wD///AAAA+D//gAAAfB8H/AAH//B/4fAAH/g/8P//8A
+		///w+D4P//8Hg///wf/8Af//4P/B4Pg//4P/////AP//8Pg+D///B4P//8H//AH//+D/weD4P/+D
+		/////wD///D4Pg///weD///B//wB///g/8Hg+D//g/////8A///w+D4P//8Hg///wf/8Af//4P/B
+		4Pg//4P/////AP//8Pg+D///B4P//8H//AH//+D/weD4P/+D/////wD///8H/g+AAPgAH//B/4AB
+		//wf+AH/+D4PgAD///8A////B/4PgAD4AB//wf+AAf/8H/gB//g+D4AA////AP///wf+D4AA+AAf
+		/8H/gAH//B/4Af/4Pg+AAP///wD///8H/g+AAPgAH//B/4AB//wf+AH/+D4PgAD///8A////B//w
+		f+AH//8AAfB//gB/4PgAH/g/8AAfD///AP///wf/8H/gB///AAHwf/4Af+D4AB/4P/AAHw///wD/
+		//8H//B/4Af//wAB8H/+AH/g+AAf+D/wAB8P//8A////B//wf+AH//8AAfB//gB/4PgAH/g/8AAf
+		D///AP///wf/8H/gB///AAHwf/4Af+D4AB/4P/AAHw///wD///D4AA+D4P+AH//B///AAH//AAH/
+		+D///B8P//8A///w+AAPg+D/gB//wf//wAB//wAB//g///wfD///AP//8PgAD4Pg/4Af/8H//8AA
+		f/8AAf/4P//8Hw///wD///D4AA+D4P+AH//B///AAH//AAH/+D///B8P//8A///w+AAPg+D/gB//
+		wf//wAB//wAB//g///wfD///AP//8P/B8H/g/4P/AAAP/8AP//8HwB//wfAD4P///wD///D/wfB/
+		4P+D/wAAD//AD///B8Af/8HwA+D///8A///w/8Hwf+D/g/8AAA//wA///wfAH//B8APg////AP//
+		8P/B8H/g/4P/AAAP/8AP//8HwB//wfAD4P///wD///D/wfB/4P+D/wAAD//AD///B8Af/8HwA+D/
+		//8A///w//4PgAD4A+D/wf//wA+AH/g///g+D4AA////AP//8P/+D4AA+APg/8H//8APgB/4P//4
+		Pg+AAP///wD///D//g+AAPgD4P/B///AD4Af+D//+D4PgAD///8A///w//4PgAD4A+D/wf//wA+A
+		H/g///g+D4AA////AP//8P/+D4AA+APg/8H//8APgB/4P//4Pg+AAP///wD///8HwA/8AAAD4AfB
+		8Hw///wfAAAfAAAAf+AP//8A////B8AP/AAAA+AHwfB8P//8HwAAHwAAAH/gD///AP///wfAD/wA
+		AAPgB8HwfD///B8AAB8AAAB/4A///wD///8HwA/8AAAD4AfB8Hw///wfAAAfAAAAf+AP//8A////
+		B8AP/AAAA+AHwfB8P//8HwAAHwAAAH/gD///AP///wAAAAP//4Af+AAP///wf+AH/h////+AHw//
+		/wD///8AAAAD//+AH/gAD///8H/gB/4f////gB8P//8A////AAAAA///gB/4AA////B/4Af+H///
+		/4AfD///AP///wAAAAP//4Af+AAP///wf+AH/h////+AHw///wD///8AAAAD//+AH/gAD///8H/g
+		B/4f////gB8P//8A////AAH//AAAA///wA/8AA+D4AAAAP/AAAPgD///AP///wAB//wAAAP//8AP
+		/AAPg+AAAAD/wAAD4A///wD///8AAf/8AAAD///AD/wAD4PgAAAA/8AAA+AP//8A////AAH//AAA
+		A///wA/8AA+D4AAAAP/AAAPgD///AP///wAB//wAAAP//8AP/AAPg+AAAAD/wAAD4A///wD///8A
+		AA+AH/+AAAAAAAA+D/wf/8H/+D/wA+D///8A////AAAPgB//gAAAAAAAPg/8H//B//g/8APg////
+		AP///wAAD4Af/4AAAAAAAD4P/B//wf/4P/AD4P///wD///8AAA+AH/+AAAAAAAA+D/wf/8H/+D/w
+		A+D///8A////AAAPgB//gAAAAAAAPg/8H//B//g/8APg////AP//8PgB8H//+H//+AAPgD/wfB8A
+		PgD4AAB8AA///wD///D4AfB///h///gAD4A/8HwfAD4A+AAAfAAP//8A///w+AHwf//4f//4AA+A
+		P/B8HwA+APgAAHwAD///AP//8PgB8H//+H//+AAPgD/wfB8APgD4AAB8AA///wD///D4AfB///h/
+		//gAD4A/8HwfAD4A+AAAfAAP//8A//////4AA+AAA///wf//wfB8Hwf+H///8APgD///AP/////+
+		AAPgAAP//8H//8HwfB8H/h////AD4A///wD//////gAD4AAD///B///B8HwfB/4f///wA+AP//8A
+		//////4AA+AAA///wf//wfB8Hwf+H///8APgD///AP/////B////+APgB8APg8AP////wAD//g+D
+		/w///wD/////wf////gD4AfAD4PAD////8AA//4Pg/8P//8A/////8H////4A+AHwA+DwA/////A
+		AP/+D4P/D///AP/////B////+APgB8APg8AP////wAD//g+D/w///wD/////wf////gD4AfAD4PA
+		D////8AA//4Pg/8P//8A///wB8APg+AAAAD//gB/wfB8HwA/4AAAAHwfD///AP//8AfAD4PgAAAA
+		//4Af8HwfB8AP+AAAAB8Hw///wD///AHwA+D4AAAAP/+AH/B8HwfAD/gAAAAfB8P//8A///wB8AP
+		g+AAAAD//gB/wfB8HwA/4AAAAHwfD///AP//8AfAD4PgAAAA//4Af8HwfB8AP+AAAAB8Hw///wD/
+		////////4Af8AAA//4PAAH//+D/gB//wfAD///8A/////////+AH/AAAP/+DwAB///g/4Af/8HwA
+		////AP/////////gB/wAAD//g8AAf//4P+AH//B8AP///wD/////////4Af8AAA//4PAAH//+D/g
+		B//wfAD///8A/////////+AH/AAAP/+DwAB///g/4Af/8HwA////AP//8AAAAAPg+AP/+AAP/8AA
+		A+AHwB8HwfB8Hw///wD///AAAAAD4PgD//gAD//AAAPgB8AfB8HwfB8P//8A///wAAAAA+D4A//4
+		AA//wAAD4AfAHwfB8HwfD///AP//8AAAAAPg+AP/+AAP/8AAA+AHwB8HwfB8Hw///wD///AAAAAD
+		4PgD//gAD//AAAPgB8AfB8HwfB8P//8A///w////g///g////gB8AA+D/wAB4Af/8APgD///AP//
+		8P///4P//4P///4AfAAPg/8AAeAH//AD4A///wD///D///+D//+D///+AHwAD4P/AAHgB//wA+AP
+		//8A///w////g///g////gB8AA+D/wAB4Af/8APgD///AP//8P///4P//4P///4AfAAPg/8AAeAH
+		//AD4A///wD///D4AA+D4AAAAAA/8AA+D///AAHgAAAAA+D///8A///w+AAPg+AAAAAAP/AAPg//
+		/wAB4AAAAAPg////AP//8PgAD4PgAAAAAD/wAD4P//8AAeAAAAAD4P///wD///D4AA+D4AAAAAA/
+		8AA+D///AAHgAAAAA+D///8A///w+AAPg+AAAAAAP/AAPg///wAB4AAAAAPg////AP//8PgAD4P/
+		B4Pg////g8AAAB8H/h////+AHw///wD///D4AA+D/weD4P///4PAAAAfB/4f////gB8P//8A///w
+		+AAPg/8Hg+D///+DwAAAHwf+H////4AfD///AP//8PgAD4P/B4Pg////g8AAAB8H/h////+AHw//
+		/wD///D4AA+D/weD4P///4PAAAAfB/4f////gB8P//8A///w+AAPg/8H/AAHwAB/wAAD4Af/4P//
+		/4AfD///AP//8PgAD4P/B/wAB8AAf8AAA+AH/+D///+AHw///wD///D4AA+D/wf8AAfAAH/AAAPg
+		B//g////gB8P//8A///w+AAPg/8H/AAHwAB/wAAD4Af/4P///4AfD///AP//8PgAD4P/B/wAB8AA
+		f8AAA+AH/+D///+AHw///wD///D///+D//h8APg+D//B8H//B8H/B8AAA+AP//8A///w////g//4
+		fAD4Pg//wfB//wfB/wfAAAPgD///AP//8P///4P/+HwA+D4P/8Hwf/8Hwf8HwAAD4A///wD///D/
+		//+D//h8APg+D//B8H//B8H/B8AAA+AP//8A///w////g//4fAD4Pg//wfB//wfB/wfAAAPgD///
+		AP//8AAAAAPg//wfB8AP/8HwA//4Af8APg+AAP///wD///AAAAAD4P/8HwfAD//B8AP/+AH/AD4P
+		gAD///8A///wAAAAA+D//B8HwA//wfAD//gB/wA+D4AA////AP//8AAAAAPg//wfB8AP/8HwA//4
+		Af8APg+AAP///wD///////////////////////////////////////8A////////////////////
+		////////////////////AP///////////////////////////////////////wD/////////////
+		//////////////////////////8A////////////////////////////////////////AP//////
+		/////////////////////////////////wD///////////////////////////////////////8A
+		////////////////////////////////////////AP//////////////////////////////////
+		/////wD///////////////////////////////////////8A////////////////////////////
+		////////////AP///////////////////////////////////////wD/////////////////////
+		//////////////////8A////////////////////////////////////////AP//////////////
+		/////////////////////////wD///////////////////////////////////////8A////////
+		////////////////////////////////AP///////////////////////////////////////wD/
+		//////////////////////////////////////8A////////////////////////////////////
+		/////21ydWg8IxQAAAAASUVORK5CYII="/>
+
+		
+
+	    </div>
+
+	  </div>
+	</div>
+      </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+      $(".coin").on("click", function(){
+    $(this).find("img").toggleClass("crypto_qr");
+  });
+});
+
+</script>
+
+
+
+
+  </body>
+  
+</html>
+
+    
+
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+
+    <style type="text/css" media="screen">
+      .flexbox_container_link_list_links{
+      display: flex;
+      justify-content: space-between;
+      margin-right: 100px;
+      padding-right: 50px;
+      background-color: #556b2f;
+      }
+      
+      .box{
+
+      }
+      li{
+      cursor: pointer;
+      }
+      /* for the linklist */
+      div#majhi_awesome_list .link_list_links{
+      font-family: "Courier New", Courier, monospace; 
+      width: 100%;
+      font-size: 20px;
+      line-height: 0.9;
+      letter-spacing: 0.045em;
+      font-weight: 500;
+      margin: 5px;
+      padding: 10px;
+      }
+      /* styling for lists */
+      div#majhi_awesome_list ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      }
+      li a{
+      color: white;
+      text-decoration: none;
+      }
+      li:hover a{
+      color: black;
+      }
+      div#majhi_awesome_list li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #008080;
+      color: #ffffff;
+      box-shadow: 0 1px 6px #ffd700, 0 1px 2px #7fff00;
+      }
+      div#majhi_awesome_list li:hover {
+      background-color: #add8e6;
+      color: black;
+      }
+
+      /* for mobile phones */
+      /* Responsive layout 800px */
+      @media (max-width: 800px) {
+      .flexbox_container_link_list_links{
+      margin-right: 10px;
+      }
+      div#majhi_awesome_list .link_list_links{
+      font-size: 10px;
+      
+      }
+      .flexbox_container_link_list_links{
+      display: block;
+      }
+      }
+
+
+      
+    </style>
+  </head>
+  <body>
+
+
+<!--https://css-tricks.com/snippets/jquery/make-entire-div-clickable/-->
+
+    <div id="majhi_awesome_list" class="flexbox_container_link_list_links">
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="/covid1/index.html">World Covid-19 tracker </a></li>
+	    <li><a href="/covid1/compare/active.html">Compare two different country</a></li>
+	    <li><a href="/covid1/daily_covid19_data.html">Covid-19 statistics, World (Today)</a></li>
+	    <li><a href="/covid1/calendar.html">Covid-19 older records, World</a></li>
+	    <li><a href="/covid1/active_piechart_table.html">Countries ranked by active cases</a></li>
+	    <li><a href="/covid1/total_piechart_table.html">Countries ranked by total cases</a></li>
+	    <li><a href="/covid1/cfr_piechart_table.html">Countries ranked by CFR</a></li>
+	    <li><a href="/covid1/deaths_piechart_table.html">Counteries ranked by death cases</a></li>
+	    <li><a href="/covid1/recovered_piechart_table.html">Counteries ranked by recovery cases</a></li>
+	    <li><a href="/covid1/cases_per_million_piechart_table.html">Counteries ranked by cases per million</a></li>
+	    <li><a href="/covid1/covid_distribution_top_ten.html">Top ten affected countries</a></li>    
+	    <li><a href="/covid1/covid_distribution_top_ten.html">Covid-19 pie charts, World</a></li>
+            <li><a href="/covid1/world/change_in_covid_cases_last_week.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+            <li><a href="/covid1/world_a/7.html" target="_blank">Change in number of active Covid-19 cases in different countries in the last week</a></li>
+
+	  </ul>
+	</div>
+      </div>
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="/covid2/covid_india_tracker.html"  >India Covid-19 tracker</a></li>
+	    <li><a href="/covid2/compare_two_states.html"  >Compare two Indian states</a></li>
+	    <li><a href="/covid2/states_table.html"  >Covid-19 statistics, India (Today)</a></li>
+            <li><a href="/covid2/calendar.html"  >Access older records, Covid-19 India</a></li>
+    	    <li><a href="/covid2/india_cfr_placeholder.html"  >CFR across Indian states</a></li>
+            <li><a href="/covid2/pan_india.html"  >Pan India Covid-19 data</a></li>
+            <li><a href="/covid2/top_ten_states.html"  >Top ten affected Indian states</a></li>
+            <li><a href="/covid2/india_deaths_placeholder.html"  >Covid-19 deaths in India</a></li>
+	    <li><a href="/covid2/india_recovered_placeholder.html"  >Covid-19 recovery cases in India</a></li>
+	    <li><a href="/covid2/india_active_placeholder.html"  >Covid-19 active cases in India</a></li>
+	    <li><a href="/covid2/covid_distribution.html"  >Covid-19 pie charts, India</a></li>
+	    <li><a href="/calculator/index.html"  >Online calculators</a></li>    
+            <li><a href="/covid2/india/last_week.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+            <li><a href="/covid2/india_a/7.html" target="_blank">Change in number of active Covid-19 cases in India in the last week</a></li>
+
+	  </ul>
+	</div>
+      </div>
+    </div>
+
+    <script>
+$("div.link_list_links ul li").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+
+
+    </script>
+
+
+  </body>
+  
+</html>
+
+
+
+
+    <style>
+      table td a{
+      color: black;
+      text-decoration: none;
+      }
+      table td a:hover{
+      color: white;
+      background-color: black;
+      }
+    </style>
+
+  </body>
+  
+</html>
+

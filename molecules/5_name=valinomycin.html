@@ -1,0 +1,729 @@
+
+
+
+
+<html>
+  <!-- html created by parameshwar majhi -->
+  <!-- two pane view (horizontal)in desktop , two page view (vertical) in mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="/molecules/jquery.min.js"></script>
+  <script type="text/javascript" src="/molecules/JSmol.lite.nojq.js"></script>
+
+  <head>
+    <meta name="description" content="covid-19 tracker for India">
+    <meta name="keywords" content="covid,covid-19,covid-19 tracker,covid-19 in India, covid-19 tracker">
+    <meta name="author" content="Parameshwar Majhi">
+    <meta property="og:url"                 content="https://majhi.dev/covid2/india_covid_tracker.html" />
+    <meta property="og:title"               content="covid-19 tracker for India" />
+    <meta property="og:description"         content="covid-19 tracker for India" />
+
+
+    <style>
+      
+      #spacer{
+      min-height: 50px;
+      display: none;
+      }
+      #flex_container{
+      display: flex;
+      margin: 5px;
+      }
+
+      #list{
+      flex: 1;
+      justify-content: space-between;
+
+      }
+      #list_child{
+      height: 300px;
+      border: black solid 2px;
+      overflow: scroll;
+      }
+      #viewer{
+      padding: 3px;
+      padding-top: 2px;
+      flex: 1;
+      min-height: 500px;
+      }
+      
+      /* table styling  table styling  table styling  table styling  table styling  table styling */
+
+.rowlink::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5em;
+  
+}
+
+      
+tbody tr:hover{
+ background-color: yellow;   
+}
+
+tr:hover {
+   cursor: pointer;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+      a{
+      font-size: 0.9em;
+      text-decoration: none;
+      }
+      a:link{
+      color: black;
+      }
+      td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(even):hover {
+  background-color: yellow;
+}
+
+      #beg_for_crypto{
+      clear: both;
+      }
+      
+
+    </style>
+
+  </head>
+  <body>
+    <style>
+      return_to_index{
+      position: fixed; /* Fixed/sticky position */
+      top: 20px; /* Place the button at the bottom of the page */
+      right: 60px; /* Place the button 30px from the right */
+      z-index: 99; /* Make sure it does not overlap */
+      opacity: 0.5;
+      box-shadow: 0 10px 25px green;
+      margin: 10px;
+      padding: 10px;
+      color: black;
+      }
+      return_to_index:hover{
+      box-shadow: 0 10px 25px red ;
+
+      opacity: 1.0;
+      }
+
+
+    </style>
+    <return_to_index>
+      <a href="donation.html" title="">Donate</a>
+    </return_to_index>
+
+    <script>
+      $("return_to_index").click(function() {
+      window.location = "donation.html";
+      return false;
+      });
+    </script>
+    
+    
+    
+    <div id="banner">
+      <h1>3d molecular viewer</h1>
+    </div>
+
+    
+      	<p>Select a molecule from the list below</p>
+    
+    <div id="flex_container">
+
+      <div id="list">
+
+	<div id="list_child" >
+	  <table><tbody><tr><td><a  href='/molecules/5.html?name=aspartate' >aspartate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=asparagine' >asparagine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=glutamate' >glutamate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=serine' >serine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=alanine' >alanine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=glycol' >glycol</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=oxaloacetate' >oxaloacetate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=glyoxalate' >glyoxalate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=malate' >malate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=succinic acid' >succinic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=citrate' >citrate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=piericidin-A' >piericidin-A</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=benzo-quinone' >benzo-quinone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=DCPIP-hill-reagent' >DCPIP-hill-reagent</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=NADPH' >NADPH</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=quinone' >quinone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=hydro-quinone' >hydro-quinone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=amytal' >amytal</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=oligomycin-a' >oligomycin-a</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=ubiquinone' >ubiquinone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=anti-mycin-a' >anti-mycin-a</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=NADH' >NADH</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=rotenone' >rotenone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=oligomycin' >oligomycin</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=DCPIP' >DCPIP</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=NAD' >NAD</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=FMN' >FMN</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=FAD' >FAD</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=FADH' >FADH</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=ATP' >ATP</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=valinomycin' >valinomycin</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-Cn C3 complex-mol' >sym-Cn C3 complex-mol</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-S2n S4 complex-mole-bi-cyclo-pentanes' >sym-S2n S4 complex-mole-bi-cyclo-pentanes</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D-infi-h acetylene' >sym-D-infi-h acetylene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D3h cyclo-propane' >sym-D3h cyclo-propane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C-infi-h hydrogen-cyanide' >sym-C-infi-h hydrogen-cyanide</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D2d 1' >sym-D2d 1</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C Ci di-bromo-di-methyl-ethane wrong-str' >sym-C Ci di-bromo-di-methyl-ethane wrong-str</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D2 complex ring' >sym-D2 complex ring</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C2v 1-2-di-chloro-ethylene' >sym-C2v 1-2-di-chloro-ethylene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C3v 1-2-tri-chloro-methane' >sym-C3v 1-2-tri-chloro-methane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C2h boron-tri-hydroxide' >sym-C2h boron-tri-hydroxide</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C C1 2-chloro-butane' >sym-C C1 2-chloro-butane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-Cn C2 di-methyl-cyclo-propane' >sym-Cn C2 di-methyl-cyclo-propane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-Td tetra-chloro-methane' >sym-Td tetra-chloro-methane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C Ci di-bromo-di-methyl-ethane' >sym-C Ci di-bromo-di-methyl-ethane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-Cn C2 di-chloro-propa-diene-wrong-structure' >sym-Cn C2 di-chloro-propa-diene-wrong-structure</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D6h benzene' >sym-D6h benzene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-D3d cyclo-hexane' >sym-D3d cyclo-hexane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-Oh hexa-fluro-methane' >sym-Oh hexa-fluro-methane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-ethylene' >sym-ethylene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C Cs di-methyl-cyclopropane' >sym-C Cs di-methyl-cyclopropane</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=sym-C2h 1-2-di-chloro-ethylene' >sym-C2h 1-2-di-chloro-ethylene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=vitamin A retinol' >vitamin A retinol</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=diphen hydramine' >diphen hydramine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=vitamin C ascorbic acid' >vitamin C ascorbic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=vitamin e tocopherol' >vitamin e tocopherol</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pyrazole' >pyrazole</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pyridine' >pyridine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=morphine' >morphine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pyrimidine' >pyrimidine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=vitamin b1 thiamine' >vitamin b1 thiamine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=codeine' >codeine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=imidazole' >imidazole</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pyridazine' >pyridazine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=phenylthiourea' >phenylthiourea</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=vitamin b2 riboflavin' >vitamin b2 riboflavin</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=mustard gas' >mustard gas</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=curcumin' >curcumin</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pyrazine' >pyrazine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=calciferol vitamin d' >calciferol vitamin d</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=carnitine minimised' >carnitine minimised</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=adenosine-tri-phosphate-wrong-structure' >adenosine-tri-phosphate-wrong-structure</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=isoniazid' >isoniazid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=tryptophan' >tryptophan</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=benzaldehyde' >benzaldehyde</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=salicylic acid' >salicylic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pentane-di-one' >pentane-di-one</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cyclo-penta-none' >cyclo-penta-none</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=acrylate' >acrylate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=3-penta-none' >3-penta-none</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=KMNO4' >KMNO4</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=methyl aceto acetate' >methyl aceto acetate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=tartarate' >tartarate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=di methyl sulphide' >di methyl sulphide</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pthalic acid' >pthalic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=paracetamol' >paracetamol</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cyclo-penta-di-ene' >cyclo-penta-di-ene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=malonic-acid' >malonic-acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=thymine' >thymine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=DMSO' >DMSO</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=acetophenone' >acetophenone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=tri ethyl amine' >tri ethyl amine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cytosine' >cytosine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=methyl-cyclo-hexyl-metyl-ketone' >methyl-cyclo-hexyl-metyl-ketone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pthalic anhydride' >pthalic anhydride</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=benzophenone' >benzophenone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=guanine' >guanine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=ribose' >ribose</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=methyl-cyclo-hexyl-ketone' >methyl-cyclo-hexyl-ketone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=malate' >malate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cyclo buta di ene' >cyclo buta di ene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=benzyl-chloride' >benzyl-chloride</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=ornithine' >ornithine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=methacrylate' >methacrylate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cyclo-hex-2-enone' >cyclo-hex-2-enone</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=glutaric acid' >glutaric acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=adenine' >adenine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=acrolein' >acrolein</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=fumarate' >fumarate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=cyclo-hexa-none' >cyclo-hexa-none</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=mandelic acid' >mandelic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=lysine' >lysine</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=benzoate' >benzoate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=pentane-2-4-di-one' >pentane-2-4-di-one</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=aceto acetate' >aceto acetate</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=chromium tri oxide' >chromium tri oxide</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=para pthalic acid' >para pthalic acid</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=chloro-benzene' >chloro-benzene</a></td></tr>
+<tr><td><a  href='/molecules/5.html?name=di-ethyl-malonate' >di-ethyl-malonate</a></td></tr>
+</tbody></table>
+	</div>
+
+      </div>
+      <div id="viewer">
+	
+    <!-- MOL DATA
+*****
+ OpenBabel09082110513D
+
+168168  0  0  1  0  0  0  0  0999 V2000
+   -4.4350    5.1514    0.5374 C   0  0  1  0  0  0  0  0  0  0  0  0
+   -6.8570    2.3864   -0.4672 C   0  0  1  0  0  0  0  0  0  0  0  0
+   -1.3549    7.1161   -0.4607 C   0  0  2  0  0  0  0  0  0  0  0  0
+   -6.7359   -1.2653    0.5304 C   0  0  1  0  0  0  0  0  0  0  0  0
+    2.2601    6.4446    0.5403 C   0  0  1  0  0  0  0  0  0  0  0  0
+   -5.4833   -4.7279   -0.4507 C   0  0  2  0  0  0  0  0  0  0  0  0
+   -2.2573   -6.4417    0.5491 C   0  0  1  0  0  0  0  0  0  0  0  0
+    6.7300    1.2654    0.5276 C   0  0  1  0  0  0  0  0  0  0  0  0
+    1.3551   -7.1197   -0.4568 C   0  0  1  0  0  0  0  0  0  0  0  0
+    6.8533   -2.3872   -0.4662 C   0  0  2  0  0  0  0  0  0  0  0  0
+    4.4390   -5.1591    0.5377 C   0  0  1  0  0  0  0  0  0  0  0  0
+   -4.9164    3.8788    2.6329 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.7553    3.5306    1.4283 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.9577    1.7097   -1.6382 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.0783    3.0004    0.4977 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9405    4.8454   -1.4170 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.3550    6.4861   -2.6619 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.1823   -1.5991    0.9009 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6911    7.8589    0.9339 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.7348   -3.2275   -1.4171 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4375   -5.2833   -2.6507 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9231    6.9020   -1.6127 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1260    6.3477    0.5058 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8869   -6.1578    2.6188 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.7521   -4.1507    1.4083 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8524    2.3143    2.6186 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5023    0.5813    1.4285 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9879   -8.5969   -1.6376 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9399   -9.3520    0.5010 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6853   -1.6037   -1.4296 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8185   -1.2079   -2.6686 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4404   -6.2526    0.9152 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.5259    3.6727    1.2309 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0885    7.4554    1.2509 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.4265   -3.8004    1.2517 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4289    3.8029    1.2435 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0891   -7.4610    1.2546 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5191   -3.6672    1.2361 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.7711    3.7537   -1.3425 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5519    6.6805    1.5217 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.0322    1.1391    1.5244 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8953    6.0567   -1.3535 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.6999   -2.2538   -1.3535 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4750    5.4669    1.5377 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4675   -5.4547    1.5475 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6931    2.2523   -1.3568 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8928   -6.0507   -1.3444 O   0  0  0  0  0  0  0  0  0  0  0  0
+    7.0296   -1.1374    1.5238 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5517   -6.6813    1.5252 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7788   -3.7682   -1.3464 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4854    4.7293   -0.4593 C   0  0  1  0  0  0  0  0  0  0  0  0
+   -5.1436    4.0660   -0.2314 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.4739    6.4900    0.3311 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.8731    1.1058    0.3271 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9669    6.5097   -0.2308 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.1341   -2.4170   -0.2329 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3790    5.3718    0.3370 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.3751   -5.3670    0.3460 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1302    2.4170   -0.2375 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9649   -6.5078   -0.2233 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8692   -1.1056    0.3266 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4750   -6.4941    0.3340 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1467   -4.0737   -0.2319 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.8221    4.5594    1.8081 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.2914    2.8021   -0.7994 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1355    6.3255   -1.7521 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.9139   -4.1453   -1.7458 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5521    5.7746   -0.7915 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.0564   -5.5958    1.8080 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9190    1.0221    1.8019 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7122   -8.5689   -0.7935 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0634   -2.1802   -1.7601 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.3842    5.7211   -0.2868 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.7110   -0.0719   -0.2962 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2869    5.8387   -0.2884 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2857   -5.8391   -0.2800 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7046    0.0711   -0.2978 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3875   -5.7290   -0.2855 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.2105    3.4404    0.3435 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1215    7.0868    0.3543 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0861   -3.6457    0.3567 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0866    3.6472    0.3494 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1224   -7.0896    0.3591 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2074   -3.4405    0.3459 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.1481    5.9306    0.8068 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.3659    5.3556    2.3964 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.2316    2.9630    2.1329 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.5284    3.6375    3.6225 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.7687    4.5511    2.7309 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.9329    4.0315    0.9177 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.3815    3.0451    2.3298 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.1916    2.7821    0.7669 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.2945    2.2377   -1.3890 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6100    8.1484   -0.7005 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.2781    3.7353   -1.3625 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2492    6.7023   -2.2626 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.9710    0.7766   -1.0751 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.9797    2.0059   -1.8749 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.3971    1.5685   -2.5623 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.6036    3.7786    1.0953 H   0  0  0  0  0  0  0  0  0  0  0  0
+  -10.1003    3.2965    0.2610 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.0916    2.0672    1.0608 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8987    4.4066   -1.1389 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5417    4.3252   -2.2879 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2422    4.7500   -0.5855 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.4526    7.5307   -2.9577 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.2296    5.8671   -3.5502 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2517    6.1750   -2.1258 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.1592   -1.0903    1.4387 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1175    5.8447    1.4391 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.7589   -1.7743   -0.0074 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.2009   -2.4950    1.5215 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.6177   -0.7659    1.4526 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9200    8.3139    1.5556 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6264    7.8117    1.4916 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8339    8.4586    0.0350 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.2419   -5.4744   -0.6858 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0784    4.3136   -1.3811 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.6877   -3.5735   -2.2580 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3513    5.3079   -1.3674 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.8697   -3.8313   -1.1428 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.4924   -2.6207   -2.2895 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.0021   -2.5766   -0.5846 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.2427   -6.0067   -2.7792 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.1530   -4.8800   -3.6226 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.5774   -5.7741   -2.1951 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6830    7.6467   -1.8493 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5142    6.4937   -2.5369 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1239    7.3686   -1.0368 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5741    5.5446    1.0909 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8859    7.0924    0.2692 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3268    6.8144    1.0817 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5630   -7.4488    0.8327 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.7605    1.5024    0.7922 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.9633   -5.6224    2.4122 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3979    0.2424    2.3941 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0486   -5.9490    2.0998 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8687   -5.6895    3.6029 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.0073   -7.2353    2.7313 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8041   -4.1141    0.8716 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5484   -3.7762    0.7651 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6869   -3.5321    2.3034 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1775    3.0178    2.1311 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4845    2.0924    3.6203 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8479    2.7531    2.6860 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5528   -0.2973    0.7854 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9471    0.3372    2.3342 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9976    1.3900    0.8998 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1983   -6.5565   -1.3768 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8753   -2.6832   -0.7028 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8955   -9.0235   -1.3542 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9446   -3.1362   -2.2701 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8047   -8.1423   -1.0769 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2423   -9.6293   -1.8775 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8257   -8.0390   -2.5599 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0311   -9.3320    1.1024 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1943  -10.3844    0.2612 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7567   -8.8974    1.0617 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7840   -0.5479   -1.1773 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0298   -1.7110   -2.2939 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2601   -2.1416   -0.5822 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.7710   -1.6495   -2.9615 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2229   -1.0054   -3.5587 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9995   -0.2761   -2.1328 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0031   -4.7373    1.4433 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8764   -6.6743    0.0096 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2298   -5.8247    1.5332 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9285   -7.0377    1.4717 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 52  1  0  0  0  0
+  1 73  1  0  0  0  0
+  1 64  1  0  0  0  0
+  1 85  1  1  0  0  0
+  2 79  1  0  0  0  0
+  2 54  1  0  0  0  0
+  2 65  1  0  0  0  0
+  2 93  1  6  0  0  0
+  3 53  1  0  0  0  0
+  3 80  1  0  0  0  0
+  3 66  1  0  0  0  0
+  3 94  1  6  0  0  0
+  4 74  1  0  0  0  0
+  4 56  1  0  0  0  0
+  4 18  1  0  0  0  0
+  4109  1  1  0  0  0
+  5 55  1  0  0  0  0
+  5 75  1  0  0  0  0
+  5 19  1  0  0  0  0
+  5110  1  1  0  0  0
+  6 81  1  0  0  0  0
+  6 58  1  0  0  0  0
+  6 67  1  0  0  0  0
+  6117  1  6  0  0  0
+  7 76  1  0  0  0  0
+  7 60  1  0  0  0  0
+  7 69  1  0  0  0  0
+  7133  1  1  0  0  0
+  8 59  1  0  0  0  0
+  8 77  1  0  0  0  0
+  8 70  1  0  0  0  0
+  8134  1  1  0  0  0
+  9 83  1  0  0  0  0
+  9 62  1  0  0  0  0
+  9 71  1  0  0  0  0
+  9149  1  6  0  0  0
+ 10 61  1  0  0  0  0
+ 10 84  1  0  0  0  0
+ 10 72  1  0  0  0  0
+ 10150  1  6  0  0  0
+ 11 78  1  0  0  0  0
+ 11 32  1  0  0  0  0
+ 11 63  1  0  0  0  0
+ 11165  1  1  0  0  0
+ 12 64  1  0  0  0  0
+ 12 87  1  0  0  0  0
+ 12 88  1  0  0  0  0
+ 12 89  1  0  0  0  0
+ 13 64  1  0  0  0  0
+ 13 90  1  0  0  0  0
+ 13 91  1  0  0  0  0
+ 13 92  1  0  0  0  0
+ 14 65  1  0  0  0  0
+ 14 97  1  0  0  0  0
+ 14 98  1  0  0  0  0
+ 14 99  1  0  0  0  0
+ 15 65  1  0  0  0  0
+ 15100  1  0  0  0  0
+ 15101  1  0  0  0  0
+ 15102  1  0  0  0  0
+ 16 66  1  0  0  0  0
+ 16103  1  0  0  0  0
+ 16104  1  0  0  0  0
+ 16105  1  0  0  0  0
+ 17 66  1  0  0  0  0
+ 17106  1  0  0  0  0
+ 17107  1  0  0  0  0
+ 17108  1  0  0  0  0
+ 18111  1  0  0  0  0
+ 18112  1  0  0  0  0
+ 18113  1  0  0  0  0
+ 19114  1  0  0  0  0
+ 19115  1  0  0  0  0
+ 19116  1  0  0  0  0
+ 20 67  1  0  0  0  0
+ 20121  1  0  0  0  0
+ 20122  1  0  0  0  0
+ 20123  1  0  0  0  0
+ 21 67  1  0  0  0  0
+ 21124  1  0  0  0  0
+ 21125  1  0  0  0  0
+ 21126  1  0  0  0  0
+ 22 68  1  0  0  0  0
+ 22127  1  0  0  0  0
+ 22128  1  0  0  0  0
+ 22129  1  0  0  0  0
+ 23 68  1  0  0  0  0
+ 23130  1  0  0  0  0
+ 23131  1  0  0  0  0
+ 23132  1  0  0  0  0
+ 24 69  1  0  0  0  0
+ 24137  1  0  0  0  0
+ 24138  1  0  0  0  0
+ 24139  1  0  0  0  0
+ 25 69  1  0  0  0  0
+ 25140  1  0  0  0  0
+ 25141  1  0  0  0  0
+ 25142  1  0  0  0  0
+ 26 70  1  0  0  0  0
+ 26143  1  0  0  0  0
+ 26144  1  0  0  0  0
+ 26145  1  0  0  0  0
+ 27 70  1  0  0  0  0
+ 27146  1  0  0  0  0
+ 27147  1  0  0  0  0
+ 27148  1  0  0  0  0
+ 28 71  1  0  0  0  0
+ 28153  1  0  0  0  0
+ 28154  1  0  0  0  0
+ 28155  1  0  0  0  0
+ 29 71  1  0  0  0  0
+ 29156  1  0  0  0  0
+ 29157  1  0  0  0  0
+ 29158  1  0  0  0  0
+ 30 72  1  0  0  0  0
+ 30159  1  0  0  0  0
+ 30160  1  0  0  0  0
+ 30161  1  0  0  0  0
+ 31 72  1  0  0  0  0
+ 31162  1  0  0  0  0
+ 31163  1  0  0  0  0
+ 31164  1  0  0  0  0
+ 32166  1  0  0  0  0
+ 32167  1  0  0  0  0
+ 32168  1  0  0  0  0
+ 33 79  1  0  0  0  0
+ 34 80  1  0  0  0  0
+ 35 81  1  0  0  0  0
+ 36 82  1  0  0  0  0
+ 37 83  1  0  0  0  0
+ 38 84  1  0  0  0  0
+ 39 52  2  0  0  0  0
+ 40 53  2  0  0  0  0
+ 41 54  2  0  0  0  0
+ 42 55  2  0  0  0  0
+ 43 56  2  0  0  0  0
+ 44 57  2  0  0  0  0
+ 45 58  2  0  0  0  0
+ 46 59  2  0  0  0  0
+ 47 60  2  0  0  0  0
+ 48 61  2  0  0  0  0
+ 49 62  2  0  0  0  0
+ 50 63  2  0  0  0  0
+ 51 57  1  0  0  0  0
+ 51 82  1  0  0  0  0
+ 51 68  1  0  0  0  0
+ 51118  1  6  0  0  0
+ 52 79  1  0  0  0  0
+ 53 73  1  0  0  0  0
+ 54 74  1  0  0  0  0
+ 55 80  1  0  0  0  0
+ 56 81  1  0  0  0  0
+ 57 75  1  0  0  0  0
+ 58 76  1  0  0  0  0
+ 59 82  1  0  0  0  0
+ 60 83  1  0  0  0  0
+ 61 77  1  0  0  0  0
+ 62 78  1  0  0  0  0
+ 63 84  1  0  0  0  0
+ 64 86  1  0  0  0  0
+ 65 95  1  0  0  0  0
+ 66 96  1  0  0  0  0
+ 67119  1  0  0  0  0
+ 68120  1  0  0  0  0
+ 69135  1  0  0  0  0
+ 70136  1  0  0  0  0
+ 71151  1  0  0  0  0
+ 72152  1  0  0  0  0
+M  END
+-->	<div id="spacer"></div>
+
+	<div id="viewer">
+
+
+<div id="apphere">  </div> 
+	
+<h2>
+valinomycin
+</h2>
+	<div id="spinstuff"></div>
+
+
+      </div>
+    </div>
+
+
+    
+ <script type="text/javascript"> 
+
+var Info_desktop_view;
+var Info_mobile_view;
+
+;(function() {
+
+
+Info_desktop_view = {
+ width: 500,
+ height: 500,
+ debug: false,
+ color: "0xC0C0C0",
+ addSelectionOptions: false,
+ serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.html",
+ use: "HTML5",
+ readyFunction: null,
+ defaultModel: "",
+    bondWidth: 4,
+    zoomScaling: 1.5,
+    pinchScaling: 2.0,
+    mouseDragFactor: 0.5,
+    touchDragFactor: 0.15,
+    multipleBondSpacing: 4,
+    spinRateX: 0.2,
+    spinRateY: 0.5,
+    spinFPS: 20,
+    spin:true,
+    debug: false
+}
+
+Info_mobile_view = {
+ width: 250,
+ height: 250,
+ debug: false,
+ color: "0xC0C0C0",
+ addSelectionOptions: false,
+ serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.html",
+ use: "HTML5",
+ readyFunction: null,
+ defaultModel: "",
+    bondWidth: 4,
+    zoomScaling: 1.5,
+    pinchScaling: 2.0,
+    mouseDragFactor: 0.5,
+    touchDragFactor: 0.15,
+    multipleBondSpacing: 4,
+    spinRateX: 0.2,
+    spinRateY: 0.5,
+    spinFPS: 20,
+    spin:true,
+    debug: false
+}
+
+})();
+
+
+$(window).ready(function() {
+  Jmol._document = null;
+if($(window).width() >= 500) {
+Jmol.getTMApplet("jmol", Info_desktop_view);
+}else{
+Jmol.getTMApplet("jmol", Info_mobile_view);
+}
+
+  $("#apphere").html(jmol._code);
+  var mol = $('html').html().split("MOL DATA\n")[1].split("-->")[0];
+  jmol.__loadModel(mol);
+
+
+  $("#spinstuff").html('<a href="javascript:jmol.spin(true)">spin ON</a> <a href="javascript:jmol.spin(false)">spin OFF</a>');  
+});
+
+</script>
+
+<br>
+ </div>
+
+
+
+    <script>
+      $("tr").click(function() {
+      window.location = $(this).find("a").attr("href"); 
+      return false;
+      });
+    </script>
+    
+
+
+
+  </body>
+
+</html>
+

@@ -1,0 +1,1290 @@
+
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <head>
+    <style type="text/css" media="screen">
+    table, td { border: 1px solid black; }
+table, td {
+    background-color:#d3d3d3;
+    color: black;
+}
+
+table, th {
+    background-color:#fffaf0;
+    color: black;
+}
+
+table tr:hover td{
+    background-color: black;
+    color: white;
+}
+#banner{
+     padding: 3px;
+     text-align: center;
+     font-family: "Times New Roman", Times, serif;
+     background-color:#d3d3d3;
+     color: black;
+ }
+      h4#condensed{
+      font-size: 0.8em;
+      line-height: 0.4;
+      }
+
+   .spacer{
+    min-height: 100px;
+    }
+    .hidden{
+    display: none;
+    }
+    .not_hidden{
+    display: block;
+    }
+      #piechart_active_past, #piechart_active_today{
+  padding: 15px;
+  box-sizing: border-box;
+  
+  }
+
+  @media (min-width: 500px){
+  #piechart_active_past, #piechart_active_today{
+  width: auto;
+  height: 700px;
+}
+  }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="banner">
+          <h2>Active Covid-19 cases<hr> across Indian states<h4 id="condensed"> (1 year ago to present day)</h4>
+    <h4 id="condensed"> (top ten Indian states with the most 'active cases')</h4></h2>
+
+</div>
+
+<style>
+.parent_flex_box_navigation_bar{
+display: flex;
+justify-content: center;
+padding-top: 10px;
+padding-left:5px;
+background-color:#b0c4de;
+border: solid black 2px;
+}
+
+.parent_flex_box_navigation_bar .navi{
+width: 40%;
+background-color:#e0ffff;
+color: black;
+border: solid red 2px;
+padding-top: 2%;
+padding-bottom: 2%;
+padding-left: 1%;
+margin: 2%;
+}
+
+.navi:hover{
+background-color: #afeeee;
+}
+
+</style>
+
+<div class="parent_flex_box_navigation_bar">
+    <div class="navi"> <a href="7.html" title=""></a>1 week</div>
+  <div class="navi"> <a href="30.html" title=""></a>1 month</div>
+  <div class="navi"> <a href="60.html" title=""></a>2 months</div>
+  <div class="navi"> <a href="90.html" title=""></a>3 months</div>
+  <div class="navi"> <a href="120.html" title=""></a>4 months</div>
+  <div class="navi"> <a href="150.html" title=""></a>5 months</div>
+
+</div>
+
+    <script>
+    $("div.parent_flex_box_navigation_bar .navi").click(function() {
+	window.location = $(this).find("a").attr("href"); 
+	return false;
+    });
+
+    </script>
+
+<div id="user_selected_chart" style="width: auto; height: 500px;"></div>
+          <h2> Number of active Covid-19 cases across Indian states (1 year ago to present day)</h2>
+
+<div class="spacer">
+</div>
+<hr>
+
+
+<style>
+  .past, .today{
+  padding: 10px;
+  }
+  .past{
+  background-color:#a9a9a9;
+  }
+  .today{
+  background-color:#b0e0e6;
+  }
+</style>
+
+
+
+<div class="past">
+  <h2>Distribution of active Covid-19 cases 1 year ago</h2>
+  <div id="piechart_active_past">
+</div>
+
+</div>
+
+<div class="today">
+  <h2>Distribution of active Covid-19 cases today</h2>
+<div id="piechart_active_today">
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<br>
+
+
+
+<style>
+button{
+background-color:#87cefa; 
+padding: 20px;
+width: 100%;
+border-radius: 50px; 
+border-style: hidden;
+font-size: 2em;
+box-shadow: 0 10px 20px #b0c4de, 0 20px 4px #889ddd;
+outline: none;
+
+}
+button:hover{
+background-color:#98fb98;
+box-shadow: 0 10px 20px #808080, 0 20px 4px #696969;
+}
+</style>
+
+<button>Click here to see tabular data</button>
+    <script>
+    $(document).ready(function(){
+	$("button").on("click", function(){
+	    $(".hidden").toggleClass("not_hidden");
+	});
+    });
+
+</script>
+
+
+
+<div class="hidden">
+  
+          <h2>Active Covid-19 cases across Indian states (1 year ago to present day)</h2>
+<table><th>date</th><th>Maharashtra</th><th>Karnataka</th><th>Kerala</th><th>Andhra Pradesh</th><th>Tamil Nadu</th><th>Assam</th><th>Odisha</th><th>West Bengal</th><th>Telengana</th><th>Chhattisgarh</th><tr><td>20,09,2022</td><td>4440</td><td>3568</td><td>15831</td><td>284</td><td>4995</td><td>2705</td><td>1388</td><td>2231</td><td>745</td><td>613</td></tr><tr><td>16,09,2022</td><td>5012</td><td>3688</td><td>13611</td><td>291</td><td>4794</td><td>2834</td><td>1504</td><td>2027</td><td>792</td><td>689</td></tr><tr><td>14,09,2022</td><td>5513</td><td>3764</td><td>11673</td><td>325</td><td>4811</td><td>2834</td><td>1467</td><td>1885</td><td>844</td><td>727</td></tr><tr><td>09,09,2022</td><td>7082</td><td>4330</td><td>10803</td><td>475</td><td>4924</td><td>2811</td><td>1490</td><td>1928</td><td>982</td><td>750</td></tr><tr><td>07,09,2022</td><td>7701</td><td>4573</td><td>10149</td><td>498</td><td>4960</td><td>2819</td><td>1342</td><td>1965</td><td>1004</td><td>722</td></tr><tr><td>06,09,2022</td><td>8162</td><td>4872</td><td>10084</td><td>513</td><td>4990</td><td>2819</td><td>1401</td><td>2002</td><td>1053</td><td>819</td></tr><tr><td>04,09,2022</td><td>9197</td><td>5051</td><td>9645</td><td>599</td><td>5056</td><td>2838</td><td>1614</td><td>2360</td><td>1293</td><td>796</td></tr><tr><td>03,09,2022</td><td>9887</td><td>5379</td><td>9562</td><td>622</td><td>5093</td><td>2846</td><td>1625</td><td>2418</td><td>1406</td><td>833</td></tr><tr><td>01,09,2022</td><td>10633</td><td>6445</td><td>9248</td><td>701</td><td>5127</td><td>2872</td><td>1667</td><td>2525</td><td>1545</td><td>875</td></tr><tr><td>31,08,2022</td><td>11679</td><td>7859</td><td>8551</td><td>803</td><td>5268</td><td>3037</td><td>1828</td><td>2928</td><td>2077</td><td>1207</td></tr><tr><td>30,08,2022</td><td>11679</td><td>7859</td><td>8551</td><td>803</td><td>5268</td><td>3037</td><td>1828</td><td>2928</td><td>2077</td><td>1207</td></tr><tr><td>29,08,2022</td><td>11679</td><td>7859</td><td>8551</td><td>803</td><td>5268</td><td>3037</td><td>1828</td><td>2928</td><td>2077</td><td>1207</td></tr><tr><td>25,08,2022</td><td>12578</td><td>9775</td><td>8237</td><td>965</td><td>5630</td><td>2926</td><td>1847</td><td>3380</td><td>2553</td><td>1469</td></tr><tr><td>22,08,2022</td><td>11641</td><td>10508</td><td>7851</td><td>1079</td><td>5947</td><td>3027</td><td>2219</td><td>3891</td><td>2672</td><td>1447</td></tr><tr><td>20,08,2022</td><td>11733</td><td>9777</td><td>7834</td><td>1120</td><td>6229</td><td>2957</td><td>2392</td><td>4312</td><td>2794</td><td>1641</td></tr><tr><td>19,08,2022</td><td>11690</td><td>9307</td><td>7920</td><td>1110</td><td>6400</td><td>2957</td><td>2460</td><td>4470</td><td>2820</td><td>1725</td></tr><tr><td>18,08,2022</td><td>11370</td><td>8764</td><td>7963</td><td>1098</td><td>6631</td><td>2976</td><td>2481</td><td>4624</td><td>2997</td><td>1530</td></tr><tr><td>17,08,2022</td><td>11758</td><td>9880</td><td>8215</td><td>1098</td><td>6888</td><td>2987</td><td>2756</td><td>4842</td><td>3095</td><td>1489</td></tr><tr><td>16,08,2022</td><td>12148</td><td>10475</td><td>8770</td><td>1171</td><td>7145</td><td>2978</td><td>3261</td><td>5299</td><td>3183</td><td>1542</td></tr><tr><td>15,08,2022</td><td>12102</td><td>10922</td><td>9030</td><td>1226</td><td>7406</td><td>3445</td><td>3360</td><td>5687</td><td>3446</td><td>1846</td></tr><tr><td>14,08,2022</td><td>11847</td><td>10105</td><td>9173</td><td>1199</td><td>7680</td><td>3359</td><td>4019</td><td>5884</td><td>3551</td><td>2000</td></tr><tr><td>13,08,2022</td><td>11856</td><td>10395</td><td>9331</td><td>1178</td><td>7972</td><td>3359</td><td>3616</td><td>6132</td><td>3763</td><td>2159</td></tr><tr><td>12,08,2022</td><td>11790</td><td>10054</td><td>9691</td><td>1239</td><td>8288</td><td>3572</td><td>4740</td><td>6438</td><td>4271</td><td>2332</td></tr><tr><td>09,08,2022</td><td>11968</td><td>11252</td><td>10179</td><td>1453</td><td>9408</td><td>4006</td><td>5851</td><td>7302</td><td>5667</td><td>3282</td></tr><tr><td>08,08,2022</td><td>11875</td><td>11355</td><td>11103</td><td>1670</td><td>10261</td><td>4426</td><td>6058</td><td>8331</td><td>6219</td><td>3371</td></tr><tr><td>06,08,2022</td><td>12077</td><td>11067</td><td>12344</td><td>1875</td><td>10987</td><td>4745</td><td>5399</td><td>9948</td><td>6357</td><td>3509</td></tr><tr><td>05,08,2022</td><td>12077</td><td>11067</td><td>12344</td><td>1875</td><td>10987</td><td>4745</td><td>5399</td><td>9948</td><td>6357</td><td>3509</td></tr><tr><td>04,08,2022</td><td>12321</td><td>11185</td><td>12715</td><td>1942</td><td>11392</td><td>4917</td><td>5518</td><td>11120</td><td>6132</td><td>3327</td></tr><tr><td>03,08,2022</td><td>12583</td><td>10896</td><td>13177</td><td>2042</td><td>11796</td><td>5296</td><td>5518</td><td>12254</td><td>5992</td><td>3360</td></tr><tr><td>02,08,2022</td><td>12808</td><td>10859</td><td>13886</td><td>2119</td><td>12228</td><td>5296</td><td>6929</td><td>13493</td><td>5733</td><td>3481</td></tr><tr><td>31,07,2022</td><td>1555</td><td>1140</td><td>10509</td><td>40</td><td>1043</td><td>480</td><td>93</td><td>2175</td><td>13094</td><td>891</td></tr><tr><td>29,07,2022</td><td>13943</td><td>8836</td><td>17802</td><td>2493</td><td>14284</td><td>5690</td><td>7064</td><td>20094</td><td>4915</td><td>3809</td></tr><tr><td>28,07,2022</td><td>13943</td><td>8836</td><td>17801</td><td>2493</td><td>14284</td><td>5690</td><td>7064</td><td>20094</td><td>4915</td><td>3809</td></tr><tr><td>27,07,2022</td><td>14092</td><td>8861</td><td>17764</td><td>2633</td><td>14714</td><td>5543</td><td>5891</td><td>21287</td><td>4703</td><td>3919</td></tr><tr><td>26,07,2022</td><td>14692</td><td>9162</td><td>19427</td><td>2940</td><td>15409</td><td>5527</td><td>6715</td><td>24329</td><td>4630</td><td>3813</td></tr><tr><td>25,07,2022</td><td>14692</td><td>9162</td><td>19427</td><td>2940</td><td>15409</td><td>5527</td><td>6715</td><td>24329</td><td>4630</td><td>3813</td></tr><tr><td>21,07,2022</td><td>14789</td><td>7617</td><td>22592</td><td>2714</td><td>16829</td><td>4858</td><td>5632</td><td>28969</td><td>4511</td><td>3043</td></tr><tr><td>20,07,2022</td><td>14789</td><td>7617</td><td>22592</td><td>2714</td><td>16829</td><td>4858</td><td>5632</td><td>28969</td><td>4511</td><td>3043</td></tr><tr><td>19,07,2022</td><td>15162</td><td>7680</td><td>23475</td><td>2601</td><td>16906</td><td>4409</td><td>5425</td><td>29583</td><td>4481</td><td>2834</td></tr><tr><td>18,07,2022</td><td>15525</td><td>7569</td><td>24033</td><td>2760</td><td>17085</td><td>3691</td><td>5149</td><td>30791</td><td>4649</td><td>2742</td></tr><tr><td>17,07,2022</td><td>15521</td><td>7296</td><td>24645</td><td>2482</td><td>17228</td><td>3896</td><td>4877</td><td>30613</td><td>4900</td><td>2656</td></tr><tr><td>16,07,2022</td><td>16000</td><td>6702</td><td>24953</td><td>2241</td><td>17487</td><td>3434</td><td>4878</td><td>30043</td><td>4955</td><td>2389</td></tr><tr><td>15,07,2022</td><td>16553</td><td>6739</td><td>25868</td><td>2239</td><td>17858</td><td>3150</td><td>4315</td><td>28856</td><td>5051</td><td>2232</td></tr><tr><td>14,07,2022</td><td>16922</td><td>6603</td><td>26451</td><td>2121</td><td>18282</td><td>2584</td><td>3511</td><td>27496</td><td>5082</td><td>2068</td></tr><tr><td>13,07,2022</td><td>17567</td><td>6419</td><td>25683</td><td>2042</td><td>18710</td><td>2185</td><td>3188</td><td>25880</td><td>5112</td><td>1900</td></tr><tr><td>12,07,2022</td><td>18027</td><td>6718</td><td>26643</td><td>1942</td><td>18802</td><td>1858</td><td>3084</td><td>24209</td><td>5166</td><td>1678</td></tr><tr><td>09,07,2022</td><td>18851</td><td>6506</td><td>28891</td><td>1816</td><td>18687</td><td>1370</td><td>2336</td><td>18856</td><td>5146</td><td>1363</td></tr><tr><td>08,07,2022</td><td>19413</td><td>6454</td><td>29772</td><td>1660</td><td>18378</td><td>1138</td><td>2070</td><td>16546</td><td>4997</td><td>1203</td></tr><tr><td>07,07,2022</td><td>19981</td><td>6481</td><td>30169</td><td>1539</td><td>17717</td><td>956</td><td>2010</td><td>14270</td><td>4882</td><td>1124</td></tr><tr><td>06,07,2022</td><td>21935</td><td>6474</td><td>29589</td><td>1250</td><td>15616</td><td>710</td><td>1543</td><td>11139</td><td>4697</td><td>1040</td></tr><tr><td>05,07,2022</td><td>21935</td><td>6474</td><td>29589</td><td>1250</td><td>15616</td><td>710</td><td>1543</td><td>11139</td><td>4697</td><td>1040</td></tr><tr><td>04,07,2022</td><td>22485</td><td>6666</td><td>29527</td><td>1232</td><td>14504</td><td>574</td><td>1363</td><td>10583</td><td>4747</td><td>1021</td></tr><tr><td>03,07,2022</td><td>23447</td><td>6440</td><td>29505</td><td>1045</td><td>13319</td><td>550</td><td>1017</td><td>9290</td><td>4784</td><td>1040</td></tr><tr><td>02,07,2022</td><td>23996</td><td>6134</td><td>29669</td><td>977</td><td>12158</td><td>468</td><td>925</td><td>8277</td><td>4702</td><td>983</td></tr><tr><td>01,07,2022</td><td>24940</td><td>5896</td><td>29504</td><td>868</td><td>11094</td><td>395</td><td>721</td><td>6994</td><td>4643</td><td>933</td></tr><tr><td>30,06,2022</td><td>25735</td><td>5707</td><td>28860</td><td>755</td><td>10033</td><td>395</td><td>627</td><td>5885</td><td>4421</td><td>861</td></tr><tr><td>29,06,2022</td><td>25481</td><td>4918</td><td>28086</td><td>658</td><td>8970</td><td>362</td><td>521</td><td>4759</td><td>4172</td><td>851</td></tr><tr><td>28,06,2022</td><td>25570</td><td>4288</td><td>27919</td><td>585</td><td>8222</td><td>306</td><td>457</td><td>4080</td><td>3960</td><td>757</td></tr><tr><td>27,06,2022</td><td>24608</td><td>4438</td><td>27772</td><td>576</td><td>7458</td><td>256</td><td>440</td><td>3777</td><td>3762</td><td>696</td></tr><tr><td>26,06,2022</td><td>24333</td><td>4822</td><td>27891</td><td>518</td><td>6677</td><td>240</td><td>416</td><td>3496</td><td>3613</td><td>640</td></tr><tr><td>25,06,2022</td><td>25317</td><td>5180</td><td>26837</td><td>462</td><td>5912</td><td>217</td><td>401</td><td>3480</td><td>3322</td><td>643</td></tr><tr><td>24,06,2022</td><td>24867</td><td>5067</td><td>25911</td><td>406</td><td>5174</td><td>179</td><td>407</td><td>3020</td><td>3048</td><td>632</td></tr><tr><td>23,06,2022</td><td>24639</td><td>4892</td><td>25200</td><td>369</td><td>4678</td><td>155</td><td>334</td><td>2446</td><td>2680</td><td>585</td></tr><tr><td>22,06,2022</td><td>24915</td><td>5020</td><td>23460</td><td>340</td><td>4366</td><td>132</td><td>325</td><td>2329</td><td>2375</td><td>516</td></tr><tr><td>21,06,2022</td><td>24613</td><td>4928</td><td>23145</td><td>298</td><td>3951</td><td>128</td><td>292</td><td>2044</td><td>2117</td><td>463</td></tr><tr><td>20,06,2022</td><td>23746</td><td>5035</td><td>22436</td><td>293</td><td>3522</td><td>104</td><td>292</td><td>1913</td><td>2026</td><td>432</td></tr><tr><td>19,06,2022</td><td>22828</td><td>4825</td><td>21275</td><td>250</td><td>3073</td><td>95</td><td>255</td><td>1625</td><td>1912</td><td>406</td></tr><tr><td>18,06,2022</td><td>21749</td><td>4500</td><td>20338</td><td>226</td><td>2694</td><td>70</td><td>217</td><td>1406</td><td>1781</td><td>339</td></tr><tr><td>17,06,2022</td><td>20634</td><td>4371</td><td>19210</td><td>205</td><td>2313</td><td>59</td><td>213</td><td>1174</td><td>1621</td><td>232</td></tr><tr><td>16,06,2022</td><td>18267</td><td>3882</td><td>16278</td><td>164</td><td>1632</td><td>33</td><td>197</td><td>866</td><td>1259</td><td>195</td></tr><tr><td>15,06,2022</td><td>18267</td><td>3882</td><td>16278</td><td>164</td><td>1632</td><td>33</td><td>197</td><td>866</td><td>1259</td><td>195</td></tr><tr><td>14,06,2022</td><td>17480</td><td>3688</td><td>15872</td><td>147</td><td>1453</td><td>23</td><td>188</td><td>788</td><td>1116</td><td>167</td></tr><tr><td>13,06,2022</td><td>16370</td><td>3651</td><td>15363</td><td>136</td><td>1332</td><td>20</td><td>189</td><td>731</td><td>1039</td><td>136</td></tr><tr><td>12,06,2022</td><td>14858</td><td>3387</td><td>14518</td><td>126</td><td>1231</td><td>20</td><td>202</td><td>662</td><td>977</td><td>123</td></tr><tr><td>11,06,2022</td><td>283</td><td>50</td><td>3177</td><td>5</td><td>11</td><td>1</td><td>2</td><td>556</td><td>1159</td><td>152</td></tr><tr><td>10,06,2022</td><td>11571</td><td>2880</td><td>12193</td><td>105</td><td>1077</td><td>11</td><td>169</td><td>517</td><td>811</td><td>89</td></tr><tr><td>09,06,2022</td><td>9806</td><td>2623</td><td>11263</td><td>97</td><td>1021</td><td>13</td><td>149</td><td>469</td><td>731</td><td>76</td></tr><tr><td>08,06,2022</td><td>8432</td><td>2478</td><td>9857</td><td>79</td><td>927</td><td>10</td><td>143</td><td>432</td><td>658</td><td>74</td></tr><tr><td>07,06,2022</td><td>7429</td><td>2441</td><td>9405</td><td>68</td><td>862</td><td>10</td><td>138</td><td>412</td><td>582</td><td>76</td></tr><tr><td>06,06,2022</td><td>6767</td><td>2414</td><td>8835</td><td>66</td><td>836</td><td>10</td><td>143</td><td>398</td><td>563</td><td>68</td></tr><tr><td>05,06,2022</td><td>5888</td><td>2260</td><td>8290</td><td>61</td><td>799</td><td>14</td><td>124</td><td>376</td><td>547</td><td>64</td></tr><tr><td>04,06,2022</td><td>5127</td><td>2229</td><td>7505</td><td>61</td><td>756</td><td>10</td><td>120</td><td>378</td><td>520</td><td>71</td></tr><tr><td>02,06,2022</td><td>4032</td><td>2001</td><td>6256</td><td>49</td><td>629</td><td>7</td><td>123</td><td>357</td><td>481</td><td>60</td></tr><tr><td>01,06,2022</td><td>3475</td><td>2029</td><td>5708</td><td>47</td><td>542</td><td>7</td><td>118</td><td>353</td><td>435</td><td>52</td></tr><tr><td>31,05,2022</td><td>3131</td><td>2106</td><td>5498</td><td>43</td><td>493</td><td>7</td><td>127</td><td>336</td><td>416</td><td>53</td></tr><tr><td>30,05,2022</td><td>2997</td><td>2041</td><td>5276</td><td>47</td><td>448</td><td>5</td><td>121</td><td>344</td><td>419</td><td>52</td></tr><tr><td>29,05,2022</td><td>2772</td><td>1898</td><td>5071</td><td>55</td><td>412</td><td>4</td><td>133</td><td>341</td><td>423</td><td>58</td></tr><tr><td>28,05,2022</td><td>2568</td><td>1827</td><td>4723</td><td>58</td><td>401</td><td>4</td><td>129</td><td>344</td><td>425</td><td>51</td></tr><tr><td>27,05,2022</td><td>2361</td><td>1777</td><td>4512</td><td>61</td><td>387</td><td>3</td><td>120</td><td>361</td><td>417</td><td>55</td></tr><tr><td>26,05,2022</td><td>2175</td><td>1799</td><td>4313</td><td>62</td><td>371</td><td>2</td><td>121</td><td>358</td><td>398</td><td>55</td></tr><tr><td>25,05,2022</td><td>2039</td><td>1715</td><td>3955</td><td>58</td><td>354</td><td>3</td><td>143</td><td>360</td><td>377</td><td>62</td></tr><tr><td>24,05,2022</td><td>1978</td><td>1718</td><td>3928</td><td>70</td><td>331</td><td>4</td><td>135</td><td>377</td><td>372</td><td>51</td></tr><tr><td>22,05,2022</td><td>1828</td><td>1655</td><td>3799</td><td>62</td><td>321</td><td>4</td><td>148</td><td>378</td><td>407</td><td>36</td></tr><tr><td>21,05,2022</td><td>1761</td><td>1666</td><td>3750</td><td>57</td><td>315</td><td>4</td><td>171</td><td>384</td><td>413</td><td>34</td></tr><tr><td>20,05,2022</td><td>1720</td><td>1726</td><td>3579</td><td>70</td><td>322</td><td>4</td><td>161</td><td>377</td><td>396</td><td>32</td></tr><tr><td>19,05,2022</td><td>1605</td><td>1761</td><td>3555</td><td>92</td><td>321</td><td>5</td><td>176</td><td>381</td><td>383</td><td>28</td></tr><tr><td>18,05,2022</td><td>1551</td><td>1802</td><td>3331</td><td>92</td><td>324</td><td>3</td><td>171</td><td>398</td><td>370</td><td>21</td></tr><tr><td>17,05,2022</td><td>1526</td><td>1840</td><td>3402</td><td>89</td><td>332</td><td>0</td><td>168</td><td>391</td><td>374</td><td>19</td></tr><tr><td>16,05,2022</td><td>1518</td><td>1891</td><td>3398</td><td>92</td><td>359</td><td>2</td><td>178</td><td>416</td><td>408</td><td>20</td></tr><tr><td>13,05,2022</td><td>1434</td><td>1884</td><td>3253</td><td>60</td><td>438</td><td>5</td><td>155</td><td>398</td><td>402</td><td>35</td></tr><tr><td>12,05,2022</td><td>1412</td><td>1943</td><td>3150</td><td>48</td><td>439</td><td>5</td><td>174</td><td>395</td><td>391</td><td>33</td></tr><tr><td>10,05,2022</td><td>1304</td><td>1964</td><td>3026</td><td>58</td><td>478</td><td>5</td><td>213</td><td>426</td><td>381</td><td>40</td></tr><tr><td>09,05,2022</td><td>1304</td><td>1964</td><td>3026</td><td>58</td><td>478</td><td>5</td><td>213</td><td>426</td><td>381</td><td>40</td></tr><tr><td>08,05,2022</td><td>1277</td><td>1945</td><td>2963</td><td>50</td><td>499</td><td>6</td><td>156</td><td>419</td><td>389</td><td>38</td></tr><tr><td>07,05,2022</td><td>1161</td><td>1895</td><td>2950</td><td>47</td><td>474</td><td>6</td><td>152</td><td>422</td><td>396</td><td>42</td></tr><tr><td>06,05,2022</td><td>1109</td><td>1854</td><td>2888</td><td>40</td><td>466</td><td>6</td><td>152</td><td>413</td><td>364</td><td>37</td></tr><tr><td>05,05,2022</td><td>1049</td><td>1801</td><td>2899</td><td>37</td><td>467</td><td>6</td><td>145</td><td>411</td><td>354</td><td>45</td></tr><tr><td>04,05,2022</td><td>1027</td><td>1815</td><td>2744</td><td>38</td><td>488</td><td>6</td><td>135</td><td>412</td><td>336</td><td>41</td></tr><tr><td>03,05,2022</td><td>1016</td><td>1815</td><td>2779</td><td>34</td><td>505</td><td>8</td><td>136</td><td>405</td><td>331</td><td>44</td></tr><tr><td>30,04,2022</td><td>979</td><td>1737</td><td>2862</td><td>20</td><td>507</td><td>11</td><td>121</td><td>335</td><td>306</td><td>33</td></tr><tr><td>29,04,2022</td><td>955</td><td>1755</td><td>2737</td><td>14</td><td>447</td><td>9</td><td>133</td><td>288</td><td>276</td><td>28</td></tr><tr><td>26,04,2022</td><td>916</td><td>1718</td><td>2712</td><td>34</td><td>334</td><td>1356</td><td>128</td><td>255</td><td>213</td><td>18</td></tr><tr><td>25,04,2022</td><td>916</td><td>1718</td><td>2712</td><td>34</td><td>334</td><td>1356</td><td>128</td><td>255</td><td>213</td><td>18</td></tr><tr><td>23,04,2022</td><td>762</td><td>1592</td><td>2571</td><td>35</td><td>256</td><td>1353</td><td>157</td><td>245</td><td>187</td><td>11</td></tr><tr><td>22,04,2022</td><td>762</td><td>1592</td><td>2571</td><td>35</td><td>256</td><td>1353</td><td>157</td><td>245</td><td>187</td><td>11</td></tr><tr><td>21,04,2022</td><td>690</td><td>1541</td><td>2543</td><td>35</td><td>243</td><td>1353</td><td>163</td><td>258</td><td>194</td><td>11</td></tr><tr><td>20,04,2022</td><td>660</td><td>1529</td><td>2432</td><td>38</td><td>235</td><td>1351</td><td>156</td><td>272</td><td>187</td><td>8</td></tr><tr><td>19,04,2022</td><td>634</td><td>1515</td><td>2466</td><td>43</td><td>232</td><td>1349</td><td>160</td><td>290</td><td>189</td><td>9</td></tr><tr><td>18,04,2022</td><td>646</td><td>1506</td><td>2466</td><td>43</td><td>231</td><td>1349</td><td>158</td><td>311</td><td>206</td><td>12</td></tr><tr><td>16,04,2022</td><td>681</td><td>1483</td><td>2982</td><td>41</td><td>228</td><td>1351</td><td>174</td><td>349</td><td>220</td><td>19</td></tr><tr><td>14,04,2022</td><td>724</td><td>1480</td><td>2982</td><td>33</td><td>228</td><td>1351</td><td>183</td><td>400</td><td>233</td><td>32</td></tr><tr><td>11,04,2022</td><td>778</td><td>1483</td><td>3052</td><td>57</td><td>228</td><td>1349</td><td>205</td><td>457</td><td>214</td><td>47</td></tr><tr><td>10,04,2022</td><td>803</td><td>1472</td><td>3133</td><td>56</td><td>229</td><td>1348</td><td>228</td><td>481</td><td>232</td><td>59</td></tr><tr><td>09,04,2022</td><td>812</td><td>1501</td><td>3190</td><td>63</td><td>237</td><td>1348</td><td>217</td><td>490</td><td>248</td><td>59</td></tr><tr><td>07,04,2022</td><td>865</td><td>1457</td><td>3305</td><td>70</td><td>258</td><td>1348</td><td>285</td><td>517</td><td>252</td><td>70</td></tr><tr><td>06,04,2022</td><td>870</td><td>1510</td><td>3345</td><td>87</td><td>256</td><td>1348</td><td>269</td><td>538</td><td>260</td><td>70</td></tr><tr><td>05,04,2022</td><td>866</td><td>1542</td><td>3339</td><td>119</td><td>263</td><td>1348</td><td>299</td><td>556</td><td>271</td><td>88</td></tr><tr><td>04,04,2022</td><td>921</td><td>1557</td><td>3517</td><td>150</td><td>275</td><td>1348</td><td>383</td><td>586</td><td>290</td><td>91</td></tr><tr><td>02,04,2022</td><td>911</td><td>1603</td><td>3888</td><td>202</td><td>293</td><td>1352</td><td>378</td><td>600</td><td>392</td><td>116</td></tr><tr><td>27,03,2022</td><td>893</td><td>1818</td><td>4881</td><td>395</td><td>418</td><td>1362</td><td>484</td><td>729</td><td>536</td><td>147</td></tr><tr><td>22,03,2022</td><td>5277</td><td>1933</td><td>6260</td><td>506</td><td>576</td><td>1365</td><td>580</td><td>850</td><td>639</td><td>132</td></tr><tr><td>21,03,2022</td><td>5358</td><td>2037</td><td>6639</td><td>511</td><td>620</td><td>1365</td><td>613</td><td>920</td><td>657</td><td>141</td></tr><tr><td>20,03,2022</td><td>5529</td><td>2073</td><td>6975</td><td>518</td><td>670</td><td>1363</td><td>635</td><td>982</td><td>713</td><td>144</td></tr><tr><td>16,03,2022</td><td>6299</td><td>2381</td><td>8887</td><td>523</td><td>962</td><td>1362</td><td>875</td><td>1282</td><td>823</td><td>256</td></tr><tr><td>14,03,2022</td><td>6528</td><td>2695</td><td>9666</td><td>606</td><td>1173</td><td>1364</td><td>840</td><td>1452</td><td>950</td><td>337</td></tr><tr><td>13,03,2022</td><td>6725</td><td>2661</td><td>10350</td><td>633</td><td>1301</td><td>1366</td><td>867</td><td>1502</td><td>1064</td><td>374</td></tr><tr><td>09,03,2022</td><td>7212</td><td>3018</td><td>13493</td><td>817</td><td>2145</td><td>1394</td><td>1036</td><td>1549</td><td>1375</td><td>665</td></tr><tr><td>07,03,2022</td><td>7711</td><td>3286</td><td>14968</td><td>1063</td><td>2770</td><td>1424</td><td>1246</td><td>1653</td><td>1710</td><td>719</td></tr><tr><td>05,03,2022</td><td>8478</td><td>3507</td><td>17913</td><td>1341</td><td>3505</td><td>1452</td><td>1505</td><td>1749</td><td>2164</td><td>888</td></tr><tr><td>03,03,2022</td><td>9643</td><td>4245</td><td>22467</td><td>1657</td><td>4437</td><td>1477</td><td>1838</td><td>1795</td><td>2607</td><td>1129</td></tr><tr><td>02,03,2022</td><td>10106</td><td>4885</td><td>25715</td><td>2014</td><td>5066</td><td>1515</td><td>2079</td><td>1808</td><td>2719</td><td>1287</td></tr><tr><td>26,02,2022</td><td>12682</td><td>7556</td><td>38040</td><td>4709</td><td>8150</td><td>1610</td><td>2843</td><td>1988</td><td>3810</td><td>1961</td></tr><tr><td>23,02,2022</td><td>17061</td><td>10443</td><td>54394</td><td>5565</td><td>12321</td><td>1763</td><td>4040</td><td>3437</td><td>4477</td><td>2596</td></tr><tr><td>20,02,2022</td><td>22354</td><td>13468</td><td>75813</td><td>7358</td><td>18164</td><td>2160</td><td>5886</td><td>6648</td><td>5646</td><td>3539</td></tr><tr><td>19,02,2022</td><td>25142</td><td>16221</td><td>86666</td><td>8421</td><td>20681</td><td>2313</td><td>6636</td><td>7736</td><td>6111</td><td>3856</td></tr><tr><td>18,02,2022</td><td>27798</td><td>19797</td><td>100211</td><td>9470</td><td>23772</td><td>2479</td><td>7252</td><td>8776</td><td>6746</td><td>4056</td></tr><tr><td>17,02,2022</td><td>31424</td><td>23320</td><td>114582</td><td>10808</td><td>27294</td><td>2855</td><td>7847</td><td>9691</td><td>7673</td><td>4803</td></tr><tr><td>16,02,2022</td><td>34523</td><td>26866</td><td>124603</td><td>12550</td><td>31368</td><td>3247</td><td>8653</td><td>10630</td><td>8379</td><td>5527</td></tr><tr><td>15,02,2022</td><td>40422</td><td>31249</td><td>145158</td><td>14726</td><td>35951</td><td>3639</td><td>9421</td><td>11626</td><td>9908</td><td>6394</td></tr><tr><td>11,02,2022</td><td>74108</td><td>52047</td><td>233747</td><td>40884</td><td>66992</td><td>5768</td><td>12754</td><td>14805</td><td>17754</td><td>9897</td></tr><tr><td>10,02,2022</td><td>86847</td><td>60990</td><td>258954</td><td>46119</td><td>77607</td><td>6382</td><td>14574</td><td>15395</td><td>19850</td><td>10595</td></tr><tr><td>09,02,2022</td><td>100019</td><td>72448</td><td>284437</td><td>54040</td><td>90137</td><td>7612</td><td>16010</td><td>16009</td><td>21470</td><td>11426</td></tr><tr><td>07,02,2022</td><td>122015</td><td>97814</td><td>330105</td><td>69572</td><td>121828</td><td>9701</td><td>20101</td><td>17994</td><td>26498</td><td>16608</td></tr><tr><td>06,02,2022</td><td>137590</td><td>109236</td><td>353152</td><td>78746</td><td>138878</td><td>11928</td><td>21642</td><td>19276</td><td>29226</td><td>16882</td></tr><tr><td>05,02,2022</td><td>147941</td><td>123131</td><td>366871</td><td>88364</td><td>155329</td><td>13289</td><td>24437</td><td>20213</td><td>30931</td><td>18686</td></tr><tr><td>04,02,2022</td><td>162073</td><td>148833</td><td>369819</td><td>93488</td><td>166878</td><td>15133</td><td>27872</td><td>21146</td><td>33104</td><td>20081</td></tr><tr><td>02,02,2022</td><td>195424</td><td>197755</td><td>368580</td><td>105930</td><td>188599</td><td>20808</td><td>34384</td><td>22142</td><td>35625</td><td>21162</td></tr><tr><td>31,01,2022</td><td>231591</td><td>251114</td><td>355314</td><td>116031</td><td>203926</td><td>23795</td><td>43952</td><td>31562</td><td>38723</td><td>25734</td></tr><tr><td>29,01,2022</td><td>270444</td><td>288797</td><td>334162</td><td>113300</td><td>211863</td><td>33360</td><td>53759</td><td>45729</td><td>40414</td><td>26123</td></tr><tr><td>28,01,2022</td><td>291247</td><td>328741</td><td>310202</td><td>109493</td><td>213534</td><td>36522</td><td>59223</td><td>55725</td><td>39520</td><td>27290</td></tr><tr><td>27,01,2022</td><td>302572</td><td>357939</td><td>301269</td><td>106318</td><td>213692</td><td>37410</td><td>64487</td><td>67369</td><td>38023</td><td>29180</td></tr><tr><td>26,01,2022</td><td>306752</td><td>350772</td><td>286077</td><td>101396</td><td>211270</td><td>42845</td><td>67149</td><td>80168</td><td>36269</td><td>30254</td></tr><tr><td>25,01,2022</td><td>303424</td><td>362517</td><td>260982</td><td>93305</td><td>206484</td><td>45422</td><td>71509</td><td>94535</td><td>33673</td><td>31074</td></tr><tr><td>24,01,2022</td><td>297115</td><td>357826</td><td>265349</td><td>83610</td><td>200954</td><td>45163</td><td>74532</td><td>110183</td><td>32094</td><td>31990</td></tr><tr><td>23,01,2022</td><td>283731</td><td>330477</td><td>247938</td><td>73143</td><td>194697</td><td>49017</td><td>76859</td><td>123657</td><td>31199</td><td>31181</td></tr><tr><td>22,01,2022</td><td>268181</td><td>323173</td><td>224258</td><td>64136</td><td>187358</td><td>46368</td><td>79365</td><td>134816</td><td>29127</td><td>30756</td></tr><tr><td>21,01,2022</td><td>262354</td><td>293261</td><td>199749</td><td>53871</td><td>179205</td><td>42465</td><td>79928</td><td>144809</td><td>26633</td><td>31736</td></tr><tr><td>20,01,2022</td><td>268484</td><td>267679</td><td>169109</td><td>44935</td><td>170661</td><td>36508</td><td>78038</td><td>151702</td><td>24253</td><td>32021</td></tr><tr><td>19,01,2022</td><td>271427</td><td>250410</td><td>143219</td><td>36108</td><td>161171</td><td>30907</td><td>73222</td><td>155711</td><td>22472</td><td>31769</td></tr><tr><td>18,01,2022</td><td>271097</td><td>217326</td><td>122163</td><td>30182</td><td>152348</td><td>25295</td><td>69885</td><td>158623</td><td>22197</td><td>31960</td></tr><tr><td>17,01,2022</td><td>269102</td><td>198011</td><td>104569</td><td>26770</td><td>142476</td><td>20605</td><td>65364</td><td>160305</td><td>22048</td><td>32792</td></tr><tr><td>16,01,2022</td><td>268190</td><td>169879</td><td>91353</td><td>22870</td><td>131007</td><td>19124</td><td>58642</td><td>155376</td><td>22017</td><td>32139</td></tr><tr><td>15,01,2022</td><td>265397</td><td>141366</td><td>77523</td><td>18313</td><td>118017</td><td>16614</td><td>51008</td><td>145483</td><td>21676</td><td>30862</td></tr><tr><td>14,01,2022</td><td>243849</td><td>93128</td><td>55133</td><td>10119</td><td>88959</td><td>13139</td><td>34346</td><td>116251</td><td>18339</td><td>27425</td></tr><tr><td>13,01,2022</td><td>243849</td><td>93128</td><td>55133</td><td>10119</td><td>88959</td><td>13139</td><td>34346</td><td>116251</td><td>18339</td><td>27425</td></tr><tr><td>12,01,2022</td><td>209764</td><td>60177</td><td>38436</td><td>5606</td><td>62767</td><td>8214</td><td>20199</td><td>89194</td><td>14995</td><td>19222</td></tr><tr><td>11,01,2022</td><td>209764</td><td>60177</td><td>38436</td><td>5606</td><td>62767</td><td>8214</td><td>20199</td><td>89194</td><td>14995</td><td>19222</td></tr><tr><td>09,01,2022</td><td>176948</td><td>38536</td><td>31797</td><td>3659</td><td>40260</td><td>5895</td><td>11456</td><td>62055</td><td>12180</td><td>13066</td></tr><tr><td>08,01,2022</td><td>145198</td><td>30142</td><td>28558</td><td>2972</td><td>30817</td><td>4948</td><td>8037</td><td>51384</td><td>9861</td><td>9684</td></tr><tr><td>07,01,2022</td><td>118549</td><td>22202</td><td>25855</td><td>2266</td><td>22828</td><td>4036</td><td>5588</td><td>41101</td><td>7847</td><td>6905</td></tr><tr><td>06,01,2022</td><td>91204</td><td>17443</td><td>23607</td><td>1516</td><td>16577</td><td>3326</td><td>3896</td><td>33042</td><td>6168</td><td>4562</td></tr><tr><td>05,01,2022</td><td>70005</td><td>13561</td><td>20877</td><td>1516</td><td>12412</td><td>2935</td><td>2820</td><td>25475</td><td>4858</td><td>2977</td></tr><tr><td>04,01,2022</td><td>56117</td><td>11374</td><td>20053</td><td>1278</td><td>10364</td><td>2617</td><td>2262</td><td>20186</td><td>4048</td><td>1942</td></tr><tr><td>25,12,2021</td><td>12108</td><td>7280</td><td>26265</td><td>1279</td><td>6798</td><td>2206</td><td>1594</td><td>7446</td><td>3547</td><td>296</td></tr><tr><td>24,12,2021</td><td>11578</td><td>7146</td><td>27283</td><td>1326</td><td>6889</td><td>2249</td><td>1665</td><td>7433</td><td>3596</td><td>302</td></tr><tr><td>23,12,2021</td><td>11031</td><td>7167</td><td>28519</td><td>1358</td><td>6979</td><td>2269</td><td>1683</td><td>7442</td><td>3610</td><td>293</td></tr><tr><td>22,12,2021</td><td>10791</td><td>7103</td><td>28709</td><td>1432</td><td>7078</td><td>2282</td><td>1675</td><td>7451</td><td>3625</td><td>304</td></tr><tr><td>21,12,2021</td><td>10772</td><td>7103</td><td>29396</td><td>1517</td><td>7172</td><td>2302</td><td>1700</td><td>7474</td><td>3642</td><td>304</td></tr><tr><td>20,12,2021</td><td>10747</td><td>7169</td><td>31307</td><td>1597</td><td>7270</td><td>2329</td><td>1689</td><td>7489</td><td>3693</td><td>332</td></tr><tr><td>19,12,2021</td><td>10621</td><td>7149</td><td>32568</td><td>1705</td><td>7346</td><td>2389</td><td>1756</td><td>7501</td><td>3761</td><td>342</td></tr><tr><td>18,12,2021</td><td>10582</td><td>7105</td><td>33098</td><td>1758</td><td>7407</td><td>2441</td><td>1807</td><td>7513</td><td>3782</td><td>339</td></tr><tr><td>17,12,2021</td><td>10372</td><td>7187</td><td>34836</td><td>1814</td><td>7476</td><td>2446</td><td>1876</td><td>7506</td><td>3805</td><td>359</td></tr><tr><td>16,12,2021</td><td>10146</td><td>7208</td><td>35897</td><td>1821</td><td>7548</td><td>2421</td><td>1870</td><td>7490</td><td>3812</td><td>353</td></tr><tr><td>15,12,2021</td><td>10160</td><td>7194</td><td>36071</td><td>1823</td><td>7611</td><td>2469</td><td>1762</td><td>7505</td><td>3833</td><td>363</td></tr><tr><td>14,12,2021</td><td>10186</td><td>7265</td><td>36941</td><td>1878</td><td>7666</td><td>2440</td><td>1780</td><td>7517</td><td>3837</td><td>377</td></tr><tr><td>13,12,2021</td><td>10120</td><td>7357</td><td>39018</td><td>1912</td><td>7723</td><td>2469</td><td>1775</td><td>7548</td><td>3846</td><td>379</td></tr><tr><td>12,12,2021</td><td>10131</td><td>7335</td><td>39240</td><td>1954</td><td>7770</td><td>2457</td><td>1849</td><td>7562</td><td>3891</td><td>374</td></tr><tr><td>11,12,2021</td><td>10213</td><td>7334</td><td>39998</td><td>1989</td><td>7821</td><td>2482</td><td>1883</td><td>7574</td><td>3897</td><td>368</td></tr><tr><td>10,12,2021</td><td>10161</td><td>7361</td><td>41202</td><td>2037</td><td>7883</td><td>2543</td><td>2124</td><td>7565</td><td>3887</td><td>352</td></tr><tr><td>09,12,2021</td><td>9964</td><td>7284</td><td>41615</td><td>2011</td><td>7946</td><td>2541</td><td>1931</td><td>7576</td><td>3871</td><td>341</td></tr><tr><td>08,12,2021</td><td>10121</td><td>7129</td><td>40728</td><td>2008</td><td>7982</td><td>2565</td><td>1942</td><td>7576</td><td>3852</td><td>332</td></tr><tr><td>07,12,2021</td><td>10528</td><td>7096</td><td>41386</td><td>2030</td><td>8013</td><td>2544</td><td>2010</td><td>7590</td><td>3810</td><td>337</td></tr><tr><td>06,12,2021</td><td>10826</td><td>7161</td><td>44110</td><td>2122</td><td>8041</td><td>2490</td><td>2154</td><td>7639</td><td>3787</td><td>330</td></tr><tr><td>05,12,2021</td><td>10803</td><td>7041</td><td>44427</td><td>2149</td><td>8070</td><td>2551</td><td>2179</td><td>7656</td><td>3779</td><td>326</td></tr><tr><td>04,12,2021</td><td>10805</td><td>6925</td><td>45293</td><td>2157</td><td>8098</td><td>2480</td><td>2245</td><td>7670</td><td>3723</td><td>321</td></tr><tr><td>03,12,2021</td><td>10882</td><td>6772</td><td>45030</td><td>2138</td><td>8155</td><td>2535</td><td>2211</td><td>7690</td><td>3680</td><td>328</td></tr><tr><td>02,12,2021</td><td>11062</td><td>6603</td><td>44778</td><td>2149</td><td>8200</td><td>2612</td><td>2237</td><td>7712</td><td>3630</td><td>316</td></tr><tr><td>01,12,2021</td><td>11226</td><td>6445</td><td>44314</td><td>2149</td><td>8244</td><td>2625</td><td>2188</td><td>7731</td><td>3591</td><td>318</td></tr><tr><td>30,11,2021</td><td>11525</td><td>6907</td><td>45138</td><td>2102</td><td>8291</td><td>2595</td><td>2165</td><td>7733</td><td>3581</td><td>318</td></tr><tr><td>29,11,2021</td><td>11863</td><td>6860</td><td>47652</td><td>2140</td><td>8337</td><td>2691</td><td>2191</td><td>7804</td><td>3535</td><td>330</td></tr><tr><td>28,11,2021</td><td>11905</td><td>6783</td><td>49152</td><td>2158</td><td>8382</td><td>2720</td><td>2222</td><td>7820</td><td>3545</td><td>326</td></tr><tr><td>27,11,2021</td><td>12153</td><td>6640</td><td>50109</td><td>2163</td><td>8418</td><td>2791</td><td>2216</td><td>7847</td><td>3534</td><td>319</td></tr><tr><td>26,11,2021</td><td>12852</td><td>6521</td><td>52452</td><td>2194</td><td>8442</td><td>2835</td><td>2221</td><td>7867</td><td>3531</td><td>312</td></tr><tr><td>25,11,2021</td><td>13028</td><td>6441</td><td>51943</td><td>2175</td><td>8484</td><td>2943</td><td>2123</td><td>7894</td><td>3533</td><td>310</td></tr><tr><td>24,11,2021</td><td>13152</td><td>6736</td><td>53350</td><td>2159</td><td>8536</td><td>2976</td><td>1989</td><td>7914</td><td>3533</td><td>325</td></tr><tr><td>23,11,2021</td><td>13334</td><td>6896</td><td>54726</td><td>2206</td><td>8616</td><td>2928</td><td>2034</td><td>7945</td><td>3538</td><td>304</td></tr><tr><td>22,11,2021</td><td>13454</td><td>7093</td><td>58723</td><td>2265</td><td>8722</td><td>2973</td><td>2109</td><td>8020</td><td>3575</td><td>295</td></tr><tr><td>21,11,2021</td><td>13903</td><td>7125</td><td>61647</td><td>2392</td><td>8827</td><td>3103</td><td>2177</td><td>8045</td><td>3626</td><td>295</td></tr><tr><td>20,11,2021</td><td>15356</td><td>7287</td><td>61981</td><td>2425</td><td>8953</td><td>3054</td><td>2203</td><td>8107</td><td>3657</td><td>290</td></tr><tr><td>19,11,2021</td><td>15383</td><td>7378</td><td>62920</td><td>2560</td><td>9078</td><td>3142</td><td>2318</td><td>8072</td><td>3694</td><td>272</td></tr><tr><td>18,11,2021</td><td>15416</td><td>7438</td><td>64383</td><td>2615</td><td>9211</td><td>3194</td><td>2443</td><td>8051</td><td>3712</td><td>258</td></tr><tr><td>17,11,2021</td><td>15497</td><td>7522</td><td>63968</td><td>2734</td><td>9349</td><td>3226</td><td>2486</td><td>8027</td><td>3737</td><td>266</td></tr><tr><td>16,11,2021</td><td>15593</td><td>7941</td><td>65367</td><td>2961</td><td>9488</td><td>3154</td><td>2518</td><td>8047</td><td>3735</td><td>255</td></tr><tr><td>15,11,2021</td><td>15838</td><td>8026</td><td>67813</td><td>3086</td><td>9616</td><td>3156</td><td>2589</td><td>8062</td><td>3740</td><td>237</td></tr><tr><td>14,11,2021</td><td>15866</td><td>8056</td><td>69258</td><td>3128</td><td>9751</td><td>3272</td><td>2534</td><td>8031</td><td>3741</td><td>230</td></tr><tr><td>13,11,2021</td><td>15936</td><td>8065</td><td>69432</td><td>3227</td><td>9890</td><td>3217</td><td>2598</td><td>8000</td><td>3741</td><td>215</td></tr><tr><td>12,11,2021</td><td>15997</td><td>8046</td><td>70251</td><td>3196</td><td>10013</td><td>3261</td><td>2677</td><td>7973</td><td>3737</td><td>216</td></tr><tr><td>11,11,2021</td><td>16044</td><td>8056</td><td>71084</td><td>3220</td><td>10159</td><td>3279</td><td>2716</td><td>7945</td><td>3746</td><td>223</td></tr><tr><td>10,11,2021</td><td>16943</td><td>7984</td><td>71644</td><td>3233</td><td>10271</td><td>3301</td><td>2650</td><td>7916</td><td>3754</td><td>233</td></tr><tr><td>09,11,2021</td><td>17281</td><td>8018</td><td>71938</td><td>3366</td><td>10372</td><td>3286</td><td>2818</td><td>7899</td><td>3750</td><td>238</td></tr><tr><td>08,11,2021</td><td>18158</td><td>8031</td><td>72932</td><td>3458</td><td>10474</td><td>3249</td><td>2915</td><td>7967</td><td>3764</td><td>244</td></tr><tr><td>07,11,2021</td><td>18345</td><td>8119</td><td>73497</td><td>3568</td><td>10588</td><td>3379</td><td>2947</td><td>8029</td><td>3815</td><td>259</td></tr><tr><td>06,11,2021</td><td>18590</td><td>8217</td><td>74352</td><td>3760</td><td>10745</td><td>3454</td><td>3168</td><td>8137</td><td>3838</td><td>258</td></tr><tr><td>05,11,2021</td><td>18691</td><td>8296</td><td>75171</td><td>3830</td><td>10895</td><td>3430</td><td>3537</td><td>8193</td><td>3879</td><td>279</td></tr><tr><td>04,11,2021</td><td>18745</td><td>8335</td><td>73698</td><td>3898</td><td>11012</td><td>3639</td><td>3637</td><td>8152</td><td>3953</td><td>290</td></tr><tr><td>03,11,2021</td><td>19110</td><td>8399</td><td>75232</td><td>4042</td><td>11147</td><td>3732</td><td>4175</td><td>8126</td><td>3933</td><td>295</td></tr><tr><td>02,11,2021</td><td>19175</td><td>8541</td><td>77399</td><td>4142</td><td>11309</td><td>3628</td><td>3852</td><td>8146</td><td>3974</td><td>300</td></tr><tr><td>01,11,2021</td><td>20277</td><td>8673</td><td>79795</td><td>4355</td><td>11492</td><td>3674</td><td>4427</td><td>8296</td><td>4009</td><td>316</td></tr><tr><td>31,10,2021</td><td>20524</td><td>8737</td><td>79234</td><td>4649</td><td>11685</td><td>3699</td><td>3943</td><td>8310</td><td>4072</td><td>317</td></tr><tr><td>30,10,2021</td><td>22084</td><td>8655</td><td>79331</td><td>4837</td><td>11850</td><td>3791</td><td>4063</td><td>8223</td><td>4096</td><td>300</td></tr><tr><td>29,10,2021</td><td>22366</td><td>8586</td><td>78728</td><td>4743</td><td>12051</td><td>3750</td><td>4254</td><td>8109</td><td>4126</td><td>285</td></tr><tr><td>28,10,2021</td><td>23096</td><td>8459</td><td>77158</td><td>4777</td><td>12288</td><td>3838</td><td>4392</td><td>7973</td><td>4164</td><td>263</td></tr><tr><td>27,10,2021</td><td>26596</td><td>8539</td><td>75058</td><td>4655</td><td>12540</td><td>3991</td><td>4179</td><td>7849</td><td>4101</td><td>249</td></tr><tr><td>26,10,2021</td><td>26797</td><td>8612</td><td>75337</td><td>4830</td><td>12791</td><td>3882</td><td>4247</td><td>7869</td><td>4023</td><td>234</td></tr><tr><td>25,10,2021</td><td>27506</td><td>8740</td><td>77964</td><td>5102</td><td>13034</td><td>3857</td><td>4185</td><td>7882</td><td>3950</td><td>219</td></tr><tr><td>24,10,2021</td><td>27634</td><td>8943</td><td>81155</td><td>5222</td><td>13280</td><td>3968</td><td>4152</td><td>7731</td><td>3984</td><td>230</td></tr><tr><td>23,10,2021</td><td>27747</td><td>8920</td><td>81490</td><td>5398</td><td>13531</td><td>3866</td><td>4197</td><td>7577</td><td>3963</td><td>214</td></tr><tr><td>22,10,2021</td><td>27899</td><td>9017</td><td>82093</td><td>5500</td><td>13790</td><td>3762</td><td>4336</td><td>7535</td><td>3967</td><td>206</td></tr><tr><td>21,10,2021</td><td>29333</td><td>9103</td><td>83333</td><td>5566</td><td>14058</td><td>3610</td><td>4387</td><td>7491</td><td>3968</td><td>185</td></tr><tr><td>20,10,2021</td><td>30408</td><td>9129</td><td>80857</td><td>5654</td><td>14326</td><td>3585</td><td>4281</td><td>7428</td><td>3940</td><td>188</td></tr><tr><td>19,10,2021</td><td>31610</td><td>9193</td><td>83779</td><td>5709</td><td>14570</td><td>3461</td><td>4347</td><td>7416</td><td>3929</td><td>189</td></tr><tr><td>18,10,2021</td><td>32230</td><td>9479</td><td>88186</td><td>6034</td><td>14814</td><td>3436</td><td>4542</td><td>7421</td><td>3924</td><td>183</td></tr><tr><td>17,10,2021</td><td>33224</td><td>9537</td><td>91478</td><td>6193</td><td>15022</td><td>3482</td><td>4610</td><td>7445</td><td>3979</td><td>181</td></tr><tr><td>16,10,2021</td><td>33379</td><td>9700</td><td>95349</td><td>6453</td><td>15238</td><td>3458</td><td>4817</td><td>7513</td><td>4056</td><td>197</td></tr><tr><td>15,10,2021</td><td>33157</td><td>9607</td><td>96421</td><td>6588</td><td>15451</td><td>3646</td><td>4890</td><td>7576</td><td>4171</td><td>203</td></tr><tr><td>14,10,2021</td><td>33151</td><td>9650</td><td>98223</td><td>6615</td><td>15650</td><td>3803</td><td>4852</td><td>7657</td><td>4211</td><td>207</td></tr><tr><td>13,10,2021</td><td>34120</td><td>9741</td><td>97239</td><td>6932</td><td>15842</td><td>4011</td><td>4648</td><td>7672</td><td>4190</td><td>190</td></tr><tr><td>12,10,2021</td><td>35710</td><td>9935</td><td>102012</td><td>7258</td><td>15992</td><td>3994</td><td>4671</td><td>7649</td><td>4196</td><td>196</td></tr><tr><td>11,10,2021</td><td>37043</td><td>10183</td><td>111676</td><td>7944</td><td>16130</td><td>3952</td><td>4698</td><td>7649</td><td>4235</td><td>205</td></tr><tr><td>10,10,2021</td><td>36600</td><td>10424</td><td>113725</td><td>8134</td><td>16252</td><td>4037</td><td>4491</td><td>7634</td><td>4288</td><td>215</td></tr><tr><td>09,10,2021</td><td>36604</td><td>11437</td><td>117237</td><td>8310</td><td>16379</td><td>4114</td><td>4566</td><td>7625</td><td>4345</td><td>211</td></tr><tr><td>08,10,2021</td><td>36986</td><td>11648</td><td>119335</td><td>8550</td><td>16513</td><td>4144</td><td>4644</td><td>7593</td><td>4365</td><td>215</td></tr><tr><td>07,10,2021</td><td>36767</td><td>11848</td><td>122996</td><td>8754</td><td>16637</td><td>4245</td><td>4591</td><td>7591</td><td>4406</td><td>210</td></tr><tr><td>06,10,2021</td><td>36744</td><td>11955</td><td>125030</td><td>9141</td><td>16749</td><td>4418</td><td>4431</td><td>7575</td><td>4390</td><td>220</td></tr><tr><td>05,10,2021</td><td>37222</td><td>12021</td><td>129324</td><td>9753</td><td>16864</td><td>4196</td><td>4538</td><td>7604</td><td>4421</td><td>232</td></tr><tr><td>04,10,2021</td><td>39472</td><td>12330</td><td>137630</td><td>10357</td><td>16972</td><td>4186</td><td>4727</td><td>7587</td><td>4455</td><td>254</td></tr><tr><td>03,10,2021</td><td>39537</td><td>12385</td><td>141740</td><td>10574</td><td>17046</td><td>4318</td><td>4810</td><td>7580</td><td>4541</td><td>265</td></tr><tr><td>02,10,2021</td><td>39952</td><td>12498</td><td>143081</td><td>11142</td><td>17099</td><td>4348</td><td>4918</td><td>7571</td><td>4599</td><td>277</td></tr><tr><td>01,10,2021</td><td>40061</td><td>12809</td><td>143109</td><td>11503</td><td>17150</td><td>4404</td><td>5136</td><td>7570</td><td>4624</td><td>300</td></tr><tr><td>30,09,2021</td><td>40252</td><td>12594</td><td>144075</td><td>11655</td><td>17192</td><td>4487</td><td>5099</td><td>7580</td><td>4620</td><td>285</td></tr><tr><td>29,09,2021</td><td>40367</td><td>12663</td><td>149931</td><td>11912</td><td>17231</td><td>4635</td><td>5006</td><td>7586</td><td>4549</td><td>283</td></tr><tr><td>28,09,2021</td><td>41396</td><td>12833</td><td>157733</td><td>12482</td><td>17261</td><td>4587</td><td>5102</td><td>7584</td><td>4585</td><td>282</td></tr><tr><td>27,09,2021</td><td>41428</td><td>13242</td><td>163855</td><td>13048</td><td>17285</td><td>4545</td><td>5316</td><td>7683</td><td>4612</td><td>285</td></tr><tr><td>26,09,2021</td><td>41550</td><td>13336</td><td>165727</td><td>13208</td><td>17263</td><td>4661</td><td>5382</td><td>7674</td><td>4701</td><td>294</td></tr><tr><td>25,09,2021</td><td>42055</td><td>13335</td><td>163418</td><td>13535</td><td>17196</td><td>4656</td><td>5388</td><td>7689</td><td>4778</td><td>300</td></tr><tr><td>24,09,2021</td><td>42753</td><td>13619</td><td>160616</td><td>13749</td><td>17121</td><td>4686</td><td>5349</td><td>7704</td><td>4877</td><td>307</td></tr><tr><td>23,09,2021</td><td>43544</td><td>13650</td><td>161596</td><td>13796</td><td>17027</td><td>4880</td><td>5129</td><td>7724</td><td>4946</td><td>300</td></tr><tr><td>22,09,2021</td><td>44269</td><td>13769</td><td>161765</td><td>13905</td><td>16993</td><td>5081</td><td>4844</td><td>7741</td><td>4938</td><td>297</td></tr><tr><td>21,09,2021</td><td>45229</td><td>14386</td><td>167578</td><td>14388</td><td>16984</td><td>4984</td><td>4947</td><td>7810</td><td>4991</td><td>297</td></tr><tr><td>20,09,2021</td><td>46510</td><td>15411</td><td>174201</td><td>14699</td><td>16969</td><td>5056</td><td>5043</td><td>7906</td><td>5005</td><td>304</td></tr><tr><td>19,09,2021</td><td>51472</td><td>15783</td><td>181411</td><td>14653</td><td>16893</td><td>5063</td><td>5929</td><td>7967</td><td>5148</td><td>332</td></tr><tr><td>18,09,2021</td><td>52002</td><td>15988</td><td>189495</td><td>14797</td><td>16843</td><td>5165</td><td>5240</td><td>8008</td><td>5223</td><td>346</td></tr><tr><td>17,09,2021</td><td>52893</td><td>16202</td><td>186754</td><td>14708</td><td>16756</td><td>5381</td><td>5335</td><td>8025</td><td>5282</td><td>352</td></tr><tr><td>16,09,2021</td><td>52583</td><td>15920</td><td>191313</td><td>14603</td><td>16636</td><td>5396</td><td>5440</td><td>8050</td><td>5325</td><td>350</td></tr><tr><td>15,09,2021</td><td>53220</td><td>15782</td><td>199428</td><td>14412</td><td>16549</td><td>5666</td><td>5550</td><td>8074</td><td>5282</td><td>371</td></tr><tr><td>14,09,2021</td><td>53427</td><td>16269</td><td>209335</td><td>14652</td><td>16522</td><td>5615</td><td>5919</td><td>8096</td><td>5253</td><td>376</td></tr><tr><td>13,09,2021</td><td>51244</td><td>16683</td><td>222815</td><td>15110</td><td>16473</td><td>5702</td><td>6136</td><td>8187</td><td>5258</td><td>376</td></tr><tr><td>12,09,2021</td><td>51285</td><td>16699</td><td>232352</td><td>15157</td><td>16399</td><td>5913</td><td>6367</td><td>8203</td><td>5324</td><td>379</td></tr><tr><td>11,09,2021</td><td>51320</td><td>17055</td><td>238201</td><td>15119</td><td>16304</td><td>6029</td><td>6451</td><td>8219</td><td>5351</td><td>391</td></tr><tr><td>10,09,2021</td><td>51364</td><td>17019</td><td>236903</td><td>14624</td><td>16221</td><td>6207</td><td>6401</td><td>8246</td><td>5470</td><td>396</td></tr><tr><td>09,09,2021</td><td>51419</td><td>17085</td><td>240037</td><td>14510</td><td>16180</td><td>6298</td><td>6332</td><td>8288</td><td>5497</td><td>390</td></tr><tr><td>08,09,2021</td><td>51465</td><td>17458</td><td>237601</td><td>14452</td><td>16205</td><td>6457</td><td>6152</td><td>8387</td><td>5476</td><td>364</td></tr><tr><td>07,09,2021</td><td>51234</td><td>17412</td><td>239338</td><td>14550</td><td>16256</td><td>6415</td><td>6322</td><td>8480</td><td>5505</td><td>354</td></tr><tr><td>06,09,2021</td><td>53633</td><td>17527</td><td>248346</td><td>15158</td><td>16282</td><td>6346</td><td>6448</td><td>8652</td><td>5545</td><td>368</td></tr><tr><td>05,09,2021</td><td>55559</td><td>17772</td><td>250619</td><td>14883</td><td>16315</td><td>6403</td><td>6413</td><td>8679</td><td>5673</td><td>381</td></tr><tr><td>04,09,2021</td><td>53999</td><td>18430</td><td>246989</td><td>14922</td><td>16370</td><td>6505</td><td>6563</td><td>8694</td><td>5736</td><td>381</td></tr><tr><td>03,09,2021</td><td>54138</td><td>18404</td><td>240736</td><td>14702</td><td>16478</td><td>6775</td><td>6556</td><td>8734</td><td>5809</td><td>385</td></tr><tr><td>02,09,2021</td><td>54606</td><td>18438</td><td>230461</td><td>14473</td><td>16620</td><td>6794</td><td>6546</td><td>8801</td><td>5852</td><td>391</td></tr><tr><td>01,09,2021</td><td>54763</td><td>18412</td><td>219441</td><td>14693</td><td>16850</td><td>6901</td><td>6546</td><td>8815</td><td>5864</td><td>412</td></tr><tr><td>31,08,2021</td><td>55359</td><td>18418</td><td>210040</td><td>14862</td><td>17085</td><td>6960</td><td>6738</td><td>8922</td><td>5891</td><td>439</td></tr><tr><td>30,08,2021</td><td>56366</td><td>18784</td><td>213113</td><td>15179</td><td>17322</td><td>7049</td><td>7039</td><td>9070</td><td>5912</td><td>480</td></tr><tr><td>29,08,2021</td><td>55341</td><td>18923</td><td>205440</td><td>14853</td><td>17559</td><td>7434</td><td>7093</td><td>9109</td><td>6065</td><td>510</td></tr><tr><td>28,08,2021</td><td>55091</td><td>18996</td><td>195796</td><td>15050</td><td>17797</td><td>7532</td><td>7338</td><td>9143</td><td>6166</td><td>545</td></tr><tr><td>27,08,2021</td><td>53908</td><td>19326</td><td>181747</td><td>14448</td><td>18069</td><td>7781</td><td>7577</td><td>9167</td><td>6246</td><td>595</td></tr><tr><td>26,08,2021</td><td>53695</td><td>19344</td><td>170829</td><td>14061</td><td>18352</td><td>8006</td><td>7558</td><td>9185</td><td>6295</td><td>627</td></tr><tr><td>25,08,2021</td><td>53260</td><td>19810</td><td>159870</td><td>13677</td><td>18603</td><td>8005</td><td>7461</td><td>9217</td><td>6276</td><td>653</td></tr><tr><td>24,08,2021</td><td>53433</td><td>20281</td><td>155096</td><td>14159</td><td>18887</td><td>7995</td><td>7938</td><td>9336</td><td>6308</td><td>709</td></tr><tr><td>23,08,2021</td><td>56690</td><td>20582</td><td>163745</td><td>14677</td><td>19171</td><td>8011</td><td>8277</td><td>9461</td><td>6384</td><td>863</td></tr><tr><td>22,08,2021</td><td>57474</td><td>20871</td><td>178995</td><td>15141</td><td>19391</td><td>8224</td><td>8571</td><td>9594</td><td>6608</td><td>897</td></tr><tr><td>21,08,2021</td><td>58958</td><td>21187</td><td>182818</td><td>15472</td><td>19621</td><td>8257</td><td>8705</td><td>9635</td><td>6728</td><td>931</td></tr><tr><td>20,08,2021</td><td>61082</td><td>21159</td><td>179835</td><td>15738</td><td>19864</td><td>8296</td><td>8714</td><td>9653</td><td>6865</td><td>959</td></tr><tr><td>19,08,2021</td><td>61568</td><td>21292</td><td>178212</td><td>15944</td><td>20083</td><td>8372</td><td>8744</td><td>9715</td><td>6912</td><td>974</td></tr><tr><td>18,08,2021</td><td>64790</td><td>21507</td><td>175695</td><td>16341</td><td>20225</td><td>8772</td><td>8661</td><td>9736</td><td>6939</td><td>1037</td></tr><tr><td>17,08,2021</td><td>65922</td><td>22074</td><td>172765</td><td>17218</td><td>20370</td><td>9054</td><td>9073</td><td>9832</td><td>7093</td><td>1138</td></tr><tr><td>16,08,2021</td><td>67688</td><td>22523</td><td>179155</td><td>17865</td><td>20458</td><td>9320</td><td>9438</td><td>10030</td><td>7268</td><td>1295</td></tr><tr><td>15,08,2021</td><td>66731</td><td>22724</td><td>180764</td><td>18210</td><td>20427</td><td>9776</td><td>9487</td><td>10078</td><td>7606</td><td>1361</td></tr><tr><td>14,08,2021</td><td>66475</td><td>22729</td><td>180522</td><td>18766</td><td>20411</td><td>10001</td><td>9619</td><td>10109</td><td>7812</td><td>1423</td></tr><tr><td>13,08,2021</td><td>65808</td><td>22754</td><td>177040</td><td>18688</td><td>20399</td><td>10427</td><td>9729</td><td>10127</td><td>7996</td><td>1509</td></tr><tr><td>12,08,2021</td><td>68018</td><td>22877</td><td>176478</td><td>18417</td><td>20382</td><td>10819</td><td>9866</td><td>10163</td><td>8137</td><td>1557</td></tr><tr><td>11,08,2021</td><td>69565</td><td>22702</td><td>172505</td><td>18882</td><td>20363</td><td>11045</td><td>9722</td><td>10215</td><td>8112</td><td>1623</td></tr><tr><td>10,08,2021</td><td>71813</td><td>23342</td><td>170031</td><td>19549</td><td>20427</td><td>11096</td><td>10064</td><td>10312</td><td>8242</td><td>1700</td></tr><tr><td>09,08,2021</td><td>74944</td><td>23956</td><td>177091</td><td>19949</td><td>20407</td><td>11059</td><td>10719</td><td>10485</td><td>8406</td><td>1721</td></tr><tr><td>08,08,2021</td><td>74482</td><td>24292</td><td>178685</td><td>20375</td><td>20286</td><td>11633</td><td>11008</td><td>10585</td><td>8582</td><td>1735</td></tr><tr><td>07,08,2021</td><td>77905</td><td>24354</td><td>178722</td><td>20593</td><td>20185</td><td>11719</td><td>11501</td><td>10642</td><td>8674</td><td>1780</td></tr><tr><td>06,08,2021</td><td>78412</td><td>24439</td><td>178441</td><td>20302</td><td>20138</td><td>12024</td><td>11917</td><td>10721</td><td>8744</td><td>1830</td></tr><tr><td>05,08,2021</td><td>76224</td><td>24330</td><td>176564</td><td>20184</td><td>20117</td><td>12223</td><td>12295</td><td>10745</td><td>8803</td><td>1906</td></tr><tr><td>04,08,2021</td><td>77729</td><td>24305</td><td>173736</td><td>20170</td><td>20217</td><td>12440</td><td>12676</td><td>10767</td><td>8777</td><td>1881</td></tr><tr><td>03,08,2021</td><td>78700</td><td>24045</td><td>165834</td><td>20582</td><td>20385</td><td>12429</td><td>13318</td><td>10803</td><td>8819</td><td>1918</td></tr><tr><td>02,08,2021</td><td>82350</td><td>24168</td><td>167891</td><td>21019</td><td>20524</td><td>12642</td><td>14138</td><td>10974</td><td>8873</td><td>1919</td></tr><tr><td>01,08,2021</td><td>80138</td><td>23820</td><td>165011</td><td>21180</td><td>20716</td><td>13322</td><td>14538</td><td>11113</td><td>9069</td><td>1863</td></tr><tr><td>31,07,2021</td><td>80871</td><td>23502</td><td>161332</td><td>21198</td><td>20934</td><td>13832</td><td>14927</td><td>11171</td><td>9141</td><td>1965</td></tr><tr><td>30,07,2021</td><td>81933</td><td>23277</td><td>155327</td><td>21279</td><td>21207</td><td>14114</td><td>15276</td><td>11300</td><td>9188</td><td>2086</td></tr><tr><td>29,07,2021</td><td>85913</td><td>22592</td><td>150040</td><td>20999</td><td>21521</td><td>14499</td><td>15765</td><td>11370</td><td>9314</td><td>2226</td></tr><tr><td>28,07,2021</td><td>85447</td><td>22510</td><td>145876</td><td>20965</td><td>22188</td><td>15035</td><td>15830</td><td>11380</td><td>9237</td><td>2390</td></tr><tr><td>27,07,2021</td><td>92088</td><td>23080</td><td>137318</td><td>21748</td><td>22762</td><td>14929</td><td>16230</td><td>11566</td><td>9325</td><td>2518</td></tr><tr><td>26,07,2021</td><td>98341</td><td>23442</td><td>140779</td><td>22155</td><td>23364</td><td>15257</td><td>16859</td><td>11796</td><td>9405</td><td>2738</td></tr><tr><td>25,07,2021</td><td>96833</td><td>23928</td><td>138626</td><td>22358</td><td>24025</td><td>15726</td><td>17201</td><td>11891</td><td>9625</td><td>2789</td></tr><tr><td>24,07,2021</td><td>98120</td><td>24150</td><td>135700</td><td>22939</td><td>24816</td><td>15942</td><td>17270</td><td>12089</td><td>9729</td><td>3046</td></tr><tr><td>23,07,2021</td><td>97513</td><td>24718</td><td>129381</td><td>23571</td><td>25526</td><td>16205</td><td>17466</td><td>12205</td><td>9857</td><td>3241</td></tr><tr><td>22,07,2021</td><td>98087</td><td>25668</td><td>130139</td><td>23939</td><td>26158</td><td>16693</td><td>17795</td><td>12391</td><td>9908</td><td>3384</td></tr><tr><td>21,07,2021</td><td>97932</td><td>26279</td><td>126894</td><td>23843</td><td>26717</td><td>17597</td><td>17880</td><td>12509</td><td>9787</td><td>3334</td></tr><tr><td>20,07,2021</td><td>99709</td><td>27550</td><td>122202</td><td>23570</td><td>27282</td><td>17454</td><td>18192</td><td>12759</td><td>9836</td><td>3469</td></tr><tr><td>19,07,2021</td><td>106809</td><td>29314</td><td>125535</td><td>24708</td><td>27897</td><td>17815</td><td>18850</td><td>13111</td><td>9824</td><td>3719</td></tr><tr><td>18,07,2021</td><td>103745</td><td>30105</td><td>125273</td><td>25041</td><td>28590</td><td>18778</td><td>19193</td><td>13333</td><td>9980</td><td>3837</td></tr><tr><td>17,07,2021</td><td>104647</td><td>31422</td><td>122436</td><td>24854</td><td>29230</td><td>19569</td><td>19478</td><td>13484</td><td>10028</td><td>3967</td></tr><tr><td>16,07,2021</td><td>110505</td><td>32406</td><td>119513</td><td>25526</td><td>29950</td><td>20467</td><td>19789</td><td>13637</td><td>10101</td><td>4016</td></tr><tr><td>15,07,2021</td><td>110056</td><td>33665</td><td>118197</td><td>25957</td><td>30600</td><td>21000</td><td>20308</td><td>13847</td><td>10203</td><td>4028</td></tr><tr><td>14,07,2021</td><td>107691</td><td>34257</td><td>115662</td><td>26710</td><td>31218</td><td>21631</td><td>20904</td><td>14191</td><td>10064</td><td>4150</td></tr><tr><td>13,07,2021</td><td>111622</td><td>34881</td><td>111578</td><td>27195</td><td>31819</td><td>20941</td><td>21683</td><td>14531</td><td>10148</td><td>4517</td></tr><tr><td>12,07,2021</td><td>119442</td><td>36760</td><td>115327</td><td>28680</td><td>32307</td><td>21319</td><td>22690</td><td>14901</td><td>10316</td><td>4784</td></tr><tr><td>11,07,2021</td><td>117270</td><td>37164</td><td>115706</td><td>29262</td><td>32767</td><td>22549</td><td>23297</td><td>15304</td><td>10724</td><td>4862</td></tr><tr><td>10,07,2021</td><td>115494</td><td>37929</td><td>113595</td><td>30300</td><td>33224</td><td>23036</td><td>24141</td><td>15690</td><td>10942</td><td>4993</td></tr><tr><td>09,07,2021</td><td>117698</td><td>38752</td><td>110616</td><td>31850</td><td>33665</td><td>23048</td><td>24737</td><td>16143</td><td>11206</td><td>4914</td></tr><tr><td>08,07,2021</td><td>117869</td><td>39626</td><td>108400</td><td>32356</td><td>34076</td><td>23371</td><td>25148</td><td>16655</td><td>11472</td><td>5017</td></tr><tr><td>07,07,2021</td><td>117536</td><td>40039</td><td>104577</td><td>33230</td><td>34477</td><td>24244</td><td>25525</td><td>17275</td><td>11455</td><td>5004</td></tr><tr><td>06,07,2021</td><td>120061</td><td>42019</td><td>101097</td><td>33964</td><td>34926</td><td>23590</td><td>26347</td><td>17950</td><td>11704</td><td>5220</td></tr><tr><td>05,07,2021</td><td>126454</td><td>44869</td><td>104508</td><td>35325</td><td>35294</td><td>23502</td><td>26922</td><td>18780</td><td>11964</td><td>5345</td></tr><tr><td>04,07,2021</td><td>120802</td><td>48139</td><td>104035</td><td>35871</td><td>35881</td><td>25084</td><td>27452</td><td>19280</td><td>12454</td><td>5330</td></tr><tr><td>03,07,2021</td><td>120079</td><td>53894</td><td>104229</td><td>37323</td><td>36707</td><td>25261</td><td>27738</td><td>19729</td><td>12726</td><td>5620</td></tr><tr><td>02,07,2021</td><td>119867</td><td>65335</td><td>102523</td><td>38178</td><td>37526</td><td>25737</td><td>27827</td><td>20170</td><td>13052</td><td>5787</td></tr><tr><td>01,07,2021</td><td>119558</td><td>76528</td><td>101343</td><td>38338</td><td>38191</td><td>26435</td><td>28242</td><td>20585</td><td>13388</td><td>5964</td></tr><tr><td>30,06,2021</td><td>120281</td><td>86020</td><td>99635</td><td>40074</td><td>39335</td><td>27039</td><td>28152</td><td>21116</td><td>13487</td><td>5914</td></tr><tr><td>29,06,2021</td><td>121050</td><td>97615</td><td>96472</td><td>42252</td><td>40954</td><td>26390</td><td>29072</td><td>21580</td><td>13869</td><td>6208</td></tr><tr><td>28,06,2021</td><td>125422</td><td>101065</td><td>100048</td><td>44773</td><td>42801</td><td>27137</td><td>29181</td><td>21884</td><td>14302</td><td>6596</td></tr><tr><td>27,06,2021</td><td>124415</td><td>105249</td><td>101556</td><td>46126</td><td>44924</td><td>28912</td><td>29390</td><td>22099</td><td>15054</td><td>6720</td></tr></table>
+</div>
+<div class="spacer">
+</div>
+
+
+
+
+<hr>
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data_linechart = google.visualization.arrayToDataTable([
+	[ 'date', 'Maharashtra','Karnataka','Kerala','Andhra Pradesh','Tamil Nadu','Assam','Odisha','West Bengal','Telengana','Chhattisgarh',],
+[new Date(2022,8,20),4440,3568,15831,284,4995,2705,1388,2231,745,613],
+[new Date(2022,8,16),5012,3688,13611,291,4794,2834,1504,2027,792,689],
+[new Date(2022,8,14),5513,3764,11673,325,4811,2834,1467,1885,844,727],
+[new Date(2022,8,09),7082,4330,10803,475,4924,2811,1490,1928,982,750],
+[new Date(2022,8,07),7701,4573,10149,498,4960,2819,1342,1965,1004,722],
+[new Date(2022,8,06),8162,4872,10084,513,4990,2819,1401,2002,1053,819],
+[new Date(2022,8,04),9197,5051,9645,599,5056,2838,1614,2360,1293,796],
+[new Date(2022,8,03),9887,5379,9562,622,5093,2846,1625,2418,1406,833],
+[new Date(2022,8,01),10633,6445,9248,701,5127,2872,1667,2525,1545,875],
+[new Date(2022,7,31),11679,7859,8551,803,5268,3037,1828,2928,2077,1207],
+[new Date(2022,7,30),11679,7859,8551,803,5268,3037,1828,2928,2077,1207],
+[new Date(2022,7,29),11679,7859,8551,803,5268,3037,1828,2928,2077,1207],
+[new Date(2022,7,25),12578,9775,8237,965,5630,2926,1847,3380,2553,1469],
+[new Date(2022,7,22),11641,10508,7851,1079,5947,3027,2219,3891,2672,1447],
+[new Date(2022,7,20),11733,9777,7834,1120,6229,2957,2392,4312,2794,1641],
+[new Date(2022,7,19),11690,9307,7920,1110,6400,2957,2460,4470,2820,1725],
+[new Date(2022,7,18),11370,8764,7963,1098,6631,2976,2481,4624,2997,1530],
+[new Date(2022,7,17),11758,9880,8215,1098,6888,2987,2756,4842,3095,1489],
+[new Date(2022,7,16),12148,10475,8770,1171,7145,2978,3261,5299,3183,1542],
+[new Date(2022,7,15),12102,10922,9030,1226,7406,3445,3360,5687,3446,1846],
+[new Date(2022,7,14),11847,10105,9173,1199,7680,3359,4019,5884,3551,2000],
+[new Date(2022,7,13),11856,10395,9331,1178,7972,3359,3616,6132,3763,2159],
+[new Date(2022,7,12),11790,10054,9691,1239,8288,3572,4740,6438,4271,2332],
+[new Date(2022,7,09),11968,11252,10179,1453,9408,4006,5851,7302,5667,3282],
+[new Date(2022,7,08),11875,11355,11103,1670,10261,4426,6058,8331,6219,3371],
+[new Date(2022,7,06),12077,11067,12344,1875,10987,4745,5399,9948,6357,3509],
+[new Date(2022,7,05),12077,11067,12344,1875,10987,4745,5399,9948,6357,3509],
+[new Date(2022,7,04),12321,11185,12715,1942,11392,4917,5518,11120,6132,3327],
+[new Date(2022,7,03),12583,10896,13177,2042,11796,5296,5518,12254,5992,3360],
+[new Date(2022,7,02),12808,10859,13886,2119,12228,5296,6929,13493,5733,3481],
+[new Date(2022,6,31),1555,1140,10509,40,1043,480,93,2175,13094,891],
+[new Date(2022,6,29),13943,8836,17802,2493,14284,5690,7064,20094,4915,3809],
+[new Date(2022,6,28),13943,8836,17801,2493,14284,5690,7064,20094,4915,3809],
+[new Date(2022,6,27),14092,8861,17764,2633,14714,5543,5891,21287,4703,3919],
+[new Date(2022,6,26),14692,9162,19427,2940,15409,5527,6715,24329,4630,3813],
+[new Date(2022,6,25),14692,9162,19427,2940,15409,5527,6715,24329,4630,3813],
+[new Date(2022,6,21),14789,7617,22592,2714,16829,4858,5632,28969,4511,3043],
+[new Date(2022,6,20),14789,7617,22592,2714,16829,4858,5632,28969,4511,3043],
+[new Date(2022,6,19),15162,7680,23475,2601,16906,4409,5425,29583,4481,2834],
+[new Date(2022,6,18),15525,7569,24033,2760,17085,3691,5149,30791,4649,2742],
+[new Date(2022,6,17),15521,7296,24645,2482,17228,3896,4877,30613,4900,2656],
+[new Date(2022,6,16),16000,6702,24953,2241,17487,3434,4878,30043,4955,2389],
+[new Date(2022,6,15),16553,6739,25868,2239,17858,3150,4315,28856,5051,2232],
+[new Date(2022,6,14),16922,6603,26451,2121,18282,2584,3511,27496,5082,2068],
+[new Date(2022,6,13),17567,6419,25683,2042,18710,2185,3188,25880,5112,1900],
+[new Date(2022,6,12),18027,6718,26643,1942,18802,1858,3084,24209,5166,1678],
+[new Date(2022,6,09),18851,6506,28891,1816,18687,1370,2336,18856,5146,1363],
+[new Date(2022,6,08),19413,6454,29772,1660,18378,1138,2070,16546,4997,1203],
+[new Date(2022,6,07),19981,6481,30169,1539,17717,956,2010,14270,4882,1124],
+[new Date(2022,6,06),21935,6474,29589,1250,15616,710,1543,11139,4697,1040],
+[new Date(2022,6,05),21935,6474,29589,1250,15616,710,1543,11139,4697,1040],
+[new Date(2022,6,04),22485,6666,29527,1232,14504,574,1363,10583,4747,1021],
+[new Date(2022,6,03),23447,6440,29505,1045,13319,550,1017,9290,4784,1040],
+[new Date(2022,6,02),23996,6134,29669,977,12158,468,925,8277,4702,983],
+[new Date(2022,6,01),24940,5896,29504,868,11094,395,721,6994,4643,933],
+[new Date(2022,5,30),25735,5707,28860,755,10033,395,627,5885,4421,861],
+[new Date(2022,5,29),25481,4918,28086,658,8970,362,521,4759,4172,851],
+[new Date(2022,5,28),25570,4288,27919,585,8222,306,457,4080,3960,757],
+[new Date(2022,5,27),24608,4438,27772,576,7458,256,440,3777,3762,696],
+[new Date(2022,5,26),24333,4822,27891,518,6677,240,416,3496,3613,640],
+[new Date(2022,5,25),25317,5180,26837,462,5912,217,401,3480,3322,643],
+[new Date(2022,5,24),24867,5067,25911,406,5174,179,407,3020,3048,632],
+[new Date(2022,5,23),24639,4892,25200,369,4678,155,334,2446,2680,585],
+[new Date(2022,5,22),24915,5020,23460,340,4366,132,325,2329,2375,516],
+[new Date(2022,5,21),24613,4928,23145,298,3951,128,292,2044,2117,463],
+[new Date(2022,5,20),23746,5035,22436,293,3522,104,292,1913,2026,432],
+[new Date(2022,5,19),22828,4825,21275,250,3073,95,255,1625,1912,406],
+[new Date(2022,5,18),21749,4500,20338,226,2694,70,217,1406,1781,339],
+[new Date(2022,5,17),20634,4371,19210,205,2313,59,213,1174,1621,232],
+[new Date(2022,5,16),18267,3882,16278,164,1632,33,197,866,1259,195],
+[new Date(2022,5,15),18267,3882,16278,164,1632,33,197,866,1259,195],
+[new Date(2022,5,14),17480,3688,15872,147,1453,23,188,788,1116,167],
+[new Date(2022,5,13),16370,3651,15363,136,1332,20,189,731,1039,136],
+[new Date(2022,5,12),14858,3387,14518,126,1231,20,202,662,977,123],
+[new Date(2022,5,11),283,50,3177,5,11,1,2,556,1159,152],
+[new Date(2022,5,10),11571,2880,12193,105,1077,11,169,517,811,89],
+[new Date(2022,5,09),9806,2623,11263,97,1021,13,149,469,731,76],
+[new Date(2022,5,08),8432,2478,9857,79,927,10,143,432,658,74],
+[new Date(2022,5,07),7429,2441,9405,68,862,10,138,412,582,76],
+[new Date(2022,5,06),6767,2414,8835,66,836,10,143,398,563,68],
+[new Date(2022,5,05),5888,2260,8290,61,799,14,124,376,547,64],
+[new Date(2022,5,04),5127,2229,7505,61,756,10,120,378,520,71],
+[new Date(2022,5,02),4032,2001,6256,49,629,7,123,357,481,60],
+[new Date(2022,5,01),3475,2029,5708,47,542,7,118,353,435,52],
+[new Date(2022,4,31),3131,2106,5498,43,493,7,127,336,416,53],
+[new Date(2022,4,30),2997,2041,5276,47,448,5,121,344,419,52],
+[new Date(2022,4,29),2772,1898,5071,55,412,4,133,341,423,58],
+[new Date(2022,4,28),2568,1827,4723,58,401,4,129,344,425,51],
+[new Date(2022,4,27),2361,1777,4512,61,387,3,120,361,417,55],
+[new Date(2022,4,26),2175,1799,4313,62,371,2,121,358,398,55],
+[new Date(2022,4,25),2039,1715,3955,58,354,3,143,360,377,62],
+[new Date(2022,4,24),1978,1718,3928,70,331,4,135,377,372,51],
+[new Date(2022,4,22),1828,1655,3799,62,321,4,148,378,407,36],
+[new Date(2022,4,21),1761,1666,3750,57,315,4,171,384,413,34],
+[new Date(2022,4,20),1720,1726,3579,70,322,4,161,377,396,32],
+[new Date(2022,4,19),1605,1761,3555,92,321,5,176,381,383,28],
+[new Date(2022,4,18),1551,1802,3331,92,324,3,171,398,370,21],
+[new Date(2022,4,17),1526,1840,3402,89,332,0,168,391,374,19],
+[new Date(2022,4,16),1518,1891,3398,92,359,2,178,416,408,20],
+[new Date(2022,4,13),1434,1884,3253,60,438,5,155,398,402,35],
+[new Date(2022,4,12),1412,1943,3150,48,439,5,174,395,391,33],
+[new Date(2022,4,10),1304,1964,3026,58,478,5,213,426,381,40],
+[new Date(2022,4,09),1304,1964,3026,58,478,5,213,426,381,40],
+[new Date(2022,4,08),1277,1945,2963,50,499,6,156,419,389,38],
+[new Date(2022,4,07),1161,1895,2950,47,474,6,152,422,396,42],
+[new Date(2022,4,06),1109,1854,2888,40,466,6,152,413,364,37],
+[new Date(2022,4,05),1049,1801,2899,37,467,6,145,411,354,45],
+[new Date(2022,4,04),1027,1815,2744,38,488,6,135,412,336,41],
+[new Date(2022,4,03),1016,1815,2779,34,505,8,136,405,331,44],
+[new Date(2022,3,30),979,1737,2862,20,507,11,121,335,306,33],
+[new Date(2022,3,29),955,1755,2737,14,447,9,133,288,276,28],
+[new Date(2022,3,26),916,1718,2712,34,334,1356,128,255,213,18],
+[new Date(2022,3,25),916,1718,2712,34,334,1356,128,255,213,18],
+[new Date(2022,3,23),762,1592,2571,35,256,1353,157,245,187,11],
+[new Date(2022,3,22),762,1592,2571,35,256,1353,157,245,187,11],
+[new Date(2022,3,21),690,1541,2543,35,243,1353,163,258,194,11],
+[new Date(2022,3,20),660,1529,2432,38,235,1351,156,272,187,8],
+[new Date(2022,3,19),634,1515,2466,43,232,1349,160,290,189,9],
+[new Date(2022,3,18),646,1506,2466,43,231,1349,158,311,206,12],
+[new Date(2022,3,16),681,1483,2982,41,228,1351,174,349,220,19],
+[new Date(2022,3,14),724,1480,2982,33,228,1351,183,400,233,32],
+[new Date(2022,3,11),778,1483,3052,57,228,1349,205,457,214,47],
+[new Date(2022,3,10),803,1472,3133,56,229,1348,228,481,232,59],
+[new Date(2022,3,09),812,1501,3190,63,237,1348,217,490,248,59],
+[new Date(2022,3,07),865,1457,3305,70,258,1348,285,517,252,70],
+[new Date(2022,3,06),870,1510,3345,87,256,1348,269,538,260,70],
+[new Date(2022,3,05),866,1542,3339,119,263,1348,299,556,271,88],
+[new Date(2022,3,04),921,1557,3517,150,275,1348,383,586,290,91],
+[new Date(2022,3,02),911,1603,3888,202,293,1352,378,600,392,116],
+[new Date(2022,2,27),893,1818,4881,395,418,1362,484,729,536,147],
+[new Date(2022,2,22),5277,1933,6260,506,576,1365,580,850,639,132],
+[new Date(2022,2,21),5358,2037,6639,511,620,1365,613,920,657,141],
+[new Date(2022,2,20),5529,2073,6975,518,670,1363,635,982,713,144],
+[new Date(2022,2,16),6299,2381,8887,523,962,1362,875,1282,823,256],
+[new Date(2022,2,14),6528,2695,9666,606,1173,1364,840,1452,950,337],
+[new Date(2022,2,13),6725,2661,10350,633,1301,1366,867,1502,1064,374],
+[new Date(2022,2,09),7212,3018,13493,817,2145,1394,1036,1549,1375,665],
+[new Date(2022,2,07),7711,3286,14968,1063,2770,1424,1246,1653,1710,719],
+[new Date(2022,2,05),8478,3507,17913,1341,3505,1452,1505,1749,2164,888],
+[new Date(2022,2,03),9643,4245,22467,1657,4437,1477,1838,1795,2607,1129],
+[new Date(2022,2,02),10106,4885,25715,2014,5066,1515,2079,1808,2719,1287],
+[new Date(2022,1,26),12682,7556,38040,4709,8150,1610,2843,1988,3810,1961],
+[new Date(2022,1,23),17061,10443,54394,5565,12321,1763,4040,3437,4477,2596],
+[new Date(2022,1,20),22354,13468,75813,7358,18164,2160,5886,6648,5646,3539],
+[new Date(2022,1,19),25142,16221,86666,8421,20681,2313,6636,7736,6111,3856],
+[new Date(2022,1,18),27798,19797,100211,9470,23772,2479,7252,8776,6746,4056],
+[new Date(2022,1,17),31424,23320,114582,10808,27294,2855,7847,9691,7673,4803],
+[new Date(2022,1,16),34523,26866,124603,12550,31368,3247,8653,10630,8379,5527],
+[new Date(2022,1,15),40422,31249,145158,14726,35951,3639,9421,11626,9908,6394],
+[new Date(2022,1,11),74108,52047,233747,40884,66992,5768,12754,14805,17754,9897],
+[new Date(2022,1,10),86847,60990,258954,46119,77607,6382,14574,15395,19850,10595],
+[new Date(2022,1,09),100019,72448,284437,54040,90137,7612,16010,16009,21470,11426],
+[new Date(2022,1,07),122015,97814,330105,69572,121828,9701,20101,17994,26498,16608],
+[new Date(2022,1,06),137590,109236,353152,78746,138878,11928,21642,19276,29226,16882],
+[new Date(2022,1,05),147941,123131,366871,88364,155329,13289,24437,20213,30931,18686],
+[new Date(2022,1,04),162073,148833,369819,93488,166878,15133,27872,21146,33104,20081],
+[new Date(2022,1,02),195424,197755,368580,105930,188599,20808,34384,22142,35625,21162],
+[new Date(2022,0,31),231591,251114,355314,116031,203926,23795,43952,31562,38723,25734],
+[new Date(2022,0,29),270444,288797,334162,113300,211863,33360,53759,45729,40414,26123],
+[new Date(2022,0,28),291247,328741,310202,109493,213534,36522,59223,55725,39520,27290],
+[new Date(2022,0,27),302572,357939,301269,106318,213692,37410,64487,67369,38023,29180],
+[new Date(2022,0,26),306752,350772,286077,101396,211270,42845,67149,80168,36269,30254],
+[new Date(2022,0,25),303424,362517,260982,93305,206484,45422,71509,94535,33673,31074],
+[new Date(2022,0,24),297115,357826,265349,83610,200954,45163,74532,110183,32094,31990],
+[new Date(2022,0,23),283731,330477,247938,73143,194697,49017,76859,123657,31199,31181],
+[new Date(2022,0,22),268181,323173,224258,64136,187358,46368,79365,134816,29127,30756],
+[new Date(2022,0,21),262354,293261,199749,53871,179205,42465,79928,144809,26633,31736],
+[new Date(2022,0,20),268484,267679,169109,44935,170661,36508,78038,151702,24253,32021],
+[new Date(2022,0,19),271427,250410,143219,36108,161171,30907,73222,155711,22472,31769],
+[new Date(2022,0,18),271097,217326,122163,30182,152348,25295,69885,158623,22197,31960],
+[new Date(2022,0,17),269102,198011,104569,26770,142476,20605,65364,160305,22048,32792],
+[new Date(2022,0,16),268190,169879,91353,22870,131007,19124,58642,155376,22017,32139],
+[new Date(2022,0,15),265397,141366,77523,18313,118017,16614,51008,145483,21676,30862],
+[new Date(2022,0,14),243849,93128,55133,10119,88959,13139,34346,116251,18339,27425],
+[new Date(2022,0,13),243849,93128,55133,10119,88959,13139,34346,116251,18339,27425],
+[new Date(2022,0,12),209764,60177,38436,5606,62767,8214,20199,89194,14995,19222],
+[new Date(2022,0,11),209764,60177,38436,5606,62767,8214,20199,89194,14995,19222],
+[new Date(2022,0,09),176948,38536,31797,3659,40260,5895,11456,62055,12180,13066],
+[new Date(2022,0,08),145198,30142,28558,2972,30817,4948,8037,51384,9861,9684],
+[new Date(2022,0,07),118549,22202,25855,2266,22828,4036,5588,41101,7847,6905],
+[new Date(2022,0,06),91204,17443,23607,1516,16577,3326,3896,33042,6168,4562],
+[new Date(2022,0,05),70005,13561,20877,1516,12412,2935,2820,25475,4858,2977],
+[new Date(2022,0,04),56117,11374,20053,1278,10364,2617,2262,20186,4048,1942],
+[new Date(2021,11,25),12108,7280,26265,1279,6798,2206,1594,7446,3547,296],
+[new Date(2021,11,24),11578,7146,27283,1326,6889,2249,1665,7433,3596,302],
+[new Date(2021,11,23),11031,7167,28519,1358,6979,2269,1683,7442,3610,293],
+[new Date(2021,11,22),10791,7103,28709,1432,7078,2282,1675,7451,3625,304],
+[new Date(2021,11,21),10772,7103,29396,1517,7172,2302,1700,7474,3642,304],
+[new Date(2021,11,20),10747,7169,31307,1597,7270,2329,1689,7489,3693,332],
+[new Date(2021,11,19),10621,7149,32568,1705,7346,2389,1756,7501,3761,342],
+[new Date(2021,11,18),10582,7105,33098,1758,7407,2441,1807,7513,3782,339],
+[new Date(2021,11,17),10372,7187,34836,1814,7476,2446,1876,7506,3805,359],
+[new Date(2021,11,16),10146,7208,35897,1821,7548,2421,1870,7490,3812,353],
+[new Date(2021,11,15),10160,7194,36071,1823,7611,2469,1762,7505,3833,363],
+[new Date(2021,11,14),10186,7265,36941,1878,7666,2440,1780,7517,3837,377],
+[new Date(2021,11,13),10120,7357,39018,1912,7723,2469,1775,7548,3846,379],
+[new Date(2021,11,12),10131,7335,39240,1954,7770,2457,1849,7562,3891,374],
+[new Date(2021,11,11),10213,7334,39998,1989,7821,2482,1883,7574,3897,368],
+[new Date(2021,11,10),10161,7361,41202,2037,7883,2543,2124,7565,3887,352],
+[new Date(2021,11,09),9964,7284,41615,2011,7946,2541,1931,7576,3871,341],
+[new Date(2021,11,08),10121,7129,40728,2008,7982,2565,1942,7576,3852,332],
+[new Date(2021,11,07),10528,7096,41386,2030,8013,2544,2010,7590,3810,337],
+[new Date(2021,11,06),10826,7161,44110,2122,8041,2490,2154,7639,3787,330],
+[new Date(2021,11,05),10803,7041,44427,2149,8070,2551,2179,7656,3779,326],
+[new Date(2021,11,04),10805,6925,45293,2157,8098,2480,2245,7670,3723,321],
+[new Date(2021,11,03),10882,6772,45030,2138,8155,2535,2211,7690,3680,328],
+[new Date(2021,11,02),11062,6603,44778,2149,8200,2612,2237,7712,3630,316],
+[new Date(2021,11,01),11226,6445,44314,2149,8244,2625,2188,7731,3591,318],
+[new Date(2021,10,30),11525,6907,45138,2102,8291,2595,2165,7733,3581,318],
+[new Date(2021,10,29),11863,6860,47652,2140,8337,2691,2191,7804,3535,330],
+[new Date(2021,10,28),11905,6783,49152,2158,8382,2720,2222,7820,3545,326],
+[new Date(2021,10,27),12153,6640,50109,2163,8418,2791,2216,7847,3534,319],
+[new Date(2021,10,26),12852,6521,52452,2194,8442,2835,2221,7867,3531,312],
+[new Date(2021,10,25),13028,6441,51943,2175,8484,2943,2123,7894,3533,310],
+[new Date(2021,10,24),13152,6736,53350,2159,8536,2976,1989,7914,3533,325],
+[new Date(2021,10,23),13334,6896,54726,2206,8616,2928,2034,7945,3538,304],
+[new Date(2021,10,22),13454,7093,58723,2265,8722,2973,2109,8020,3575,295],
+[new Date(2021,10,21),13903,7125,61647,2392,8827,3103,2177,8045,3626,295],
+[new Date(2021,10,20),15356,7287,61981,2425,8953,3054,2203,8107,3657,290],
+[new Date(2021,10,19),15383,7378,62920,2560,9078,3142,2318,8072,3694,272],
+[new Date(2021,10,18),15416,7438,64383,2615,9211,3194,2443,8051,3712,258],
+[new Date(2021,10,17),15497,7522,63968,2734,9349,3226,2486,8027,3737,266],
+[new Date(2021,10,16),15593,7941,65367,2961,9488,3154,2518,8047,3735,255],
+[new Date(2021,10,15),15838,8026,67813,3086,9616,3156,2589,8062,3740,237],
+[new Date(2021,10,14),15866,8056,69258,3128,9751,3272,2534,8031,3741,230],
+[new Date(2021,10,13),15936,8065,69432,3227,9890,3217,2598,8000,3741,215],
+[new Date(2021,10,12),15997,8046,70251,3196,10013,3261,2677,7973,3737,216],
+[new Date(2021,10,11),16044,8056,71084,3220,10159,3279,2716,7945,3746,223],
+[new Date(2021,10,10),16943,7984,71644,3233,10271,3301,2650,7916,3754,233],
+[new Date(2021,10,09),17281,8018,71938,3366,10372,3286,2818,7899,3750,238],
+[new Date(2021,10,08),18158,8031,72932,3458,10474,3249,2915,7967,3764,244],
+[new Date(2021,10,07),18345,8119,73497,3568,10588,3379,2947,8029,3815,259],
+[new Date(2021,10,06),18590,8217,74352,3760,10745,3454,3168,8137,3838,258],
+[new Date(2021,10,05),18691,8296,75171,3830,10895,3430,3537,8193,3879,279],
+[new Date(2021,10,04),18745,8335,73698,3898,11012,3639,3637,8152,3953,290],
+[new Date(2021,10,03),19110,8399,75232,4042,11147,3732,4175,8126,3933,295],
+[new Date(2021,10,02),19175,8541,77399,4142,11309,3628,3852,8146,3974,300],
+[new Date(2021,10,01),20277,8673,79795,4355,11492,3674,4427,8296,4009,316],
+[new Date(2021,9,31),20524,8737,79234,4649,11685,3699,3943,8310,4072,317],
+[new Date(2021,9,30),22084,8655,79331,4837,11850,3791,4063,8223,4096,300],
+[new Date(2021,9,29),22366,8586,78728,4743,12051,3750,4254,8109,4126,285],
+[new Date(2021,9,28),23096,8459,77158,4777,12288,3838,4392,7973,4164,263],
+[new Date(2021,9,27),26596,8539,75058,4655,12540,3991,4179,7849,4101,249],
+[new Date(2021,9,26),26797,8612,75337,4830,12791,3882,4247,7869,4023,234],
+[new Date(2021,9,25),27506,8740,77964,5102,13034,3857,4185,7882,3950,219],
+[new Date(2021,9,24),27634,8943,81155,5222,13280,3968,4152,7731,3984,230],
+[new Date(2021,9,23),27747,8920,81490,5398,13531,3866,4197,7577,3963,214],
+[new Date(2021,9,22),27899,9017,82093,5500,13790,3762,4336,7535,3967,206],
+[new Date(2021,9,21),29333,9103,83333,5566,14058,3610,4387,7491,3968,185],
+[new Date(2021,9,20),30408,9129,80857,5654,14326,3585,4281,7428,3940,188],
+[new Date(2021,9,19),31610,9193,83779,5709,14570,3461,4347,7416,3929,189],
+[new Date(2021,9,18),32230,9479,88186,6034,14814,3436,4542,7421,3924,183],
+[new Date(2021,9,17),33224,9537,91478,6193,15022,3482,4610,7445,3979,181],
+[new Date(2021,9,16),33379,9700,95349,6453,15238,3458,4817,7513,4056,197],
+[new Date(2021,9,15),33157,9607,96421,6588,15451,3646,4890,7576,4171,203],
+[new Date(2021,9,14),33151,9650,98223,6615,15650,3803,4852,7657,4211,207],
+[new Date(2021,9,13),34120,9741,97239,6932,15842,4011,4648,7672,4190,190],
+[new Date(2021,9,12),35710,9935,102012,7258,15992,3994,4671,7649,4196,196],
+[new Date(2021,9,11),37043,10183,111676,7944,16130,3952,4698,7649,4235,205],
+[new Date(2021,9,10),36600,10424,113725,8134,16252,4037,4491,7634,4288,215],
+[new Date(2021,9,09),36604,11437,117237,8310,16379,4114,4566,7625,4345,211],
+[new Date(2021,9,08),36986,11648,119335,8550,16513,4144,4644,7593,4365,215],
+[new Date(2021,9,07),36767,11848,122996,8754,16637,4245,4591,7591,4406,210],
+[new Date(2021,9,06),36744,11955,125030,9141,16749,4418,4431,7575,4390,220],
+[new Date(2021,9,05),37222,12021,129324,9753,16864,4196,4538,7604,4421,232],
+[new Date(2021,9,04),39472,12330,137630,10357,16972,4186,4727,7587,4455,254],
+[new Date(2021,9,03),39537,12385,141740,10574,17046,4318,4810,7580,4541,265],
+[new Date(2021,9,02),39952,12498,143081,11142,17099,4348,4918,7571,4599,277],
+[new Date(2021,9,01),40061,12809,143109,11503,17150,4404,5136,7570,4624,300],
+[new Date(2021,8,30),40252,12594,144075,11655,17192,4487,5099,7580,4620,285],
+[new Date(2021,8,29),40367,12663,149931,11912,17231,4635,5006,7586,4549,283],
+[new Date(2021,8,28),41396,12833,157733,12482,17261,4587,5102,7584,4585,282],
+[new Date(2021,8,27),41428,13242,163855,13048,17285,4545,5316,7683,4612,285],
+[new Date(2021,8,26),41550,13336,165727,13208,17263,4661,5382,7674,4701,294],
+[new Date(2021,8,25),42055,13335,163418,13535,17196,4656,5388,7689,4778,300],
+[new Date(2021,8,24),42753,13619,160616,13749,17121,4686,5349,7704,4877,307],
+[new Date(2021,8,23),43544,13650,161596,13796,17027,4880,5129,7724,4946,300],
+[new Date(2021,8,22),44269,13769,161765,13905,16993,5081,4844,7741,4938,297],
+[new Date(2021,8,21),45229,14386,167578,14388,16984,4984,4947,7810,4991,297],
+[new Date(2021,8,20),46510,15411,174201,14699,16969,5056,5043,7906,5005,304],
+[new Date(2021,8,19),51472,15783,181411,14653,16893,5063,5929,7967,5148,332],
+[new Date(2021,8,18),52002,15988,189495,14797,16843,5165,5240,8008,5223,346],
+[new Date(2021,8,17),52893,16202,186754,14708,16756,5381,5335,8025,5282,352],
+[new Date(2021,8,16),52583,15920,191313,14603,16636,5396,5440,8050,5325,350],
+[new Date(2021,8,15),53220,15782,199428,14412,16549,5666,5550,8074,5282,371],
+[new Date(2021,8,14),53427,16269,209335,14652,16522,5615,5919,8096,5253,376],
+[new Date(2021,8,13),51244,16683,222815,15110,16473,5702,6136,8187,5258,376],
+[new Date(2021,8,12),51285,16699,232352,15157,16399,5913,6367,8203,5324,379],
+[new Date(2021,8,11),51320,17055,238201,15119,16304,6029,6451,8219,5351,391],
+[new Date(2021,8,10),51364,17019,236903,14624,16221,6207,6401,8246,5470,396],
+[new Date(2021,8,09),51419,17085,240037,14510,16180,6298,6332,8288,5497,390],
+[new Date(2021,8,08),51465,17458,237601,14452,16205,6457,6152,8387,5476,364],
+[new Date(2021,8,07),51234,17412,239338,14550,16256,6415,6322,8480,5505,354],
+[new Date(2021,8,06),53633,17527,248346,15158,16282,6346,6448,8652,5545,368],
+[new Date(2021,8,05),55559,17772,250619,14883,16315,6403,6413,8679,5673,381],
+[new Date(2021,8,04),53999,18430,246989,14922,16370,6505,6563,8694,5736,381],
+[new Date(2021,8,03),54138,18404,240736,14702,16478,6775,6556,8734,5809,385],
+[new Date(2021,8,02),54606,18438,230461,14473,16620,6794,6546,8801,5852,391],
+[new Date(2021,8,01),54763,18412,219441,14693,16850,6901,6546,8815,5864,412],
+[new Date(2021,7,31),55359,18418,210040,14862,17085,6960,6738,8922,5891,439],
+[new Date(2021,7,30),56366,18784,213113,15179,17322,7049,7039,9070,5912,480],
+[new Date(2021,7,29),55341,18923,205440,14853,17559,7434,7093,9109,6065,510],
+[new Date(2021,7,28),55091,18996,195796,15050,17797,7532,7338,9143,6166,545],
+[new Date(2021,7,27),53908,19326,181747,14448,18069,7781,7577,9167,6246,595],
+[new Date(2021,7,26),53695,19344,170829,14061,18352,8006,7558,9185,6295,627],
+[new Date(2021,7,25),53260,19810,159870,13677,18603,8005,7461,9217,6276,653],
+[new Date(2021,7,24),53433,20281,155096,14159,18887,7995,7938,9336,6308,709],
+[new Date(2021,7,23),56690,20582,163745,14677,19171,8011,8277,9461,6384,863],
+[new Date(2021,7,22),57474,20871,178995,15141,19391,8224,8571,9594,6608,897],
+[new Date(2021,7,21),58958,21187,182818,15472,19621,8257,8705,9635,6728,931],
+[new Date(2021,7,20),61082,21159,179835,15738,19864,8296,8714,9653,6865,959],
+[new Date(2021,7,19),61568,21292,178212,15944,20083,8372,8744,9715,6912,974],
+[new Date(2021,7,18),64790,21507,175695,16341,20225,8772,8661,9736,6939,1037],
+[new Date(2021,7,17),65922,22074,172765,17218,20370,9054,9073,9832,7093,1138],
+[new Date(2021,7,16),67688,22523,179155,17865,20458,9320,9438,10030,7268,1295],
+[new Date(2021,7,15),66731,22724,180764,18210,20427,9776,9487,10078,7606,1361],
+[new Date(2021,7,14),66475,22729,180522,18766,20411,10001,9619,10109,7812,1423],
+[new Date(2021,7,13),65808,22754,177040,18688,20399,10427,9729,10127,7996,1509],
+[new Date(2021,7,12),68018,22877,176478,18417,20382,10819,9866,10163,8137,1557],
+[new Date(2021,7,11),69565,22702,172505,18882,20363,11045,9722,10215,8112,1623],
+[new Date(2021,7,10),71813,23342,170031,19549,20427,11096,10064,10312,8242,1700],
+[new Date(2021,7,09),74944,23956,177091,19949,20407,11059,10719,10485,8406,1721],
+[new Date(2021,7,08),74482,24292,178685,20375,20286,11633,11008,10585,8582,1735],
+[new Date(2021,7,07),77905,24354,178722,20593,20185,11719,11501,10642,8674,1780],
+[new Date(2021,7,06),78412,24439,178441,20302,20138,12024,11917,10721,8744,1830],
+[new Date(2021,7,05),76224,24330,176564,20184,20117,12223,12295,10745,8803,1906],
+[new Date(2021,7,04),77729,24305,173736,20170,20217,12440,12676,10767,8777,1881],
+[new Date(2021,7,03),78700,24045,165834,20582,20385,12429,13318,10803,8819,1918],
+[new Date(2021,7,02),82350,24168,167891,21019,20524,12642,14138,10974,8873,1919],
+[new Date(2021,7,01),80138,23820,165011,21180,20716,13322,14538,11113,9069,1863],
+[new Date(2021,6,31),80871,23502,161332,21198,20934,13832,14927,11171,9141,1965],
+[new Date(2021,6,30),81933,23277,155327,21279,21207,14114,15276,11300,9188,2086],
+[new Date(2021,6,29),85913,22592,150040,20999,21521,14499,15765,11370,9314,2226],
+[new Date(2021,6,28),85447,22510,145876,20965,22188,15035,15830,11380,9237,2390],
+[new Date(2021,6,27),92088,23080,137318,21748,22762,14929,16230,11566,9325,2518],
+[new Date(2021,6,26),98341,23442,140779,22155,23364,15257,16859,11796,9405,2738],
+[new Date(2021,6,25),96833,23928,138626,22358,24025,15726,17201,11891,9625,2789],
+[new Date(2021,6,24),98120,24150,135700,22939,24816,15942,17270,12089,9729,3046],
+[new Date(2021,6,23),97513,24718,129381,23571,25526,16205,17466,12205,9857,3241],
+[new Date(2021,6,22),98087,25668,130139,23939,26158,16693,17795,12391,9908,3384],
+[new Date(2021,6,21),97932,26279,126894,23843,26717,17597,17880,12509,9787,3334],
+[new Date(2021,6,20),99709,27550,122202,23570,27282,17454,18192,12759,9836,3469],
+[new Date(2021,6,19),106809,29314,125535,24708,27897,17815,18850,13111,9824,3719],
+[new Date(2021,6,18),103745,30105,125273,25041,28590,18778,19193,13333,9980,3837],
+[new Date(2021,6,17),104647,31422,122436,24854,29230,19569,19478,13484,10028,3967],
+[new Date(2021,6,16),110505,32406,119513,25526,29950,20467,19789,13637,10101,4016],
+[new Date(2021,6,15),110056,33665,118197,25957,30600,21000,20308,13847,10203,4028],
+[new Date(2021,6,14),107691,34257,115662,26710,31218,21631,20904,14191,10064,4150],
+[new Date(2021,6,13),111622,34881,111578,27195,31819,20941,21683,14531,10148,4517],
+[new Date(2021,6,12),119442,36760,115327,28680,32307,21319,22690,14901,10316,4784],
+[new Date(2021,6,11),117270,37164,115706,29262,32767,22549,23297,15304,10724,4862],
+[new Date(2021,6,10),115494,37929,113595,30300,33224,23036,24141,15690,10942,4993],
+[new Date(2021,6,09),117698,38752,110616,31850,33665,23048,24737,16143,11206,4914],
+[new Date(2021,6,08),117869,39626,108400,32356,34076,23371,25148,16655,11472,5017],
+[new Date(2021,6,07),117536,40039,104577,33230,34477,24244,25525,17275,11455,5004],
+[new Date(2021,6,06),120061,42019,101097,33964,34926,23590,26347,17950,11704,5220],
+[new Date(2021,6,05),126454,44869,104508,35325,35294,23502,26922,18780,11964,5345],
+[new Date(2021,6,04),120802,48139,104035,35871,35881,25084,27452,19280,12454,5330],
+[new Date(2021,6,03),120079,53894,104229,37323,36707,25261,27738,19729,12726,5620],
+[new Date(2021,6,02),119867,65335,102523,38178,37526,25737,27827,20170,13052,5787],
+[new Date(2021,6,01),119558,76528,101343,38338,38191,26435,28242,20585,13388,5964],
+[new Date(2021,5,30),120281,86020,99635,40074,39335,27039,28152,21116,13487,5914],
+[new Date(2021,5,29),121050,97615,96472,42252,40954,26390,29072,21580,13869,6208],
+[new Date(2021,5,28),125422,101065,100048,44773,42801,27137,29181,21884,14302,6596],
+[new Date(2021,5,27),124415,105249,101556,46126,44924,28912,29390,22099,15054,6720],
+	]);
+
+        var options_linechart = {
+          title: 'Active Covid-19 cases (from 1 year ago to present day) ',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var linechart = new google.visualization.LineChart(document.getElementById('user_selected_chart'));
+
+        linechart.draw(data_linechart, options_linechart);
+	// now for the piecharts
+	  var data_piechart_today = google.visualization.arrayToDataTable([
+	      [ 'State', 'Active Covid-19 cases ' ],
+	          ['Maharashtra',4440],['Karnataka',3568],['Kerala',15831],['Andhra Pradesh',284],['Tamil Nadu',4995],['Assam',2705],['Odisha',1388],['West Bengal',2231],['Telengana',745],['Chhattisgarh',613]	  ]);
+	  var data_piechart_past = google.visualization.arrayToDataTable([
+	      [ 'State', 'Active Covid-19 cases' ],
+	          ['Maharashtra',124415],['Karnataka',105249],['Kerala',101556],['Andhra Pradesh',46126],['Tamil Nadu',44924],['Assam',28912],['Odisha',29390],['West Bengal',22099],['Telengana',15054],['Chhattisgarh',6720]	  ]);
+	  var options_piechart_today = {
+	      title: 'Distribution of active Covid-19 cases (Today)',
+	      legend: 'Active Covid-19 cases',
+	      chartArea: {width: 500, height: 700}
+
+	  };
+	  var options_piechart_past = {
+	      title: 'Distribution of active Covid-19 cases (1 year ago)',
+	      legend: 'Active Covid-19 cases',
+	      chartArea: {width: 500, height: 700}
+
+	  };
+	  
+	  var piechart_active_today = new google.visualization.PieChart(document.getElementById('piechart_active_today'));
+	  piechart_active_today.draw(data_piechart_today, options_piechart_today);
+	  var piechart_active_past = new google.visualization.PieChart(document.getElementById('piechart_active_past'));
+	  piechart_active_past.draw(data_piechart_past, options_piechart_past);
+	  
+
+      }
+    </script>
+
+
+    <style type="text/css" media="screen">
+      /* footer code */
+      .stark_black_footer_flex_container{
+      display: flex;
+      min-height: 400px;
+      border: solid black 3px;
+      padding: 20px;
+      background-color: black;
+      }
+      .stark_black_footer_left{
+      width: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 45%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      min-height: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      min-height: 45%;
+      }
+      .card{
+      width: 80%;
+      height: auto;
+      border: 1px solid white;
+      box-shadow: 5px 5px 8px white, 10px 10px 8px grey, 15px 15px 8px green;
+      background-color: black;
+      color: white;
+      padding: 20px;
+      }
+      .stark_black_filler{
+      min-height: 200px;
+      background-color: black;
+      }
+      .card a{
+      color: #f8f8ff;
+      text-decoration: none;
+       }
+      .card a:hover{
+      color: #adff2f;
+      text-decoration: underline;
+      }
+      ul li{
+      line-height: 1.5;
+      }
+      .card h2{
+background-color: black;
+color: white;
+      }
+    </style>
+
+
+        <style>
+      @media (max-width:500px) {
+      /* smartphones, iPhone, portrait 480x320 phones */
+      
+      .stark_black_footer_flex_container{
+      padding: 1px;
+      flex-direction: column;
+      width: 95%;
+      }
+      .stark_black_footer_left{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      }
+      .card{
+      height: auto;
+      }
+      
+      }
+
+    </style>
+	<style>
+     @media (max-width:1000px) {
+      .card{
+      height: auto;
+      }
+      
+      }
+
+	  </style>
+    
+    <div class="stark_black_footer_flex_container">
+      <div class="stark_black_footer_left">
+
+ <div class="card">
+   <h2>Source of data:</h2>
+   <p></p>
+   <a href="https://www.mygov.in/covid-19" target="_blank"> https://www.mygov.in/covid-19 </a>
+   <h2>Tools used</h2>
+   <ul>
+     <li>php for server side scripting</li>
+     <li>BeautifulSoup library of python for data scrapping from websites</li>
+     <li>Mariadb server, an open source relational database (a fork of mysql)</li>
+     <li>Graphs are being generated clientside with google-graphs javascript library</li>
+   </ul>
+
+
+ </div>
+      </div>
+      <div class="stark_black_footer_right">
+ <div class="stark_black_footer_right_top">
+
+   <div class="card">
+     <h2>Other links</h2>
+     <ul>
+       <li><a href="/covid1/daily_covid19_data.html" target="_blank">Covid-19 statistics of the world</a> </li>
+       <li><a href="/covid2/covid_india_tracker.html" target="_blank">Covid-19 statistics of India</a></li>
+       <li><a href="/covid1/compare/active.html" target="_blank">Compare Covid-19 statistics between two countries</a> </li>
+       <li><a href="/covid2/compare_two_states.html" target="_blank">Compare Covid-19 statistics across Indian states</a> </li>
+       <li><a href="/covid2/states_table.html" target="_blank">Covid-19 statistics of different Indian states</a></li>
+       <li><a href="/covid2/covid_distribution.html" target="_blank">Covid-19 pie-chart visualization for India</a></li>
+       <li><a href="/covid1/covid_distribution_top_ten.html" target="_blank">Covid-19 pie-chart visualization for the World</a></li>
+       <li><a href="/covid2/india/last_week.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+       <li><a href="/covid1/world/change_in_covid_cases_last_week.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="/covid1/world_a/7.html" target="_blank">Number of active Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="/covid2/india_a/7.html" target="_blank">Number of active Covid-19 cases in different Indian states in the last week</a></li>
+
+     </ul>
+
+   </div>
+ </div>
+ <div class="stark_black_footer_right_bottom">
+
+   <div class="card">
+     <h2>About Me</h2>
+     <p>My name is Parameshwar Majhi</p>
+
+     <a href="https://majhi.co.in/bash/" target="_blank">https://majhi.co.in/bash/</a> 
+
+   </div>
+ </div>
+      </div>
+    </div>
+    <div class="stark_black_filler">
+</div>
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <style type="text/css" media="screen">
+      #crypto_container{}
+      #crypto_visible_box_outer{
+      margin: 5px;
+      padding: 2px;
+      background-color: #f5f5dc;
+      }
+      #crypto_visible_box_inner{
+      margin: 2px;
+      padding: 1px;
+      background-color: #e0ffff ;
+      }
+      #donate_box{
+      background-color: white;
+      font-size: 0.7em;
+      }
+      .coin{
+      margin: 20px 1px 20px 1px;
+      padding: 5px 0 5px 0;
+      text-align: center;
+      line-height: 2;
+      word-wrap: break-word;
+      background-color: #e6e6fa ;
+      box-shadow: 3px 2px 5px black;
+      }
+      .coin:hover{background-color: #f0f8ff }
+      .coin>a:link{color: black}
+      .coin>a:hover{color: red}
+      a{text-decoration: none;}
+      a.crypto_site{font-size: 1.8em; padding: 0}
+      @media (min-width: 500px){
+      .coin br{display: none}
+      }
+      a#crypto_address{
+      padding: 20px;
+      }
+      .crypto_qr{
+      display: none;
+      }
+      #crypto_donor_banner{
+      text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="crypto_donor_banner">
+      <h3>Show your appreciation <p>(Donate some crypto coins)</h3>
+      
+    </div>
+    <div id="crypto_container">
+      <div id="crypto_visible_box_outer">
+	<div id="crypto_visible_box_inner">
+	  <div id="donate_box">
+	    <div class="coin" id="btc">
+	      <a class="crypto_site" href="https://bitcoin.org" target="_NEW">BTC</a><br> <a  id="crypto_address" href="bitcoin:bc1qj328xknrkqhcmlekd9eye5nmwt87hj9ld7nps4">bc1qj328xknrkqhcmlekd9eye5nmwt87hj9ld7nps4</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64, iVBORw0KGgoAAAANSUhEUgAAAJEAAACRCAYAAADD2FojAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD
+e0lEQVR4nO3dy5LbIBRF0TiV///lzigTDZrgDUhO1pq29WjXqetbCNDr6+vr6wcEP+++AT6fEJEJ
+EZkQkQkRmRCRCRGZEJEJEZkQkQkRmRCRCRHZr3cPfL1eK+9j6DrZ4Hr90WSEer/1/LOTJe7+fmeo
+RGRCRCZEZG/3RFerJ0jO9hi1J5ntsZ52/lkrey6ViEyIyISIbFlPdDX7m1t/82d7pNn7qz3Naqe/
+3++oRGRCRCZEZNt6orvVHqD2VHf3TCepRGRCRCZEZP9MTzQax1k9zlPP97Rxp0IlIhMiMiEi29YT
+nf6Nn+2B6rOn1fOZZj2ph1KJyISITIjIlvVEp9dJrR5nqfORVh8/+vyTqERkQkQmRGSvT91Rv/Yk
+u5+tXf1Lz8quVCIyISITIrJt+xPt7lHqs7B6/aunzVc6eX6ViEyIyISIbNk40epnQavn/8xef9bu
++UWn92uaoRKRCRGZEJFt27Ox9jCr92Ccvd7qv4/c/X0VKhGZEJEJEdmxtfij3/DVc5ZHTvcws9eb
+/b5mjx99foZKRCZEZEJEtm3dWR03Wv0ujNPzjU6PO925Lk0lIhMiMiEie3s+0d1zmldbvY6tXr8y
+TsRHESIyISI7Np+oPit68jjJ31jdQ47Of/L7UInIhIhMiMi2rTubtfrdGKvnaJ9+V8jI6jnmhUpE
+JkRkQkS2bZxoZPU7Vnf3QLPnG1k9DrZ6PtcMlYhMiMiEiGzbfKL/fX+h1f/v6Px37outEpEJEZkQ
+kW1bi796v506bnO6h9j9/rMn7ZOtEpEJEZkQkW3riXaPe6x+d8js5+9ep3Zlz0Y+mhCRCRHZbeNE
+u+c473529bR1cnWPx0IlIhMiMiEie7snWj3ucHo+zO51Yrufhe3u+WaoRGRCRCZEZG/3RKf3A7r+
+pj99n+yn3d9OKhGZEJEJEdlta/FHdvdcd78rZPZ6T6YSkQkRmRCRPXbd2ez5dz8LG41TVbt7rJ3r
+7lQiMiEiEyKybT3RaXUdWV1nNrJ7Xdro/nbuw60SkQkRmRCRfWxPdPe7LZ621n738d9RiciEiEyI
+yB6zP9GsOs5x97qt1XsRrD5+hkpEJkRkQkS2rCe6+730q9+f9vTjd+/7PUMlIhMiMiEie/t9Z/CH
+SkQmRGRCRCZEZEJEJkRkQkQmRGRCRCZEZEJEJkRkQkQmRGS/Aa/VLT9JnjzWAAAAAElFTkSuQmCC
+"/>
+	    </div>
+
+	    
+	    <div class="coin"  id="litecoin">
+	      <br /><a class="crypto_site" href="https://litecoin.org" target="_NEW">LTC</a><br> <a  id="crypto_address" href="litecoin:ltc1q5m6dtu0hqf8xq4up8x2t65zxcz2dzjtxnmeggr">ltc1q5m6dtu0hqf8xq4up8x2t65zxcz2dzjtxnmeggr</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAACRCAYAAADD2FojAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD
+dUlEQVR4nO3dS27bQBBF0SjI/rfsTA0OTLRuf6jknGlsig4eSoX+vr6+vr5+QfD79Avw+YSITIjI
+hIhMiMiEiEyIyISITIjIhIhMiMiEiEyIyP68+4uv12vme9y6W2xwfZ/RxQl3f8/1ead/fraymEMl
+IhMiMiEie7snupq9QPKuJxjtGUZ7krvfX92jXe3+/x2hEpEJEZkQkU3ria5Gv3NHv/PvxlVqD3Rn
+ds9TP//OyvdTiciEiEyIyJb1RKvNnouq4yb1+Z+8EVklIhMiMiEi+9ieqM5dffpc2pOoRGRCRCZE
+ZMt6otXf+bXHmD33tnsc6Ek9lUpEJkRkQkQ2rSfavU+qGh1Hqv8++vl3P/8kKhGZEJEJEdnrfz1R
+f/Vc1r88V3alEpEJEZkQkT3mfKLV5/PUcZjV64vuPm/1uFahEpEJEZkQkb09TjT7O331548+b3cP
+VK3+e3+iEpEJEZkQkb09TjS7B1jdM5xeM13HwUbXhBsn4qMIEZkQkW2bO6s9xJ3VZzbuHodZvU/N
+OBGPIkRkQkR27Hyi1Wccrj6z8fR6p9PneH+nEpEJEZkQkR2bO1u9nmj3XNLqucT6/qNzbSNUIjIh
+IhMisml78Wevj6l2r+GuPUY97+hq595/lYhMiMiEiOwxc2dP27t+52l740/eLaISkQkRmRCRPeZ8
+otrzrL7DdfR9Vjt9t8h3KhGZEJEJEdm0caLZ62lG11CPft7subXVd9LePe9q57iRSkQmRGRCRLZs
+7mz33NLsfWV3Zp9PVOfuRpk741GEiEyIyLatJ1p9p+rsuaTV95XtnnuznohHEyIyISJb1hOdHteZ
+fT7R7Lm/3ffFObORRxMiMiEim7YXf7fZa6JXry9afT9bpSfiKCEiEyKyx+w7uzP73OrV5//M3gd3
++m6Qn6hEZEJEJkRk2/adjVrd08yeW5q9Pujp97F9pxKRCRGZEJFt23d25/S5z6f3wu8+X2kmlYhM
+iMiEiOzYOdaz1XGdu+fNNntN9OwecYRKRCZEZEJE9s/0RFe7963t7mF2r+n+iUpEJkRkQkR2bC/+
+abvXLNe9/qN3mxgn4qMIEZkQkU3riU6uZ3nH6rs5do8brT5r4CcqEZkQkQkR2ceeT8RzqERkQkQm
+RGRCRCZEZEJEJkRkQkQmRGRCRCZEZEJEJkRkQkT2F6LDGnxnf+itAAAAAElFTkSuQmCC
+" />		
+
+	    </div>
+	    <div class="coin" id="dogecoin">
+	      <br/><a class="crypto_site" href="https://dogecoin.com/" target="_NEW">DOGECOIN</a><br> <a id="crypto_address" href="dogecoin:D6uvg77GUthoo8akc8tXh9X7zp4EL77VZo">D6uvg77GUthoo8akc8tXh9X7zp4EL77VZo</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAFACAIAAACJKdYDAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAT
+70lEQVR4nO3de1DU1f/H8QNxcdUss4umZjpZjpqSY05RTU0XLA2MRDAvhdwyKoq0ixbgBbHEawQz
+QmJZWXTTDBsnRCwrb5mJltRYaKVWXBJwFYHdz++P82tnB4SvMJ/l/ZGej7/Ws5/L2c/y2rO7b88e
+L8MwFAA53tIdAP7rCCEgjBACwgghIIwQAsIIISCMEALCCCEgjBACwgghIIwQAsIIISCMEALCCCEg
+jBACwgghIIwQAsIIISCMEALCCCEgjBACwgghIIwQAsIIISCMEALCCCEgjBACwgghIIwQAsIIISCM
+EALCfDx9Ai8vL0+fwiytXaqxhYcmteqjWVe7hf43dwoTr57VePrZZCQEhBFCQBghBIQRQkAYIQSE
+EUJAGCEEhBFCQJjHi/UtOF8q2iaWlVt7qOYukVnHaU4b/h+CWUX88+WvwkSMhIAwQggII4SAMEII
+CCOEgDBCCAgjhIAwyTphc9phZqopx2mhn56u47WWWUW8Fg7laVb7qzARIyEgjBACwgghIIwQAsII
+ISCMEALCCCEgzIp1QqtpQ4XKrHmAntaG+qGJJUdojISAMEIICCOEgDBCCAgjhIAwQggII4SAMOqE
+/5uJk+6kfke0tdpQz6R+2GaMhIAwQggII4SAMEIICCOEgDBCCAgjhIAwK9YJrVZZaocKmInrB5py
+/DYcytNTJa32V2EiRkJAGCEEhBFCQBghBIQRQkAYIQSEEUJAmGSd0Go/winIrFJka4t4Fiy+/Qf/
+KhgJAWGEEBBGCAFhhBAQRggBYYQQEEYIAWFeFqwU/QeZVcdrh3qg1X4itQNgJASEEUJAGCEEhBFC
+QBghBIQRQkAYIQSEeXw+oeD0MKlfyGyBVN2vHYp7Zk1ltNr27YCREBBGCAFhhBAQRggBYYQQEEYI
+AWGEEBAmOZ/QapPozKo4teHUrWViVz3NausZtuG8nn42GQkBYYQQEEYIAWGEEBBGCAFhhBAQRggB
+YYQQECY5qdfTM1MtuNykp7vUDkV8syrXViviC2IkBIQRQkAYIQSEEUJAGCEEhBFCQBghBIR1hEm9
+Zh1fcKasBRcDNYtUtdbEKjSTeoEOjhACwgghIIwQAsIIISCMEALCCCEgzON1wnYoE5lVx2uHSXdS
+K1qauEio1aq7nj5OO2AkBIQRQkAYIQSEEUJAGCEEhBFCQBghBISdT3VCT9cDmyP4EKy2vQW1w7PJ
+fEKggyOEgDBCCAgjhIAwQggII4SAMEIICLPi746axYJFMMESpVmsNh/P01XidsBICAgjhIAwQggI
+I4SAMEIICCOEgDBCCAjz8fQJOvAifiauaGe1+YRtYLUpi6xPCOBcEUJAGCEEhBFCQBghBIQRQkAY
+IQSEdYT5hIKL9ZnFakW2FkitBilVem3DqVuLkRAQRggBYYQQEEYIAWGEEBBGCAFhhBAQJrk+4flS
+3xOcEtkcqWJaC7s0pwMsmUidEOjgCCEgjBACwgghIIwQAsIIISCMEALCPP67o21gVgXpPJo36Onj
+N/fQTJxcZ8GrbanztoCREBBGCAFhhBAQRggBYYQQEEYIAWGEEBBGCAFhVizWt5YFy69Si3UKznxt
+LalFQtthvdTWYiQEhBFCQBghBIQRQkAYIQSEEUJAGCEEhFmxTujpHwU267wtsNrkXcEZt9QD/ydG
+QkAYIQSEEUJAGCEEhBFCQBghBIQRQkCYxxcJ7QDaoeIkNQ+wDQ/Baku1tsOioiwSCnRwhBAQRggB
+YYQQEEYIAWGEEBBGCAFhHp9PeB79EmY71P3MWqyzHYpjzTHr1GZVX8+jeYPNYSQEhBFCQBghBIQR
+QkAYIQSEEUJAGCEEhEn+7qhUJcesGXEtHMdqxS6pn3JtgdXqeCY+m63FSAgII4SAMEIICCOEgDBC
+CAgjhIAwQggIs+L6hFZbb7ANRTxPT5ZrjlnzEk38PVKrrU9oQYyEgDBCCAgjhIAwQggII4SAMEII
+CCOEgDAr1gk7gNbW2cyq77XD8aWquFJ1yHbASAgII4SAMEIICCOEgDBCCAgjhIAwQggIo07oEZ4u
+Xpk1z9DEyXhSP21q1kMQ/B1URkJAGCEEhBFCQBghBIQRQkAYIQSEEUJAmBXrhFZbua45bVjRTur3
+SE0ktWSiWce34PxDRkJAGCEEhBFCQBghBIQRQkAYIQSEEUJAmGSd0IIVm1Yx8cc522H9QFPO27Zd
+RI7THAtWoRkJAWGEEBBGCAFhhBAQRggBYYQQEEYIAWGEEBDmZcHaJfCfwkgICCOEgDBCCAgjhIAw
+QggII4SAMEIICCOEgDBCCAgjhIAwQggII4SAMEIICCOEgDBCCAgjhIAwQggII4SAMEIICCOEgDBC
+CAgjhIAwQggII4SAMEIICCOEgDBCCAgjhIAwQggII4SAMEIICCOEgDAfwXNHRETY7XY/P7+AgIAn
+n3yye/furrv27t2blZW1aNEi98ZW+fvvv6dPn+50OpVSNTU1l19++YoVKxq1vPvuu0qpzz77LDs7
+Wyl15syZoKCgxMREpdTBgwc3btw4c+ZM1wG/+uqrQ4cORUZGKqXi4uL0LllZWYGBgQEBAW3oYUFB
+wcqVKxsaGgYOHJienn7WbWJjY3Nyclo+zunTp2fMmFFRUWG321NTU3Vndu7c+cMPP0RFRSmlli9f
+PnDgwLFjx+rtT506NXXq1Ly8vOzs7Kadf+WVV/bv3+/l5RUQEDBjxgylVHR0dEpKylVXXaU3KCkp
+ycjIyMzMzMjIKCws1I27d+8uLCwcNGjQuT/8nJyc+vr6+Pj4zMzMvLy8Sy65xHXX3Llzhw8f/uij
+j65cudLVWFRUtGLFCn27tLQ0Pj7+2muvdW+Ji4srLi523yUyMjI3Nzc2Nvbo0aOuxu+++66goGD4
+8OHn3lWPM+SMGzdO3/j666/vvvvu/fv3639+++23q1atcjgcZp0oOTn566+/PmvLxx9//Pjjj585
+c0a3L1u2LD093TCM3bt3p6amuu+yefPmJUuW6Nvjx4/XN9LT07dv396GLjmdznHjxjmdTsMwFixY
+sGPHjrNu5jpRC5YuXVpYWGgYxsmTJydOnKgbi4qKMjIy9O2GhoYHH3zw4MGDhmE4HI6HHnpo586d
+Z+38F1988fLLL+vbWVlZ27ZtMwzj6NGjY8aMsdvthmGUlZXde++9FRUV7ntVVlZOmDDh3B+7YRi/
+//77oEGD9KVOT0/XJzr3xx4aGlpdXd20Zfz48SdPntQthw8fjouLa7Tjli1b5syZ06qutgNLvB0N
+DAxcu3bt888/r5RyOBwLFy784osvYmJi3njjDb3Biy++eOLECX37ySefLCoqWr16tf7nL7/8kpqa
+qpRav359SEhIREREYGDgnj17XAevrKw8ePBgYGBg0xaHw5Gdnf3qq6/6+fnpu55++mk9Ynh5eTXq
+pLe3t1Jq8+bNYWFhO3bsCAsLy83NVUoZhjFr1qzQ0NCFCxfqLT/55JOYmJiHH354/vz5uqWmpuaJ
+J56Ij48PCwv7+eef9V5Op9PhcDidzp9++unSSy9VStnt9vj4+PDw8ODg4Pfff19vpo/wyiuvfPnl
+l0qp2tra+Pj4Rx55ZNKkScePH9f31tXV6Utx4YUXKqXi4uJSUlJWrVoVERFRVVV1wQUXZGdnJyYm
+VlVVPffcc6GhoaNGjdI7Nur8rl277r//fn3X6NGjt23bppS68sork5KSHnvssdra2mnTpq1YscJ9
+1FJKLV26VL99WL58eVhYWFhY2JgxY0aMGKGUiomJSUtLmzFjRmRk5Pr16127PPPMM0lJSS3/VTRn
+8+bNo0aN0o+0UUtwcPCGDRt0Y05OTmxsrPuOv/7669tvv52cnKz/WVJSEhUVFRcXFxUVZbfb29YZ
+cwi+ALhGQi06OvrYsWNbtmx58cUX6+rqDMOYN2+eHq+mTJmiBw3DMCZPnlxfXx8cHKz/+fzzz+/b
+t+/777+fPn26HjxTUlJ27drlOuzs2bMbvd67WoqLi5OSks7at++//z4lJcW9ZdOmTa6xxX0knDBh
+gn4hDw4Orq+vP3DgwNSpU10n2rRpk2EY06ZN27t3r2EYf/3113333afvLSgoGDRoUEBAQE5Ojm55
+4oknvvnmG8Mw/vjjjxkzZhiG8eCDDxqGkZWVtWLFCr1NYmKi7vzx48dLS0sNw6itrQ0JCQkKCho+
+fHhVVZXezH0k1Pbt2xcQELBgwQJXS9PO5+fnv/baa4ZhOJ3O1atXu2/8+uuvDxkypKioqNGFKi8v
+bzoMRkdHFxcXG4YREhKyb98+3RgVFaWfoLfeemvJkiXbt293jYS33XbbuH+lpaU1usiNhISE1NTU
+nLWlqqoqPDzcMIz6+vqxY8e6b1NdXR0REeHasba2NigoSF+uzz///IUXXjjrudqHJUZCrXfv3keP
+Hi0uLo6MjPT19VVKTZw4cevWrUopwzBcQ5PD4fDx8bnhhhv27t1bX19fUlIybNiwd955Jzk5WQ9W
+Sil/f399o7y8/NChQzfddJPrLO4tdXV1nTt31u2nT5+OiIgYP378fffdV1pa2qNHj8rKSvfuVVZW
+XnbZZU27PXTo0FtvvVUpdd111/3+++9r1qyZPXu2vmvy5MmFhYU1NTV1dXX6o9fll1/etWtXu91u
+t9tzc3Pz8vKKioq2bt167Nix2tra8vLym2++WSnV0NCgj+B0OufMmfPDDz8kJCQopWpra48dO6Y7
+37Nnz6uvvlop9dFHH40cOXLDhg1z585dunRpc5f3+PHjF110UXV1dQudHzt2rMPhiI6OjomJycnJ
+cf/gdPjw4R49ejQdMRYvXuz+yVkplZ6efs8991x//fVKKV9f32HDhun2gQMH/vHHH2VlZWvXrn3q
+qafcd0lLS1v/r1mzZjX3EJRSmzZtuuWWW7p27XrWlm7dunl5eZ04cWLDhg0hISGubZxOZ0JCQlpa
+mmvHLVu2hIaGduvWTSl1zz33FBcXt3BST7NQCPft2zdgwICGhoaqqirdYrfb9bsO/W2K5nA4lFIx
+MTG5ubnr168PDQ1VSp06deriiy/WG5SXl7veXqanpzf9E3G1DB48ePv27fq2zWZ77733Fi1aNGDA
+gP79+/fp0+fw4cPuO+7Zs+fGG29s2u0777xT3+jevXtVVVV1dbXry6R//vmne/fup06dcn/vdObM
+GZvNtm7duvDw8GHDhl188cUJCQl5eXkVFRX6TalSqr6+Xt/46aefQkJC7Hb7jz/+qJSqqKjo06dP
+ow589NFHSUlJ/v7+48aNKykpOeu13b9//8qVKwsKCnx9fdeuXdtc55VSCQkJq1atSktLa2hoCAoK
+0ve++eabF1xwQWFhYU5OjvspysrKSktLXW9ulVKbN2+urKyMiIho2ofq6mqbzfbpp596e3tHR0fP
+nz//gw8+cH3KOEeZmZmPP/54Cy0PPPDAunXr3n333UmTJrkak5OTp06dOmDAAPfOuJ6mhoYG1x+M
+CEuEsKGhYdmyZf369bvkkksCAwPfe+893b5mzZrbb79dKdWzZ8/S0lKl1N9//33kyBGlVN++fU+c
+OLFmzZrw8HCl1F133fXBBx8opU6ePJmfn6+vqd7YPTmNWmw222233bZ8+XL9z+rq6sTERP2VoFJq
+yJAhBQUF+vaRI0dKS0vdn0UXH5///4bZ19fX4XDcfffd+sOPw+F49dVXJ06ceMUVVxw7duz06dNK
+qR07dvTu3dvb27t79+6ukO/evbtfv369evU6cODAqVOnlFL79+/Xdw0cOHDEiBGvvfba7Nmzy8vL
+e/Xq9euvv+ptKioq9DeBhmHU1NTox67P0siff/753HPPrV692tfXd968efn5+a7PzI06r2+XlZWF
+h4cvXbpUvx/ZunXr1q1b58yZ4+Pjs2rVqsTERFdyFi1a5P4ad/jw4ZycHP0R3UUf9uTJk7/99ttl
+l10WFRWVn5//xhtvJCUlTZgwwfXSeS7y8/PvuOOOLl26tNASEhKSnZ2t33HolnfeeefKK690vdxo
+t9xyy6ZNm/TtZcuWnfVVo91IligGDBigP/MYhhESErJs2TKl1M033/zNN9/oixIUFKTfzMTGxj7z
+zDP9+vXz8/Pr27ev3n3KlClbtmyx2WxKqdDQ0KSkpClTphiGMXz48E6dOiml1qxZ8+yzz7qfsWnL
+zJkzV65cOXr0aJvN5u3tnZKS4kranDlzZs6c+fbbb3fq1MkwjMzMTNderhdRm82mO6CU8vHx6dq1
+6/jx4+fOnRsfH//PP/9Mmzatf//+SqmFCxdOnz7d39/fz89v8eLFSqmxY8e+9NJLEyZMUEpdc801
++rU8OTl59OjRXl5e1113Xe/evZVS+iuQLl26LFmyJCUlJTMzc+HChY899pjD4aiqqlqwYIHu5yOP
+POLv73/69Om5c+fqznTq1MnVsVmzZmVlZV100UVKKS8vr+zs7MjIyA8//LBp55VS5eXlERERixcv
+1i9Vdrs9IyPDNXj26NEjPT09NTV18eLFdXV1ZWVlI0eOdF2W2NhYh8Ohn7tu3brl5ubqz2adOnXy
+9/efN2+e+5W32Ww6PDabbfbs2e5f9qSmpg4dOrSkpOSBBx7QLYMHD05LS1u3bl1GRob7QZq2dO7c
+eejQoXFxcfqfVVVVCQkJN954o+sLGz8/v7y8vD59+gQHB0dFRRmGMXjw4IkTJyo5Xsa/3791DE6n
+8/7779+4cWPTrzfR/sLCwj788EPpXlid5Ehoovr6+unTp+v3Y0899RQJtIhWvdv8z+poIyFw3rHE
+FzPAfxkhBIQRQkAYIQSEEUJAGCEEhBFCQBghBIT9H3tq6MBPyECFAAAAAElFTkSuQmCC"/>
+
+		
+</div>
+	    
+	    <div class="coin"  id="monero">
+	      <br /><a class="crypto_site" href="https://getmonero.org" target="_NEW">XMR</a><br> <a id="crypto_address" href="monero:44yBqx3HTfAMPi435RDWHuSK2Uhqkoe4Z7uY2wSvHHftP98uFipYwK47wYWTq2WrxB44TsRj4w2CM9mrYoFdoadaLzwga8Z">44yBqx3HTfAMPi435RDWHuSK2Uhqkoe4Z7uY2wSvHHftP98uFipYwK47wYWTq2WrxB44TsRj4w2CM9mrYoFdoadaLzwga8Z</a><p>
+<img class="crypto_qr" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwAQMAAAAEm3vRAAAABlBMVEUAAAD///+l2Z/dAAAACXBI
+		WXMAAA7EAAAOxAGVKw4bAAAdG0lEQVRYCQEQHe/iAP//////////////////////////////////
+		/////wD///////////////////////////////////////8A////////////////////////////
+		////////////AP///////////////////////////////////////wD/////////////////////
+		//////////////////8A////////////////////////////////////////AP//////////////
+		/////////////////////////wD///////////////////////////////////////8A////////
+		////////////////////////////////AP///////////////////////////////////////wD/
+		//////////////////////////////////////8A////////////////////////////////////
+		////AP///////////////////////////////////////wD/////////////////////////////
+		//////////8A////////////////////////////////////////AP//////////////////////
+		/////////////////wD///////////////////////////////////////8A////////////////
+		////////////////////////AP///////////////////////////////////////wD/////////
+		//////////////////////////////8A///wAAAAA+AH/AAAP/+D///8HwAB/wfAAAAAD///AP//
+		8AAAAAPgB/wAAD//g////B8AAf8HwAAAAA///wD///AAAAAD4Af8AAA//4P///wfAAH/B8AAAAAP
+		//8A///wAAAAA+AH/AAAP/+D///8HwAB/wfAAAAAD///AP//8P///4P/B///AAHwA8APgB//weAH
+		wf///w///wD///D///+D/wf//wAB8APAD4Af/8HgB8H///8P//8A///w////g/8H//8AAfADwA+A
+		H//B4AfB////D///AP//8P///4P/B///AAHwA8APgB//weAHwf///w///wD///D///+D/wf//wAB
+		8APAD4Af/8HgB8H///8P//8A///w+AAPg//4AB/4PgADwfB//wfAHwfB8AAfD///AP//8PgAD4P/
+		+AAf+D4AA8Hwf/8HwB8HwfAAHw///wD///D4AA+D//gAH/g+AAPB8H//B8AfB8HwAB8P//8A///w
+		+AAPg//4AB/4PgADwfB//wfAHwfB8AAfD///AP//8PgAD4P/+AAf+D4AA8Hwf/8HwB8HwfAAHw//
+		/wD///D4AA+D4P+D///+D/w//4AAB8Af/8HwAB8P//8A///w+AAPg+D/g////g/8P/+AAAfAH//B
+		8AAfD///AP//8PgAD4Pg/4P///4P/D//gAAHwB//wfAAHw///wD///D4AA+D4P+D///+D/w//4AA
+		B8Af/8HwAB8P//8A///w+AAPg+D/g////g/8P/+AAAfAH//B8AAfD///AP//8PgAD4Pg/4P/AAH/
+		/8H//AAH/h//wfAAHw///wD///D4AA+D4P+D/wAB///B//wAB/4f/8HwAB8P//8A///w+AAPg+D/
+		g/8AAf//wf/8AAf+H//B8AAfD///AP//8PgAD4Pg/4P/AAH//8H//AAH/h//wfAAHw///wD///D4
+		AA+D4P+D/wAB///B//wAB/4f/8HwAB8P//8A///w////g+AHgB/4P/+APg//4P//4P/B////D///
+		AP//8P///4PgB4Af+D//gD4P/+D//+D/wf///w///wD///D///+D4AeAH/g//4A+D//g///g/8H/
+		//8P//8A///w////g+AHgB/4P/+APg//4P//4P/B////D///AP//8P///4PgB4Af+D//gD4P/+D/
+		/+D/wf///w///wD///AAAAAD4Ph8HwfB8Hw+D4Pg+D4fB8AAAAAP//8A///wAAAAA+D4fB8HwfB8
+		Pg+D4Pg+HwfAAAAAD///AP//8AAAAAPg+HwfB8HwfD4Pg+D4Ph8HwAAAAA///wD///AAAAAD4Ph8
+		HwfB8Hw+D4Pg+D4fB8AAAAAP//8A///wAAAAA+D4fB8HwfB8Pg+D4Pg+HwfAAAAAD///AP//////
+		///g///g+AAAAAH/g+D4Af///////////wD/////////4P//4PgAAAAB/4Pg+AH///////////8A
+		/////////+D//+D4AAAAAf+D4PgB////////////AP/////////g///g+AAAAAH/g+D4Af//////
+		/////wD/////////4P//4PgAAAAB/4Pg+AH///////////8A///w//4PgAD/g+AHwf+D/g+AHwAB
+		4PgAAAP/D///AP//8P/+D4AA/4PgB8H/g/4PgB8AAeD4AAAD/w///wD///D//g+AAP+D4AfB/4P+
+		D4AfAAHg+AAAA/8P//8A///w//4PgAD/g+AHwf+D/g+AHwAB4PgAAAP/D///AP//8P/+D4AA/4Pg
+		B8H/g/4PgB8AAeD4AAAD/w///wD///AHwAB/4PgAHwfB//w+D/wAB8H/AD4Af+AP//8A///wB8AA
+		f+D4AB8Hwf/8Pg/8AAfB/wA+AH/gD///AP//8AfAAH/g+AAfB8H//D4P/AAHwf8APgB/4A///wD/
+		//AHwAB/4PgAHwfB//w+D/wAB8H/AD4Af+AP//8A///wB8AAf+D4AB8Hwf/8Pg/8AAfB/wA+AH/g
+		D///AP//8AAB8AAfB4AA+D4AfD4AAAAAP//4Pg+D4A///wD///AAAfAAHweAAPg+AHw+AAAAAD//
+		+D4Pg+AP//8A///wAAHwAB8HgAD4PgB8PgAAAAA///g+D4PgD///AP//8AAB8AAfB4AA+D4AfD4A
+		AAAAP//4Pg+D4A///wD//////g//4P///wfAD4PB8H/gAAAfB8APg/////8A//////4P/+D///8H
+		wA+DwfB/4AAAHwfAD4P/////AP/////+D//g////B8APg8Hwf+AAAB8HwA+D/////wD//////g//
+		4P///wfAD4PB8H/gAAAfB8APg/////8A//////4P/+D///8HwA+DwfB/4AAAHwfAD4P/////AP//
+		8AAB8AAf//wA////gAAPg/8HweAAPg+D4P///wD///AAAfAAH//8AP///4AAD4P/B8HgAD4Pg+D/
+		//8A///wAAHwAB///AD///+AAA+D/wfB4AA+D4Pg////AP//8AAB8AAf//wA////gAAPg/8HweAA
+		Pg+D4P///wD///AAAfAAH//8AP///4AAD4P/B8HgAD4Pg+D///8A////+AH/////gAD4P/+D/gB8
+		HwA+H//B8APgD///AP////gB/////4AA+D//g/4AfB8APh//wfAD4A///wD////4Af////+AAPg/
+		/4P+AHwfAD4f/8HwA+AP//8A////+AH/////gAD4P/+D/gB8HwA+H//B8APgD///AP////gB////
+		/4AA+D//g/4AfB8APh//wfAD4A///wD///AAAA+D4PgAAAfB/4P+AAP/B/4fAAHwf/8P//8A///w
+		AAAPg+D4AAAHwf+D/gAD/wf+HwAB8H//D///AP//8AAAD4Pg+AAAB8H/g/4AA/8H/h8AAfB//w//
+		/wD///AAAA+D4PgAAAfB/4P+AAP/B/4fAAHwf/8P//8A///wAAAPg+D4AAAHwf+D/gAD/wf+HwAB
+		8H//D///AP//8AA+AHwf//wf+D4PgAAPg+AAAB/4PgAD4A///wD///AAPgB8H//8H/g+D4AAD4Pg
+		AAAf+D4AA+AP//8A///wAD4AfB///B/4Pg+AAA+D4AAAH/g+AAPgD///AP//8AA+AHwf//wf+D4P
+		gAAPg+AAAB/4PgAD4A///wD///AAPgB8H//8H/g+D4AAD4PgAAAf+D4AA+AP//8A///w//4Pg///
+		/AD4Pg//wf//4PgB//g+D///D///AP//8P/+D4P///wA+D4P/8H//+D4Af/4Pg///w///wD///D/
+		/g+D///8APg+D//B///g+AH/+D4P//8P//8A///w//4Pg////AD4Pg//wf//4PgB//g+D///D///
+		AP//8P/+D4P///wA+D4P/8H//+D4Af/4Pg///w///wD///D//g/8H/h/4AfAAH/+AHwf+D//B8AA
+		fB////8A///w//4P/B/4f+AHwAB//gB8H/g//wfAAHwf////AP//8P/+D/wf+H/gB8AAf/4AfB/4
+		P/8HwAB8H////wD///D//g/8H/h/4AfAAH/+AHwf+D//B8AAfB////8A///w//4P/B/4f+AHwAB/
+		/gB8H/g//wfAAHwf////AP//8AAAD4P/+AAAB8Hwf8AAf/8H/h8AAf+D/w///wD///AAAA+D//gA
+		AAfB8H/AAH//B/4fAAH/g/8P//8A///wAAAPg//4AAAHwfB/wAB//wf+HwAB/4P/D///AP//8AAA
+		D4P/+AAAB8Hwf8AAf/8H/h8AAf+D/w///wD///AAAA+D//gAAAfB8H/AAH//B/4fAAH/g/8P//8A
+		///w+D4P//8Hg///wf/8Af//4P/B4Pg//4P/////AP//8Pg+D///B4P//8H//AH//+D/weD4P/+D
+		/////wD///D4Pg///weD///B//wB///g/8Hg+D//g/////8A///w+D4P//8Hg///wf/8Af//4P/B
+		4Pg//4P/////AP//8Pg+D///B4P//8H//AH//+D/weD4P/+D/////wD///8H/g+AAPgAH//B/4AB
+		//wf+AH/+D4PgAD///8A////B/4PgAD4AB//wf+AAf/8H/gB//g+D4AA////AP///wf+D4AA+AAf
+		/8H/gAH//B/4Af/4Pg+AAP///wD///8H/g+AAPgAH//B/4AB//wf+AH/+D4PgAD///8A////B//w
+		f+AH//8AAfB//gB/4PgAH/g/8AAfD///AP///wf/8H/gB///AAHwf/4Af+D4AB/4P/AAHw///wD/
+		//8H//B/4Af//wAB8H/+AH/g+AAf+D/wAB8P//8A////B//wf+AH//8AAfB//gB/4PgAH/g/8AAf
+		D///AP///wf/8H/gB///AAHwf/4Af+D4AB/4P/AAHw///wD///D4AA+D4P+AH//B///AAH//AAH/
+		+D///B8P//8A///w+AAPg+D/gB//wf//wAB//wAB//g///wfD///AP//8PgAD4Pg/4Af/8H//8AA
+		f/8AAf/4P//8Hw///wD///D4AA+D4P+AH//B///AAH//AAH/+D///B8P//8A///w+AAPg+D/gB//
+		wf//wAB//wAB//g///wfD///AP//8P/B8H/g/4P/AAAP/8AP//8HwB//wfAD4P///wD///D/wfB/
+		4P+D/wAAD//AD///B8Af/8HwA+D///8A///w/8Hwf+D/g/8AAA//wA///wfAH//B8APg////AP//
+		8P/B8H/g/4P/AAAP/8AP//8HwB//wfAD4P///wD///D/wfB/4P+D/wAAD//AD///B8Af/8HwA+D/
+		//8A///w//4PgAD4A+D/wf//wA+AH/g///g+D4AA////AP//8P/+D4AA+APg/8H//8APgB/4P//4
+		Pg+AAP///wD///D//g+AAPgD4P/B///AD4Af+D//+D4PgAD///8A///w//4PgAD4A+D/wf//wA+A
+		H/g///g+D4AA////AP//8P/+D4AA+APg/8H//8APgB/4P//4Pg+AAP///wD///8HwA/8AAAD4AfB
+		8Hw///wfAAAfAAAAf+AP//8A////B8AP/AAAA+AHwfB8P//8HwAAHwAAAH/gD///AP///wfAD/wA
+		AAPgB8HwfD///B8AAB8AAAB/4A///wD///8HwA/8AAAD4AfB8Hw///wfAAAfAAAAf+AP//8A////
+		B8AP/AAAA+AHwfB8P//8HwAAHwAAAH/gD///AP///wAAAAP//4Af+AAP///wf+AH/h////+AHw//
+		/wD///8AAAAD//+AH/gAD///8H/gB/4f////gB8P//8A////AAAAA///gB/4AA////B/4Af+H///
+		/4AfD///AP///wAAAAP//4Af+AAP///wf+AH/h////+AHw///wD///8AAAAD//+AH/gAD///8H/g
+		B/4f////gB8P//8A////AAH//AAAA///wA/8AA+D4AAAAP/AAAPgD///AP///wAB//wAAAP//8AP
+		/AAPg+AAAAD/wAAD4A///wD///8AAf/8AAAD///AD/wAD4PgAAAA/8AAA+AP//8A////AAH//AAA
+		A///wA/8AA+D4AAAAP/AAAPgD///AP///wAB//wAAAP//8AP/AAPg+AAAAD/wAAD4A///wD///8A
+		AA+AH/+AAAAAAAA+D/wf/8H/+D/wA+D///8A////AAAPgB//gAAAAAAAPg/8H//B//g/8APg////
+		AP///wAAD4Af/4AAAAAAAD4P/B//wf/4P/AD4P///wD///8AAA+AH/+AAAAAAAA+D/wf/8H/+D/w
+		A+D///8A////AAAPgB//gAAAAAAAPg/8H//B//g/8APg////AP//8PgB8H//+H//+AAPgD/wfB8A
+		PgD4AAB8AA///wD///D4AfB///h///gAD4A/8HwfAD4A+AAAfAAP//8A///w+AHwf//4f//4AA+A
+		P/B8HwA+APgAAHwAD///AP//8PgB8H//+H//+AAPgD/wfB8APgD4AAB8AA///wD///D4AfB///h/
+		//gAD4A/8HwfAD4A+AAAfAAP//8A//////4AA+AAA///wf//wfB8Hwf+H///8APgD///AP/////+
+		AAPgAAP//8H//8HwfB8H/h////AD4A///wD//////gAD4AAD///B///B8HwfB/4f///wA+AP//8A
+		//////4AA+AAA///wf//wfB8Hwf+H///8APgD///AP/////B////+APgB8APg8AP////wAD//g+D
+		/w///wD/////wf////gD4AfAD4PAD////8AA//4Pg/8P//8A/////8H////4A+AHwA+DwA/////A
+		AP/+D4P/D///AP/////B////+APgB8APg8AP////wAD//g+D/w///wD/////wf////gD4AfAD4PA
+		D////8AA//4Pg/8P//8A///wB8APg+AAAAD//gB/wfB8HwA/4AAAAHwfD///AP//8AfAD4PgAAAA
+		//4Af8HwfB8AP+AAAAB8Hw///wD///AHwA+D4AAAAP/+AH/B8HwfAD/gAAAAfB8P//8A///wB8AP
+		g+AAAAD//gB/wfB8HwA/4AAAAHwfD///AP//8AfAD4PgAAAA//4Af8HwfB8AP+AAAAB8Hw///wD/
+		////////4Af8AAA//4PAAH//+D/gB//wfAD///8A/////////+AH/AAAP/+DwAB///g/4Af/8HwA
+		////AP/////////gB/wAAD//g8AAf//4P+AH//B8AP///wD/////////4Af8AAA//4PAAH//+D/g
+		B//wfAD///8A/////////+AH/AAAP/+DwAB///g/4Af/8HwA////AP//8AAAAAPg+AP/+AAP/8AA
+		A+AHwB8HwfB8Hw///wD///AAAAAD4PgD//gAD//AAAPgB8AfB8HwfB8P//8A///wAAAAA+D4A//4
+		AA//wAAD4AfAHwfB8HwfD///AP//8AAAAAPg+AP/+AAP/8AAA+AHwB8HwfB8Hw///wD///AAAAAD
+		4PgD//gAD//AAAPgB8AfB8HwfB8P//8A///w////g///g////gB8AA+D/wAB4Af/8APgD///AP//
+		8P///4P//4P///4AfAAPg/8AAeAH//AD4A///wD///D///+D//+D///+AHwAD4P/AAHgB//wA+AP
+		//8A///w////g///g////gB8AA+D/wAB4Af/8APgD///AP//8P///4P//4P///4AfAAPg/8AAeAH
+		//AD4A///wD///D4AA+D4AAAAAA/8AA+D///AAHgAAAAA+D///8A///w+AAPg+AAAAAAP/AAPg//
+		/wAB4AAAAAPg////AP//8PgAD4PgAAAAAD/wAD4P//8AAeAAAAAD4P///wD///D4AA+D4AAAAAA/
+		8AA+D///AAHgAAAAA+D///8A///w+AAPg+AAAAAAP/AAPg///wAB4AAAAAPg////AP//8PgAD4P/
+		B4Pg////g8AAAB8H/h////+AHw///wD///D4AA+D/weD4P///4PAAAAfB/4f////gB8P//8A///w
+		+AAPg/8Hg+D///+DwAAAHwf+H////4AfD///AP//8PgAD4P/B4Pg////g8AAAB8H/h////+AHw//
+		/wD///D4AA+D/weD4P///4PAAAAfB/4f////gB8P//8A///w+AAPg/8H/AAHwAB/wAAD4Af/4P//
+		/4AfD///AP//8PgAD4P/B/wAB8AAf8AAA+AH/+D///+AHw///wD///D4AA+D/wf8AAfAAH/AAAPg
+		B//g////gB8P//8A///w+AAPg/8H/AAHwAB/wAAD4Af/4P///4AfD///AP//8PgAD4P/B/wAB8AA
+		f8AAA+AH/+D///+AHw///wD///D///+D//h8APg+D//B8H//B8H/B8AAA+AP//8A///w////g//4
+		fAD4Pg//wfB//wfB/wfAAAPgD///AP//8P///4P/+HwA+D4P/8Hwf/8Hwf8HwAAD4A///wD///D/
+		//+D//h8APg+D//B8H//B8H/B8AAA+AP//8A///w////g//4fAD4Pg//wfB//wfB/wfAAAPgD///
+		AP//8AAAAAPg//wfB8AP/8HwA//4Af8APg+AAP///wD///AAAAAD4P/8HwfAD//B8AP/+AH/AD4P
+		gAD///8A///wAAAAA+D//B8HwA//wfAD//gB/wA+D4AA////AP//8AAAAAPg//wfB8AP/8HwA//4
+		Af8APg+AAP///wD///////////////////////////////////////8A////////////////////
+		////////////////////AP///////////////////////////////////////wD/////////////
+		//////////////////////////8A////////////////////////////////////////AP//////
+		/////////////////////////////////wD///////////////////////////////////////8A
+		////////////////////////////////////////AP//////////////////////////////////
+		/////wD///////////////////////////////////////8A////////////////////////////
+		////////////AP///////////////////////////////////////wD/////////////////////
+		//////////////////8A////////////////////////////////////////AP//////////////
+		/////////////////////////wD///////////////////////////////////////8A////////
+		////////////////////////////////AP///////////////////////////////////////wD/
+		//////////////////////////////////////8A////////////////////////////////////
+		/////21ydWg8IxQAAAAASUVORK5CYII="/>
+
+		
+
+	    </div>
+
+	  </div>
+	</div>
+      </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+      $(".coin").on("click", function(){
+    $(this).find("img").toggleClass("crypto_qr");
+  });
+});
+
+</script>
+
+
+
+
+  </body>
+  
+</html>
+
+    
+
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+
+    <style type="text/css" media="screen">
+      .flexbox_container_link_list_links{
+      display: flex;
+      justify-content: space-between;
+      margin-right: 100px;
+      padding-right: 50px;
+      background-color: #556b2f;
+      }
+      
+      .box{
+
+      }
+      li{
+      cursor: pointer;
+      }
+      /* for the linklist */
+      div#majhi_awesome_list .link_list_links{
+      font-family: "Courier New", Courier, monospace; 
+      width: 100%;
+      font-size: 20px;
+      line-height: 0.9;
+      letter-spacing: 0.045em;
+      font-weight: 500;
+      margin: 5px;
+      padding: 10px;
+      }
+      /* styling for lists */
+      div#majhi_awesome_list ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      }
+      li a{
+      color: white;
+      text-decoration: none;
+      }
+      li:hover a{
+      color: black;
+      }
+      div#majhi_awesome_list li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #008080;
+      color: #ffffff;
+      box-shadow: 0 1px 6px #ffd700, 0 1px 2px #7fff00;
+      }
+      div#majhi_awesome_list li:hover {
+      background-color: #add8e6;
+      color: black;
+      }
+
+      /* for mobile phones */
+      /* Responsive layout 800px */
+      @media (max-width: 800px) {
+      .flexbox_container_link_list_links{
+      margin-right: 10px;
+      }
+      div#majhi_awesome_list .link_list_links{
+      font-size: 10px;
+      
+      }
+      .flexbox_container_link_list_links{
+      display: block;
+      }
+      }
+
+
+      
+    </style>
+  </head>
+  <body>
+
+
+<!--https://css-tricks.com/snippets/jquery/make-entire-div-clickable/-->
+
+    <div id="majhi_awesome_list" class="flexbox_container_link_list_links">
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="/covid1/index.html">World Covid-19 tracker </a></li>
+	    <li><a href="/covid1/compare/active.html">Compare two different country</a></li>
+	    <li><a href="/covid1/daily_covid19_data.html">Covid-19 statistics, World (Today)</a></li>
+	    <li><a href="/covid1/calendar.html">Covid-19 older records, World</a></li>
+	    <li><a href="/covid1/active_piechart_table.html">Countries ranked by active cases</a></li>
+	    <li><a href="/covid1/total_piechart_table.html">Countries ranked by total cases</a></li>
+	    <li><a href="/covid1/cfr_piechart_table.html">Countries ranked by CFR</a></li>
+	    <li><a href="/covid1/deaths_piechart_table.html">Counteries ranked by death cases</a></li>
+	    <li><a href="/covid1/recovered_piechart_table.html">Counteries ranked by recovery cases</a></li>
+	    <li><a href="/covid1/cases_per_million_piechart_table.html">Counteries ranked by cases per million</a></li>
+	    <li><a href="/covid1/covid_distribution_top_ten.html">Top ten affected countries</a></li>    
+	    <li><a href="/covid1/covid_distribution_top_ten.html">Covid-19 pie charts, World</a></li>
+            <li><a href="/covid1/world/change_in_covid_cases_last_week.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+            <li><a href="/covid1/world_a/7.html" target="_blank">Change in number of active Covid-19 cases in different countries in the last week</a></li>
+
+	  </ul>
+	</div>
+      </div>
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="/covid2/covid_india_tracker.html"  >India Covid-19 tracker</a></li>
+	    <li><a href="/covid2/compare_two_states.html"  >Compare two Indian states</a></li>
+	    <li><a href="/covid2/states_table.html"  >Covid-19 statistics, India (Today)</a></li>
+            <li><a href="/covid2/calendar.html"  >Access older records, Covid-19 India</a></li>
+    	    <li><a href="/covid2/india_cfr_placeholder.html"  >CFR across Indian states</a></li>
+            <li><a href="/covid2/pan_india.html"  >Pan India Covid-19 data</a></li>
+            <li><a href="/covid2/top_ten_states.html"  >Top ten affected Indian states</a></li>
+            <li><a href="/covid2/india_deaths_placeholder.html"  >Covid-19 deaths in India</a></li>
+	    <li><a href="/covid2/india_recovered_placeholder.html"  >Covid-19 recovery cases in India</a></li>
+	    <li><a href="/covid2/india_active_placeholder.html"  >Covid-19 active cases in India</a></li>
+	    <li><a href="/covid2/covid_distribution.html"  >Covid-19 pie charts, India</a></li>
+	    <li><a href="/calculator/index.html"  >Online calculators</a></li>    
+            <li><a href="/covid2/india/last_week.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+            <li><a href="/covid2/india_a/7.html" target="_blank">Change in number of active Covid-19 cases in India in the last week</a></li>
+
+	  </ul>
+	</div>
+      </div>
+    </div>
+
+    <script>
+$("div.link_list_links ul li").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+
+
+    </script>
+
+
+  </body>
+  
+</html>
+
+
+
+
+    <style>
+      table td a{
+      color: black;
+      text-decoration: none;
+      }
+      table td a:hover{
+      color: white;
+      background-color: black;
+      }
+    </style>
+
+  </body>
+  
+</html>
+

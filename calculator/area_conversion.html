@@ -1,0 +1,194 @@
+<html><head>
+        <meta name="author" content="Parameshwar Majhi">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<style>
+  .conversion{
+  display: none;
+      }
+  .menu{
+  cursor: pointer;
+  }
+  .normal{
+  display: block;
+  padding-left: 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+  .display_menu{
+  display: flex;
+  flex-direction: row;
+  background-color: DodgerBlue;
+  height: 160px;
+  justify-content: space-between;
+  align-items: center;
+
+  }
+  #square_kilometers,#hectares,#acres{
+  padding: 20px;
+  margin: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: white;
+  }
+  #square_kilometers:hover,#hectares:hover,#acres:hover{
+  background-color: yellow;
+}  
+</style>
+
+<!-- This approach did not work -->
+
+  <script>
+function clear_screen() {
+  document.getElementsByClassName("conversion_chamber").innerHTML="hello";
+}
+</script>
+  </head><body>
+    <!-- Header of the page -->
+
+    <h1 style="text-align: center;">Area Conversion</h1>
+
+
+    <!-- menu to display in a flex box -->
+<!-- onclick the menu divs the jquery functions remove or add classes for visibility to the div id -->
+
+<div class="display_menu">
+  <div id="square_kilometers" class="menu">
+    convert from square_kilometers
+  </div>
+  <div id="hectares" class="menu">
+    convert from hectares
+  </div>
+  <div id="acres" class="menu">
+    convert from acres
+  </div>
+</div>
+<!-- -->
+
+<!-- the hidden div where the forms are located -->
+
+<div class="conversion_chamber">
+<div id="square_kilometers_conversion" class="conversion" style="background-color: #add8e6;">
+<h2>Enter value in square kilometers</h2>
+
+<input id="inputthis" type="number" placeholder="Area in Celcius" oninput="myfunction_square_kilometers(this.value)" onchange="myfunction_square_kilometers(this.value)">
+<p> <span id="display_field"></span></p>
+
+<p>Area in Hectares: <span id="kh"></span></p>
+<p>Area in Acres: <span id="ka"></span></p>
+</div>
+
+<div id="hectares_conversion" class="conversion" style="background-color:#afeeee;">
+<h2>Enter value in Hectares</h2>
+
+<input id="inputthis" type="number" placeholder="Area in Hectares" oninput="myfunction_hectares(this.value)" onchange="myfunction_hectares(this.value)">
+
+<p> <span id="display_field"></span></p>
+
+<p>Area in square_kilometers: <span id="hk"></span></p>
+<p>Area in Acres: <span id="ha"></span></p>
+</div>
+
+<div id="acres_conversion" class="conversion" style="background-color: #7fffd4;">
+<h2>Enter value in Acres</h2>
+
+<input id="inputthis" type="number" placeholder="Area in Acres" oninput="myfunction_acres(this.value)" onchange="myfunction_acres(this.value)">
+
+<p> <span id="display_field"></span></p>
+
+<p>Area in square_kilometers: <span id="ak"></span></p>
+<p>Area in hectares: <span id="ah"></span></p>
+</div>
+
+</div>
+
+
+
+
+
+<!-- normal javascript functions here called by the forms above -->
+
+<!-- type of variable misbehaving, acting like string -->
+<!-- instead of doing 'value + 10' do '+ value + 10' , where '+' changes the type of whatever it is prepended to , to number -->
+
+<script>
+
+  function myfunction_square_kilometers(valNum) {
+  // k to h, multiply the area value by 100
+  document.getElementById("kh").innerHTML=(valNum*100).toFixed(2);
+  // k to a, multiply the area value by 247
+document.getElementById("ka").innerHTML=+(valNum*247).toFixed(2);
+}
+function myfunction_hectares(valNum) {
+// h to k, divide the area value by 100
+  document.getElementById("hk").innerHTML=(valNum/100).toFixed(2);
+  // h to a, multiply the area value by 2.471
+document.getElementById("ha").innerHTML=(valNum*2.471).toFixed(2);
+}
+  function myfunction_acres(valNum) {
+  // a to k,  divide the area value by 247
+  document.getElementById("ak").innerHTML=(valNum/247).toFixed(2);
+  // a to h, divide the area value by 2.471
+document.getElementById("ah").innerHTML=(valNum/2.471).toFixed(2);
+}
+
+</script>
+
+
+<!-- jquery functions that are bound to the menu div elements -->
+<!-- their job is to remove and add classes, so as to manipulate visibility of the forms -->
+<!-- onclick this element, get the id of this element and then, case statement on that id, depending on case trigger 'jquery add class' and 'jquery remove class' things -->
+
+<script>
+  $(document).ready(function(){
+  $(".menu").click(function(){
+    
+  $myid = $(this).attr("id");
+  switch ($myid){
+  case 'square_kilometers':
+    $("#hectares_conversion").removeClass("normal");
+  $("#acres_conversion").removeClass("normal");
+
+    $("#hectares_conversion").addClass("conversion");
+  $("#acres_conversion").addClass("conversion");
+  
+  $("#square_kilometers_conversion").removeClass("conversion");
+  $("#square_kilometers_conversion").addClass("normal");
+  break;
+    case 'hectares':
+   $("#square_kilometers_conversion").removeClass("normal");
+  $("#acres_conversion").removeClass("normal");
+
+   $("#square_kilometers_conversion").addClass("conversion");
+  $("#acres_conversion").addClass("conversion");
+      $("#hectares_conversion").removeClass("conversion");
+      $("#hectares_conversion").addClass("normal");
+
+  break;
+  case 'acres':
+     $("#square_kilometers_conversion").removeClass("normal");
+  $("#hectares_conversion").removeClass("normal");
+
+      $("#hectares_conversion").addClass("conversion");
+  $("#square_kilometers_conversion").addClass("conversion");
+
+  $("#acres_conversion").removeClass("conversion");
+  $("#acres_conversion").addClass("normal");
+
+
+}
+  });
+});
+
+  </script>
+  
+
+
+  </body>
+
+  <!-- Way too much time wasted here -->
+  <!-- Too much redundencies and unnecessary code or junk or whatever here -->
+
+
+</html>

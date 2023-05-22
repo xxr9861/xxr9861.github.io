@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+<html lang="en" dir="ltr" version="HTML+RDFa 1.1"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="/en/content/using-exuberant-ctags-drupal" />
+<link rel="shortlink" href="/en/node/201" />
+<link rel="shortcut icon" href="https://www.koumbit.org/sites/www.koumbit.org/files/koumbit.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>Using Exuberant Ctags for Drupal | Koumbit.org</title>
+  <link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_P4v_81G_M8gi0lFmO-XKdZZRoEUsj0zU8iZZ-h5CSrw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_Iq9tXMnkYB_dyOSH26ySwMMU6jFxPvd0QoyuqPJxv54.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_Y6x9KJOzkLfEEi-qBxnw0Bx-mM_rrSta60AS3lkmVEQ.css" media="all" />
+
+<!--[if lt IE 10]>
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_EIx9xKjY06723NRSzZQmvVfDk1kV4S_ii_3qHsHoVNc.css" media="all" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_hnvrYjiWJGr0Xjo_Fv-eS23gqQkZPDlByQBOv5eDRtw.css" media="all" />
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_1NYhwRpOreRJ_UXxUP7a5UPKbl-4_y05vjSbtvOBXNs.css" media="all" />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link type="text/css" rel="stylesheet" href="https://www.koumbit.org/sites/www.koumbit.org/files/css/css_J-8Xm-cYBdkfr37caJe-t9ojjst3OP40A2pfUdJbs4c.css" media="all" />
+<!--<![endif]-->
+  <script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_YD9ro0PAqY25gGWrTki6TjRUG8TdokmmxjfqpNNfzVU.js"></script>
+<script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_5Ec84aMBMe0t7PHV4H8ZS-9XuOxhr6GMrs57B5JtA9o.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.createElement( "picture" );
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+Drupal.settings.ais = [{"name":"threshold-480","size":"480"},{"name":"threshold-768","size":"768"},{"name":"threshold-992","size":"992"},{"name":"threshold-1382","size":"1382"}];
+Drupal.settings.ais_method = "both-max";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_EJca-M2EcnfPWqXlFDvdXeXf2sggqfR3FDy4Pefc0K0.js"></script>
+<script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_sHXAaOgQifgk-GWiTyWwHjTd5wbPDYqZlfVUJLkbM7o.js"></script>
+<script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_43n5FBy8pZxQHxPXkf-sQF7ZiacVZke14b0VlvSA554.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"en\/","setHasJsCookie":0,"ajaxPageState":{"theme":"ktweb","theme_token":"TFSTmfHoAvPEJ95CR4BdGZCfEMABSgXHZ1X8ZBSBRAY","js":{"sites\/all\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"sites\/all\/modules\/contrib\/picture\/picture.min.js":1,"0":1,"misc\/jquery.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/media\/js\/media.core.js":1,"misc\/ui\/jquery.ui.mouse.min.js":1,"misc\/ui\/jquery.ui.resizable.min.js":1,"misc\/ui\/jquery.ui.draggable.min.js":1,"misc\/ui\/jquery.ui.button.min.js":1,"misc\/ui\/jquery.ui.position.min.js":1,"misc\/ui\/jquery.ui.position-1.13.0-backport.js":1,"misc\/ui\/jquery.ui.dialog.min.js":1,"misc\/ui\/jquery.ui.dialog-1.13.0-backport.js":1,"sites\/all\/modules\/contrib\/views\/js\/jquery.ui.dialog.patch.js":1,"sites\/all\/modules\/contrib\/media\/js\/util\/json2.js":1,"sites\/all\/modules\/contrib\/media\/js\/util\/ba-debug.min.js":1,"misc\/jquery.cookie.js":1,"misc\/form.js":1,"1":1,"2":1,"sites\/www.koumbit.org\/modules\/contrib\/extlink\/extlink.js":1,"ais\/assets\/js\/ais.js":1,"sites\/all\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"sites\/all\/modules\/contrib\/matomo\/matomo.js":1,"misc\/textarea.js":1,"sites\/all\/modules\/contrib\/media\/js\/media.popups.js":1,"modules\/filter\/filter.js":1,"sites\/all\/modules\/contrib\/media\/modules\/media_wysiwyg\/js\/media_wysiwyg.filter.js":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"sites\/all\/modules\/contrib\/media\/css\/media.css":1,"sites\/www.koumbit.org\/modules\/contrib\/ais\/assets\/css\/ais.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/www.koumbit.org\/modules\/contrib\/extlink\/extlink.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/geshifilter\/geshifilter.css":1,"sites\/www.koumbit.org\/modules\/features\/kt_social\/socialsprite\/sprite.css":1,"modules\/locale\/locale.css":1,"sites\/all\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"modules\/filter\/filter.css":1,"public:\/\/honeypot\/honeypot.css":1,"public:\/\/ctools\/css\/b32af2ad5e81b7edd5623541ccf15ebe.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/www.koumbit.org\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/www.koumbit.org\/themes\/ktweb\/css\/global.css":1,"ie::normal::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default.css":1,"ie::normal::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default-normal.css":1,"ie::normal::sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default.css":1,"narrow::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default-narrow.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default.css":1,"normal::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default-normal.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"wide::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default.css":1,"wide::sites\/www.koumbit.org\/themes\/ktweb\/css\/ktweb-alpha-default-wide.css":1,"sites\/www.koumbit.org\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-12.css":1}},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":["#main-menu","ul #main-menu"],"media_size":"740","media_unit":"px","remove_attributes":"1","responsive_menus_style":"responsive_menus_simple"}],"extlink":{"extTarget":0,"extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"matomo":{"trackMailto":1},"media":{"browserUrl":"\/en\/media\/browser?render=media-popup","styleSelectorUrl":"\/en\/media\/-media_id-\/format-form?render=media-popup","dialogOptions":{"dialogclass":"media-wrapper","modal":true,"draggable":false,"resizable":false,"minwidth":500,"width":670,"height":280,"position":"center","overlay":{"backgroundcolor":"#000000","opacity":0.4},"zindex":10000},"wysiwyg_allowed_attributes":["alt","title","height","width","hspace","vspace","border","align","style","class","id","usemap","data-picture-group","data-picture-align","data-picture-mapping","data-delta"],"img_alt_field":"field_file_image_alt_text","img_title_field":"field_file_image_title_text"},"mediaDoLinkText":true,"urlIsAjaxTrusted":{"\/en\/comment\/reply\/201":true},"omega":{"layouts":{"primary":"normal","order":["narrow","normal","wide"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), all and (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)","wide":"all and (min-width: 1220px)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-201 node-type-article i18n-en context-content">
+ <div id="body-inner">
+   <div id="body-inner-inner">
+    <div id="skip-link">
+      <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+    </div>
+    <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-user-wrapper" class="zone-wrapper zone-user-wrapper clearfix">  
+  <div id="zone-user" class="zone zone-user clearfix container-12">
+    <div class="grid-8 region region-user-first" id="region-user-first">
+  <div class="region-inner region-user-first-inner">
+    <div class="block block-menu block-menu-ktweb-menu-top-fr block-menu-menu-ktweb-menu-top-fr odd" id="block-menu-menu-ktweb-menu-top-fr">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">ktweb_menu_top_fr</div></div></h2>
+        
+    <div class="content clearfix">
+      <ul class="menu"><li class="first leaf"><a href="/en/content/chat-online-us" id="link-contact-chat">Online chat</a></li>
+<li class="leaf"><a href="https://koumbitstatus.net/" class="reseau">Server Performance</a></li>
+<li class="leaf"><a href="https://webmail.koumbit.net" class="courriels">My email</a></li>
+<li class="leaf"><a href="https://bureau.koumbit.net/" class="hebergement">My Hosting</a></li>
+<li class="last leaf"><a href="/en/content/how-pay-bill">Pay a Bill</a></li>
+</ul>    </div>
+  </div>
+</div>
+  </div>
+</div><div class="grid-4 region region-user-second" id="region-user-second">
+  <div class="region-inner region-user-second-inner">
+    <div class="block block-locale block-language block-locale-language odd block-without-title" id="block-locale-language">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <ul class="language-switcher-locale-url"><li class="en first active"><a href="/en/content/using-exuberant-ctags-drupal" class="language-link active" xml:lang="en">English</a></li><li class="fr last"><a href="/fr/content/using-exuberant-ctags-drupal" class="language-link" xml:lang="fr">Français</a></li></ul>    </div>
+  </div>
+</div>
+  </div>
+</div>  </div>
+</div><div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="branding-data clearfix">
+            <div class="logo-img">
+        <a href="/en" rel="home" title="Koumbit.org"><img src="https://www.koumbit.org/sites/www.koumbit.org/files/koumbit-fourmi-grande.png" alt="Koumbit.org" id="logo" /></a>      </div>
+                        <hgroup class="site-name-slogan">        
+                                <h2 class="site-name"><a href="/en" title="Home">Koumbit.org</a></h2>
+                                        <h6 class="site-slogan">For freedom and solidarity online</h6>
+              </hgroup>
+          </div>
+          </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <nav class="navigation">
+      <ul id="main-menu" class="links inline clearfix main-menu"><li class="menu-1399 first"><a href="/en/services/web-hosting">Services</a></li><li class="menu-489"><a href="/en/portfolio" id="link-projects">Portfolio</a></li><li class="menu-687 active-trail"><a href="/en/articles" id="link-news" class="active-trail">News</a></li><li class="menu-619"><a href="/en/content/email" id="link-help">FAQ</a></li><li class="menu-681"><a href="/en/about" id="link-about">About</a></li><li class="menu-3247 last"><a href="/en/content/contact">Contact</a></li></ul>    </nav>
+        <div class="section-intro">
+          </div>
+        <div class="block block-menu-block block-1 block-menu-block-1 odd block-without-title" id="block-menu-block-1">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2">
+  <ul class="menu"><li class="first leaf menu-mlid-2026 section-menu"><a href="/en/articles/25%2B27"><div class="link-title">Press release</div><div class="link-icon"></div></a></li>
+<li class="leaf menu-mlid-589 section-menu"><a href="/en/events" id="link-news-events"><div class="link-title">Events</div><div class="link-icon"></div></a></li>
+<li class="last expanded menu-mlid-970 section-menu"><a href="/en/articles/39%2026%2028" title="Chronique"><div class="link-title">Blog</div><div class="link-icon"></div></a></li>
+</ul></div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div></header>  
+      <section id="section-content" class="section section-content">
+  
+  <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">
+  <div id="zone-content" class="zone zone-content clearfix container-12">
+
+          <div id="breadcrumb" class="grid-12"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/en">Home</a> » <a href="/en/articles">News</a></div></div>
+            <div class="grid-9 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+            <h1 class="title" id="page-title">Using Exuberant Ctags for Drupal</h1>
+            
+                <div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+            
+    <div class="content clearfix">
+      <article about="/en/content/using-exuberant-ctags-drupal" typeof="sioc:Item foaf:Document" class="node node-article node-promoted node-published node-not-sticky author-mvc odd clearfix" id="node-article-201">
+        <span property="dc:title" content="Using Exuberant Ctags for Drupal" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-kt-articles-category field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/en/taxonomy/term/26" typeof="skos:Concept" property="rdfs:label skos:prefLabel">Technical article (Planet Drupal)</a></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>The two most common powerful editors for Unix, <tt>emacs</tt> and <tt>vim</tt>, both include the ability to reference a list of PHP function names so that you can jump to their definition while editing.  You'll have to build the file yourself first, though, using <a href="http://en.wikipedia.org/wiki/Ctags">ctags</a>.  The best implementation I know of is <a href="http://ctags.sourceforge.net/">Exuberant Ctags</a> by Darren Hiebert, which is available in most Linux distributions (although it's generally not the version installed by default).  Normally this is called just by running <tt>ctags -R</tt>, but by default <tt>ctags</tt> assumes that all PHP code is in files with names ending in <tt>.php</tt>.  For Drupal, I suggest the following command, to be run from the base directory of your Drupal installation:</p>
+
+<p><code>ctags --langmap=php:.engine.inc.module.theme.install.php --php-kinds=cdfi --languages=php --recurse</code></p>
+
+<p>This simply runs <tt>ctags</tt> recursively from the current directory, parsing <tt><em>.engine</tt>, <tt></em>.inc</tt>, <tt><em>.module</tt>, <tt></em>.theme</tt>, <tt><em>.install</tt>, and <tt></em>.php</tt> files as PHP.  This will leave a file called <tt>tags</tt> in the current directory; you can then configure your editor to look for it there.  The <tt>--php-kinds</tt> option tells <tt>ctags</tt> to only list classes, constant definitions, functions, and interfaces (by default it would also list all variables).  The <tt>--languages</tt> option tells <tt>ctags</tt> not to index anything other than PHP (for example, Javascript files would be ignored).</p>
+
+<p><tt>ctags</tt> and both editors I mentioned are also available for Windows and Mac OS, if you're so inclined.</p>
+</div></div></div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"></nav>
+    
+    <div id="comments" class="comment-wrapper" class="comment-wrapper">
+  
+  
+      <h2 class="title comment-form">Add new comment</h2>
+    <form class="comment-form user-info-from-cookie" action="/en/comment/reply/201" method="post" id="comment-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Your name <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-mail">
+  <label for="edit-mail">E-mail <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-mail" name="mail" value="" size="30" maxlength="64" class="form-text required" />
+<div class="description">The content of this field is kept private and will not be shown publicly.</div>
+</div>
+<div class="form-item form-type-textfield form-item-homepage">
+  <label for="edit-homepage">Homepage </label>
+ <input type="text" id="edit-homepage" name="homepage" value="" size="30" maxlength="255" class="form-text" />
+</div>
+<div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper" id="edit-comment-body"><div id="comment-body-add-more-wrapper"><div class="text-format-wrapper"><div class="form-item form-type-textarea form-item-comment-body-und-0-value">
+  <label for="edit-comment-body-und-0-value">Comment <span class="form-required" title="This field is required.">*</span></label>
+ <div class="form-textarea-wrapper resizable"><textarea class="text-full form-textarea required" id="edit-comment-body-und-0-value" name="comment_body[und][0][value]" cols="60" rows="5"></textarea></div>
+</div>
+<fieldset class="filter-wrapper form-wrapper" id="edit-comment-body-und-0-format"><div class="fieldset-wrapper"><div class="filter-help form-wrapper" id="edit-comment-body-und-0-format-help"><p><a href="/en/filter/tips" target="_blank">More information about text formats</a></p></div><div class="filter-guidelines form-wrapper" id="edit-comment-body-und-0-format-guidelines"><div class="filter-guidelines-item filter-guidelines-plain_text"><h3>Plain text</h3><ul class="tips"><li>No HTML tags allowed.</li><li>Web page addresses and e-mail addresses turn into links automatically.</li><li>Lines and paragraphs break automatically.</li></ul></div></div></div></fieldset>
+</div>
+</div></div><input type="hidden" name="form_build_id" value="form-TgOI-C2Rl7ecg4i2UDd8rVriSNFQ0A2ewX3wp_XnCCY" />
+<input type="hidden" name="form_id" value="comment_node_article_form" />
+<input type="hidden" name="honeypot_time" value="1650615674|Ik0sPC3x-BOjIFsz0WgxjgVxxryN4v3Zfo_AQCUurlM" />
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-preview" name="op" value="Preview" class="form-submit" /></div><div class="url-textfield"><div class="form-item form-type-textfield form-item-url">
+  <label for="edit-url">Leave this field blank </label>
+ <input autocomplete="off" type="text" id="edit-url" name="url" value="" size="20" maxlength="128" class="form-text" />
+</div>
+</div></div></form>  </div>
+  </div>
+</article>    </div>
+  </div>
+</div>
+      </div>
+</div>
+<aside class="grid-3 region region-sidebar-second" id="region-sidebar-second">
+  <div class="region-inner region-sidebar-second-inner">
+    <div class="block block-views block-kt-articles-author-block block-views-kt-articles-author-block odd" id="block-views-kt-articles-author-block">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">Author</div></div></h2>
+        
+    <div class="content clearfix">
+      <div class="view view-kt-articles-author view-id-kt_articles_author view-display-id-block view-dom-id-3374fe179d2865e2856890f7580f327c">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field views-field-picture">        <div class="field-content"></div>  </div>  
+  <div class="views-field views-field-name">        <span class="field-content"><a href="/en/user/110" title="View user profile." class="username" xml:lang="" about="/en/user/110" typeof="sioc:UserAccount" property="foaf:name" datatype="">Matt C</a></span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>    </div>
+  </div>
+</div>
+  </div>
+</aside>  </div>
+  </div>
+<div id="zone-postscript-wrapper" class="zone-wrapper zone-postscript-wrapper clearfix">  
+  <div id="zone-postscript" class="zone zone-postscript clearfix container-12">
+    <div class="grid-3 region region-postscript-first" id="region-postscript-first">
+  <div class="region-inner region-postscript-first-inner">
+    <div class="block block-boxes block-boxes-simple block-ktweb-appelez-nous block-boxes-ktweb-appelez-nous odd" id="block-boxes-ktweb-appelez-nous">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">Call us</div></div></h2>
+        
+    <div class="content clearfix">
+      <div id='boxes-box-ktweb_appelez_nous' class='boxes-box'><div class="boxes-box-content"><div class="gros">☏ +1 514 907 9494</div>
+<div class="francais">
+  <span>Lun: <em>10h à 12h</em></span> et <em>13h à 16h</em><br /><span>Mar: <em>10h à 12h</em><br /><span>Mer: <em>10h à 12h</em> et <em>13h à 16h</em></span><br /><span>Jeu: <em>10h à 12h</em></span>
+</span></div>
+<div class="english">
+  <span>Mon: <em>10am to 12pm</em> and <em>1pm to 4pm</em></span><br /><span>Tue: <em>10am to 12pm</em></span><br /><span>Wed: <em>10am to 12pm</em> and <em>1pm to 4pm</em></span><br /><span>Thu: <em>10am to 12pm</em></span>
+</div>
+</div></div>    </div>
+  </div>
+</div>
+<div class="block block-boxes block-boxes-simple block-ktweb-venez-voir-fr block-boxes-ktweb-venez-voir-fr even" id="block-boxes-ktweb-venez-voir-fr">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">Come and See Us!</div></div></h2>
+        
+    <div class="content clearfix">
+      <div id='boxes-box-ktweb_venez_voir_fr' class='boxes-box'><div class="boxes-box-content"><div class="francais">1883, rue Atateken, <br />Montréal (Québec) H2L 3L7, Canada <br />Veuillez noter que nos bureaux n'ont pas de stationnement attitré.</div>
+<div class="english">1883 Atateken Street, <br />Montreal, Quebec, H2L 3L7, Canada<br />Please note that you'll need to find on-street parking.</div>
+</div></div>    </div>
+  </div>
+</div>
+  </div>
+</div><div class="grid-3 region region-postscript-second" id="region-postscript-second">
+  <div class="region-inner region-postscript-second-inner">
+    <div class="block block-boxes block-boxes-simple block-ktweb-contact-fr block-boxes-ktweb-contact-fr odd" id="block-boxes-ktweb-contact-fr">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">Write to Us</div></div></h2>
+        
+    <div class="content clearfix">
+      <div id='boxes-box-ktweb_contact_fr' class='boxes-box'><div class="boxes-box-content"><div class="francais">
+<p><a href="mailto:info@koumbit.org">Informations générales</a></p>
+<p><a href="mailto:support@koumbit.org">Support technique</a></p>
+<p>Pour une demande de devis, voir le formulaire à la page <a href="/contact/devis">contact</a>.</p>
+<p><a href="/fr/content/nos-clefs-pgp">Nos clefs PGP</a></p>
+</div>
+<div class="english">
+<p><a href="mailto:info@koumbit.org">General inquiries</a></p>
+<p><a href="mailto:support@koumbit.org">Technical support</a></p>
+<p>For a free estimate, see the form on our <a href="/en/contact">contact page</a>.</p>
+<p><a href="/en/content/our-pgp-keys">Our PGP keys</a></p>
+</div>
+</div></div>    </div>
+  </div>
+</div>
+  </div>
+</div><div class="grid-3 region region-postscript-third" id="region-postscript-third">
+  <div class="region-inner region-postscript-third-inner">
+    <div class="block block-boxes block-boxes-i18n block-ktweb-follow-us-en block-boxes-ktweb-follow-us-en odd" id="block-boxes-ktweb-follow-us-en">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">Follow Us</div></div></h2>
+        
+    <div class="content clearfix">
+      <div id='boxes-box-ktweb_follow_us_en' class='boxes-box'><div class="boxes-box-content"></div></div>    </div>
+  </div>
+</div>
+<div class="block block-menu block-menu-ktweb-menu-social block-menu-menu-ktweb-menu-social even" id="block-menu-menu-ktweb-menu-social">
+  <div class="block-inner clearfix">
+              <h2 class="block-title"><div class="look"><div class="titre">ktweb_menu_social</div></div></h2>
+        
+    <div class="content clearfix">
+      <ul class="menu"><li class="first leaf"><a href="/en/rss.xml" class="rss" target="_blank">RSS</a></li>
+<li class="last leaf"><a href="https://twitter.com/koumbit">Twitter</a></li>
+</ul>    </div>
+  </div>
+</div>
+  </div>
+</div>  </div>
+</div></section>  
+  </div>
+  <div class="region region-page-bottom" id="region-page-bottom">
+  <div class="region-inner region-page-bottom-inner">
+      </div>
+</div><script type="text/javascript" src="https://www.koumbit.org/sites/www.koumbit.org/files/js/js_7Ukqb3ierdBEL0eowfOKzTkNu-Le97OPm-UqTS5NENU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _paq = _paq || [];(function(){var u=(("https:" == document.location.protocol) ? "https://piwik.koumbit.net/" : "http://piwik.koumbit.net/");_paq.push(["setSiteId", "1"]);_paq.push(["setTrackerUrl", u+"matomo.php"]);_paq.push(["setDoNotTrack", 1]);_paq.push(["trackPageView"]);_paq.push(["setIgnoreClasses", ["no-tracking","colorbox"]]);_paq.push(["enableLinkTracking"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.type="text/javascript";g.defer=true;g.async=true;g.src="https://www.koumbit.org/sites/www.koumbit.org/files/matomo/matomo.js?raovfz";s.parentNode.insertBefore(g,s);})();
+//--><!]]>
+</script>
+  </div>
+</div>
+</body>
+</html>

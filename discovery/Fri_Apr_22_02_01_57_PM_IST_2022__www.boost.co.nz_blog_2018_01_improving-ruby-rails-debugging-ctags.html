@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="lp" lang="en">
+<!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+<head>
+
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript">
+    var dataLayer = window.dataLayer || [];
+    dataLayer.push({ 'contentGoal': '' });
+  </script>
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript">(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PW9LJD6');
+  </script>
+
+<title>Improving Ruby on Rails debugging with ctags</title>
+<meta charset="utf-8" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="google-site-verification" content="kdQ6DIwJlfCCXQ1VVcdy0JObhnkYP9fxGsVaWx4LF4M" />
+<meta name="description" content="Do you look after a big, distributed Ruby on Rails code base? Learn how developers can speed up debugging with ctags, saving time and money." />
+<meta name="keywords" content="debugging" />
+
+<meta property="og:url" content="https://www.boost.co.nz/blog/2018/01/improving-ruby-rails-debugging-ctags" />
+<meta property="og:type" content="page" />
+<meta property="og:title" content="Improving Ruby on Rails debugging with ctags" />
+<meta property="og:description" content="Do you look after a big, distributed Ruby on Rails code base? Learn how developers can speed up debugging with ctags, saving time and money." />
+
+<meta name="twitter:title" content="Improving Ruby on Rails debugging with ctags">
+<meta name="twitter:description" content="Do you look after a big, distributed Ruby on Rails code base? Learn how developers can speed up debugging with ctags, saving time and money.">
+<meta name="twitter:site" content="boost">
+<meta name="twitter:creator" content="boost">
+<link rel="canonical" href="https://www.boost.co.nz/blog/2018/01/improving-ruby-rails-debugging-ctags" />
+<link rel="icon" type="image/png" href="/favicon.ico" />
+<link rel="alternate" href="http://www.boost.co.nz/blog/feed/" title="Boost Blog RSS Feed" type="application/rss+xml" />
+<style>
+    body {
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  </style>
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript">
+    var dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      "contentGoal": ""
+    });
+  </script>
+
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript">
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PW9LJD6');</script>
+
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript"> (function () { window.ldfdr = window.ldfdr || {}; (function (d, s, ss, fs) { fs = d.getElementsByTagName(s)[0]; function ce(src) { var cs = d.createElement(s); cs.src = src; setTimeout(function () { fs.parentNode.insertBefore(cs, fs) }, 1); } ce(ss); })(document, 'script', 'https://sc.lfeeder.com/lftracker_v1_lYNOR8x9jv7WQJZe.js'); })(); </script>
+<meta property="og:image" content="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2018/01/09001603/search-key-770.jpg" />
+</head>
+<body class="hbspt">
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW9LJD6" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+<header>
+<div class="wrapper">
+<div class="grid-x align-middle">
+<div class="cell shrink">
+<a class="logo hide-for-small-only" href="/"><img src="https://d33wubrfki0l68.cloudfront.net/3f27977d2e0df8db6cd591a8c72c875ce574ce35/26a88/images/logos/boost/black.svg" alt="Boost - Te Hihiri logo" /></a>
+<a class="mobile-logo show-for-small-only" href="/"><img src="https://d33wubrfki0l68.cloudfront.net/33f8025cc8406503ca797bc811679f23cb227de3/80a27/images/logos/boost/mark__black.svg" alt="Boost - Te Hihiri mobile logo"></a>
+</div>
+<div class="cell auto">
+<nav id="js-main-nav" class="main-nav">
+<ul>
+<li class="js-nav-menu-item parent ">
+<a class="js-nav-menu-item-link" href="/development">
+Development
+<span class="fa fa-angle-down"></span>
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/development">Our development services</a>
+</li>
+<li class="">
+<a href="/development/web-application">Web application development</a></li>
+<li class="">
+<a href="/development/mobile-app">Mobile app development</a>
+</li>
+<li class="">
+<a href="/development/ruby-on-rails">Ruby on Rails development</a>
+</li>
+<li class="">
+<a href="/development/digital-collection-aggregation">Digital collection aggregation</a>
+</li>
+<li><a href="https://content.boost.co.nz/workshop">Cost your project</a></li>
+</ul>
+</li>
+<li class="js-nav-menu-item parent">
+<a class="js-nav-menu-item-link" href="/agile-training">
+Agile training
+<span class="fa fa-angle-down"></span>
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/agile-training">Our Agile training</a>
+</li>
+<li class="">
+<a href="/agile-training/introduction-to-agile-methodology">Introduction to Agile</a>
+</li>
+<li class="">
+<a href="/agile-training/agile-certification">Agile Professional Foundation</a>
+</li>
+<li class="">
+<a href="/agile-training/agile-accelerator-assessment">Agile Accelerator</a>
+</li>
+</ul>
+</li>
+<li class="js-nav-menu-item parent">
+<a class="js-nav-menu-item-link" href="/pages/careers">
+Careers
+<span class="fa fa-angle-down"></span>
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/pages/careers">Careers at Boost</a>
+</li>
+<li class="">
+<a href="/blog/2021/07/wellington-ruby-on-rails-developer-jobs">Developer jobs</a>
+</li>
+<li class="">
+<a href="/blog/2021/08/wellington-ux-designer-jobs">Designer jobs</a>
+</li>
+<li class="">
+<a href="/blog/2021/07/test-drive-boost">Test-drive Boost</a>
+</li>
+</ul>
+</li>
+<li class="js-nav-menu-item parent ">
+<a class="js-nav-menu-item-link" href="/about-us">
+About us
+<span class="fa fa-angle-down"></span>
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/about-us">About us</a>
+</li>
+<li class="">
+<a href="/about-us/meet-the-team">Meet the team</a>
+</li>
+<li class="">
+<a href="/about-us/boost-2026">Boost 2026</a>
+</li>
+</ul>
+</li>
+<li class="js-nav-menu-item parent ">
+<a class="js-nav-menu-item-link" href="/pages/portfolio">
+Portfolio
+<span class="fa fa-angle-down"></span>
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/pages/portfolio">Our portfolio</a>
+</li>
+<li class="">
+<a href="/pages/government-showcase">Government showcase</a>
+</li>
+</ul>
+</li>
+<li class="active">
+<a href="/blog">Blog</a>
+</li>
+<li class="js-nav-menu-item parent ">
+<a class="js-nav-menu-item-link" href="/pages/resources">
+Resources
+<span class="fa fa-angle-down"></span>
+
+</a>
+<ul class="js-nav-submenu">
+<li class="">
+<a href="/pages/resources">Our top resources</a>
+</li>
+<li class="">
+<a href="/resources/boost-news">Newsletter</a>
+</li>
+<li class="">
+<a href="/resources/agile-project-kickoff-kit">Agile project kick-off kit <img class="main-nav__icon" src="https://d33wubrfki0l68.cloudfront.net/8b6289260fd420de25f47080b239425a5400156a/897e8/images/icons/shopping-cart__grey.png"></a>
+</li>
+<li class="">
+<a href="/resources/product-owner-guide">Product Owner guide <img class="main-nav__icon" src="https://d33wubrfki0l68.cloudfront.net/8b6289260fd420de25f47080b239425a5400156a/897e8/images/icons/shopping-cart__grey.png"></a>
+</li>
+<li><a href="https://content.boost.co.nz/project-risk-management-with-agile">Managing project risk with Agile</a></li>
+<li><a href="https://content.boost.co.nz/maximum-impact-how-to-succeed-as-a-scrum-product-owner">Scrum Product Owner guide</a></li>
+<li><a href="https://content.boost.co.nz/discovery-workshop">Discovery workshop guide</a></li>
+</ul>
+</li>
+<li class="header-nav-btn ">
+<a class="button button--tundora" href="/pages/contact">Contact us</a>
+</li>
+</ul>
+</nav>
+<span class="mobile-menu-trigger js-mobile-menu-trigger">
+<a class="js-mmtrigger" href="#">Menu</a>
+</span>
+</div>
+</div>
+</div>
+</header>
+<div>
+<div class="grid-container">
+<div class="margin-top-6 show-for-large"></div>
+<div class="grid-x grid-margin-x">
+<div class="cell auto show-for-large" data-sticky-container>
+<div class="sticky" id="sticky-spy-scroll" data-sticky data-margin-top="5.375" data-anchor="blog-post" data-top-anchor="blog-post" data-btm-anchor="previous-post">
+<div id="spy-scroll-desktop"></div>
+</div>
+</div>
+<div class="cell large-9">
+<div class="blog-post margin-bottom-3" id="blog-post">
+<h1>Sifting through your code base with ctags</h1>
+<p class="margin-bottom-05">
+By <strong>Gus</strong>
+</p>
+<p class="margin-bottom-05">
+8 January 2018
+</p>
+<p>
+<strong>Tags</strong>:
+<a href="/blog/development" class="blog-post__tag">
+Development
+</a>
+</p>
+<div class="margin-bottom-1">
+<img src="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2018/01/09001603/search-key-770.jpg" alt="Search key on keyboard. make debugging easiers with ctags code indexing.">
+</div>
+<div id="spy-scroll-mobile"></div>
+<p>Developers spend most of their time maintaining, debugging and adding features to an existing code base that they probably haven&#8217;t built.</p>
+<p>It takes a whole lot of effort to get familiar with the code base, and things can get even harder if it’s a legacy code base worked on by many developers.</p>
+<p>It’s the nature of code to get complicated over time and the addition of features and bug fixes will speed up this process. In fact, the more code you have, the more likely you will find bugs hidden in the shadows.</p>
+<p><img loading="lazy" class="alignnone size-medium wp-image-5373 aligncenter" src="http://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045-352x235.jpg" alt="mar-newhall-226045" width="352" height="235" srcset="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045-352x235.jpg 352w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045-768x512.jpg 768w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045-737x491.jpg 737w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045-380x253.jpg 380w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033351/mar-newhall-226045.jpg 2048w" sizes="(max-width: 352px) 100vw, 352px" /></p>
+<p>But, at the end of the day, it&#8217;s inevitable, you will have to write code. Having good development practices — such as code review, pair programming, common code standards within teams, and good test suites — is indispensable for a healthy code base.</p>
+<p>Anything that makes coding easier and more robust can save developers time and product owners money. Find out about a tool that does just this.</p>
+<h2>The hunt</h2>
+<p>I&#8217;ve been working recently on a fairly large Ruby on Rails application composed of multiple internal and external gems, modules and classes, spread across several files. It&#8217;s challenging to navigate between these files, especially when debugging an issue.</p>
+<p>Sometimes what I&#8217;m looking for is within the main code base. In this case a simple text search will solve the problem. But sometimes things are in different code bases. That&#8217;s where it gets complicated.</p>
+<p><img loading="lazy" class="aligncenter wp-image-5374 size-medium" src="http://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326-172x257.jpg" alt="Looking through a shelf of library books. Debugging a distributed code base is like trying to find a phrase in multiple books." width="172" height="257" srcset="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326-172x257.jpg 172w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326-768x1151.jpg 768w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326-363x544.jpg 363w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326-190x285.jpg 190w, https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/18033518/clay-banks-258326.jpg 1367w" sizes="(max-width: 172px) 100vw, 172px" /></p>
+<p>It&#8217;s like having a few books that you&#8217;ve never read before, and trying to find a specific chapter. For books, you can easily use the index to find what you need. Wouldn&#8217;t it be great if we had such a thing for a code base? Something that lets you index all your methods, classes and modules and access them using a few keystrokes?</p>
+<p>Thankfully there is a tool for this. It&#8217;s called <a href="https://github.com/universal-ctags/ctags">ctags</a>.</p>
+<h2>Indexing your code base</h2>
+<p>If you are familiar with IDEs like <a href="https://www.eclipse.org/">Eclipse</a> and <a href="https://www.visualstudio.com/">Visual Studio</a> you probably know about their Intellisense capabilities, and features like accurate code completion and the ability to navigate to methods and class definitions in a few clicks.</p>
+<p>With ctags you can pretty much have a similar functionality using a simple text editor. It&#8217;s a big time saver!</p>
+<h2>Installing ctags</h2>
+<p>This assumes you are using a Mac OS and <a href="https://brew.sh/">brew.sh</a> package manager.</p>
+<p>Open your terminal and install the latest version of <a href="https://github.com/universal-ctags/ctags">Universal Tags</a>, which is the most recent and up-to-date implementation of ctags.</p>
+<p><code>brew install --HEAD universal-ctags/universal-ctags/universal-ctags</code></p>
+<p>Next, go to the Ruby on Rails project you want to index.</p>
+<p>Run <code>bundle install</code> to fetch all dependencies.</p>
+<p>And then run the following command:</p>
+<p><code>ctags -R --output-format=json --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths) -f .tags</code></p>
+<p>This will index all your source code including your gem files.</p>
+<p>Great! Now you should have a huge <code>.tags</code> file sitting inside your project.</p>
+<p>If you are a <a href="https://github.com/vim/vim">Vim</a> user, it comes with a built-in ctags integration. Open a Ruby file, position the cursor over a method and press <code>ctrl-]</code> to find its definition. <a href="http://vim.wikia.com/wiki/Browsing_programs_with_tags">See more commands here</a>.</p>
+<p>If you are a <a href="https://www.sublimetext.com/">Sublime</a> user, install <a href="https://github.com/SublimeText/CTags">this plugin</a> and you are ready to go.</p>
+<p>Congratulations, now you can easily find what you need!</p>
+<h3>Debugging tip</h3>
+<p>When navigating through files inside a gem, you will also be able to modify them. This can be handy when debugging, as you can throw some breakpoints. Just remember to take them out later.</p>
+<h2>It won’t save you from metaprogramming</h2>
+<p>Ruby is a very dynamic language and it comes with powerful <a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a> capabilities. It gives you the freedom to define methods and classes at runtime, allowing you to produce flexible and scalable code.</p>
+<p>Unfortunately, ctags only statically analyze your source code files. This means it won’t be able to find code generated at runtime.</p>
+<p><a href="https://github.com/plataformatec/devise">Devise</a> <code>authenticate_user!</code> method is a good example of this scenario. You won’t be able to find its definition because it changes based on your model name.</p>
+<h2>It not only increases your productivity, it also increases your programming knowledge</h2>
+<p>Ctags gives you a shortcut that seamlessly links your code base with external libraries. As this is all within your editor, it removes the extra step of opening Github in a browser to inspect a gem source code.</p>
+<p>I personally love to use this when building integration tests. If I forget how to use <a href="https://github.com/teamcapybara/capybara">Capybara</a> helper methods I can get to the definition in just a few keystrokes. View a <a href="http://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/19005345/sample-ctags.gif">GIF demo of ctags in action</a>.</p>
+<p>As a developer I highly encourage you to every now and then look into a gem&#8217;s source code and understand how it works. You will often find code that does things you didn&#8217;t know were possible, code you don&#8217;t understand and patterns that you have never seen before.</p>
+<p>It’s a great technique to discover more about the gem, as well as increasing your Ruby knowledge.</p>
+<h2>Learn more</h2>
+<p><a href="https://www.boost.co.nz/development/ruby-on-rails">The benefits Ruby on Rails offers a development company, and our clients</a></p>
+<p><a href="https://www.boost.co.nz/blog/2021/07/wellington-ruby-on-rails-developer-jobs">Ruby on Rails developer jobs at Boost</a></p>
+</div>
+<div class="grid-x grid-margin-x margin-top-4 margin-bottom-6" id="previous-post">
+<h2 class="text--colour-blue-prussian text--font-size-1-5 margin-left-1 margin-bottom-2">
+Here are some other posts you might enjoy
+</h2>
+<div class="cell large-6">
+<div class="pager-item ">
+<a href="/blog/2017/12/boost-news-tools">
+<img src="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/12/03172509/reading-boost-news-2.png" alt="">
+<h3 class="pager-item__title">
+Boost News: Tools to make a difference, direct to your inbox
+</h3>
+<p>
+Subscribe to our email newsletter for Agile tools and tips, development case studies, business change ideas and to hear what's new at Boost.
+</p>
+</a>
+</div>
+</div>
+<div class="cell large-6">
+<div class="pager-item pager-item--margin-top">
+<a href="/blog/2018/01/collaborating-with-the-future">
+<img src="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2018/01/09003728/do-what-is-great-770.jpg" alt="Screen showing the message 'Do what is great'.">
+<h3 class="pager-item__title">
+Collaborating with the future: How to leave a lasting impression
+</h3>
+<p>
+The code that you leave behind is how future developers will think of you. Make sure you are collaborating with the future effectively.
+</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="call-to-action padding-top-3 padding-bottom-3">
+<div class="grid-container">
+<div class="grid-x grid-margin-x">
+<div class="cell medium-auto">
+<h2 class="call-to-action__heading">Make a bigger impact tomorrow</h2>
+</div>
+<div class="cell medium-4 align-self-middle text-center">
+
+<a class="button button button--white-prussian" href="https://cta-redirect.hubspot.com/cta/redirect/852147/1b172810-5724-4219-9cc2-dda1c0e1d446" id="hs-cta-wrapper-1b172810-5724-4219-9cc2-dda1c0e1d446">
+Talk to us today
+</a>
+<script charset="utf-8" src="https://js.hscta.net/cta/current.js" type="e5a502f5d4fb82b4541ce05e-text/javascript"></script>
+<script type="e5a502f5d4fb82b4541ce05e-text/javascript">
+    hbspt.cta.load(852147, '1b172810-5724-4219-9cc2-dda1c0e1d446', {});
+  </script>
+
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="footer wrapper">
+<div class="hide-for-medium text-center">
+<div class="margin-top-2 margin-bottom-2">
+<p class="margin-bottom-0">
+<a class="footer__link footer__link--with-underline" href="/cdn-cgi/l/email-protection#f2999b939d8093b2909d9d8186dc919ddc9c88"><span class="__cf_email__" data-cfemail="e3888a828c9182a3818c8c9097cd808ccd8d99">[email&#160;protected]</span></a>
+</p>
+<p class="margin-bottom-0">
+<a class="footer__link footer__link--with-underline" href="tel:006449390062">+64 4 939 0062</a>
+</p>
+</div>
+<p>
+Level 5, 57-59 Courtenay Place,
+<br>
+Te Aro, Wellington, 6011,
+<br>
+New Zealand
+</p>
+<div class="margin-bottom-2">
+<a class="social-media-icon social-media-icon--facebook" rel="noopener" target="_blank" href="https://www.facebook.com/BoostNewZealand/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/6cdb0dc8174c8482ece4b3f4787e7d173882fde4/4d583/images/icons/social/facebook__grey-tundora.svg" alt="Facebook">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/5b0d82e61dd42df5b6a51efd4672e33ba7280c94/63feb/images/icons/social/facebook__grey-dove.svg" alt="Facebook">
+</a>
+<a class="social-media-icon social-media-icon--linkedin" rel="noopener" target="_blank" href="https://www.linkedin.com/company/1104400/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/092dde2b9026f09a47c07f18238be2f409f17119/75fd3/images/icons/social/linkedin__grey-tundora.svg" alt="LinkedIn">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/3179353a11d2a13b7403c59ad3a7adecc69afa4b/95de4/images/icons/social/linkedin__grey-dove.svg" alt="LinkedIn">
+</a>
+<a class="social-media-icon social-media-icon--instagram" rel="noopener" target="_blank" href="https://www.instagram.com/boost_nz_/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/80160a93d00b7b18a644462e3fc3d97e3c32461c/ac9ee/images/icons/social/instagram__grey-tundora.svg" alt="Instagram">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/8f5330f1748d80956eba54880d7820eee73e6331/80105/images/icons/social/instagram__grey-dove.svg" alt="Instagram">
+</a>
+<a class="social-media-icon social-media-icon--twitter" rel="noopener" target="_blank" href="https://twitter.com/boostnz">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/b0197eb75e53309580cd6ea253c8af130cfa830a/55278/images/icons/social/twitter__grey-tundora.svg" alt="Twitter">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/87e03ceb34c0d37112166a4ed28326c86bc5f8f1/d0453/images/icons/social/twitter__grey-dove.svg" alt="Twitter">
+</a>
+</div>
+<div class="margin-bottom-2">
+<p class="margin-bottom-0">
+© 2022 Boost.
+<br>
+All Rights Reserved
+</p>
+</div>
+</div>
+<div class="show-for-medium padding-left-1 padding-right-1 margin-y-2">
+<div class="grid-container full">
+<div class="grid-x grid-margin-x">
+<div class="cell medium-3 large-2">
+<p class="margin-bottom-0">
+<a class="footer__link footer__link--with-underline" href="/cdn-cgi/l/email-protection#f2999b939d8093b2909d9d8186dc919ddc9c88"><span class="__cf_email__" data-cfemail="402b29212f322100222f2f33346e232f6e2e3a">[email&#160;protected]</span></a>
+</p>
+<p class="margin-bottom-0">
+<a class="footer__link footer__link--with-underline" href="tel:006449390062">+64 4 939 0062</a>
+</p>
+</div>
+<div class="cell auto large-3">
+<p>
+Level 5, 57-59 Courtenay Place,
+<br>
+Te Aro, Wellington, 6011,
+<br>
+New Zealand
+</p>
+</div>
+<div class="cell auto show-for-large">
+<div class="grid-x grid-margin-x">
+<div class="cell large-4">
+<a class="footer__link" href="/development">Development</a>
+<a class="footer__link" href="/agile-training">Agile training</a>
+<a class="footer__link" href="/pages/careers">Careers</a>
+</div>
+<div class="cell large-4">
+<a class="footer__link" href="/about-us">About us</a>
+<a class="footer__link" href="/pages/portfolio">Portfolio</a>
+<a class="footer__link" href="/blog">Blog</a>
+</div>
+<div class="cell large-4">
+<a class="footer__link" href="/pages/resources">Resources</a>
+<a class="footer__link" href="/pages/contact">Contact us</a>
+</div>
+</div>
+</div>
+<div class="cell medium-5 large-3 text-right">
+<div class="margin-bottom-1">
+<a class="social-media-icon social-media-icon--facebook" rel="noopener" target="_blank" href="https://www.facebook.com/BoostNewZealand/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/6cdb0dc8174c8482ece4b3f4787e7d173882fde4/4d583/images/icons/social/facebook__grey-tundora.svg" alt="Facebook">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/5b0d82e61dd42df5b6a51efd4672e33ba7280c94/63feb/images/icons/social/facebook__grey-dove.svg" alt="Facebook">
+</a>
+<a class="social-media-icon social-media-icon--linkedin" rel="noopener" target="_blank" href="https://www.linkedin.com/company/1104400/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/092dde2b9026f09a47c07f18238be2f409f17119/75fd3/images/icons/social/linkedin__grey-tundora.svg" alt="LinkedIn">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/3179353a11d2a13b7403c59ad3a7adecc69afa4b/95de4/images/icons/social/linkedin__grey-dove.svg" alt="LinkedIn">
+</a>
+<a class="social-media-icon social-media-icon--instagram" rel="noopener" target="_blank" href="https://www.instagram.com/boost_nz_/">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/80160a93d00b7b18a644462e3fc3d97e3c32461c/ac9ee/images/icons/social/instagram__grey-tundora.svg" alt="Instagram">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/8f5330f1748d80956eba54880d7820eee73e6331/80105/images/icons/social/instagram__grey-dove.svg" alt="Instagram">
+</a>
+<a class="social-media-icon social-media-icon--twitter" rel="noopener" target="_blank" href="https://twitter.com/boostnz">
+<img class="social-media-icon__icon--main" src="https://d33wubrfki0l68.cloudfront.net/b0197eb75e53309580cd6ea253c8af130cfa830a/55278/images/icons/social/twitter__grey-tundora.svg" alt="Twitter">
+<img class="social-media-icon__icon--hover" src="https://d33wubrfki0l68.cloudfront.net/87e03ceb34c0d37112166a4ed28326c86bc5f8f1/d0453/images/icons/social/twitter__grey-dove.svg" alt="Twitter">
+</a>
+</div>
+<p class="margin-bottom-0">
+© 2022 Boost.
+<br>
+All Rights Reserved
+</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" />
+<link href='https://d33wubrfki0l68.cloudfront.net/css/2cd9eb4a283f9fc9b0d3067e9cbe0fc619e34157/stylesheets-22268a648a39f6f6a37b9c6601ecefa5.css' rel='stylesheet' />
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src='https://d33wubrfki0l68.cloudfront.net/js/728882610b0dead39f5c8904bcb21030654608e7/plugins-200f2e4e83498c0a3df7.js' type="e5a502f5d4fb82b4541ce05e-text/javascript"></script>
+<script src='https://d33wubrfki0l68.cloudfront.net/bundles/2e874923a2d7df48db76ccdcd4bc1f414318cdca.js' type="e5a502f5d4fb82b4541ce05e-text/javascript"></script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="e5a502f5d4fb82b4541ce05e-|49" defer=""></script></body>
+</html>

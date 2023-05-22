@@ -1,0 +1,259 @@
+
+
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title><!-- existence --></title>
+    <style>
+
+      .header{
+      text-align: center;
+      color: #808080;
+
+      }
+
+      .main{
+      display: flex;
+      width: 100%;
+      }
+
+      .navigation_links{
+      line-height: 4.0;
+      font-size: 20px;
+
+      }
+      .toc{
+      width: 20%;
+      padding-left: 25px;
+      }
+      .content{
+      width: 65%;
+
+      font-size: 17px;
+      }
+
+
+      .footer_spacer{
+      height: 150px;
+      
+      }
+      .footer:after{
+      background-color: black;
+      content: "";
+
+      clear: both;
+
+      }
+
+      .footer_column{
+      background-color: black;
+      color: white;
+      float: left;
+      width: 33.33%;
+      padding: 10 %;
+      height: 300px;
+
+      }
+      
+form{
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 60px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  opacity: 0.6;
+
+ box-shadow: 0 10px 25px green;		
+}
+form:hover{
+box-shadow: 0 10px 25px red ;		
+
+opacity: 1.0;
+}
+input{
+background-color: green;
+color: white;
+width: 120px;
+height: 40px;
+}
+
+my_code{
+display: block;
+background-color: white;
+color: black;
+font-size: 14px;
+width: 100%;
+line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+
+.main{
+flex-direction: column;
+}
+.content{ 
+width: 97%;
+text-align: justify;
+margin-left: 5px;
+margin-right: 5px;
+padding-left: 5px;
+padding-right: 15px;
+}
+.toc{
+width: 90%;
+flex: 2;
+
+}
+.navigation_links{ 
+width: 90%;
+padding-left: 20%;
+}
+.navigation_links:hover{
+background-color: yellow;
+color: black;
+
+}
+}
+
+
+pre{
+    background-color: #e0ffff;
+    font-family:"Lucida Console", Monaco, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+
+}
+
+
+
+</style>
+
+
+  </head>
+  <body>
+ <div class="header"><h1><!-- existence --></h1></div>
+  <div class="main">
+  <a name="toc"></a>
+    <div class="toc">
+      <h3>Table of Contents</h3>
+
+ <ol> 
+	    <li><a href="#Imageslideshowwithfeh"> Image slideshow with feh </a></li>
+
+	    <li><a href="#Howdoyoureadthisscript?"> How do you read this script?</a></li>
+
+	    <li><a href="#Thescript(doubleview)"> The script (doubleview)</a></li>
+
+</ol>
+</ol>
+      </div>
+    <div class="content">
+
+<div class="content">
+
+<div id="Imageslideshowwithfeh">
+<h2>  Image slideshow with feh  </h2>
+<p> Feh is a awesome image viewer. Here is a script, a wrapper really to see images like in a slideshow, two images at a time. </p>
+<p> I call the script doubleview </p>
+<p> You invoke it in a directory of images or it can alternatively take a plain text file with paths (absolute paths) of images, png or jpg. </p>
+</div>
+</div>
+<div class="content">
+
+<div id="Howdoyoureadthisscript?">
+<h2>  How do you read this script? </h2>
+<p> first go to the last function that is being invoked, main() </p>
+<p> look at the main() function, it calls other functions in a sequence. </p>
+</div>
+</div>
+<div class="content">
+
+<div id="Thescript(doubleview)">
+<h2>  The script (doubleview) </h2>
+
+<table><tr><td><pre>
+
+#! /bin/bash
+input_file="$1"
+alternative_input_file='/tmp/alternative_input_file'
+check_user_input(){
+    case $input_file in
+	-h|--h|-help|--help|-H|--H) clear; show_the_documentation ; exit ;;
+    esac
+    
+[[ "$input_file" ]] || &gt"$alternative_input_file" && write_input_file && input_file="$alternative_input_file"
+}
+show_the_documentation(){
+cat&lt&ltEOF
+This script is a wrapper for feh image viewer
+it shows two images at once, side by side (thumbnails really, but larger)
+like in a slideshow but two images instead of one
+run as
+$0 
+in a directory of images
+or 
+$0 input_file
+where input_file is a file with path or realpath of images
+close the window and the next window with next two images will show, till the image list is exausted.
+$0 -h
+to see the documentation
+dependencies: feh
+EOF
+}
+write_input_file(){
+ls *.png *.jpg *.jpeg  2&gt/dev/null | xargs realpath
+}&gt&gt"$alternative_input_file"
+output_file='/tmp/images_link_file'
+&gt$output_file
+read_from_file_in_twos(){
+    while read line
+    do
+	if [[ -z $old ]]
+	then
+	    #this is the first time
+	    old="$line"
+	else
+	    #not the first time
+	    view_two_image $old $line
+	fi
+	read junk
+    done
+    
+}&lt"$input_file"
+view_two_image(){
+    image1="$1"
+    image2="$2"
+    feh -A " realpath %f   &gt&gt $output_file " -t --thumb-width 400 --thumb-height 400  $image1 $image2
+}
+main(){
+    check_user_input
+    read_from_file_in_twos
+}
+main
+
+</pre></td></tr></table>
+<p>  </p>
+</div>
+</div>
+	</div>
+    <div class="navigation_links">
+      <p><a href="/">HOME</a>
+	<p><a href="https://www.gutenberg.org/">Go read a book</a>
+    </div>
+
+</div>
+    <form action="#toc">
+    <input type="submit" value="Table of Contents" />
+    </form>
+
+  </body>
+
+<! --
+Written by Parameshwar Majhi
+This is a static site generated from markup? markdown? whatever
+
+Nice to meet you stranger and have a nice day.
+
+-->
+  
+</html>
+

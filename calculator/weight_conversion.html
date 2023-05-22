@@ -1,0 +1,196 @@
+<html><head>
+    <meta name="author" content="Parameshwar Majhi">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<style>
+  .conversion{
+  display: none;
+      }
+  .menu{
+  cursor: pointer;
+  }
+
+  .normal{
+  display: block;
+  padding-left: 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+  .display_menu{
+  display: flex;
+  flex-direction: row;
+  background-color: DodgerBlue;
+  height: 160px;
+  justify-content: space-between;
+  align-items: center;
+
+  }
+  #kilogram,#pound,#tonne{
+  padding: 20px;
+  margin: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: white;
+  }
+  #kilogram:hover,#pound:hover,#tonne:hover{
+  background-color: yellow;
+}  
+</style>
+
+<!-- This approach did not work -->
+
+  <script>
+function clear_screen() {
+  document.getElementsByClassName("conversion_chamber").innerHTML="hello";
+}
+</script>
+  </head><body>
+    <!-- Header of the page -->
+
+    <h1 style="text-align: center;">Weight Conversion</h1>
+
+
+    <!-- menu to display in a flex box -->
+<!-- onclick the menu divs the jquery functions remove or add classes for visibility to the div id -->
+
+<div class="display_menu">
+  <div id="kilogram" class="menu">
+    convert from kilogram
+  </div>
+  <div id="pound" class="menu">
+    convert from pound
+  </div>
+  <div id="tonne" class="menu">
+    convert from tonne
+  </div>
+</div>
+<!-- -->
+
+<!-- the hidden div where the forms are located -->
+
+<div class="conversion_chamber">
+<div id="kilogram_conversion" class="conversion" style="background-color: #add8e6;">
+<h2>Enter value in Kilogram</h2>
+
+<input id="inputthis" type="number" placeholder="Weight in Kilogram" oninput="myfunction_kilogram(this.value)" onchange="myfunction_kilogram(this.value)">
+<p> <span id="display_field"></span></p>
+
+<p>Weight in Pound: <span id="kp"></span></p>
+<p>Weight in Tonne: <span id="kt"></span></p>
+</div>
+
+<div id="pound_conversion" class="conversion" style="background-color:#afeeee;">
+<h2>Enter value in Pound</h2>
+
+<input id="inputthis" type="number" placeholder="Weight in Pound" oninput="myfunction_pound(this.value)" onchange="myfunction_pound(this.value)">
+
+<p> <span id="display_field"></span></p>
+
+<p>Weight in kilogram: <span id="pk"></span></p>
+<p>Weight in Tonne: <span id="pt"></span></p>
+</div>
+
+<div id="tonne_conversion" class="conversion" style="background-color: #7fffd4;">
+<h2>Enter value in Tonne</h2>
+
+<input id="inputthis" type="number" placeholder="Weight in Tonne" oninput="myfunction_tonne(this.value)" onchange="myfunction_tonne(this.value)">
+
+<p> <span id="display_field"></span></p>
+
+<p>Weight in kilogram: <span id="tk"></span></p>
+<p>Weight in pound: <span id="tp"></span></p>
+</div>
+
+</div>
+
+
+
+
+
+<!-- normal javascript functions here called by the forms above -->
+
+<!-- type of variable misbehaving, acting like string -->
+<!-- instead of doing 'value + 10' do '+ value + 10' , where '+' changes the type of whatever it is prepended to , to number -->
+
+<script>
+
+  function myfunction_kilogram(valNum) {
+//  k to p, multiply the mass value by 2.205
+  document.getElementById("kp").innerHTML=(valNum*2.205).toFixed();
+  // k to t, divide the mass value by 1000
+document.getElementById("kt").innerHTML=(+valNum/1000).toFixed();
+}
+function myfunction_pound(valNum) {
+// p to k, divide the mass value by 2.205
+  document.getElementById("pk").innerHTML=(valNum/2.205).toFixed();
+  // p to t, divide the mass value by 2205
+document.getElementById("pt").innerHTML=(valNum/2205).toFixed();
+}
+  function myfunction_tonne(valNum) {
+  // t to k, multiply the mass value by 1000
+  document.getElementById("tk").innerHTML=(valNum*1000).toFixed();
+  // t to p, multiply the mass value by 2205
+document.getElementById("tp").innerHTML=(valNum*2205).toFixed();
+}
+
+</script>
+
+
+<!-- jquery functions that are bound to the menu div elements -->
+<!-- their job is to remove and add classes, so as to manipulate visibility of the forms -->
+<!-- onclick this element, get the id of this element and then, case statement on that id, depending on case trigger 'jquery add class' and 'jquery remove class' things -->
+
+<script>
+  $(document).ready(function(){
+  $(".menu").click(function(){
+    
+  $myid = $(this).attr("id");
+  switch ($myid){
+  case 'kilogram':
+    $("#pound_conversion").removeClass("normal");
+  $("#tonne_conversion").removeClass("normal");
+
+    $("#pound_conversion").addClass("conversion");
+  $("#tonne_conversion").addClass("conversion");
+  
+  $("#kilogram_conversion").removeClass("conversion");
+  $("#kilogram_conversion").addClass("normal");
+  break;
+    case 'pound':
+   $("#kilogram_conversion").removeClass("normal");
+  $("#tonne_conversion").removeClass("normal");
+
+   $("#kilogram_conversion").addClass("conversion");
+  $("#tonne_conversion").addClass("conversion");
+      $("#pound_conversion").removeClass("conversion");
+      $("#pound_conversion").addClass("normal");
+
+  break;
+  case 'tonne':
+     $("#kilogram_conversion").removeClass("normal");
+  $("#pound_conversion").removeClass("normal");
+
+      $("#pound_conversion").addClass("conversion");
+  $("#kilogram_conversion").addClass("conversion");
+
+  $("#tonne_conversion").removeClass("conversion");
+  $("#tonne_conversion").addClass("normal");
+
+
+}
+  });
+});
+
+  </script>
+  
+
+
+  </body>
+
+  <!-- Way too much time wasted here -->
+  <!-- Too much redundencies and unnecessary code or junk or whatever here -->
+
+
+</html>

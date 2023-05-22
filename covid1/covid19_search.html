@@ -1,0 +1,725 @@
+<html>
+  <head>
+    <meta name="description" content="World covid-19 tracker ">
+    <meta name="keywords" content="covid,covid-19,covid-19 tracker,covid-19 for the world, covid-19 tracker">
+    <meta name="author" content="Parameshwar Majhi">
+    <meta property="og:url"                 content="https://majhi.dev/covid1/index.html" />
+    <meta property="og:title"               content="World covid-19 tracker" />
+    <meta property="og:description"         content="covid-19 tracker for the World" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
+    
+    <style type="text/css" media="screen">
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+#formholder{
+
+    height: 40%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner,#data_today{
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+
+display: inline-block;
+position: relative;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+#data_today_1, #data_older{
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+background-color:#b0e0e6;
+}
+#data_today_1>a, #data_older>a{
+text-decoration: none;
+color: black;
+}
+#data_today_1:hover, #data_older:hover{
+background-color:#87cefa;
+}
+
+#data_today_1{
+margin-left: 50px;
+}
+    </style>
+  </head>
+  <body>
+    <!--Make sure the form has the autocomplete function switched off:-->
+    <div id="banner">
+      <div id="banner_1">
+	<h2>Covid-19 statistics</h2>
+	<h4>Search for any country in the field below</h4>
+      </div>
+    </div>
+
+    <div id="formholder">
+      <form autocomplete="off" action="/action_page.html" id="form_a">
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+  </div>
+  <input type="submit">
+</form>
+    </div>
+    
+    <div id="data_today">
+      <div id="data_older">
+	<a href="calendar.html" title="" target="_blank">Previous Covid-19 data</a> 
+      </div>
+      <div id="data_today_1">
+	<a href="daily_covid19_data.html" title="" target="_blank">Covid-19 data for today</a> 
+      </div>
+    </div>
+
+<script>
+  var country_list=[];
+country_list['USA'] = 'USA' ;
+country_list['India'] = 'India' ;
+country_list['Brazil'] = 'Brazil' ;
+country_list['Russia'] = 'Russia' ;
+country_list['France'] = 'France' ;
+country_list['Spain'] = 'Spain' ;
+country_list['UK'] = 'UK' ;
+country_list['Italy'] = 'Italy' ;
+country_list['Argentina'] = 'Argentina' ;
+country_list['Colombia'] = 'Colombia' ;
+country_list['Mexico'] = 'Mexico' ;
+country_list['Germany'] = 'Germany' ;
+country_list['Poland'] = 'Poland' ;
+country_list['Iran'] = 'Iran' ;
+country_list['Peru'] = 'Peru' ;
+country_list['South Africa'] = 'South_Africa'  ;
+country_list['Ukraine'] = 'Ukraine' ;
+country_list['Turkey'] = 'Turkey' ;
+country_list['Belgium'] = 'Belgium' ;
+country_list['Iraq'] = 'Iraq' ;
+country_list['Indonesia'] = 'Indonesia' ;
+country_list['Chile'] = 'Chile' ;
+country_list['Netherlands'] = 'Netherlands' ;
+country_list['Czechia'] = 'Czechia' ;
+country_list['Romania'] = 'Romania' ;
+country_list['Bangladesh'] = 'Bangladesh' ;
+country_list['Philippines'] = 'Philippines' ;
+country_list['Pakistan'] = 'Pakistan' ;
+country_list['Canada'] = 'Canada' ;
+country_list['Morocco'] = 'Morocco' ;
+country_list['Saudi Arabia'] = 'Saudi_Arabia';
+country_list['Israel'] = 'Israel' ;
+country_list['Switzerland'] = 'Switzerland' ;
+country_list['Portugal'] = 'Portugal' ;
+country_list['Austria'] = 'Austria' ;
+country_list['Sweden'] = 'Sweden' ;
+country_list['Nepal'] = 'Nepal' ;
+country_list['Hungary'] = 'Hungary' ;
+country_list['Jordan'] = 'Jordan' ;
+country_list['Serbia'] = 'Serbia' ;
+country_list['Ecuador'] = 'Ecuador' ;
+country_list['UAE'] = 'UAE' ;
+country_list['Panama'] = 'Panama' ;
+country_list['Bulgaria'] = 'Bulgaria' ;
+country_list['Japan'] = 'Japan' ;
+country_list['Georgia'] = 'Georgia' ;
+country_list['Dominican Republic'] = 'Dominican_Republic' ;
+country_list['Bolivia'] = 'Bolivia' ;
+country_list['Kuwait'] = 'Kuwait' ;
+country_list['Costa Rica'] = 'Costa_Rica' ;
+country_list['Belarus'] = 'Belarus' ;
+country_list['Qatar'] = 'Qatar' ;
+country_list['Croatia'] = 'Croatia' ;
+country_list['Armenia'] = 'Armenia' ;
+country_list['Kazakhstan'] = 'Kazakhstan' ;
+country_list['Azerbaijan'] = 'Azerbaijan' ;
+country_list['Lebanon'] = 'Lebanon' ;
+country_list['Oman'] = 'Oman' ;
+country_list['Guatemala'] = 'Guatemala' ;
+country_list['Egypt'] = 'Egypt' ;
+country_list['Moldova'] = 'Moldova' ;
+country_list['Ethiopia'] = 'Ethiopia' ;
+country_list['Greece'] = 'Greece' ;
+country_list['Slovakia'] = 'Slovakia' ;
+country_list['Honduras'] = 'Honduras' ;
+country_list['Venezuela'] = 'Venezuela' ;
+country_list['Tunisia'] = 'Tunisia' ;
+country_list['Myanmar'] = 'Myanmar' ;
+country_list['Palestine'] = 'Palestine' ;
+country_list['Bosnia and Herzegovina'] = 'Bosnia_and_Herzegovina' ;
+country_list['Bahrain'] = 'Bahrain' ;
+country_list['Kenya'] = 'Kenya' ;
+country_list['Algeria'] = 'Algeria' ;
+country_list['Paraguay'] = 'Paraguay' ;
+country_list['Denmark'] = 'Denmark' ;
+country_list['Libya'] = 'Libya' ;
+country_list['Slovenia'] = 'Slovenia' ;
+country_list['Kyrgyzstan'] = 'Kyrgyzstan' ;
+country_list['Uzbekistan'] = 'Uzbekistan' ;
+country_list['Ireland'] = 'Ireland' ;
+country_list['Malaysia'] = 'Malaysia' ;
+country_list['Nigeria'] = 'Nigeria' ;
+country_list['Lithuania'] = 'Lithuania' ;
+country_list['North Macedonia'] = 'North_Macedonia' ;
+country_list['Singapore'] = 'Singapore' ;
+country_list['Ghana'] = 'Ghana' ;
+country_list['Afghanistan'] = 'Afghanistan' ;
+country_list['Albania'] = 'Albania' ;
+country_list['El Salvador'] = 'El_Salvador' ;
+country_list['Norway'] = 'Norway' ;
+country_list['Montenegro'] = 'Montenegro' ;
+country_list['Luxembourg'] = 'Luxembourg' ;
+country_list['S. Korea'] = 'S__Korea' ;
+country_list['Australia'] = 'Australia' ;
+country_list['Finland'] = 'Finland' ;
+country_list['Sri Lanka'] = 'Sri_Lanka' ;
+country_list['Cameroon'] = 'Cameroon' ;
+country_list['Uganda'] = 'Uganda' ;
+country_list['Ivory Coast'] = 'Ivory_Coast' ;
+country_list['Latvia'] = 'Latvia' ;
+country_list['Sudan'] = 'Sudan' ;
+country_list['Zambia'] = 'Zambia' ;
+country_list['Madagascar'] = 'Madagascar' ;
+country_list['Senegal'] = 'Senegal' ;
+country_list['Mozambique'] = 'Mozambique' ;
+country_list['Angola'] = 'Angola' ;
+country_list['French Polynesia'] = 'French_Polynesia' ;
+country_list['Namibia'] = 'Namibia' ;
+country_list['Estonia'] = 'Estonia' ;
+country_list['Guinea'] = 'Guinea' ;
+country_list['DRC'] = 'DRC' ;
+country_list['Maldives'] = 'Maldives' ;
+country_list['Tajikistan'] = 'Tajikistan' ;
+country_list['Botswana'] = 'Botswana' ;
+country_list['Cyprus'] = 'Cyprus' ;
+country_list['French Guiana'] = 'French_Guiana' ;
+country_list['Cabo Verde'] = 'Cabo_Verde' ;
+country_list['Jamaica'] = 'Jamaica' ;
+country_list['Zimbabwe'] = 'Zimbabwe' ;
+country_list['Malta'] = 'Malta' ;
+country_list['Haiti'] = 'Haiti' ;
+country_list['Gabon'] = 'Gabon' ;
+country_list['Mauritania'] = 'Mauritania' ;
+country_list['Cuba'] = 'Cuba' ;
+country_list['Guadeloupe'] = 'Guadeloupe' ;
+country_list['Syria'] = 'Syria' ;
+country_list['Réunion'] = 'Réunion' ;
+country_list['Bahamas'] = 'Bahamas' ;
+country_list['Belize'] = 'Belize' ;
+country_list['Andorra'] = 'Andorra' ;
+country_list['Trinidad and Tobago'] = 'Trinidad_and_Tobago' ;
+country_list['Hong Kong'] = 'Hong_Kong' ;
+country_list['Eswatini'] = 'Eswatini' ;
+country_list['Uruguay'] = 'Uruguay' ;
+country_list['Malawi'] = 'Malawi' ;
+country_list['Rwanda'] = 'Rwanda' ;
+country_list['Nicaragua'] = 'Nicaragua' ;
+country_list['Congo'] = 'Congo' ;
+country_list['Djibouti'] = 'Djibouti' ;
+country_list['Guyana'] = 'Guyana' ;
+country_list['Martinique'] = 'Martinique' ;
+country_list['Iceland'] = 'Iceland' ;
+country_list['Suriname'] = 'Suriname' ;
+country_list['Mayotte'] = 'Mayotte' ;
+country_list['Equatorial Guinea'] = 'Equatorial_Guinea' ;
+country_list['Aruba'] = 'Aruba' ;
+country_list['CAR'] = 'CAR' ;
+country_list['Mali'] = 'Mali' ;
+country_list['Somalia'] = 'Somalia' ;
+country_list['Thailand'] = 'Thailand' ;
+country_list['Gambia'] = 'Gambia' ;
+country_list['South Sudan'] = 'South_Sudan' ;
+country_list['Burkina Faso'] = 'Burkina_Faso' ;
+country_list['Benin'] = 'Benin' ;
+country_list['Togo'] = 'Togo' ;
+country_list['Curaçao'] = 'Curaçao' ;
+country_list['Guinea-Bissau'] = 'Guinea_Bissau' ;
+country_list['Sierra Leone'] = 'Sierra_Leone' ;
+country_list['Yemen'] = 'Yemen' ;
+country_list['Lesotho'] = 'Lesotho' ;
+country_list['New Zealand'] = 'New_Zealand' ;
+country_list['San Marino'] = 'San_Marino' ;
+country_list['Chad'] = 'Chad' ;
+country_list['Liberia'] = 'Liberia' ;
+country_list['Niger'] = 'Niger' ;
+country_list['Channel Islands'] = 'Channel_Islands' ;
+country_list['Vietnam'] = 'Vietnam' ;
+country_list['Liechtenstein'] = 'Liechtenstein' ;
+country_list['Sint Maarten'] = 'Sint_Maarten' ;
+country_list['Gibraltar'] = 'Gibraltar' ;
+country_list['Sao Tome and Principe'] = 'Sao_Tome_and_Principe' ;
+country_list['Mongolia'] = 'Mongolia' ;
+country_list['Turks and Caicos'] = 'Turks_and_Caicos' ;
+country_list['Saint Martin'] = 'Saint_Martin' ;
+country_list['Diamond Princess'] = 'Diamond_Princess' ;
+country_list['Burundi'] = 'Burundi' ;
+country_list['Taiwan'] = 'Taiwan' ;
+country_list['Papua New Guinea'] = 'Papua_New_Guinea' ;
+country_list['Monaco'] = 'Monaco' ;
+country_list['Comoros'] = 'Comoros' ;
+country_list['Eritrea'] = 'Eritrea' ;
+country_list['Tanzania'] = 'Tanzania' ;
+country_list['Mauritius'] = 'Mauritius' ;
+country_list['Faeroe Islands'] = 'Faeroe_Islands' ;
+country_list['Bhutan'] = 'Bhutan' ;
+country_list['Isle of Man'] = 'Isle_of_Man' ;
+country_list['Cambodia'] = 'Cambodia' ;
+country_list['Cayman Islands'] = 'Cayman_Islands' ;
+country_list['Barbados'] = 'Barbados' ;
+country_list['Bermuda'] = 'Bermuda' ;
+country_list['Saint Lucia'] = 'Saint_Lucia' ;
+country_list['Seychelles'] = 'Seychelles' ;
+country_list['Caribbean Netherlands'] = 'Caribbean_Netherlands' ;
+country_list['Brunei '] = 'Brunei_' ;
+country_list['St. Barth'] = 'St__Barth' ;
+country_list['Antigua and Barbuda'] = 'Antigua_and_Barbuda' ;
+country_list['St. Vincent Grenadines'] = 'St__Vincent_Grenadines' ;
+country_list['Dominica'] = 'Dominica' ;
+country_list['British Virgin Islands'] = 'British_Virgin_Islands' ;
+country_list['Macao'] = 'Macao' ;
+country_list['Fiji'] = 'Fiji' ;
+country_list['Grenada'] = 'Grenada' ;
+country_list['Laos'] = 'Laos' ;
+country_list['New Caledonia'] = 'New_Caledonia' ;
+country_list['Timor-Leste'] = 'Timor_Leste' ;
+country_list['Vatican City'] = 'Vatican_City' ;
+country_list['Saint Kitts and Nevis'] = 'Saint_Kitts_and_Nevis' ;
+country_list['Greenland'] = 'Greenland' ;
+country_list['Falkland Islands'] = 'Falkland_Islands' ;
+country_list['Solomon Islands'] = 'Solomon_Islands' ;
+country_list['Saint Pierre Miquelon'] = 'Saint_Pierre_Miquelon' ;
+country_list['Montserrat'] = 'Montserrat' ;
+country_list['Western Sahara'] = 'Western_Sahara' ;
+country_list['MS Zaandam'] = 'MS_Zaandam' ;
+country_list['Anguilla'] = 'Anguilla' ;
+country_list['Marshall Islands'] = 'Marshall_Islands' ;
+country_list['Wallis and Futuna'] = 'Wallis_and_Futuna' ;
+country_list['Samoa'] = 'Samoa' ;
+country_list['Vanuatu'] = 'Vanuatu' ;
+country_list['China'] = 'China'            ;
+country_list['Micronesia'] = 'Micronesia'            ;
+
+  </script>
+
+<script>
+
+var countries=['USA',
+'India', 
+'Brazil', 
+'Russia', 
+'France', 
+'Spain', 
+'UK', 
+'Italy', 
+'Argentina', 
+'Colombia', 
+'Mexico', 
+'Germany', 
+'Poland', 
+'Iran', 
+'Peru', 
+'South Africa', 
+'Ukraine', 
+'Turkey', 
+'Belgium', 
+'Iraq', 
+'Indonesia', 
+'Chile', 
+'Netherlands', 
+'Czechia', 
+'Romania', 
+'Bangladesh', 
+'Philippines', 
+'Pakistan', 
+'Canada', 
+'Morocco', 
+'Saudi Arabia', 
+'Israel', 
+'Switzerland', 
+'Portugal', 
+'Austria', 
+'Sweden', 
+'Nepal', 
+'Hungary', 
+'Jordan', 
+'Serbia', 
+'Ecuador', 
+'UAE', 
+'Panama', 
+'Bulgaria', 
+'Japan', 
+'Georgia', 
+'Dominican Republic', 
+'Bolivia', 
+'Kuwait', 
+'Costa Rica', 
+'Belarus', 
+'Qatar', 
+'Croatia', 
+'Armenia', 
+'Kazakhstan', 
+'Azerbaijan', 
+'Lebanon', 
+'Oman', 
+'Guatemala', 
+'Egypt', 
+'Moldova', 
+'Ethiopia', 
+'Greece', 
+'Slovakia', 
+'Honduras', 
+'Venezuela', 
+'Tunisia', 
+'Myanmar', 
+'Palestine', 
+'Bosnia and Herzegovina', 
+'Bahrain', 
+'Kenya', 
+'Algeria', 
+'Paraguay', 
+'Denmark', 
+'Libya', 
+'Slovenia', 
+'Kyrgyzstan', 
+'Uzbekistan', 
+'Ireland', 
+'Malaysia', 
+'Nigeria', 
+'Lithuania', 
+'North Macedonia', 
+'Singapore', 
+'Ghana', 
+'Afghanistan', 
+'Albania', 
+'El Salvador', 
+'Norway', 
+'Montenegro', 
+'Luxembourg', 
+'S. Korea', 
+'Australia', 
+'Finland', 
+'Sri Lanka', 
+'Cameroon', 
+'Uganda', 
+'Ivory Coast', 
+'Latvia', 
+'Sudan', 
+'Zambia', 
+'Madagascar', 
+'Senegal', 
+'Mozambique', 
+'Angola', 
+'French Polynesia', 
+'Namibia', 
+'Estonia', 
+'Guinea', 
+'DRC', 
+'Maldives', 
+'Tajikistan', 
+'Botswana',
+'Cyprus', 
+'French Guiana', 
+'Cabo Verde', 
+'Jamaica', 
+'Zimbabwe', 
+'Malta', 
+'Haiti', 
+'Gabon', 
+'Mauritania', 
+'Cuba', 
+'Guadeloupe', 
+'Syria', 
+'Réunion', 
+'Bahamas', 
+'Belize', 
+'Andorra', 
+'Trinidad and Tobago', 
+'Hong Kong', 
+'Eswatini', 
+'Uruguay', 
+'Malawi', 
+'Rwanda', 
+'Nicaragua', 
+'Congo', 
+'Djibouti', 
+'Guyana', 
+'Martinique', 
+'Iceland', 
+'Suriname', 
+'Mayotte', 
+'Equatorial Guinea', 
+'Aruba', 
+'CAR', 
+'Mali', 
+'Somalia', 
+'Thailand', 
+'Gambia', 
+'South Sudan', 
+'Burkina Faso', 
+'Benin', 
+'Togo', 
+'Curaçao', 
+'Guinea-Bissau', 
+'Sierra Leone', 
+'Yemen', 
+'Lesotho', 
+'New Zealand', 
+'San Marino', 
+'Chad', 
+'Liberia', 
+'Niger', 
+'Channel Islands', 
+'Vietnam', 
+'Liechtenstein', 
+'Sint Maarten', 
+'Gibraltar', 
+'Sao Tome and Principe', 
+'Mongolia', 
+'Turks and Caicos', 
+'Saint Martin', 
+'Diamond Princess', 
+'Burundi', 
+'Taiwan', 
+'Papua New Guinea', 
+'Monaco', 
+'Comoros', 
+'Eritrea', 
+'Tanzania', 
+'Mauritius', 
+'Faeroe Islands', 
+'Bhutan', 
+'Isle of Man', 
+'Cambodia', 
+'Cayman Islands', 
+'Barbados', 
+'Bermuda', 
+'Saint Lucia', 
+'Seychelles', 
+'Caribbean Netherlands', 
+'Brunei ', 
+'St. Barth', 
+'Antigua and Barbuda', 
+'St. Vincent Grenadines', 
+'Dominica', 
+'British Virgin Islands', 
+'Macao', 
+'Fiji', 
+'Grenada', 
+'Laos', 
+'New Caledonia', 
+'Timor-Leste', 
+'Vatican City', 
+'Saint Kitts and Nevis', 
+'Greenland', 
+'Falkland Islands', 
+'Solomon Islands', 
+'Saint Pierre Miquelon', 
+'Montserrat', 
+'Western Sahara', 
+'MS Zaandam', 
+'Anguilla', 
+'Marshall Islands', 
+'Wallis and Futuna', 
+'Samoa', 
+'Vanuatu', 
+'China',
+'Micronesia']
+
+
+  </script>
+
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+a.setAttribute("class", "autocomplete-items");
+
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+</script>
+<script>
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+
+
+
+
+
+<!--form submit prevent default, now replace form field value with something else and then simulate click or whatever submission-->
+
+<div id="demo">
+</div>
+<script>
+
+  $("#form_a").submit(function(e){
+  e.preventDefault();
+  var $input = $(this).find("input[name='myCountry']");
+//  document.getElementById("demo").innerHTML = $input.val();
+  var $mod_input = country_list[$input.val()];
+//  document.getElementById("demo").innerHTML = $mod_input;
+  window.open("covid19_data_for_individual_countries_name="+$mod_input+".html");
+  
+  
+  });
+  </script>
+
+<!--Form autocomplete javascript code taken from -->
+<!--https://www.w3schools.com/howto/howto_js_autocomplete.asp-->
+<!--Thanks -->
+
+  </body>
+  
+</html>
+

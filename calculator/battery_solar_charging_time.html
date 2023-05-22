@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Parameshwar Majhi">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+	  body{
+	  background-color:#b0c4de;
+	  }
+	  #the_battery_calculator{
+	  display: flex;
+	  justify-content: center;
+	  }
+	  #form_container{
+	  background-color:#ffffe0;
+	  min-height: 300px;
+	  padding-left: 20px;
+	  }
+	  #display_panel{
+	  background-color:#f8f8ff;
+	  width: 40%;
+	  font-size: 2vw;
+	  padding: 20px;
+	  }
+	  #banner{
+	  text-align: center;
+	  }
+	</style>
+
+  </head>
+  <body>
+    <div id="banner">
+      <h1>Battery Calculator</h1>
+      <h2>Time required to charge a battery using Solar panels</h2>
+    </div>
+    <div id="the_battery_calculator">
+      <div id="form_container">
+	<!--this is the form-->
+	<form id="test_form">
+	  <!--this is the field-->
+	  <p>Battery Capacity (Amp Hours)</p><input type="number" name="battery_capacity" placeholder="battery capacity in amp-hours" ><hr>
+	  <p>Battery Voltage (Volts)</p><input type="number" name="battery_voltage" placeholder="battery voltage" ><hr>
+	  <p>Solar Panel Wattage (Watts)</p><input type="number" name="solar_panel_wattage" placeholder="device wattage" ><hr>
+
+
+	  <!--this is the submit button-->
+	  <input type="submit" >
+	</form>
+      </div>
+
+      <div id="display_panel">
+	<div id="put_stuff_here">
+	  <p>Time required to charge your batteries using solar panels</p>
+	  <p>Solar panels are usually rated 100 to 200 watts</p>
+	  <p>Lead acid batteries are 12 volts and usually like 100 amphs capacity</p>
+	  
+	</div>
+	<div id="energy_in_battery">
+	</div>
+	<div id="put_stuff_here_1">
+	  <p>The results will display here</p>
+	</div>
+
+      </div>
+
+    </div>
+    <!--now let us attatch a function to this form-->
+    <!-- using the submit() function-->
+    
+    <!--$(#test_form).submit()-->
+    <!--submit() function is used to submit forms-->
+    <!--document.getElementById("myForm").submit(); this triggers when you submit the form using the button -->
+    <script>
+    $("#test_form").submit(function(event){
+    event.preventDefault();
+    // get some values from the form input field, note specially 'name="s"'
+    $form=$(this);
+    $battery_capacity = $form.find('input[name="battery_capacity"]').val();
+    $battery_voltage = $form.find('input[name="battery_voltage"]').val();
+    $solar_panel_wattage = $form.find('input[name="solar_panel_wattage"]').val();
+
+    // now put those values into this div id inner html
+    document.getElementById("put_stuff_here").innerHTML="Battery Capacity: "+$battery_capacity+" " + "<br>"+"Battery Voltage: "+$battery_voltage + "<br>"+"Solar Panel Wattage: "+ $solar_panel_wattage + "<hr>";
+    document.getElementById("energy_in_battery").innerHTML="Energy capacity of battery: "+ ($battery_capacity * $battery_voltage).toFixed() + " Watt Hours"+ "<hr>";
+    document.getElementById("put_stuff_here_1").innerHTML="The battery will get charged in "+"<h2 style='color: red;'> "+(($battery_capacity * $battery_voltage)/ $solar_panel_wattage).toFixed() + " hours" +"</h2>";
+
+    });
+    </script>
+  </body>
+
+</html>

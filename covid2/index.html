@@ -1,0 +1,245 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="description" content="covid-19 tracker for India">
+    <meta name="keywords" content="covid,covid-19,covid-19 tracker,covid-19 in India, covid-19 tracker">
+    <meta name="author" content="Parameshwar Majhi">
+    <meta property="og:url"                 content="https://majhi.dev/covid2/india_covid_tracker.html" />
+    <meta property="og:title"               content="covid-19 tracker for India" />
+    <meta property="og:description"         content="covid-19 tracker for India" />
+
+
+    <style type="text/css" media="screen">
+      body{
+      background-color: lightgrey;
+
+      }
+      #main_body{
+      }
+      #outer_shell{
+      display: flex;
+      flex-direction: row;
+      }
+      #left_navigation{
+      flex-grow: 1;
+      background-color: black;
+      display: flex;
+      margin: 2px;
+      bottom: 5px;
+      }
+      #main_content{
+      flex-grow: 8;
+
+      }
+      #header{
+      border-radius: 6px;
+      border: 2px solid red;
+      text-align: center;
+      background-color: black;
+      color: white;
+      }
+      #date_container{
+      text-align: center;
+      min-height: 75px;
+      }
+      #cfr_and_stats{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      }
+      #cfr{
+      width: 50%;
+
+      }
+      #stats{
+      width: 50%;
+      }
+      #data_for_different_states{
+      border-radius: 6px;
+      text-align: center;
+      height: 40px;
+      }
+      #data_for_different_states:hover{
+      background-color: yellow;
+      }
+
+
+
+
+
+      
+      #covid_india_total_line_chart{
+      width: auto;
+      height: 850px;
+      }
+      iframe{
+      overflow: hidden;
+      }
+      @media only screen and (max-width: 600px) {
+      #covid_india_total_line_chart{
+      width: auto;
+      height: 400px;
+
+      }
+      }
+
+      @media only screen and (max-width: 300px) {
+      #covid_india_total_line_chart{
+      width: auto;
+      height: 250px;
+
+      }
+      }
+      
+      #death_recovery_active_button_links{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      line-height: 50px;
+      margin-top: 50px;
+      }
+      
+      button{
+      border-radius: 4px;
+      width: 100px;
+      height: 100px;
+      
+      }
+      button:hover{
+      background-color: yellow;
+      }
+      table{
+      width: 100%;
+      }
+      li{
+      height: 45px;
+      border-radius: 2px;
+      background-color:#f5f5f5;
+      text-align: justify;
+      border: 1px solid lightgrey;
+      }
+      li:hover{
+      background-color: yellow;
+      }
+      td{
+      padding: 2px;
+      }
+      #mobile_links{
+      display: none;
+      line-height: 20px;
+      }
+      .rowlink::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1.5em;
+      
+      }
+
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (max-width: 600px) {
+      #left_navigation{
+      display: none;
+      }
+      #mobile_links{
+      display: block;
+      }
+      #cfr_and_stats{
+      flex-direction: column;
+      }
+
+      }
+
+    </style>
+  </head>
+  <body>
+
+      <div id="main_body">
+	<div id="outer_shell">
+	  <div id="left_navigation">
+	    <table>
+	      <th>
+		<tr><td><li><a href="top_ten_states.html" title=""  class='rowlink'> Top ten Indian states</li></td> </a></tr>
+		<tr><td><li><a href="states_table.html" title="" class='rowlink'> Covid data for different states</li></td></a> </tr>
+		<tr><td><li> <a href="compare_two_states.html" title="" class='rowlink'>Compare two Indian states </li></td></a></tr>
+		<tr><td><li><a href="calendar.html" title="" class='rowlink'>See data for different dates</li></td></a> </tr>
+		<tr><td><li><a href="india_cfr_placeholder.html" title="" class='rowlink'> Covid-19 CFR for India </li></td> </a></tr>
+		<tr><td><li><a href="covid_distribution.html" title="" class='rowlink'> Covid-19 distribution across India </li></td></a></tr>
+	      </th>
+	    </table>
+
+	  </div>
+	  <div id="main_content">
+	    <div id="header">
+	      <h1>Covid-19 India tracker</h1>
+	    </div>
+	    <div id="date_container">
+	      <p>date</p>
+	    </div>
+	    <div id="cfr_and_stats">
+	      <div id="cfr">
+		   <!--todays cfr-->
+		   <iframe src='india_cfr_display.html'  height='150px' title='Iframe Example'></iframe>
+	      </div>
+	      <div id="stats">
+		<!--total cases: , deaths, recoveries, active cases-->
+		
+		<iframe src='india_summary_display.html'  height='150px' title='Iframe Example'></iframe>
+	      </div>
+	    </div>
+	    <div id="data_for_different_states">
+	      <a href="states_table.html" title="" height="100%"  class='rowlink' >click here for data on different states</a> 
+
+	    </div>
+	    <div id="covid_india_total_line_chart">
+	      <h2>Covid-19 cases in India</h2>
+	      <iframe src='pan_india_linecharts.html'  height='800px' width='100%' title='Iframe Example' scrolling="no"></iframe>
+
+	      
+	    </div>
+	    <div id="death_recovery_active_button_links">
+
+		<button onclick="window.open('india_deaths_placeholder.html')"> deaths cases </button>
+
+		<button onclick="window.open('india_recovered_placeholder.html')" > recovery cases</button>
+		<button onclick="window.open('india_active_placeholder.html')"> active cases</button>
+	    </div>
+	    <div id="mobile_links">
+	    <table>
+	      <th>
+		<tr><td><li><a href="top_ten_states.html" title="" class='rowlink'> Top ten Indian states</li></td> </a></tr>
+		<tr><td><li><a href="states_table.html" title="" class='rowlink'> Covid data for different states </li></td></a></tr>
+		<tr><td><li> <a href="compare_two_states.html" title="" class='rowlink'>Compare two Indian states </li></td></a></tr>
+		<tr><td><li><a href="calendar.html" title="" class='rowlink'>See data for different dates</li></td></a> </tr>
+		<tr><td><li><a href="india_cfr_placeholder.html" title="" class='rowlink'> Covid-19 CFR for India </li></td></a> </tr>
+		<tr><td><li><a href="covid_distribution.html" title="" class='rowlink'> Covid-19 distribution across India </li></td></a> </tr>
+
+	      </th>
+	    </table>
+	      
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <script>
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = "<h2> Todays date: " + dd + '/' + mm + '/' + yyyy + "</h2>";
+	
+	document.getElementById("date_container").innerHTML = today;
+	// https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+      </script>
+
+
+
+      
+  </body>
+  
+</html>
+
