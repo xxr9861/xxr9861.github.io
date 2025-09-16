@@ -1,0 +1,482 @@
+
+<html>
+  <meta name="robots" content="nofollow, noarchive, noindex">
+  <meta name="description" content="World covid-19 tracker ">
+  <meta name="keywords" content="covid,covid-19,covid-19 tracker,covid-19 for the world, covid-19 tracker">
+  <meta name="author" content="Parameshwar Majhi">
+  <meta property="og:url"                 content="https://majhi.dev0/covid1/index.html" />
+  <meta property="og:title"               content="World covid-19 tracker" />
+  <meta property="og:description"         content="covid-19 tracker for the World" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+width: 50%;
+margin-left: 10%;
+}
+table td, td th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+h2{
+width: 100%;
+background-color: lightblue;
+padding: 12px;
+}
+</style>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <div id="banner"><h1>
+  Poland</h1></div>
+
+<div id="total"></div>  
+<div id="active"></div>  
+<div id="deaths"></div>  
+        <div id="piechart_latest" style="width:100%; height:80%"> </div>
+        <div id="piechart_peak" style="width:100%; height:80%"> </div>
+	<div id="comparision_table" style="width:100%; height:80%"> </div>
+  
+  <!--population-->
+    
+  
+
+<!-- end of variable assignments, end of variable assignments, end of variable assignments  -->
+
+<div class="content_here">
+<!-- population -->
+<h2>population</h2>
+<table>
+<tr><th>Population</th></tr><tr><td>37796948</td></tr></table>
+
+
+<!-- total covid cases total covid cases total covid cases total covid cases total covid cases total covid cases -->
+
+<h2>Total Covid cases (Poland)</h2>
+
+
+<p><a href='http://majhi.dev0/covid1/total_table.php?name=Poland' title='' target='_blank'>click here for tabular data</a> 
+
+<!-- active covid cases  active covid cases  active covid cases  active covid cases  active covid cases  active covid cases -->
+
+    <h2>Active Covid cases (Poland)</h2>
+    
+<p><a href='http://majhi.dev0/covid1/active_table.php?name=Poland' title='' target='_blank'>click here for tabular data</a> 
+<!--covid tests-->
+
+<h2>Number of Covid tests (Poland)</h2>
+<iframe src='http://majhi.dev0/covid1/tests.php?name=Poland'  height='40%' width='90%' title='Iframe Example'></iframe><p><a href='http://majhi.dev0/covid1/tests_table.php?name=Poland' title='' target='_blank'>click here for tabular data</a> <!--covid deaths-->
+
+  <h2>Covid deaths (Poland)</h2>
+
+  
+<p><a href='http://majhi.dev0/covid1/deaths_table.php?name=Poland' title='' target='_blank'>click here for tabular data</a> 
+</div>
+
+<!--select target_country from death table, from tests table, from totals table and so on-->
+<!--how do i get like two cols, one of date and other of the death or active or tests-->
+<!--how do you get date from the death table in mysql-->
+
+<!-- piecharts for the latest situation  piecharts for the latest situation  piecharts for the latest situation -->
+
+<!-- piecharts for peak situation  piecharts for peak situation  piecharts for peak situation  piecharts for peak situation -->
+
+<!-- comparision table or chart -->
+<script>
+document.getElementById('comparision_table').innerHTML="<table><tr><td>Poland</td><td> covid-19 peak (02/04/2021) </td><td>today</td></tr><tr><td>Active Cases</td><td>422097</td><td>159809</td></tr><tr><td>Recovered Cases</td><td>1911249</td><td>2658685</td></tr><tr><td>Deaths </td><td>54165</td><td>75425</td></tr></table>";
+</script>
+
+
+
+<!-- google graphs  google graphs  google graphs  google graphs  google graphs  google graphs  google graphs  google graphs -->
+
+
+    <!-- tidying up the horizontal x axis -->
+<!-- https://stackoverflow.com/questions/28852109/google-charts-x-axis-dont-look-so-good -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+     var total = google.visualization.arrayToDataTable([
+          ['Date', 'Total cases'],
+    	   [new Date(2020,11,13),1135676],[new Date(2020,11,14),1140572],[new Date(2020,11,15),1147446],[new Date(2020,11,16),1159901],[new Date(2020,11,17),1171854],[new Date(2020,11,18),1182864],[new Date(2020,11,19),1194110],[new Date(2020,11,20),1202700],[new Date(2020,11,21),1207333],[new Date(2020,11,22),1214525],[new Date(2020,11,23),1226883],[new Date(2020,11,24),1239998],[new Date(2020,11,25),1249079],[new Date(2020,11,26),1253957],[new Date(2020,11,27),1257799],[new Date(2020,11,28),1261010],[new Date(2020,11,29),1268634],[new Date(2020,11,30),1281414],[new Date(2020,11,31),1294878],[new Date(2021,0,01),1305774],[new Date(2021,0,02),1305774],[new Date(2021,0,03),1312780],[new Date(2021,0,04),1322947],[new Date(2021,0,05),1330543],[new Date(2021,0,06),1344763],[new Date(2021,0,07),1356882],[new Date(2021,0,08),1365645],[new Date(2021,0,09),1376389],[new Date(2021,0,10),1385522],[new Date(2021,0,11),1390385],[new Date(2021,0,18),1438914],[new Date(2021,0,19),1443804],[new Date(2021,0,20),1450747],[new Date(2021,0,21),1457755],[new Date(2021,0,22),1464448],[new Date(2021,0,23),1470879],[new Date(2021,0,24),1475445],[new Date(2021,0,25),1478119],[new Date(2021,0,26),1482722],[new Date(2021,0,27),1489512],[new Date(2021,0,28),1496665],[new Date(2021,0,29),1502810],[new Date(2021,0,30),1508674],[new Date(2021,0,31),1513385],[new Date(2021,1,01),1513385],[new Date(2021,1,02),1520215],[new Date(2021,1,03),1527016],[new Date(2021,1,04),1533511],[new Date(2021,1,05),1539564],[new Date(2021,1,06),1545530],[new Date(2021,1,07),1550255],[new Date(2021,1,08),1552686],[new Date(2021,1,09),1556685],[new Date(2021,1,10),1563645],[new Date(2021,1,12),1577036],[new Date(2021,1,13),1583621],[new Date(2021,1,14),1588955],[new Date(2021,1,15),1591497],[new Date(2021,1,16),1596673],[new Date(2021,1,17),1605372],[new Date(2021,1,18),1614446],[new Date(2021,1,19),1623218],[new Date(2021,1,20),1631727],[new Date(2021,1,21),1638767],[new Date(2021,1,22),1642658],[new Date(2021,1,23),1648962],[new Date(2021,1,24),1661109],[new Date(2021,1,25),1673252],[new Date(2021,1,26),1684788],[new Date(2021,1,27),1696885],[new Date(2021,1,28),1706986],[new Date(2021,2,01),1711772],[new Date(2021,2,02),1719708],[new Date(2021,2,03),1735406],[new Date(2021,2,04),1750659],[new Date(2021,2,05),1766490],[new Date(2021,2,06),1781345],[new Date(2021,2,07),1794914],[new Date(2021,2,08),1801083],[new Date(2021,2,09),1811036],[new Date(2021,2,10),1828313],[new Date(2021,2,11),1849424],[new Date(2021,2,12),1868297],[new Date(2021,2,13),1889360],[new Date(2021,2,14),1906632],[new Date(2021,2,15),1917527],[new Date(2021,2,16),1917527],[new Date(2021,2,17),1956974],[new Date(2021,2,18),1984248],[new Date(2021,2,19),2010244],[new Date(2021,2,20),2036700],[new Date(2021,2,21),2058550],[new Date(2021,2,22),2073129],[new Date(2021,2,23),2089869],[new Date(2021,2,24),2120671],[new Date(2021,2,25),2154821],[new Date(2021,2,26),2189966],[new Date(2021,2,27),2221725],[new Date(2021,2,28),2250991],[new Date(2021,2,29),2267964],[new Date(2021,2,30),2288826],[new Date(2021,2,31),2321717],[new Date(2021,3,01),2356970],[new Date(2021,3,02),2387511],[new Date(2021,3,03),2415584],[new Date(2021,3,04),2438542],[new Date(2021,3,05),2448463],[new Date(2021,3,06),2456709],[new Date(2021,3,07),2471617],[new Date(2021,3,08),2499507],[new Date(2021,3,09),2528006],[new Date(2021,3,10),2552898],[new Date(2021,3,11),2574631],[new Date(2021,3,12),2586647],[new Date(2021,3,13),2599850],[new Date(2021,3,14),2621116],[new Date(2021,3,15),2642242],[new Date(2021,3,16),2660088],[new Date(2021,3,17),2675874],[new Date(2021,3,18),2688025],[new Date(2021,3,19),2695327],[new Date(2021,3,20),2704571],[new Date(2021,3,21),2718493],[new Date(2021,3,22),2731256],[new Date(2021,3,23),2742122],[new Date(2021,3,24),2751632],[new Date(2021,3,25),2758856],[new Date(2021,3,29),2785353],[new Date(2021,3,30),2792142],[new Date(2021,4,01),2798617],[new Date(2021,4,02),2803233],[new Date(2021,4,03),2805756],[new Date(2021,4,04),2808052],[new Date(2021,4,05),2811951],[new Date(2021,4,06),2818378],[new Date(2021,4,07),2824425],[new Date(2021,4,08),2829196],[new Date(2021,4,09),2833052],[new Date(2021,4,10),2835083],[new Date(2021,4,11),2838180],[new Date(2021,4,12),2842339],[new Date(2021,4,13),2845762],[new Date(2021,4,14),2849014],[new Date(2021,4,15),2851911],[new Date(2021,4,16),2854079],[new Date(2021,4,17),2855190],[new Date(2021,4,18),2856924],[new Date(2021,4,19),2859261],[new Date(2021,4,20),2861351],[new Date(2021,4,21),2863031],[new Date(2021,4,22),2864546],[new Date(2021,4,23),2865622],[new Date(2021,4,24),2866181],[new Date(2021,4,25),2867187],[new Date(2021,4,26),2868450],[new Date(2021,4,27),2869652],[new Date(2021,4,28),2870595],[new Date(2021,4,29),2871371],[new Date(2021,4,30),2871950],[new Date(2021,4,31),2872283],[new Date(2021,5,01),2872868],[new Date(2021,5,02),2873527],[new Date(2021,5,03),2874092],[new Date(2021,5,04),2874411],[new Date(2021,5,05),2874824],[new Date(2021,5,06),2875136],[new Date(2021,5,07),2875328],[new Date(2021,5,08),2875729],[new Date(2021,5,09),2876289],[new Date(2021,5,10),2876667],[new Date(2021,5,11),2877007],[new Date(2021,5,12),2877243],[new Date(2021,5,13),2877469],[new Date(2021,5,14),2877608],[new Date(2021,5,15),2877819],[new Date(2021,5,16),2878061],[new Date(2021,5,17),2878276],[new Date(2021,5,18),2878466],[new Date(2021,5,19),2878634],[new Date(2021,5,20),2878767],[new Date(2021,5,21),2878840],[new Date(2021,5,22),2879030],[new Date(2021,5,23),2879192],[new Date(2021,5,24),2879336],[new Date(2021,5,25),2879470],[new Date(2021,5,26),2879569],[new Date(2021,5,27),2879638],[new Date(2021,5,28),2879689],[new Date(2021,5,29),2879811],[new Date(2021,5,30),2879912],[new Date(2021,6,01),2880010],[new Date(2021,6,02),2880107],[new Date(2021,6,03),2880215],[new Date(2021,6,04),2880270],[new Date(2021,6,05),2880308],[new Date(2021,6,06),2880403],[new Date(2021,6,07),2880503],[new Date(2021,6,08),2880596],[new Date(2021,6,09),2880670],[new Date(2021,6,10),2880755],[new Date(2021,6,11),2880821],[new Date(2021,6,12),2880821],[new Date(2021,6,13),2880959],[new Date(2021,6,14),2881046],[new Date(2021,6,15),2881151],[new Date(2021,6,16),2881241],[new Date(2021,6,17),2881355],[new Date(2021,6,18),2881424],[new Date(2021,6,19),2881491],[new Date(2021,6,20),2881594],[new Date(2021,6,21),2881718],[new Date(2021,6,22),2881840],[new Date(2021,6,23),2881948],[new Date(2021,6,24),2882066],[new Date(2021,6,25),2882146],[new Date(2021,6,26),2882220],[new Date(2021,6,27),2882220],[new Date(2021,6,28),2882465],[new Date(2021,6,29),2882630],[new Date(2021,6,30),2882786],[new Date(2021,6,31),2882939],[new Date(2021,7,01),2883029],[new Date(2021,7,02),2883120],[new Date(2021,7,03),2883284],[new Date(2021,7,04),2883448],[new Date(2021,7,05),2883624],[new Date(2021,7,06),2883796],[new Date(2021,7,07),2883976],[new Date(2021,7,08),2884098],[new Date(2021,7,09),2884162],[new Date(2021,7,10),2884361],[new Date(2021,7,11),2884557],[new Date(2021,7,12),2884780],[new Date(2021,7,13),2884974],[new Date(2021,7,14),2885185],[new Date(2021,7,15),2885333],[new Date(2021,7,16),2885461],[new Date(2021,7,17),2885676],[new Date(2021,7,18),2885883],[new Date(2021,7,19),2886079],[new Date(2021,7,20),2886291],[new Date(2021,7,21),2886513],[new Date(2021,7,22),2886698],[new Date(2021,7,23),2886805],[new Date(2021,7,24),2887037],[new Date(2021,7,25),2887270],[new Date(2021,8,04),2890161],[new Date(2021,8,05),2890484],[new Date(2021,8,06),2890666],[new Date(2021,8,07),2891071],[new Date(2021,8,08),2891602],[new Date(2021,8,09),2892113],[new Date(2021,8,10),2892642],[new Date(2021,8,11),2893173],[new Date(2021,8,12),2893649],[new Date(2021,8,13),2893919],      ]);
+           var active = google.visualization.arrayToDataTable([
+          ['Date', 'Total cases'],
+    	   [new Date(2020,11,13),253917],[new Date(2020,11,14),248457],[new Date(2020,11,15),244389],[new Date(2020,11,16),243337],[new Date(2020,11,17),244160],[new Date(2020,11,18),242517],[new Date(2020,11,19),241133],[new Date(2020,11,20),239034],[new Date(2020,11,21),235842],[new Date(2020,11,22),234470],[new Date(2020,11,23),235450],[new Date(2020,11,24),237370],[new Date(2020,11,25),237404],[new Date(2020,11,26),234515],[new Date(2020,11,27),231071],[new Date(2020,11,28),228487],[new Date(2020,11,29),227175],[new Date(2020,11,30),227506],[new Date(2020,11,31),230186],[new Date(2021,0,01),230537],[new Date(2021,0,02),221382],[new Date(2021,0,03),220629],[new Date(2021,0,04),224232],[new Date(2021,0,05),222149],[new Date(2021,0,06),226964],[new Date(2021,0,07),231025],[new Date(2021,0,08),230472],[new Date(2021,0,09),231640],[new Date(2021,0,10),231015],[new Date(2021,0,11),228661],[new Date(2021,0,18),217788],[new Date(2021,0,19),213072],[new Date(2021,0,20),209247],[new Date(2021,0,21),207462],[new Date(2021,0,22),213808],[new Date(2021,0,23),212844],[new Date(2021,0,24),209636],[new Date(2021,0,25),204982],[new Date(2021,0,26),203482],[new Date(2021,0,27),207191],[new Date(2021,0,28),209330],[new Date(2021,0,29),208678],[new Date(2021,0,30),207018],[new Date(2021,0,31),205738],[new Date(2021,1,01),199569],[new Date(2021,1,02),201343],[new Date(2021,1,03),205421],[new Date(2021,1,04),207004],[new Date(2021,1,05),206165],[new Date(2021,1,06),204965],[new Date(2021,1,07),204007],[new Date(2021,1,08),200698],[new Date(2021,1,09),199851],[new Date(2021,1,10),204289],[new Date(2021,1,12),206485],[new Date(2021,1,13),206445],[new Date(2021,1,14),206117],[new Date(2021,1,15),202995],[new Date(2021,1,16),203202],[new Date(2021,1,17),209466],[new Date(2021,1,18),214198],[new Date(2021,1,19),216179],[new Date(2021,1,20),217324],[new Date(2021,1,21),218182],[new Date(2021,1,22),216097],[new Date(2021,1,23),217010],[new Date(2021,1,24),226320],[new Date(2021,1,25),232816],[new Date(2021,1,26),235883],[new Date(2021,1,27),238768],[new Date(2021,1,28),240388],[new Date(2021,2,01),237118],[new Date(2021,2,02),237668],[new Date(2021,2,03),249567],[new Date(2021,2,04),257391],[new Date(2021,2,05),262014],[new Date(2021,2,06),264578],[new Date(2021,2,07),267061],[new Date(2021,2,08),261683],[new Date(2021,2,09),262084],[new Date(2021,2,10),274411],[new Date(2021,2,11),286511],[new Date(2021,2,12),291089],[new Date(2021,2,13),296141],[new Date(2021,2,14),299227],[new Date(2021,2,15),295866],[new Date(2021,2,16),283157],[new Date(2021,2,17),315777],[new Date(2021,2,18),332028],[new Date(2021,2,19),341165],[new Date(2021,2,20),347491],[new Date(2021,2,21),352423],[new Date(2021,2,22),347756],[new Date(2021,2,23),346233],[new Date(2021,2,24),362485],[new Date(2021,2,25),381105],[new Date(2021,2,26),391438],[new Date(2021,2,27),394904],[new Date(2021,2,28),400185],[new Date(2021,2,29),391601],[new Date(2021,2,30),388235],[new Date(2021,2,31),406747],[new Date(2021,3,01),421126],[new Date(2021,3,02),422097],[new Date(2021,3,03),414853],[new Date(2021,3,04),405168],[new Date(2021,3,05),384150],[new Date(2021,3,06),365067],[new Date(2021,3,07),361217],[new Date(2021,3,08),366344],[new Date(2021,3,09),362803],[new Date(2021,3,10),351657],[new Date(2021,3,11),344909],[new Date(2021,3,12),330384],[new Date(2021,3,13),321069],[new Date(2021,3,14),331385],[new Date(2021,3,15),342992],[new Date(2021,3,16),343648],[new Date(2021,3,17),328828],[new Date(2021,3,18),314848],[new Date(2021,3,19),298216],[new Date(2021,3,20),287185],[new Date(2021,3,21),288790],[new Date(2021,3,22),286301],[new Date(2021,3,23),275958],[new Date(2021,3,24),263751],[new Date(2021,3,25),254029],[new Date(2021,3,29),234500],[new Date(2021,3,30),227830],[new Date(2021,4,01),219835],[new Date(2021,4,02),214197],[new Date(2021,4,03),207807],[new Date(2021,4,04),202988],[new Date(2021,4,05),202785],[new Date(2021,4,06),202634],[new Date(2021,4,07),199921],[new Date(2021,4,08),196251],[new Date(2021,4,09),193539],[new Date(2021,4,10),189015],[new Date(2021,4,11),187599],[new Date(2021,4,12),189141],[new Date(2021,4,13),189990],[new Date(2021,4,14),188426],[new Date(2021,4,15),184667],[new Date(2021,4,16),181441],[new Date(2021,4,17),177812],[new Date(2021,4,18),175788],[new Date(2021,4,19),176079],[new Date(2021,4,20),174831],[new Date(2021,4,21),172309],[new Date(2021,4,22),169978],[new Date(2021,4,23),167970],[new Date(2021,4,24),165557],[new Date(2021,4,25),164465],[new Date(2021,4,26),164564],[new Date(2021,4,27),163729],[new Date(2021,4,28),162327],[new Date(2021,4,29),161014],[new Date(2021,4,30),159990],[new Date(2021,4,31),158849],[new Date(2021,5,01),158340],[new Date(2021,5,02),158404],[new Date(2021,5,03),157890],[new Date(2021,5,04),156997],[new Date(2021,5,05),156412],[new Date(2021,5,06),155834],[new Date(2021,5,07),155291],[new Date(2021,5,08),155134],[new Date(2021,5,09),155279],[new Date(2021,5,10),155125],[new Date(2021,5,11),154804],[new Date(2021,5,12),154474],[new Date(2021,5,13),154392],[new Date(2021,5,14),154175],[new Date(2021,5,15),154113],[new Date(2021,5,16),154189],[new Date(2021,5,17),154007],[new Date(2021,5,18),153805],[new Date(2021,5,19),153617],[new Date(2021,5,20),153463],[new Date(2021,5,21),153363],[new Date(2021,5,22),153399],[new Date(2021,5,23),153460],[new Date(2021,5,24),153374],[new Date(2021,5,25),153308],[new Date(2021,5,26),153235],[new Date(2021,5,27),153137],[new Date(2021,5,28),153029],[new Date(2021,5,29),153047],[new Date(2021,5,30),153104],[new Date(2021,6,01),153060],[new Date(2021,6,02),153038],[new Date(2021,6,03),153060],[new Date(2021,6,04),153021],[new Date(2021,6,05),152995],[new Date(2021,6,06),153043],[new Date(2021,6,07),153096],[new Date(2021,6,08),153089],[new Date(2021,6,09),153109],[new Date(2021,6,10),153138],[new Date(2021,6,11),153156],[new Date(2021,6,12),153156],[new Date(2021,6,13),153182],[new Date(2021,6,14),153263],[new Date(2021,6,15),153305],[new Date(2021,6,16),153293],[new Date(2021,6,17),153192],[new Date(2021,6,18),153225],[new Date(2021,6,19),153242],[new Date(2021,6,20),153341],[new Date(2021,6,21),153462],[new Date(2021,6,22),153521],[new Date(2021,6,23),153541],[new Date(2021,6,24),153604],[new Date(2021,6,25),153625],[new Date(2021,6,26),153619],[new Date(2021,6,27),153619],[new Date(2021,6,28),153767],[new Date(2021,6,29),153844],[new Date(2021,6,30),153919],[new Date(2021,6,31),153978],[new Date(2021,7,01),153961],[new Date(2021,7,02),153959],[new Date(2021,7,03),154085],[new Date(2021,7,04),154198],[new Date(2021,7,05),154252],[new Date(2021,7,06),154291],[new Date(2021,7,07),154332],[new Date(2021,7,08),154330],[new Date(2021,7,09),154253],[new Date(2021,7,10),154399],[new Date(2021,7,11),154517],[new Date(2021,7,12),154615],[new Date(2021,7,13),154663],[new Date(2021,7,14),154703],[new Date(2021,7,15),154721],[new Date(2021,7,16),154721],[new Date(2021,7,17),154827],[new Date(2021,7,18),154988],[new Date(2021,7,19),154987],[new Date(2021,7,20),155085],[new Date(2021,7,21),155179],[new Date(2021,7,22),155239],[new Date(2021,7,23),155172],[new Date(2021,7,24),155358],[new Date(2021,7,25),155586],[new Date(2021,8,04),157452],[new Date(2021,8,05),157578],[new Date(2021,8,06),157542],[new Date(2021,8,07),157934],[new Date(2021,8,08),158454],[new Date(2021,8,09),158928],[new Date(2021,8,10),159244],[new Date(2021,8,11),159647],[new Date(2021,8,12),159850],[new Date(2021,8,13),159809],        ]);
+     var deaths = google.visualization.arrayToDataTable([
+          ['Date', 'Total cases'],
+    	   [new Date(2020,11,13),22864],[new Date(2020,11,14),22960],[new Date(2020,11,15),23309],[new Date(2020,11,16),23914],[new Date(2020,11,17),24345],[new Date(2020,11,18),24771],[new Date(2020,11,19),25254],[new Date(2020,11,20),25397],[new Date(2020,11,21),25474],[new Date(2020,11,22),25783],[new Date(2020,11,23),26255],[new Date(2020,11,24),26752],[new Date(2020,11,25),26992],[new Date(2020,11,26),27061],[new Date(2020,11,27),27118],[new Date(2020,11,28),27147],[new Date(2020,11,29),27454],[new Date(2020,11,30),28019],[new Date(2020,11,31),28554],[new Date(2021,0,01),28956],[new Date(2021,0,02),28956],[new Date(2021,0,03),29058],[new Date(2021,0,04),29161],[new Date(2021,0,05),29502],[new Date(2021,0,06),30055],[new Date(2021,0,07),30241],[new Date(2021,0,08),30574],[new Date(2021,0,09),31011],[new Date(2021,0,10),31189],[new Date(2021,0,11),31264],[new Date(2021,0,18),33407],[new Date(2021,0,19),33698],[new Date(2021,0,20),34141],[new Date(2021,0,21),34561],[new Date(2021,0,22),34908],[new Date(2021,0,23),35253],[new Date(2021,0,24),35363],[new Date(2021,0,25),35401],[new Date(2021,0,26),35665],[new Date(2021,0,27),36054],[new Date(2021,0,28),36443],[new Date(2021,0,29),36780],[new Date(2021,0,30),37082],[new Date(2021,0,31),37180],[new Date(2021,1,01),37180],[new Date(2021,1,02),37476],[new Date(2021,1,03),37897],[new Date(2021,1,04),38344],[new Date(2021,1,05),38712],[new Date(2021,1,06),38994],[new Date(2021,1,07),39087],[new Date(2021,1,08),39132],[new Date(2021,1,09),39360],[new Date(2021,1,10),39721],[new Date(2021,1,12),40424],[new Date(2021,1,13),40709],[new Date(2021,1,14),40807],[new Date(2021,1,15),40832],[new Date(2021,1,16),41028],[new Date(2021,1,17),41308],[new Date(2021,1,18),41582],[new Date(2021,1,19),41823],[new Date(2021,1,20),42077],[new Date(2021,1,21),42171],[new Date(2021,1,22),42188],[new Date(2021,1,23),42436],[new Date(2021,1,24),42808],[new Date(2021,1,25),43094],[new Date(2021,1,26),43353],[new Date(2021,1,27),43656],[new Date(2021,1,28),43769],[new Date(2021,2,01),43793],[new Date(2021,2,02),44008],[new Date(2021,2,03),44360],[new Date(2021,2,04),44649],[new Date(2021,2,05),44912],[new Date(2021,2,06),45159],[new Date(2021,2,07),45285],[new Date(2021,2,08),45317],[new Date(2021,2,09),45599],[new Date(2021,2,10),45997],[new Date(2021,2,11),46373],[new Date(2021,2,12),46724],[new Date(2021,2,13),47068],[new Date(2021,2,14),47178],[new Date(2021,2,15),47206],[new Date(2021,2,16),47206],[new Date(2021,2,17),48032],[new Date(2021,2,18),48388],[new Date(2021,2,19),48807],[new Date(2021,2,20),49159],[new Date(2021,2,21),49300],[new Date(2021,2,22),49365],[new Date(2021,2,23),49761],[new Date(2021,2,24),50340],[new Date(2021,2,25),50860],[new Date(2021,2,26),51305],[new Date(2021,2,27),51753],[new Date(2021,2,28),51884],[new Date(2021,2,29),51932],[new Date(2021,2,30),52392],[new Date(2021,2,31),53045],[new Date(2021,3,01),53665],[new Date(2021,3,02),54165],[new Date(2021,3,03),54737],[new Date(2021,3,04),54941],[new Date(2021,3,05),55005],[new Date(2021,3,06),55065],[new Date(2021,3,07),55703],[new Date(2021,3,08),56659],[new Date(2021,3,09),57427],[new Date(2021,3,10),58176],[new Date(2021,3,11),58421],[new Date(2021,3,12),58481],[new Date(2021,3,13),59126],[new Date(2021,3,14),59930],[new Date(2021,3,15),60612],[new Date(2021,3,16),61208],[new Date(2021,3,17),61825],[new Date(2021,3,18),62032],[new Date(2021,3,19),62133],[new Date(2021,3,20),62734],[new Date(2021,3,21),63473],[new Date(2021,3,22),64168],[new Date(2021,3,23),64707],[new Date(2021,3,24),65222],[new Date(2021,3,25),65415],[new Date(2021,3,29),67073],[new Date(2021,3,30),67502],[new Date(2021,4,01),67924],[new Date(2021,4,02),68068],[new Date(2021,4,03),68105],[new Date(2021,4,04),68133],[new Date(2021,4,05),68482],[new Date(2021,4,06),68993],[new Date(2021,4,07),69445],[new Date(2021,4,08),69866],[new Date(2021,4,09),70012],[new Date(2021,4,10),70034],[new Date(2021,4,11),70336],[new Date(2021,4,12),70679],[new Date(2021,4,13),71021],[new Date(2021,4,14),71311],[new Date(2021,4,15),71609],[new Date(2021,4,16),71664],[new Date(2021,4,17),71675],[new Date(2021,4,18),71920],[new Date(2021,4,19),72250],[new Date(2021,4,20),72500],[new Date(2021,4,21),72691],[new Date(2021,4,22),72882],[new Date(2021,4,23),72928],[new Date(2021,4,24),72945],[new Date(2021,4,25),73096],[new Date(2021,4,26),73305],[new Date(2021,4,27),73440],[new Date(2021,4,28),73557],[new Date(2021,4,29),73682],[new Date(2021,4,30),73738],[new Date(2021,4,31),73745],[new Date(2021,5,01),73856],[new Date(2021,5,02),73984],[new Date(2021,5,03),74075],[new Date(2021,5,04),74101],[new Date(2021,5,05),74139],[new Date(2021,5,06),74152],[new Date(2021,5,07),74160],[new Date(2021,5,08),74255],[new Date(2021,5,09),74363],[new Date(2021,5,10),74447],[new Date(2021,5,11),74515],[new Date(2021,5,12),74562],[new Date(2021,5,13),74573],[new Date(2021,5,14),74574],[new Date(2021,5,15),74626],[new Date(2021,5,16),74688],[new Date(2021,5,17),74734],[new Date(2021,5,18),74782],[new Date(2021,5,19),74823],[new Date(2021,5,20),74828],[new Date(2021,5,21),74829],[new Date(2021,5,22),74858],[new Date(2021,5,23),74893],[new Date(2021,5,24),74917],[new Date(2021,5,25),74953],[new Date(2021,5,26),74974],[new Date(2021,5,27),74979],[new Date(2021,5,28),74979],[new Date(2021,5,29),75005],[new Date(2021,5,30),75021],[new Date(2021,6,01),75044],[new Date(2021,6,02),75065],[new Date(2021,6,03),75083],[new Date(2021,6,04),75084],[new Date(2021,6,05),75085],[new Date(2021,6,06),75095],[new Date(2021,6,07),75114],[new Date(2021,6,08),75135],[new Date(2021,6,09),75152],[new Date(2021,6,10),75159],[new Date(2021,6,11),75160],[new Date(2021,6,12),75160],[new Date(2021,6,13),75173],[new Date(2021,6,14),75179],[new Date(2021,6,15),75191],[new Date(2021,6,16),75205],[new Date(2021,6,17),75212],[new Date(2021,6,18),75215],[new Date(2021,6,19),75215],[new Date(2021,6,20),75219],[new Date(2021,6,21),75222],[new Date(2021,6,22),75231],[new Date(2021,6,23),75235],[new Date(2021,6,24),75241],[new Date(2021,6,25),75242],[new Date(2021,6,26),75242],[new Date(2021,6,27),75242],[new Date(2021,6,28),75252],[new Date(2021,6,29),75257],[new Date(2021,6,30),75259],[new Date(2021,6,31),75261],[new Date(2021,7,01),75261],[new Date(2021,7,02),75261],[new Date(2021,7,03),75265],[new Date(2021,7,04),75269],[new Date(2021,7,05),75275],[new Date(2021,7,06),75281],[new Date(2021,7,07),75285],[new Date(2021,7,08),75285],[new Date(2021,7,09),75285],[new Date(2021,7,10),75285],[new Date(2021,7,11),75289],[new Date(2021,7,12),75291],[new Date(2021,7,13),75297],[new Date(2021,7,14),75299],[new Date(2021,7,15),75299],[new Date(2021,7,16),75299],[new Date(2021,7,17),75306],[new Date(2021,7,18),75307],[new Date(2021,7,19),75311],[new Date(2021,7,20),75315],[new Date(2021,7,21),75316],[new Date(2021,7,22),75316],[new Date(2021,7,23),75316],[new Date(2021,7,24),75324],[new Date(2021,7,25),75329],[new Date(2021,8,04),75379],[new Date(2021,8,05),75379],[new Date(2021,8,06),75379],[new Date(2021,8,07),75392],[new Date(2021,8,08),75403],[new Date(2021,8,09),75409],[new Date(2021,8,10),75417],[new Date(2021,8,11),75425],[new Date(2021,8,12),75425],[new Date(2021,8,13),75425],        ]);
+
+      var showEvery = parseInt(total.getNumberOfRows() / 4);
+      var showEvery = parseInt(active.getNumberOfRows() / 4);
+      var showEvery = parseInt(deaths.getNumberOfRows() / 4);
+
+      var options_total = {
+      title: 'Total Covid cases',
+      hAxis: {showTextEvery: showEvery},
+      curveType: 'function'
+        };
+      var options_active = {
+      title: 'Active Covid cases',
+      hAxis: {showTextEvery: showEvery},
+      curveType: 'function'
+        };
+      var options_deaths = {
+      title: 'Covid deaths',
+      hAxis: {showTextEvery: showEvery},
+      curveType: 'function'
+        };
+
+        var chart_total = new google.visualization.LineChart(document.getElementById('total'));
+        var chart_active = new google.visualization.LineChart(document.getElementById('active'));
+        var chart_deaths = new google.visualization.LineChart(document.getElementById('deaths'));
+        chart_total.draw(total, options_total);
+        chart_active.draw(active, options_active);
+        chart_deaths.draw(deaths, options_deaths);
+
+
+// pie chart for state (latest) 
+        var piechart_latest = google.visualization.arrayToDataTable([
+          ['state', 'Total Covid-19 cases'],
+    	   ['Recovered Cases',2658685],['Deaths',75425],['Active cases',159809]
+        ]);
+        var piechart_peak = google.visualization.arrayToDataTable([
+          ['state', 'Total Covid-19 cases'],
+    	   ['Recovered Cases',1911249],['Deaths',54165],['Active cases',422097]
+        ]);
+      
+      
+        var options_piechart_latest = {
+          title: 'Covid-19 cases in Poland today',
+      legend: 'legend',
+};
+        var options_piechart_peak = {
+          title: 'Covid-19 cases in Poland  at peak (02/04/2021) ',
+      legend: 'legend',
+};
+
+
+       var chart_piechart_latest = new google.visualization.PieChart(document.getElementById('piechart_latest'));
+       var chart_piechart_peak = new google.visualization.PieChart(document.getElementById('piechart_peak'));
+        chart_piechart_latest.draw(piechart_latest, options_piechart_latest);
+        chart_piechart_peak.draw(piechart_peak, options_piechart_peak);
+
+      
+  }
+
+</script>
+
+
+    <style type="text/css" media="screen">
+      /* footer code */
+      .stark_black_footer_flex_container{
+      display: flex;
+      min-height: 400px;
+      border: solid black 3px;
+      padding: 20px;
+      background-color: black;
+      }
+      .stark_black_footer_left{
+      width: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 45%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      min-height: 50%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      min-height: 45%;
+      }
+      .card{
+      width: 80%;
+      height: auto;
+      border: 1px solid white;
+      box-shadow: 5px 5px 8px white, 10px 10px 8px grey, 15px 15px 8px green;
+      background-color: black;
+      color: white;
+      padding: 20px;
+      }
+      .stark_black_filler{
+      min-height: 200px;
+      background-color: black;
+      }
+      .card a{
+      color: #f8f8ff;
+      text-decoration: none;
+       }
+      .card a:hover{
+      color: #adff2f;
+      text-decoration: underline;
+      }
+      ul li{
+      line-height: 1.5;
+      }
+      .card h2{
+background-color: black;
+color: white;
+      }
+    </style>
+
+
+        <style>
+      @media (max-width:500px) {
+      /* smartphones, iPhone, portrait 480x320 phones */
+      
+      .stark_black_footer_flex_container{
+      padding: 1px;
+      flex-direction: column;
+      width: 95%;
+      }
+      .stark_black_footer_left{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right{
+      width: 100%;
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_top{
+      border: solid black 3px;
+      }
+      .stark_black_footer_right_bottom{
+      border: solid black 3px;
+      }
+      .card{
+      height: auto;
+      }
+      
+      }
+
+    </style>
+	<style>
+     @media (max-width:1000px) {
+      .card{
+      height: auto;
+      }
+      
+      }
+
+	  </style>
+    
+    <div class="stark_black_footer_flex_container">
+      <div class="stark_black_footer_left">
+
+ <div class="card">
+   <h2>Source of data:</h2>
+   <p></p>
+      <a href="https://www.worldometers.info/coronavirus/" target="_blank">www.worldometers.info</a> 
+   <h2>Tools used</h2>
+   <ul>
+     <li>php for server side scripting</li>
+     <li>BeautifulSoup library of python for data scrapping from websites</li>
+     <li>Mariadb server, an open source relational database (a fork of mysql)</li>
+     <li>Graphs are being generated clientside with google-graphs javascript library</li>
+   </ul>
+
+
+ </div>
+      </div>
+      <div class="stark_black_footer_right">
+ <div class="stark_black_footer_right_top">
+
+   <div class="card">
+     <h2>Other links</h2>
+     <ul>
+       <li><a href="daily_covid19_data.php.html" target="_blank">Covid-19 statistics of the world</a> </li>
+       <li><a href="../covid2/covid_india_tracker.html" target="_blank">Covid-19 statistics of India</a></li>
+       <li><a href="compare/active.php.html" target="_blank">Compare Covid-19 statistics between two countries</a> </li>
+       <li><a href="../covid2/compare_two_states.php.html" target="_blank">Compare Covid-19 statistics across Indian states</a> </li>
+       <li><a href="../covid2/states_table.php.html" target="_blank">Covid-19 statistics of different Indian states</a></li>
+       <li><a href="../covid2/covid_distribution.html" target="_blank">Covid-19 pie-chart visualization for India</a></li>
+       <li><a href="covid_distribution_top_ten.html" target="_blank">Covid-19 pie-chart visualization for the World</a></li>
+       <li><a href="../covid2/india/last_week.php.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+       <li><a href="world/change_in_covid_cases_last_week.php.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="world_a/7.php.html" target="_blank">Number of active Covid-19 cases in different countries in the last week</a></li>
+       <li><a href="../covid2/india_a/7.php.html" target="_blank">Number of active Covid-19 cases in different Indian states in the last week</a></li>
+
+     </ul>
+   </div>
+ </div>
+ <div class="stark_black_footer_right_bottom">
+
+   <div class="card">
+     <h2>About Me</h2>
+     <p>My name is Parameshwar Majhi</p>
+
+     <a href="https://majhi.co.in/bash/" target="_blank">https://majhi.co.in/bash/</a> 
+
+   </div>
+ </div>
+      </div>
+    </div>
+    <div class="stark_black_filler">
+</div>
+    
+
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css" media="screen">
+      .flexbox_container_link_list_links{
+      display: flex;
+      justify-content: space-between;
+      margin-right: 100px;
+      padding-right: 50px;
+      background-color: #556b2f;
+      }
+      
+      .box{
+
+      }
+      li{
+      cursor: pointer;
+      }
+      /* for the linklist */
+      div#majhi_awesome_list .link_list_links{
+      font-family: "Courier New", Courier, monospace; 
+      width: 100%;
+      font-size: 20px;
+      line-height: 0.9;
+      letter-spacing: 0.045em;
+      font-weight: 500;
+      margin: 5px;
+      padding: 10px;
+      }
+      /* styling for lists */
+      div#majhi_awesome_list ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      }
+      li a{
+      color: white;
+      text-decoration: none;
+      }
+      li:hover a{
+      color: black;
+      }
+      div#majhi_awesome_list li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #008080;
+      color: #ffffff;
+      box-shadow: 0 1px 6px #ffd700, 0 1px 2px #7fff00;
+      }
+      div#majhi_awesome_list li:hover {
+      background-color: #add8e6;
+      color: black;
+      }
+
+      /* for mobile phones */
+      /* Responsive layout 800px */
+      @media (max-width: 800px) {
+      .flexbox_container_link_list_links{
+      margin-right: 10px;
+      }
+      div#majhi_awesome_list .link_list_links{
+      font-size: 10px;
+      
+      }
+      .flexbox_container_link_list_links{
+      display: block;
+      }
+      }
+
+
+      
+    </style>
+  </head>
+  <body>
+
+
+<!--https://css-tricks.com/snippets/jquery/make-entire-div-clickable/-->
+
+    <div id="majhi_awesome_list" class="flexbox_container_link_list_links">
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="index.html">World Covid-19 tracker </a></li>
+	    <li><a href="compare/active.php.html">Compare two different country</a></li>
+	    <li><a href="daily_covid19_data.php.html">Covid-19 statistics, World (Today)</a></li>
+	    <li><a href="calendar.php.html">Covid-19 older records, World</a></li>
+	    <li><a href="active_piechart_table.php.html">Countries ranked by active cases</a></li>
+	    <li><a href="total_piechart_table.php.html">Countries ranked by total cases</a></li>
+	    <li><a href="cfr_piechart_table.php.html">Countries ranked by CFR</a></li>
+	    <li><a href="deaths_piechart_table.php.html">Counteries ranked by death cases</a></li>
+	    <li><a href="recovered_piechart_table.php.html">Counteries ranked by recovery cases</a></li>
+	    <li><a href="cases_per_million_piechart_table.php.html">Counteries ranked by cases per million</a></li>
+	    <li><a href="covid_distribution_top_ten.html">Top ten affected countries</a></li>    
+	    <li><a href="covid_distribution_top_ten.html">Covid-19 pie charts, World</a></li>
+            <li><a href="world/change_in_covid_cases_last_week.php.html" target="_blank">Change in Covid-19 cases in different countries in the last week</a></li>
+            <li><a href="world_a/7.php.html" target="_blank">Change in number of active Covid-19 cases in different countries in the last week</a></li>
+	    <li><a href="world_a/7.php.html" target="_blank">Number of active Covid-19 cases in different countries in the last week</a></li>
+
+	  </ul>
+	</div>
+      </div>
+      <div class="box">
+	<div class="link_list_links">
+	  <ul>
+	    <li><a href="../covid2/covid_india_tracker.html"  >India Covid-19 tracker</a></li>
+	    <li><a href="../covid2/compare_two_states.php.html"  >Compare two Indian states</a></li>
+	    <li><a href="../covid2/states_table.php.html"  >Covid-19 statistics, India (Today)</a></li>
+            <li><a href="../covid2/calendar.php.html"  >Access older records, Covid-19 India</a></li>
+    	    <li><a href="../covid2/india_cfr_placeholder.php.html"  >CFR across Indian states</a></li>
+            <li><a href="../covid2/pan_india.php.html"  >Pan India Covid-19 data</a></li>
+            <li><a href="../covid2/top_ten_states.php.html"  >Top ten affected Indian states</a></li>
+            <li><a href="../covid2/india_deaths_placeholder.php.html"  >Covid-19 deaths in India</a></li>
+	    <li><a href="../covid2/india_recovered_placeholder.php.html"  >Covid-19 recovery cases in India</a></li>
+	    <li><a href="../covid2/india_active_placeholder.php.html"  >Covid-19 active cases in India</a></li>
+	    <li><a href="../covid2/covid_distribution.html"  >Covid-19 pie charts, India</a></li>
+            <li><a href="../covid2/india/last_week.php.html" target="_blank">Change in Covid-19 cases in India in the last week</a></li>
+            <li><a href="../covid2/india_a/7.php.html" target="_blank">Change in number of active Covid-19 cases in India in the last week</a></li>
+	    <li><a href="../covid2/india_a/7.php.html" target="_blank">Number of active Covid-19 cases in different Indian states in the last week</a></li>
+	    <li><a href="../calculator/index.html"  >Online calculators</a></li>    
+	  </ul>
+	</div>
+      </div>
+    </div>
+
+    <script>
+$("div.link_list_links ul li").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+
+
+    </script>
+
+
+  </body>
+  
+</html>
+
+
+
+
+
+</html>
